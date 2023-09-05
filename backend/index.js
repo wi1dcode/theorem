@@ -13,7 +13,7 @@ const start = async () => {
       `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/?retryWrites=true&w=majority`
     );
     app.listen(PORT, () => {
-      console.log(`server startet on ${PORT}`);
+      console.log(`server started on ${PORT}`);
     });
   } catch (e) {
   }
