@@ -18,6 +18,10 @@ const User = new Schema(
         default: "USER",
       },
     ],
+    status: {
+      type: String,
+      default: "PENDING"
+    },
     username: {
       type: String,
       unique: true,

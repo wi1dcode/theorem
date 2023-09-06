@@ -4,11 +4,12 @@ const jwt = require("jsonwebtoken")
 const { validationResult } = require("express-validator")
 require("dotenv").config()
 
-const generateAccessToken = (id, roles, email) => {
+const generateAccessToken = (id, email, roles, status) => {
   const payload = {
     id,
     email,
     roles,
+    status,
   }
   return jwt.sign(payload, process.env.SECRET, { expiresIn: "24h" })
 }
@@ -50,7 +51,12 @@ const login = async (req, res) => {
     if (!validPassword) {
       return res.status(400).json({ message: `Mot de passe incorrect!` })
     }
-    const token = generateAccessToken(user._id, user.roles, user.email)
+    const token = generateAccessToken(
+      user._id,
+      user.email,
+      user.roles,
+      user.status
+    )
     return res.json({ token })
   } catch (e) {
     res.status(400).json({ message: "Login error" })

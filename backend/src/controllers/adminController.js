@@ -83,4 +83,94 @@ const givePro = async (req, res) => {
   }
 }
 
-module.exports = { getUsers, getUserBySlug, deleteUser, giveAdmin, givePro }
+const getPendingProUsers = async (req, res) => {
+  try {
+    const users = await User.find({ roles: "PRO", status: "PENDING" })
+    res.json(users)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending PRO users error" })
+  }
+}
+
+const getApprovedProUsers = async (req, res) => {
+  try {
+    const users = await User.find({ roles: "PRO", status: "APPROVED" })
+    res.json(users)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending PRO users error" })
+  }
+}
+
+const getPendingUsers = async (req, res) => {
+  try {
+    const users = await User.find({ roles: "USER", status: "PENDING" })
+    res.json(users)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending USER users error" })
+  }
+}
+
+const getApprovedUsers = async (req, res) => {
+  try {
+    const users = await User.find({ roles: "USER", status: "APPROVED" })
+    res.json(users)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending USERs error" })
+  }
+}
+
+const Approve = async (req, res) => {
+  try {
+    const { username } = req.body
+    const user = await User.findOne({ username })
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" })
+    }
+
+    if (user.status === "APPROVED") {
+      return res.status(400).json({ message: "User is already approved!" })
+    }
+
+    user.status = "APPROVED"
+    await user.save()
+    return res.json({ message: "User approved successfully" })
+  } catch (e) {
+    return res.status(400).json({ message: "Error in approving user" })
+  }
+}
+
+const Pending = async (req, res) => {
+  try {
+    const { username } = req.body
+    const user = await User.findOne({ username })
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" })
+    }
+
+    if (user.status === "PENDING") {
+      return res.status(400).json({ message: "User is already pending!" })
+    }
+
+    user.status = "PENDING"
+    await user.save()
+    return res.json({ message: "User set pending successfully" })
+  } catch (e) {
+    return res.status(400).json({ message: "Error in set pending user" })
+  }
+}
+
+module.exports = {
+  getUsers,
+  getUserBySlug,
+  deleteUser,
+  giveAdmin,
+  givePro,
+  getPendingProUsers,
+  getApprovedProUsers,
+  getPendingUsers,
+  getApprovedUsers,
+  Approve,
+  Pending,
+}

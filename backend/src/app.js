@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const path = require("path")
 
+const guestRouter = require("./routes/guestRouter")
 const userRouter = require("./routes/userRouter")
 const adminRouter = require("./routes/adminRouter")
 const adminMiddleware = require("./middlewares/adminMiddleware")
@@ -18,6 +19,7 @@ app.use(
 
 app.use(express.json())
 app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")))
+app.use("/", guestRouter)
 app.use("/account", userRouter)
 app.use("/dashboard", adminMiddleware(), adminRouter)
 // app.use("/pro")
