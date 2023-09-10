@@ -3,6 +3,23 @@ const slugify = require("slugify")
 
 const User = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
+    tel: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+      default: "CLIENT",
+    },
     email: {
       type: String,
       required: true,
@@ -20,7 +37,7 @@ const User = new Schema(
     ],
     status: {
       type: String,
-      default: "PENDING"
+      default: "PENDING",
     },
     username: {
       type: String,

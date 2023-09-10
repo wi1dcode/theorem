@@ -20,7 +20,7 @@ const register = async (req, res) => {
     if (!errors.isEmpty()) {
       return res.status(400).json({ message: "Registration error", errors })
     }
-    const { email, password } = req.body
+    const { email, password, tel, name, type, city } = req.body
     const candidate = await User.findOne({ email })
     if (candidate) {
       return res.status(400).json({ message: "Cet e-mail est déjà enregistré" })
@@ -30,6 +30,10 @@ const register = async (req, res) => {
       email,
       password: hashPassword,
       roles: ["USER"],
+      tel,
+      name,
+      type,
+      city,
     })
     await user.save()
     return res.json({ message: "successful registration" })
