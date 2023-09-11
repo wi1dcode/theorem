@@ -21,7 +21,7 @@ app.use(express.json())
 app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")))
 app.use("/", guestRouter)
 app.use("/account", userRouter)
-app.use("/dashboard", adminRouter)
+app.use("/dashboard", adminMiddleware(), adminRouter)
 // app.use("/pro")
 
 // Serve the public folder for public resources
