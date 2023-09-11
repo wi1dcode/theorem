@@ -4,6 +4,7 @@ const Entrepreneur = require("../models/entrepreneurModel")
 const { check } = require("express-validator")
 
 const proController = require("../controllers/proController")
+const Manager = require("../models/managerModel")
 
 router.post(
   "/pro/entrepreneur",
@@ -103,6 +104,52 @@ router.post(
     ).notEmpty(),
   ],
   proController.createArchitecte
+)
+
+router.post(
+  "/pro/manager",
+  [
+    check("email", "Cette email n'existe pas!")
+      .isEmail()
+      .notEmpty()
+      .withMessage("L'e-mail ne peut pas être vide!")
+      .custom(async (value) => {
+        const manager = await Manager.findOne({ email: value })
+        if (manager) {
+          throw new Error("Cette email deja exist!")
+        }
+      }),
+    check(
+      "password",
+      "La longueur du mot de passe doit être comprise entre 5 et 16 caractères."
+    )
+      .isLength({
+        min: 5,
+        max: 16,
+      })
+      .notEmpty()
+      .withMessage("indiquez votre mot de passe"),
+    check("civil", "civil ne peut pas être vide").notEmpty(),
+    check("name", "nom ne peut pas être vide").notEmpty(),
+    check("status", "ce champ ne peut pas être vide").notEmpty(),
+    check("city", "ville ne peut pas être vide").notEmpty(),
+    check("type", "type ne peut pas être vide").notEmpty(),
+    check("prestations", "prestations ne peut pas être vide").notEmpty(),
+    check("diplome", "diplome ne peut pas être vide").notEmpty(),
+    check("company", "entreprise ne peut pas être vide").notEmpty(),
+    check("manager", "nom de gérant ne peut pas être vide").notEmpty(),
+    check("channels", "canaux ne peut pas être vide").notEmpty(),
+    check("clients", "clients ne peut pas être vide").notEmpty(),
+    check("mobility", "mobilité ne peut pas être vide").notEmpty(),
+    check("tel", "numero de telephone ne peut pas être vide")
+      .notEmpty()
+      .isNumeric(),
+    check(
+      "about",
+      "indiquez comment avez-vous entendu parler de nous"
+    ).notEmpty(),
+  ],
+  proController.createManager
 )
 
 module.exports = router

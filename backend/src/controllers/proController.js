@@ -2,15 +2,19 @@ const User = require("../models/userModel")
 const bcrypt = require("bcryptjs")
 const Entrepreneur = require("../models/entrepreneurModel")
 const Architecte = require("../models/architecteModel")
+const Manager = require("../models/managerModel")
 const { validationResult } = require("express-validator")
 
-const createAccount = async (email, password) => {
+const createAccount = async (email, password, name, city, tel) => {
   try {
     const hashPassword = bcrypt.hashSync(password, 7)
     const user = new User({
       email: email,
       password: hashPassword,
       roles: ["PRO"],
+      name: name,
+      city: city,
+      tel: tel,
     })
 
     await user.save()
@@ -70,7 +74,7 @@ const createEntrepreneur = async (req, res) => {
       about,
     })
 
-    const user = await createAccount(email, password)
+    const user = await createAccount(email, password, name, city, tel)
 
     entrepreneur.author = user.email
 
@@ -135,7 +139,7 @@ const createArchitecte = async (req, res) => {
       about,
     })
 
-    const user = await createAccount(email, password)
+    const user = await createAccount(email, password, name, city, tel)
 
     architecte.author = user.email
 
@@ -146,8 +150,70 @@ const createArchitecte = async (req, res) => {
   } catch (error) {
     res
       .status(400)
-      .json({ message: "Error creating Entrepreneur and user" + error })
+      .json({ message: "Error creating architecte and user" + error })
   }
 }
 
-module.exports = { createEntrepreneur, createArchitecte }
+const createManager = async (req, res) => {
+  try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ message: "Create manager error", errors })
+    }
+    const {
+      author,
+      civil,
+      name,
+      status,
+      type,
+      prestations,
+      diplome,
+      manager,
+      company,
+      city,
+      clients,
+      channels,
+      photos,
+      mobility,
+      tel,
+      email,
+      about,
+      password,
+    } = req.body
+
+    const managerPro = new Manager({
+      author,
+      civil,
+      name,
+      status,
+      type,
+      prestations,
+      diplome,
+      manager,
+      company,
+      city,
+      clients,
+      channels,
+      photos,
+      mobility,
+      tel,
+      email,
+      about,
+    })
+
+    const user = await createAccount(email, password, name, city, tel)
+
+    managerPro.author = user.email
+
+    await user.save()
+    await managerPro.save()
+
+    res.json({ message: "Manager account created successfully" })
+  } catch (error) {
+    res.status(400).json({
+      message: "Error creating Manager and user" + error,
+    })
+  }
+}
+
+module.exports = { createEntrepreneur, createArchitecte, createManager }

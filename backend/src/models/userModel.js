@@ -5,19 +5,15 @@ const User = new Schema(
   {
     name: {
       type: String,
-      required: true,
     },
     tel: {
       type: String,
-      required: true,
     },
     city: {
       type: String,
-      required: true,
     },
     type: {
       type: String,
-      required: true,
       default: "CLIENT",
     },
     email: {
