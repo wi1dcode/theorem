@@ -4,7 +4,9 @@ const Entrepreneur = require("../models/entrepreneurModel")
 const { check } = require("express-validator")
 
 const proController = require("../controllers/proController")
+const clientController = require("../controllers/clientController")
 const Manager = require("../models/managerModel")
+const Client = require("../models/clientModel")
 
 router.post(
   "/pro/entrepreneur",
@@ -150,6 +152,54 @@ router.post(
     ).notEmpty(),
   ],
   proController.createManager
+)
+
+router.post(
+  "/estimation",
+  [
+    check("email", "Cette email n'existe pas!")
+      .isEmail()
+      .notEmpty()
+      .withMessage("L'e-mail ne peut pas être vide!")
+      .custom(async (value) => {
+        const client = await Client.findOne({ email: value })
+        if (client) {
+          throw new Error("Cette email deja exist!")
+        }
+      }),
+    check(
+      "password",
+      "La longueur du mot de passe doit être comprise entre 5 et 16 caractères."
+    )
+      .isLength({
+        min: 5,
+        max: 16,
+      })
+      .notEmpty()
+      .withMessage("indiquez votre mot de passe"),
+    check("renovation", "renovation ne peut pas être vide").notEmpty(),
+    check("name", "nom ne peut pas être vide").notEmpty(),
+    check("status", "ce champ ne peut pas être vide").notEmpty(),
+    check("city", "ville ne peut pas être vide").notEmpty(),
+    check("sizes", "sizes ne peut pas être vide").notEmpty(),
+    check("type", "type ne peut pas être vide").notEmpty(),
+    check("havePhoto", "havePhoto ne peut pas être vide").notEmpty(),
+    check("help", "help ne peut pas être vide").notEmpty(),
+    check("surface", "surface ne peut pas être vide").notEmpty(),
+    check("products", "products ne peut pas être vide").notEmpty(),
+    check("adresse", "adresse ne peut pas être vide").notEmpty(),
+    check("when", "when ne peut pas être vide").notEmpty(),
+    check("about", "about ne peut pas être vide").notEmpty(),
+    check("budget", "budget ne peut pas être vide").notEmpty(),
+    check("tel", "numero de telephone ne peut pas être vide")
+      .notEmpty()
+      .isNumeric(),
+    check(
+      "about",
+      "indiquez comment avez-vous entendu parler de nous"
+    ).notEmpty(),
+  ],
+  clientController.createRequest
 )
 
 module.exports = router

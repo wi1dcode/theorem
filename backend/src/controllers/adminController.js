@@ -1,5 +1,8 @@
 require("dotenv").config()
 const User = require("../models/userModel")
+const Entrepreneur = require("../models/entrepreneurModel")
+const Architecte = require("../models/architecteModel")
+const Manager = require("../models/managerModel")
 const slugify = require("slugify")
 
 const getUsers = async (req, res) => {
@@ -161,6 +164,141 @@ const Pending = async (req, res) => {
   }
 }
 
+const getPendingCategories = async (req, res) => {
+  try {
+    const pendingUsers = await User.find({ status: "PENDING" })
+
+    const results = []
+
+    for (const user of pendingUsers) {
+      let category = null
+      let categoryName = null
+
+      const architecte = await Architecte.findOne({ email: user.email })
+      const entrepreneur = await Entrepreneur.findOne({ email: user.email })
+      const manager = await Manager.findOne({ email: user.email })
+
+      if (architecte) {
+        category = architecte
+        categoryName = "Architecte"
+      } else if (entrepreneur) {
+        category = entrepreneur
+        categoryName = "Entrepreneur"
+      } else if (manager) {
+        category = manager
+        categoryName = "Manager"
+      }
+
+      if (category) {
+        results.push({
+          user,
+          [categoryName.toLowerCase()]: category,
+        })
+      }
+    }
+
+    res.json(results)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending users and categories error" })
+  }
+}
+
+const getPendingArchitecte = async (req, res) => {
+  try {
+    const pendingUsers = await User.find({ status: "PENDING" })
+    const pendingEmails = pendingUsers.map((user) => user.email)
+
+    const pendingArchitecte = await Architecte.find({
+      email: { $in: pendingEmails },
+    })
+
+    const results = pendingUsers.map((user) => {
+      const userArchitecte = pendingArchitecte.find(
+        (architecte) => architecte.email === user.email
+      )
+
+      if (userArchitecte) {
+        return {
+          user,
+          architecte: userArchitecte,
+        }
+      }
+
+      return null
+    })
+
+    const filteredResults = results.filter((result) => result !== null)
+
+    res.json(filteredResults)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending architecte error" })
+  }
+}
+
+const getPendingEntrepreneur = async (req, res) => {
+  try {
+    const pendingUsers = await User.find({ status: "PENDING" })
+    const pendingEmails = pendingUsers.map((user) => user.email)
+
+    const pendingEntrepreneur = await Entrepreneur.find({
+      email: { $in: pendingEmails },
+    })
+
+    const results = pendingUsers.map((user) => {
+      const userEntrepreneur = pendingEntrepreneur.find(
+        (entrepreneur) => entrepreneur.email === user.email
+      )
+
+      if (userEntrepreneur) {
+        return {
+          user,
+          entrepreneur: userEntrepreneur,
+        }
+      }
+
+      return null
+    })
+
+    const filteredResults = results.filter((result) => result !== null)
+
+    res.json(filteredResults)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending entrepreneur error" })
+  }
+}
+
+const getPendingManager = async (req, res) => {
+  try {
+    const pendingUsers = await User.find({ status: "PENDING" })
+    const pendingEmails = pendingUsers.map((user) => user.email)
+
+    const pendingManager = await Manager.find({
+      email: { $in: pendingEmails },
+    })
+
+    const results = pendingUsers.map((user) => {
+      const userManager = pendingManager.find(
+        (manager) => manager.email === user.email
+      )
+
+      if (userManager) {
+        return {
+          user,
+          manager: userManager,
+        }
+      }
+
+      return null
+    })
+
+    const filteredResults = results.filter((result) => result !== null)
+
+    res.json(filteredResults)
+  } catch (e) {
+    res.status(400).json({ message: "Get pending manager error" })
+  }
+}
+
 module.exports = {
   getUsers,
   getUserBySlug,
@@ -173,4 +311,8 @@ module.exports = {
   getApprovedUsers,
   Approve,
   Pending,
+  getPendingCategories,
+  getPendingArchitecte,
+  getPendingEntrepreneur,
+  getPendingManager,
 }
