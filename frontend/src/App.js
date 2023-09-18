@@ -11,6 +11,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Home />} />
+        <Route path="/about" element={<Home />} />
+        <Route path="/estimation" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>

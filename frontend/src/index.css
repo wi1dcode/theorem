@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Vogue";
+  src: local("Vogue"), url("./fonts/Vogue.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir-Light";
+  src: local("Avenir-Light"), url("./fonts/Avenir-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir-Next-Condensed";
+  src: local("Avenir-Next-Condensed"),
+    url("./fonts/Avenir-Next-Condensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir-Next-Condensed-Light";
+  src: local("Avenir-Next-Condensed-Light"),
+    url("./fonts/Avenir-Next-Condensed-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir-Next-Condensed-Bold";
+  src: local("Avenir-Next-Condensed-Bold"),
+    url("./fonts/Avenir-Next-Condensed-Bold.ttf") format("truetype");
+}
+
+.vogue {
+  font-family: "Vogue";
+}
+.avenir {
+  font-family: "Avenir-Light";
+}
+.avenir-cond {
+  font-family: "Avenir-Next-Condensed";
+}
+.avenir-light {
+  font-family: "Avenir-Next-Condensed-Light";
+}
+.avenir-bold {
+  font-family: "Avenir-Next-Condensed-Bold";
+}
+
 .figure {
   -webkit-clip-path: circle(73% at 51% 17%);
   clip-path: circle(75% at 50% 0);
