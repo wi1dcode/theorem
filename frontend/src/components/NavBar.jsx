@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom"
 import LogoBlack from "../images/icons/logo_black.png"
 import { useState } from "react"
+import UserSvg from "../images/svg/UserSvg"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,7 +53,7 @@ function NavBar() {
               <NavLink
                 to="/services"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:hover:bg-transparent md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Nos réalisations
               </NavLink>
@@ -61,7 +62,7 @@ function NavBar() {
               <NavLink
                 to="/estimation"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:hover:bg-transparent md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Estimation
               </NavLink>
@@ -70,7 +71,7 @@ function NavBar() {
               <NavLink
                 to="/about"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:hover:bg-transparent md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 A propos
               </NavLink>
@@ -79,9 +80,21 @@ function NavBar() {
               <NavLink
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:hover:bg-transparent md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Contacter
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+              >
+                <div className="flex gap-x-2">
+                  <UserSvg className="border-l border-red-100" />
+                  <p className="md:hidden">Mon compte </p>
+                </div>
               </NavLink>
             </li>
           </ul>

@@ -9,7 +9,9 @@ import "swiper/css/pagination"
 function Work() {
   return (
     <section>
-      <h2 className="text-center text-2xl pb-3 pt-2 avenir">Nos réalisations</h2>
+      <h2 className="text-center text-2xl pb-3 pt-2 avenir">
+        Nos réalisations
+      </h2>
       <Swiper
         autoplay={{
           delay: 2000,
@@ -69,14 +71,14 @@ function Work() {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://static.wixstatic.com/media/801f49_c46542d7fb9f4b7ebbfbae8a66ae1897~mv2.jpg"
+            src="https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg"
             alt="123"
             className="rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://static.wixstatic.com/media/801f49_c46542d7fb9f4b7ebbfbae8a66ae1897~mv2.jpg"
+            src="https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
             alt="123"
             className="rounded-lg"
           />

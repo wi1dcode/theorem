@@ -4,7 +4,7 @@ const { check } = require("express-validator")
 
 const authController = require("../controllers/authController")
 
-router.get("/login", authController.login)
+router.post("/login", authController.login)
 router.post(
   "/create",
   [

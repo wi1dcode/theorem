@@ -4,7 +4,7 @@ function Services() {
   return (
     <section className="w-full">
       <h2 className="text-center text-2xl pb-3 pt-2 avenir">Service</h2>
-      <div className="flex flex-wrap gap-2 justify-center items-center">
+      <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center">
         <article className="bg-nuage shadow w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           <SecureSvg />
           <div className="text-center px-3">

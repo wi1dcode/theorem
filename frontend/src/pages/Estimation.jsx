@@ -3,51 +3,60 @@ import React, { useState } from "react"
 const questions = [
   {
     question: "question 1?",
-    options: ["1", "2", "3", "4", "5"],
+    name: "question1",
+    options: ["one", "two", "three", "four", "five"],
   },
   {
     question: "question 2?",
-    options: ["1", "2", "3"],
+    name: "question2",
+    options: ["one", "two", "three"],
   },
   {
     question: "question 3?",
-    options: ["1", "2", "3"],
+    name: "question3",
+    options: ["one", "two", "three"],
   },
   {
     question: "question 4?",
-    options: ["1", "2", "3"],
+    name: "question4",
+    options: ["one", "two", "three"],
   },
   {
     question: "question 5?",
-    options: ["1", "2", "3"],
+    name: "question5",
+    options: ["one", "two", "three"],
   },
   {
     question: "question 6?",
-    options: ["1", "2", "3"],
+    name: "question6",
+    options: ["one", "two", "three"],
   },
 ]
 
 function Estimation() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState([])
+  const [answers, setAnswers] = useState({})
   const [showBackButton, setShowBackButton] = useState(false)
   const [showSubmitButton, setShowSubmitButton] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
-  const [editIndex, setEditIndex] = useState(-1)
+  const [editQuestionIndex, setEditQuestionIndex] = useState(-1)
 
-  const handleAnswer = (answer) => {
-    setAnswers([...answers, answer])
+  const handleAnswer = (answer, name) => {
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [name]: answer,
+    }))
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setShowBackButton(true)
       setShowPreview(false)
-      setEditIndex(-1)
+      setEditQuestionIndex(-1)
     } else {
-      setShowBackButton(true)
+      setShowBackButton(false)
       setShowSubmitButton(true)
       setShowPreview(true)
-      setEditIndex(-1)
+      setEditQuestionIndex(-1)
     }
   }
 
@@ -57,12 +66,19 @@ function Estimation() {
       setShowBackButton(currentQuestion - 1 > 0)
       setShowSubmitButton(false)
       setShowPreview(false)
-      setEditIndex(-1)
+      setEditQuestionIndex(-1)
     }
   }
 
   const handleSubmit = () => {
     console.log("DATA:", answers)
+  }
+
+  const handleModifierClick = (index) => {
+    setEditQuestionIndex(index)
+    setCurrentQuestion(index)
+    setShowBackButton(true)
+    setShowPreview(false)
   }
 
   const progress = ((currentQuestion + 1) / questions.length) * 100
@@ -91,27 +107,27 @@ function Estimation() {
             />
           </svg>
         </button>
-        <h1 className="text-2xl font-bold mb-10">
-          {questions[currentQuestion].question}
-        </h1>
-        <div className="flex flex-col md:flex-wrap md:flex-row items-center gap-y-3 md:gap-x-6 justify-center">
-          {questions[currentQuestion].options.map((option, index) => (
-            <button
-              key={index}
-              onClick={() => handleAnswer(option)}
-              className="bg-blue-500 text-white px-4 py-3 rounded-md hover:bg-blue-600 w-full md:w-[30%]"
-            >
-              {option}
-            </button>
-          ))}
-        </div>
-        {showSubmitButton && !showPreview && (
-          <button
-            onClick={handleSubmit}
-            className="bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 mt-4"
-          >
-            Overview and send
-          </button>
+        {showPreview ? (
+          <h1 className="text-2xl font-bold mb-10">Overview:</h1>
+        ) : (
+          <>
+            <h1 className="text-2xl font-bold mb-10">
+              {questions[currentQuestion].question}
+            </h1>
+            <div className="flex flex-col md:flex-wrap md:flex-row items-center gap-y-3 md:gap-x-6 justify-center">
+              {questions[currentQuestion].options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() =>
+                    handleAnswer(option, questions[currentQuestion].name)
+                  }
+                  className="bg-blue-500 text-white px-4 py-3 rounded-md hover:bg-blue-600 w-full md:w-[30%]"
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </>
         )}
         {showPreview && (
           <div className="mt-4 text-left">
@@ -120,19 +136,19 @@ function Estimation() {
               {questions.map((q, index) => (
                 <li key={index}>
                   <strong>{q.question}:</strong>{" "}
-                  {index === editIndex ? (
+                  {index === editQuestionIndex ? (
                     <div>
                       <input
                         type="text"
-                        value={answers[index]}
+                        value={answers[q.name] || ""}
                         onChange={(e) => {
-                          const newAnswers = [...answers]
-                          newAnswers[index] = e.target.value
+                          const newAnswers = { ...answers }
+                          newAnswers[q.name] = e.target.value
                           setAnswers(newAnswers)
                         }}
                       />
                       <button
-                        onClick={() => setEditIndex(-1)}
+                        onClick={() => setEditQuestionIndex(-1)}
                         className="text-blue-600 underline ml-2"
                       >
                         Save
@@ -140,12 +156,12 @@ function Estimation() {
                     </div>
                   ) : (
                     <span>
-                      {answers[index]}
+                      {answers[q.name]}
                       <button
-                        onClick={() => setEditIndex(index)}
+                        onClick={() => handleModifierClick(index)}
                         className="text-blue-600 underline ml-2"
                       >
-                        Edit
+                        Modifier
                       </button>
                     </span>
                   )}
@@ -159,7 +175,7 @@ function Estimation() {
             onClick={handleSubmit}
             className="bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 mt-4"
           >
-            Send
+            Envoyer
           </button>
         )}
         <div className="mt-8">
