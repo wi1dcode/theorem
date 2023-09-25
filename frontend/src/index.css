@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap");
 
 @font-face {
   font-family: "Vogue";
@@ -42,6 +43,10 @@
   font-family: "Avenir-Next-Condensed-Bold";
 }
 
+.rouge {
+  font-family: "Rouge Script", cursive;
+}
+
 .figure {
   -webkit-clip-path: circle(73% at 51% 17%);
   clip-path: circle(75% at 50% 0);
@@ -50,4 +55,46 @@
 .figure2 {
   -webkit-clip-path: circle(70% at 32% 0);
   clip-path: circle(70% at 32% 0);
+}
+
+.logo-zoom {
+  animation: zoom 2s infinite alternate;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.logo-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo-vibrate {
+  animation: vibrate 0.1s infinite alternate;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(2px);
+  }
 }

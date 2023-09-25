@@ -14,7 +14,7 @@ function NavBar() {
     <nav className="border-gray-200 bg-gray-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <Link to="/" className="flex items-center">
-          <img src={LogoBlack} className="h-12 mr-3" alt="Theorem Logo" />
+          <img src={LogoBlack} className="h-14 mr-3" alt="Theorem Logo" />
         </Link>
         <div className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
           <div className="relative">
@@ -53,7 +53,7 @@ function NavBar() {
               <NavLink
                 to="/services"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-yellow-300 hover:shadow md:border-0 md:hover:text-anthracite md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Nos réalisations
               </NavLink>
@@ -62,7 +62,7 @@ function NavBar() {
               <NavLink
                 to="/estimation"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded bg-yellow-300 md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Estimation
               </NavLink>
@@ -71,7 +71,7 @@ function NavBar() {
               <NavLink
                 to="/about"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-yellow-300 hover:shadow md:border-0 md:hover:text-anthracite md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 A propos
               </NavLink>
@@ -80,7 +80,7 @@ function NavBar() {
               <NavLink
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite md:hover:bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-yellow-300 hover:shadow md:border-0 md:hover:text-anthracite md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Contacter
               </NavLink>
@@ -89,7 +89,7 @@ function NavBar() {
               <NavLink
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-sable md:border-0 md:hover:text-anthracite bg-sable md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-yellow-400 shadow-md md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-yellow-400"
               >
                 <div className="flex gap-x-2">
                   <UserSvg className="border-l border-red-100" />

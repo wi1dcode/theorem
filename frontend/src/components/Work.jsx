@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Mousewheel, Keyboard } from "swiper/modules"
 
@@ -9,8 +9,9 @@ import "swiper/css/pagination"
 function Work() {
   return (
     <section>
-      <h2 className="text-center text-2xl pb-3 pt-2 avenir">
-        Nos réalisations
+      <h2 className="text-center text-5xl pb-4 pt-5 rouge">
+        <span className="text-2xl">😍 </span>Nos réalisations
+        <span className="text-2xl"> 😍</span>
       </h2>
       <Swiper
         autoplay={{
