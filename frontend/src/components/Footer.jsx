@@ -34,8 +34,8 @@ function Footer() {
                 accusantium doloremque laudantium, totam rem aperiam.
               </p>
               <Link>
-                <button className="bg-yellow-300 px-3 py-2 rounded-lg shadow text-xl mt-2">
-                  Devenir PRO
+                <button className="bg-yellow-300 px-4 py-1 rounded-lg shadow text-lg font-semibold text-anthracite mt-2">
+                  Je suis un PRO
                 </button>
               </Link>
             </div>

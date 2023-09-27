@@ -2,29 +2,29 @@ export default function Reviews() {
   const testimonials = [
     {
       avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-      name: "Martin escobar",
+      name: "Martin Escobar",
       title: "Founder of meta",
       quote:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae.",
     },
     {
       avatar: "https://randomuser.me/api/portraits/men/46.jpg",
-      name: "Simon andrew",
-      title: "Software engineer",
+      name: "Simon Andrew",
+      title: "Founder of meta",
       quote:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae.",
     },
     {
       avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-      name: "Micheal worin",
-      title: "Product designer",
+      name: "Micheal Worin",
+      title: "Founder of meta",
       quote:
-        "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae.",
     },
   ]
 
   return (
-    <section className="relative py-14">
+    <section className="relative">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-xl sm:text-center md:mx-auto">
           <h3 className="text-gray-800 text-3xl font-bold sm:text-4xl">
@@ -62,6 +62,7 @@ export default function Reviews() {
                   <div className="flex items-center gap-x-4 p-4 mt-6 bg-indigo-50">
                     <img
                       src={item.avatar}
+                      alt="user_avatar"
                       className="w-16 h-16 rounded-full border-2 border-indigo-500"
                     />
                     <div>

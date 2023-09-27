@@ -10,6 +10,16 @@ function NavBar() {
     setIsOpen(!isOpen)
   }
 
+  const scrollToContact = (sectionId) => {
+    setTimeout(() => {
+      const contactSection = document.getElementById(sectionId)
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" })
+      }
+      setIsOpen(false)
+    }, 100)
+  }
+
   return (
     <nav className="border-gray-200 bg-gray-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -51,8 +61,8 @@ function NavBar() {
           <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent">
             <li>
               <NavLink
-                to="/services"
-                onClick={() => setIsOpen(false)}
+                to="/"
+                onClick={() => scrollToContact("work")}
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-yellow-300 hover:shadow md:border-0 md:hover:text-anthracite md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Nos réalisations
@@ -78,8 +88,8 @@ function NavBar() {
             </li>
             <li>
               <NavLink
-                to="/contact"
-                onClick={() => setIsOpen(false)}
+                to="/"
+                onClick={() => scrollToContact("contact")}
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-yellow-300 hover:shadow md:border-0 md:hover:text-anthracite md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Contacter

@@ -3,15 +3,14 @@ import { useContext, useEffect } from "react"
 import UserContext from "./services/userContext"
 import jwtdecode from "jwt-decode"
 
-import Footer from "./components/Footer"
-
 import Home from "./pages/Home"
-import NavBar from "./components/NavBar"
+// import NavBar from "./components/NavBar"
 import Estimation from "./pages/Estimation"
 
 import Dashboard from "./pages/Dashboard"
 import Menu from "./pages/Dashboard/Menu"
-import Login from "./components/Login"
+import Login from "./pages/Login"
+import About from "./pages/About"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -28,20 +27,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Home />} />
-        <Route path="/about" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route index element={<Menu />} />
-          {/* <Route path="info" element={<Infos />} /> */}
         </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   )
 }
