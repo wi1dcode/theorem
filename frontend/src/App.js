@@ -11,6 +11,8 @@ import Dashboard from "./pages/Dashboard"
 import Menu from "./pages/Dashboard/Menu"
 import Login from "./pages/Login"
 import About from "./pages/About"
+import Users from "./pages/Dashboard/Users"
+import Realisations from "./pages/Realisations"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -31,11 +33,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/realisations" element={<Realisations />} />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route index element={<Menu />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>

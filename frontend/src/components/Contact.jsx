@@ -43,12 +43,12 @@ function Contact() {
                   </p>
                   <a
                     href="mailto:contact@theorem-servies.com"
-                    className="text-yellow-400 flex flex-col items-center gap-y-2"
+                    className="text-marron flex flex-col items-center gap-y-2"
                   >
                     contact@theorem-servies.com
                     <button
                       type="button"
-                      className="py-2 px-6 text-white font-semibold bg-yellow-400 rounded-full overflow-hidden"
+                      className="py-2 px-6 text-white font-semibold bg-marron rounded-full overflow-hidden"
                     >
                       Ecrire
                     </button>
@@ -62,12 +62,12 @@ function Contact() {
                   </p>
                   <a
                     href="tel:555-555-555"
-                    className="text-yellow-400 flex flex-col items-center gap-y-2"
+                    className="text-marron flex flex-col items-center gap-y-2"
                   >
                     555-555-555
                     <button
                       type="button"
-                      className="py-2 px-4 text-white font-semibold bg-yellow-400 rounded-full overflow-hidden"
+                      className="py-2 px-4 text-white font-semibold bg-marron rounded-full overflow-hidden"
                     >
                       Appelez
                     </button>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const Step = () => {
   return (
-    <div className="px-4 pt-16 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-20">
+    <div className="px-4 mb-12 pt-16 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-20">
       <div className="max-w-xl mb-10 md:mx-auto max-sm:text-center sm:text-center lg:max-w-2xl md:mb-12">
         <div>
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
@@ -14,7 +14,7 @@ export const Step = () => {
             <svg
               viewBox="0 0 52 24"
               fill="currentColor"
-              className="absolute top-0 left-0 z-0 hidden w-33 -mt-8 -ml-20 text-yellow-400 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+              className="absolute top-0 left-0 z-0 hidden w-33 -mt-8 -ml-20 text-marron lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
             >
               <defs>
                 <pattern
@@ -44,7 +44,7 @@ export const Step = () => {
       </div>
       <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
         <div className="sm:text-center relative">
-          <div className="flex border-2 border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-yellow-300 sm:mx-auto max-sm:mx-auto">
+          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
             1
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
@@ -87,7 +87,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="sm:text-center relative">
-          <div className="flex items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-yellow-300 sm:mx-auto max-sm:mx-auto">
+          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
             2
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
@@ -124,7 +124,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="sm:text-center">
-          <div className="flex items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-yellow-300 sm:mx-auto max-sm:mx-auto">
+          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
             3
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">

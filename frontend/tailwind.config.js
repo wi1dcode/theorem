@@ -8,6 +8,7 @@ module.exports = {
       sable: "#DDD9CE",
       nuage: "#F4F0E7",
       blanc: "#FFFFFF",
+      marron: "#C8B790",
     },
     extend: {},
   },

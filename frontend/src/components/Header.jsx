@@ -13,16 +13,16 @@ function Header() {
         <img
           src={LogoBlack}
           alt="header_logo"
-          className="w-[220px] animate-fade-down animate-once"
+          className="w-[250px] animate-fade-down animate-once"
         />
         {/* <h1 className="text-5xl vogue text-center">Theorem Services</h1> */}
-        <p className="text-center bg-white bg-opacity-40 rounded-lg p-2 shadow text-2xl max-md:w-full w-1/3 text-noir avenir">
+        <p className="text-center bg-white bg-opacity-40 rounded-lg p-2 shadow text-lg max-md:w-full max-xl:w-[50%] w-1/4 text-noir avenir">
           Plus rapide, plus simple, plus sûr : un accompagnement sur mesure pour
           rénover en toute sérénité.
         </p>
         <Link to="/estimation">
           <button
-            className="bg-yellow-300 shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase animate-pulse avenir"
+            className="bg-marron shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase animate-pulse avenir"
             type="button"
           >
             Estimation gratuit

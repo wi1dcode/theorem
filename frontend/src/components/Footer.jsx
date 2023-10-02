@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 
 function Footer() {
   return (
-    <footer className="relative mt-16 bg-nuage">
+    <footer className="relative mt-16 bg-marron">
       <svg
-        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-nuage"
+        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-marron"
         preserveAspectRatio="none"
         viewBox="0 0 1440 54"
       >
@@ -33,11 +33,6 @@ function Footer() {
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam.
               </p>
-              <Link>
-                <button className="bg-yellow-300 px-4 py-1 rounded-lg shadow text-lg font-semibold text-anthracite mt-2">
-                  Je suis un PRO
-                </button>
-              </Link>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4 mt-6">

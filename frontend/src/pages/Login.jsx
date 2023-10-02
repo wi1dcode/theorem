@@ -47,7 +47,7 @@ function Login() {
           backgroundImage: `url(${LoginBg})`,
         }}
       >
-        {!connected ? (
+        {!connected && (
           <>
             <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
               <div className="px-6 py-4">
@@ -172,8 +172,6 @@ function Login() {
               </div>
             </div>
           </>
-        ) : (
-          navigate("/dashboard")
         )}
       </div>
     </section>

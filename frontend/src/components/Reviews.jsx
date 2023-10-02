@@ -81,7 +81,7 @@ export default function Reviews() {
         </div>
       </div>
       <svg
-        className="absolute top-0 w-full h-5 -mt-5 sm:-mt-16 sm:h-16 text-yellow-300"
+        className="absolute top-0 w-full h-5 -mt-5 sm:-mt-16 sm:h-16 text-marron"
         preserveAspectRatio="none"
         viewBox="0 0 1440 54"
         xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ export default function Reviews() {
         className="absolute top-0 w-full h-[350px] -z-1"
         style={{
           background:
-            "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(250,202,21,1) 100%)",
+            "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(200,183,144,1) 100%)",
         }}
       ></div>
     </section>

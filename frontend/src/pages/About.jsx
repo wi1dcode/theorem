@@ -2,6 +2,7 @@ import React from "react"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
 import { Link } from "react-router-dom"
+import Stats from "../components/Stats"
 
 function About() {
   return (
@@ -232,6 +233,9 @@ function About() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full px-2 mb-2">
+          <Stats />
         </div>
       </div>
       <Footer />

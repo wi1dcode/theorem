@@ -26,12 +26,25 @@
   src: local("Avenir-Next-Condensed-Bold"),
     url("./fonts/Avenir-Next-Condensed-Bold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Maves-Regular";
+  src: local("Maves-Regular"),
+    url("./fonts/Maves-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Metropolis-Medium";
+  src: local("Metropolis-Medium"),
+    url("./fonts/Metropolis-Medium.otf") format("truetype");
+}
 
 .vogue {
   font-family: "Vogue";
 }
 .avenir {
   font-family: "Avenir-Light";
+}
+.avenir-medium {
+  font-family: "Metropolis-Medium";
 }
 .avenir-cond {
   font-family: "Avenir-Next-Condensed";
@@ -42,7 +55,9 @@
 .avenir-bold {
   font-family: "Avenir-Next-Condensed-Bold";
 }
-
+.maves {
+  font-family: "Maves-Regular";
+}
 .rouge {
   font-family: "Rouge Script", cursive;
 }
@@ -107,4 +122,8 @@
 
 .expanded {
   height: auto;
+}
+
+.shadow-bottom {
+  box-shadow: 0 8px 6px -6px black;
 }

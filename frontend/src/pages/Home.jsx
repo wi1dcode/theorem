@@ -7,8 +7,9 @@ import Faq from "../components/FAQ"
 import Reviews from "../components/Reviews"
 import Contact from "../components/Contact"
 import Footer from "../components/Footer"
-import Stats from "../components/Stats"
 import NavBar from "../components/NavBar"
+
+import Macbook from "../images/mac.png"
 
 function Home() {
   return (
@@ -24,11 +25,11 @@ function Home() {
       <div className="w-full mt-2 px-2 mb-2">
         <Step />
       </div>
-      <div className="w-full px-2 mb-2">
-        <Stats />
-      </div>
-      <div className="w-full mt-2 px-2 mb-2">
+      <div className="w-full mt-24 px-2 mb-2">
         <Reviews />
+      </div>
+      <div className="w-full mt-8 px-2 mb-2 flex items-center justify-center">
+        <img src={Macbook} alt="Mac" />
       </div>
       <div className="w-full mt-2 px-2 mb-2">
         <Faq />
