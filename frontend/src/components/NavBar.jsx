@@ -148,7 +148,7 @@ function NavBar() {
     },
     {
       title: "Devenir PRO",
-      path: "/",
+      path: "/pro",
     },
     {
       title: "Contacter",
@@ -319,7 +319,7 @@ function NavBar() {
               <NavLink
                 to="/estimation"
                 onClick={() => setIsOpen(false)}
-                className="block avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block font-semibold avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Estimation
               </NavLink>

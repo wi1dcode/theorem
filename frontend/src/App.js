@@ -13,6 +13,7 @@ import Login from "./pages/Login"
 import About from "./pages/About"
 import Users from "./pages/Dashboard/Users"
 import Realisations from "./pages/Realisations"
+import Pro from "./pages/Pro"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -34,6 +35,7 @@ function App() {
         <Route path="/services" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/realisations" element={<Realisations />} />
+        <Route path="/pro" element={<Pro />} />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />
