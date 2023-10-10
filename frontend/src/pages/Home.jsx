@@ -9,8 +9,6 @@ import Contact from "../components/Contact"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
 
-import Macbook from "../images/mac.png"
-
 function Home() {
   return (
     <main className="w-full">
@@ -27,9 +25,6 @@ function Home() {
       </div>
       <div className="w-full mt-24 px-2 mb-2">
         <Reviews />
-      </div>
-      <div className="w-full mt-8 px-2 mb-2 flex items-center justify-center">
-        <img src={Macbook} alt="Mac" />
       </div>
       <div className="w-full mt-2 px-2 mb-2">
         <Faq />

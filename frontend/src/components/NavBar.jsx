@@ -141,20 +141,20 @@ function NavBar() {
       isDrapdown: false,
     },
     {
-      title: "En savoir plus",
+      title: "Contacter",
       path: "/",
-      isDrapdown: true,
-      navs: dropdownNavs,
+      onClick: () => scrollToContact("contact"),
+      isDrapdown: false,
     },
     {
       title: "Devenir PRO",
       path: "/pro",
     },
     {
-      title: "Contacter",
+      title: "En savoir plus",
       path: "/",
-      onClick: () => scrollToContact("contact"),
-      isDrapdown: false,
+      isDrapdown: true,
+      navs: dropdownNavs,
     },
   ]
 
@@ -328,7 +328,7 @@ function NavBar() {
               <NavLink
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="block avenir py-2 pl-3 pr-4 mb-2 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
+                className="block avenir py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
               >
                 <div className="flex gap-x-2">
                   <UserSvg className="border-l border-red-100" />

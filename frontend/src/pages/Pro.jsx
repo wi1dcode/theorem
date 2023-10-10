@@ -1,9 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import NavBar from "../components/NavBar"
 
 function Pro() {
+  const tabItems = ["Tes Garanties", "Tes Missions"]
+  const [selectedItem, setSelectedItem] = useState(0)
+
+  const scrollToContact = (sectionId) => {
+    setTimeout(() => {
+      const contactSection = document.getElementById(sectionId)
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" })
+      }
+    }, 100)
+  }
   return (
-    <section>
+    <section className="mb-12">
       <NavBar />
       <svg
         id="visual"
@@ -50,7 +61,10 @@ function Pro() {
                 repudiandae animi nostrum, reprehenderit quis nesciunt.
               </p>
             </div>
-            <div className="flex flex-col justify-center items-center gap-y-2 cursor-pointer">
+            <div
+              onClick={() => scrollToContact("entrepreneur")}
+              className="flex flex-col justify-center items-center gap-y-2 cursor-pointer"
+            >
               <p className="text-marron font-semibold underline">
                 En savoir plus
               </p>
@@ -93,7 +107,7 @@ function Pro() {
               </p>
             </div>
 
-            <div className="flex flex-col justify-center items-center gap-y-2 cursor-pointer">
+            <div onClick={() => scrollToContact("architecte")} className="flex flex-col justify-center items-center gap-y-2 cursor-pointer">
               <p className="text-marron font-semibold underline">
                 En savoir plus
               </p>
@@ -136,7 +150,7 @@ function Pro() {
               </p>
             </div>
 
-            <div className="flex flex-col justify-center items-center gap-y-2 cursor-pointer">
+            <div onClick={() => scrollToContact("maitredouevre")} className="flex flex-col justify-center items-center gap-y-2 cursor-pointer">
               <p className="text-marron font-semibold underline">
                 En savoir plus
               </p>
@@ -157,38 +171,453 @@ function Pro() {
             </div>
           </article>
         </div>
-        <div className="mt-32 w-full flex flex-col gap-y-32">
-          <div className="h-[90vh] bg-marron w-[60%] max-md:w-full rounded-r-full max-md:rounded-lg relative">
-            <div className="bg-marron rounded-full p-10 max-md:p-6 flex items-center justify-center absolute max-md:top-[-55px] max-md:right-[150px] top-[300px] right-[-100px] inside-shadow">
+        <div>
+          <div
+            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            id="entrepreneur"
+          >
+            <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-12 left-[45%] inside-shadow">
               <img
                 alt="entrepreneur du bâtiment"
                 src="https://www.datocms-assets.com/7890/1578643148-worker.svg"
-                className="w-[150px] max-md:w-[70px]"
               />
             </div>
-            Entrepreneur
-          </div>
-          <div className="flex flex-end justify-end">
-            <div className="h-[90vh]  bg-marron w-[60%] max-md:w-full max-md:rounded-lg rounded-l-full relative">
-              <div className="bg-marron rounded-full p-10 max-md:p-6 flex items-center justify-center absolute max-md:top-[-55px] max-md:left-[150px] top-[300px] left-[-100px] inside-shadow z-10">
-                <img
-                  alt="entrepreneur du bâtiment"
-                  src="https://www.datocms-assets.com/7890/1578643148-worker.svg"
-                  className="w-[150px] max-md:w-[70px]"
-                />
+            <div className="w-1/2 px-2 flex flex-col gap-y-6 avenir">
+              <h2 className="text-2xl font-semibold pt-4 ">
+                Entrepreneur(euse) du Bâtiment
+                <span className="w-[100px] mt-4 h-[5px] bg-[#af9a6a] block" />
+              </h2>
+              <p className="mt-4 text-xl">
+                Tu es entrepreneur(euse) du bâtiment ? Tu prends ton travail à
+                coeur ? Tu es accro à la finition millimétrée ? Alors oui, tu as
+                toute ta place chez Renovation Man. Rejoins nous dès maintenant.
+                On t’attend !
+              </p>
+              <div>
+                <p className="mb-4 text-2xl font-semibold">
+                  Tes supers pouvoirs ?
+                </p>
+                <div className="flex flex-col gap-y-2">
+                  <p className="text-xl">• Tu es passionné</p>
+                  <p className="text-xl">
+                    • Tu as au moins 3 ans d’expérience dans le monde du
+                    bâtiment
+                  </p>
+                  <p className="text-xl">
+                    • Tu as les assurances décennales pour tous les corps
+                    d’états que tu exerces
+                  </p>
+                  <p className="text-xl">• Tu as soif de chantiers !</p>
+                </div>
               </div>
-              Architecte
+            </div>
+            <div className="w-1/2 bg-marron flex justify-center">
+              <div className="flex flex-col items-center gap-y-10">
+                <ul
+                  role="tablist"
+                  className="flex items-center gap-x-3 text-xl avenir overflow-x-auto"
+                >
+                  {tabItems.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className={`py-2 border-b-2 ${
+                        selectedItem === idx
+                          ? "border-green-600 text-green-600"
+                          : "border-white text-white"
+                      }`}
+                    >
+                      <button
+                        role="tab"
+                        aria-selected={selectedItem === idx ? true : false}
+                        aria-controls={`tabpanel-${idx + 1}`}
+                        className="py-2.5 font-semibold px-4 rounded-lg duration-150 hover:text-white hover:bg-green-500 active:bg-green-600"
+                        onClick={() => setSelectedItem(idx)}
+                      >
+                        {item}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                {selectedItem === 0 ? (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-          <div className="h-[90vh] bg-marron w-[60%] max-md:w-full rounded-r-full max-md:rounded-lg relative">
-            <div className="bg-marron rounded-full p-10 max-md:p-6 flex items-center justify-center absolute max-md:top-[-55px] max-md:right-[150px] top-[300px] right-[-100px] inside-shadow">
+          <div
+            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            id="architecte"
+          >
+            <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-12 left-[45%] inside-shadow">
               <img
                 alt="entrepreneur du bâtiment"
                 src="https://www.datocms-assets.com/7890/1578643148-worker.svg"
-                className="w-[150px] max-md:w-[70px]"
               />
             </div>
-            Maitre Deuvre
+            <div className="w-1/2 px-2 flex flex-col gap-y-6 avenir">
+              <h2 className="text-2xl font-semibold pt-4 ">
+                Architecte Décorateur(ice)
+                <span className="w-[100px] mt-4 h-[5px] bg-[#af9a6a] block" />
+              </h2>
+              <p className="mt-4 text-xl">
+                Tu es architecte et/ou décorateur(ice) ? Tu façonnes les
+                intérieurs plus vite que ton ombre ? Tu sais donner du sens et
+                faire vivre un intérieur comme personne ? Au top ! Nous avons
+                besoin de professionels de ton calibre !
+              </p>
+              <div>
+                <p className="mb-4 text-2xl font-semibold">
+                  Tes supers pouvoirs ?
+                </p>
+                <div className="flex flex-col gap-y-2">
+                  <p className="text-xl">• Tu es passionné</p>
+                  <p className="text-xl">
+                    • Tu as au moins 3 ans d’expérience dans le monde du
+                    bâtiment
+                  </p>
+                  <p className="text-xl">
+                    • Tu as les assurances décennales pour tous les corps
+                    d’états que tu exerces
+                  </p>
+                  <p className="text-xl">• Tu as soif de chantiers !</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-1/2 bg-marron flex justify-center">
+              <div className="flex flex-col items-center gap-y-10">
+                <ul
+                  role="tablist"
+                  className="flex items-center gap-x-3 text-xl avenir overflow-x-auto"
+                >
+                  {tabItems.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className={`py-2 border-b-2 ${
+                        selectedItem === idx
+                          ? "border-green-600 text-green-600"
+                          : "border-white text-white"
+                      }`}
+                    >
+                      <button
+                        role="tab"
+                        aria-selected={selectedItem === idx ? true : false}
+                        aria-controls={`tabpanel-${idx + 1}`}
+                        className="py-2.5 font-semibold px-4 rounded-lg duration-150 hover:text-white hover:bg-green-500 active:bg-green-600"
+                        onClick={() => setSelectedItem(idx)}
+                      >
+                        {item}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                {selectedItem === 0 ? (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div
+            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            id="maitredouevre"
+          >
+            <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-12 left-[45%] inside-shadow">
+              <img
+                alt="entrepreneur du bâtiment"
+                src="https://www.datocms-assets.com/7890/1578643148-worker.svg"
+              />
+            </div>
+            <div className="w-1/2 px-2 flex flex-col gap-y-6 avenir">
+              <h2 className="text-2xl font-semibold pt-4 ">
+                Maître(sse) d’Oeuvre
+                <span className="w-[100px] mt-4 h-[5px] bg-[#af9a6a] block" />
+              </h2>
+              <p className="mt-4 text-xl">
+                Tu es maître(esse) d’oeuvre ? Diriger un chantier et le mener à
+                son terme dans le respect des contraintes coût, qualité, délais
+                c’est ton quotidien ? Tu as à coeur la satisfaction client ?
+                Toque donc à notre porte !
+              </p>
+              <div>
+                <p className="mb-4 text-2xl font-semibold">
+                  Tes supers pouvoirs ?
+                </p>
+                <div className="flex flex-col gap-y-2">
+                  <p className="text-xl">• Tu es passionné</p>
+                  <p className="text-xl">
+                    • Tu as au moins 3 ans d’expérience dans le monde du
+                    bâtiment
+                  </p>
+                  <p className="text-xl">
+                    • Tu as les assurances décennales pour tous les corps
+                    d’états que tu exerces
+                  </p>
+                  <p className="text-xl">• Tu as soif de chantiers !</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-1/2 bg-marron flex justify-center">
+              <div className="flex flex-col items-center gap-y-10">
+                <ul
+                  role="tablist"
+                  className="flex items-center gap-x-3 text-xl avenir overflow-x-auto"
+                >
+                  {tabItems.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className={`py-2 border-b-2 ${
+                        selectedItem === idx
+                          ? "border-green-600 text-green-600"
+                          : "border-white text-white"
+                      }`}
+                    >
+                      <button
+                        role="tab"
+                        aria-selected={selectedItem === idx ? true : false}
+                        aria-controls={`tabpanel-${idx + 1}`}
+                        className="py-2.5 font-semibold px-4 rounded-lg duration-150 hover:text-white hover:bg-green-500 active:bg-green-600"
+                        onClick={() => setSelectedItem(idx)}
+                      >
+                        {item}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                {selectedItem === 0 ? (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Des projets super qualifiés
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 bg-[#af9a6a] rounded-2xl">
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article className="border-b-2 border-marron py-2">
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                    <article>
+                      <h3 className="font-semibold text-2xl avenir">
+                        Tu respectes notre code d’honneur
+                      </h3>
+                      <p className="avenir px-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Molestiae, earum?
+                      </p>
+                    </article>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

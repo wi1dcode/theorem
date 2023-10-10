@@ -1,211 +1,118 @@
 import React, { useState } from "react"
-import NavBar from "../components/NavBar"
+import { SectionsContainer, Section, ScrollToTopOnMount } from "react-fullpage"
+import Questions from "./Questions"
+import Swal from "sweetalert2"
 
-const questions = [
+const data = [
   {
-    question: "question 1?",
-    name: "question1",
-    options: ["one", "two", "three", "four", "five"],
+    title: "Nom?",
+    id: "firstname",
+    link: "lastname",
+    i: 1,
+    type: "text",
   },
   {
-    question: "question 2?",
-    name: "question2",
-    options: ["one", "two", "three"],
+    title: "Prenom?",
+    id: "lastname",
+    link: "choice",
+    i: 2,
+    type: "text",
   },
   {
-    question: "question 3?",
-    name: "question3",
-    options: ["one", "two", "three"],
+    title: "Choisissez l'un des trois",
+    id: "choice",
+    link: "files",
+    i: 3,
+    type: "button",
+    options: ["Option 1", "Option 2", "Option 3"],
   },
   {
-    question: "question 4?",
-    name: "question4",
-    options: ["one", "two", "three"],
-  },
-  {
-    question: "question 5?",
-    name: "question5",
-    options: ["one", "two", "three"],
-  },
-  {
-    question: "question 6?",
-    name: "question6",
-    options: ["one", "two", "three"],
+    title: "Envoyer les fichiers?",
+    id: "files",
+    link: "",
+    i: 4,
+    type: "file",
   },
 ]
 
+// const infoBlocks = [
+//   {
+//     id: "info_first",
+//     content: "text 1",
+//   },
+//   {
+//     id: "info_second",
+//     content: "text 2",
+//   },
+// ]
+
+const anchorFunc = (anchor_data) => {
+  return anchor_data.map((item) => item.id)
+}
+
 function Estimation() {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState({})
-  const [showBackButton, setShowBackButton] = useState(false)
-  const [showSubmitButton, setShowSubmitButton] = useState(false)
-  const [showPreview, setShowPreview] = useState(false)
-  const [editQuestionIndex, setEditQuestionIndex] = useState(-1)
+  const [obj, setObj] = useState({})
 
-  const handleAnswer = (answer, name) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [name]: answer,
-    }))
-
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
-      setShowBackButton(true)
-      setShowPreview(false)
-      setEditQuestionIndex(-1)
-    } else {
-      setShowBackButton(false)
-      setShowSubmitButton(true)
-      setShowPreview(true)
-      setEditQuestionIndex(-1)
-    }
+  let options = {
+    sectionClassName: "section",
+    anchors: anchorFunc(data),
+    scrollBar: false,
+    navigation: true,
+    verticalAlign: false,
+    sectionPaddingTop: "50px",
+    sectionPaddingBottom: "50px",
+    arrowNavigation: false,
   }
 
-  const handleGoBack = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1)
-      setShowBackButton(currentQuestion - 1 > 0)
-      setShowSubmitButton(false)
-      setShowPreview(false)
-      setEditQuestionIndex(-1)
-    }
+  const inputDataHandler = (name, value, files) => {
+    setObj((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+        files: files,
+      }
+    })
   }
 
-  const handleSubmit = () => {
-    console.log("DATA:", answers)
-  }
+  const submitBtnHandler = () => {
+    Swal.fire({
+      title: "Good job!",
+      html: `
+        <div>
+          <p>firstname: ${obj.firstname}</p>
+          <p>lastname: ${obj.lastname}</p>
+          <p>Choice: ${obj.choice}</p>
+        </div>
+      `,
+      icon: "success",
+    })
 
-  const handleModifierClick = (index) => {
-    setEditQuestionIndex(index)
-    setCurrentQuestion(index)
-    setShowBackButton(true)
-    setShowPreview(false)
+    console.log(obj)
   }
-
-  const progress = ((currentQuestion + 1) / questions.length) * 100
 
   return (
-    <section>
-      <NavBar />
-      <div className="flex justify-center items-center min-h-[92.2vh]">
-        <div className="md:w-1/2 w-[80%]  mx-auto bg-green-100 text-center flex flex-col justify-center rounded-lg shadow-md p-8 relative">
-          <button
-            onClick={handleGoBack}
-            className={`bg-green-200 text-white px-2 py-2 rounded-full absolute top-4 left-4 ${
-              showBackButton ? "" : "hidden"
-            }`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M7 16l-4-4m0 0l4-4m-4 4h18"
-              />
-            </svg>
-          </button>
-          {showPreview ? (
-            <h1 className="text-2xl font-bold mb-10">Overview:</h1>
-          ) : (
-            <>
-              <h1 className="text-2xl font-bold mb-10">
-                {questions[currentQuestion].question}
-              </h1>
-              <div className="flex flex-col md:flex-wrap md:flex-row items-center gap-y-3 md:gap-x-6 justify-center">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() =>
-                      handleAnswer(option, questions[currentQuestion].name)
-                    }
-                    className="bg-blue-500 text-white px-4 py-3 rounded-md hover:bg-blue-600 w-full md:w-[30%]"
-                  >
-                    {option}
-                  </button>
-                ))}
+    <div className="bg-marron">
+      <ScrollToTopOnMount />
+      <SectionsContainer {...options}>
+        {data.map((item, i) => {
+          return (
+            <Section key={i}>
+              <div>
+                <header>
+                  <Questions
+                    item={item}
+                    index={i}
+                    isSubmit={i === data.length - 1 ? true : false}
+                    inputDataHandler={inputDataHandler}
+                    submitBtnHandler={submitBtnHandler}
+                  />
+                </header>
               </div>
-            </>
-          )}
-          {showPreview && (
-            <div className="mt-4 text-left">
-              <h2 className="text-lg font-semibold mb-2">Overview:</h2>
-              <ul>
-                {questions.map((q, index) => (
-                  <li key={index}>
-                    <strong>{q.question}:</strong>{" "}
-                    {index === editQuestionIndex ? (
-                      <div>
-                        <input
-                          type="text"
-                          value={answers[q.name] || ""}
-                          onChange={(e) => {
-                            const newAnswers = { ...answers }
-                            newAnswers[q.name] = e.target.value
-                            setAnswers(newAnswers)
-                          }}
-                        />
-                        <button
-                          onClick={() => setEditQuestionIndex(-1)}
-                          className="text-blue-600 underline ml-2"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    ) : (
-                      <span>
-                        {answers[q.name]}
-                        <button
-                          onClick={() => handleModifierClick(index)}
-                          className="text-blue-600 underline ml-2"
-                        >
-                          Modifier
-                        </button>
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {showSubmitButton && (
-            <button
-              onClick={handleSubmit}
-              className="bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 mt-4"
-            >
-              Envoyer
-            </button>
-          )}
-          <div className="mt-8">
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div>
-                  <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                    Progress
-                  </span>
-                </div>
-                <div className="text-right">
-                  <span className="text-xs font-semibold inline-block text-teal-600">
-                    {progress.toFixed(0)}%
-                  </span>
-                </div>
-              </div>
-              <div className="relative w-full bg-gray-200 rounded-full">
-                <div
-                  className="absolute top-0 h-2 rounded-full bg-teal-600"
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </Section>
+          )
+        })}
+      </SectionsContainer>
+    </div>
   )
 }
 
