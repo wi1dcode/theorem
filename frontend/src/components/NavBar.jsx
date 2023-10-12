@@ -147,8 +147,8 @@ function NavBar() {
       isDrapdown: false,
     },
     {
-      title: "Devenir PRO",
-      path: "/pro",
+      title: "Parteneriat",
+      path: "/parteneriat",
     },
     {
       title: "En savoir plus",
@@ -184,7 +184,7 @@ function NavBar() {
     <nav className="border-gray-200 bg-gray-50 z-50 w-full sticky top-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <Link to="/" className="flex items-center">
-          <img src={LogoBlack} className="h-14 mr-3" alt="Theorem Logo" />
+          <img src={LogoBlack} className="md:h-20 h-14 mr-3" alt="Theorem Logo" />
         </Link>
         <div className="inline-flex items-center w-10 h-10 justify-start text-sm rounded-lg md:hidden focus:outline-none">
           <div className="relative">
@@ -226,7 +226,7 @@ function NavBar() {
                 <li key={idx} className="max-md:w-full">
                   {item.isDrapdown ? (
                     <button
-                      className="w-full flex items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                      className="w-full flex md:text-xl items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
                       onClick={() =>
                         setDrapdown({
                           idx,
@@ -267,7 +267,7 @@ function NavBar() {
                     <Link
                       to={item.path}
                       onClick={item.onClick}
-                      className="block avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                      className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
                     >
                       {item.title}
                     </Link>
@@ -319,7 +319,7 @@ function NavBar() {
               <NavLink
                 to="/estimation"
                 onClick={() => setIsOpen(false)}
-                className="block font-semibold avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block font-semibold avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
               >
                 Estimation
               </NavLink>
@@ -328,7 +328,7 @@ function NavBar() {
               <NavLink
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="block avenir py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
+                className="block avenir py-2  pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
               >
                 <div className="flex gap-x-2">
                   <UserSvg className="border-l border-red-100" />

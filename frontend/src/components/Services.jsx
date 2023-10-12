@@ -4,7 +4,7 @@ function Services() {
       <div className="relative flex justify-center items-center">
         <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
           Service
-          <span className="text-2xl ml-2"> 🤝</span>
+          {/* <span className="text-2xl ml-2"> 🤝</span> */}
         </h2>
         <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" />
       </div>

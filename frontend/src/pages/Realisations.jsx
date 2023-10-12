@@ -1,5 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import NavBar from "../components/NavBar"
+
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const gallery = [
   {
@@ -47,14 +50,21 @@ const gallery = [
 ]
 
 function Realisations() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
   return (
     <section>
       <NavBar />
-      <div>
+      <div className="mb-16">
         <h2 className="text-center text-4xl avenir mt-6 mb-4">
           Nos réalisations
         </h2>
-        <div className="flex flex-wrap justify-center items-center gap-5 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div
+          className="flex flex-wrap justify-center items-center gap-5 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           {gallery.map((item, index) => {
             return (
               <div

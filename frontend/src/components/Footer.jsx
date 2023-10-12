@@ -37,14 +37,14 @@ function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4 mt-6">
             <div>
-              <p className="font-semibold tracking-wide text-yellow-600">
+              <p className="font-semibold tracking-wide text-[#b1985d]">
                 A propos
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Ils parlent de nous
                   </Link>
@@ -52,7 +52,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Nos super avis
                   </Link>
@@ -60,7 +60,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Nos super avis
                   </Link>
@@ -68,7 +68,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     FAQ
                   </Link>
@@ -76,14 +76,14 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide text-yellow-600">
+              <p className="font-semibold tracking-wide text-[#b1985d]">
                 Liens utiles
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Nous contacter
                   </Link>
@@ -91,7 +91,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Qui sommes-nous ?
                   </Link>
@@ -99,7 +99,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Nous recrutons
                   </Link>
@@ -107,7 +107,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Mentions légales & CGU
                   </Link>
@@ -115,14 +115,14 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide text-yellow-600">
+              <p className="font-semibold tracking-wide text-[#b1985d]">
                 Ressources
               </p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Rénovation Énergétique
                   </Link>
@@ -130,7 +130,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Rénovation Appartement
                   </Link>
@@ -138,7 +138,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Rénovation Maison
                   </Link>
@@ -146,7 +146,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/"
-                    className="transition-colors duration-300 text-deep-purple-50 hover:text-yellow-600"
+                    className="transition-colors duration-300 text-deep-purple-50 hover:text-[#b1985d]"
                   >
                     Rénovation Salle de bain
                   </Link>

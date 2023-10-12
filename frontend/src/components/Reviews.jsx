@@ -63,13 +63,13 @@ export default function Reviews() {
                     <img
                       src={item.avatar}
                       alt="user_avatar"
-                      className="w-16 h-16 rounded-full border-2 border-indigo-500"
+                      className="w-16 h-16 rounded-full border-2 border-marron"
                     />
                     <div>
                       <span className="block text-gray-800 font-semibold">
                         {item.name}
                       </span>
-                      <span className="block text-indigo-600 text-sm mt-0.5">
+                      <span className="block text-marron text-sm mt-0.5">
                         {item.title}
                       </span>
                     </div>

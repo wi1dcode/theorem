@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 function Header() {
   return (
     <header
-      className={`bg-cover bg-no-repeat w-full h-[320px] max-md:h-[330px] flex flex-col gap-y-4 rounded-xl justify-center items-center`}
+      className={`bg-cover bg-no-repeat w-full h-[350px] max-md:h-[330px] flex flex-col gap-y-4 rounded-xl justify-center items-center`}
       style={{ backgroundImage: `url(${HeaderBg})` }}
     >
       <article className="flex backdrop-blur rounded-lg w-full h-full flex-col items-center justify-center gap-y-4 max-md:gap-y-2">
@@ -22,7 +22,7 @@ function Header() {
         </p>
         <Link to="/estimation">
           <button
-            className="bg-marron shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase animate-pulse avenir"
+            className="bg-marron shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase avenir"
             type="button"
           >
             Estimation gratuit
