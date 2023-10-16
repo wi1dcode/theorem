@@ -11,8 +11,9 @@ export default function Questions({
   inputDataHandler,
   submitBtnHandler,
 }) {
-  const [value, setValue] = useState({})
-  const [uploadedFiles, setUploadedFiles] = useState([])
+  const savedData = JSON.parse(localStorage.getItem("estimation")) || {}
+  const [value, setValue] = useState(savedData[item.id] || "")
+  const [uploadedFiles, setUploadedFiles] = useState(savedData.files || [])
 
   useEffect(() => {
     const element = document.getElementById(index.toString())
@@ -29,19 +30,23 @@ export default function Questions({
   }
 
   const clickHandler = (link, i) => {
-    window.location.href = `#${link}`
-    setTimeout(() => {
-      document.getElementById(i.toString()).focus()
-    }, 1100)
+    if (item.type === "info") {
+      window.location.href = `#${link}`
+    } else {
+      window.location.href = `#${link}`
+      setTimeout(() => {
+        document.getElementById(i.toString()).focus()
+      }, 1100)
+    }
   }
 
   const handleFileUpload = (files) => {
     setUploadedFiles(files)
   }
-
   const handleChange = (value) => {
     return new Promise((resolve) => {
       inputDataHandler(item.id, value)
+      setValue(value)
       resolve()
     })
   }
@@ -84,6 +89,7 @@ export default function Questions({
           className="p-3 rounded-full outline-none px-4 w-1/4 text-center"
           onChange={(e) => handleChange(e.target.value)}
           onKeyPress={handleKeyPress}
+          value={value}
         />
       )}
       {item.type === "button" && (
@@ -92,7 +98,9 @@ export default function Questions({
             <button
               key={i}
               id={index}
-              className="rounded-full outline-none py-4 px-10 bg-white border-2 border-[#9b895f] active:bg-green-400"
+              className={`rounded-full outline-none py-4 px-10 bg-white border-2 border-[#9b895f] active:bg-green-400 ${
+                value === option ? "border-green-500" : ""
+              }`}
               onClick={() => {
                 handleChange(option).then(() => {
                   clickHandler(item.link, item.i)
@@ -105,12 +113,49 @@ export default function Questions({
         </div>
       )}
       {item.type === "file" && (
-        // <input type="file" onChange={(e) => handleChange(e.target.files[0])} />
         <FileUpload
           id={index}
           uploadedFiles={uploadedFiles}
           setUploadedFiles={handleFileUpload}
         />
+      )}
+
+      {item.type === "info" && (
+        <div className="flex flex-col w-1/3 gap-y-2">
+          <div
+            id={index}
+            className="bg-white h-[60vh] rounded-lg p-6 flex justify-center items-center flex-col"
+            onClick={() => {
+              handleChange().then(() => {
+                clickHandler(item.link, item.i)
+              })
+            }}
+          >
+            {item.id === "info_firstname" && (
+              <p className="text-3xl avenir font-semibold">Hello</p>
+            )}
+            {item.id === "info_lastname" && (
+              <p className="text-3xl avenir font-semibold">Choice</p>
+            )}
+            {item.id === "confirmation" && (
+              <div className="text-3xl avenirtext-center">
+                <p className="mb-2 font-semibold text-center">Check info:</p>
+                <div>
+                  <p>Firstname: {savedData?.firstname}</p>
+                  <p>Lastname: {savedData?.lastname}</p>
+                  <p>Choice: {savedData?.choice}</p>
+                  <p>Files uploaded: {savedData?.files?.length}</p>
+                </div>
+              </div>
+            )}
+          </div>
+          <button
+            className="bg-green-500 text-white px-4 py-2 rounded-lg"
+            onClick={() => clickHandler(item.link, item.i)}
+          >
+            Commencer
+          </button>
+        </div>
       )}
 
       <br />
@@ -142,7 +187,7 @@ export default function Questions({
           <span className="relative invisible">SUBMIT</span>
         </button>
       )}
-      {!isSubmit && item.type !== "button" && (
+      {!isSubmit && item.type !== "button" && item.type !== "info" && (
         <div>
           <button
             id="enter-btn"

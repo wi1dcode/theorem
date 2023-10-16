@@ -1,9 +1,17 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { SectionsContainer, Section, ScrollToTopOnMount } from "react-fullpage"
 import Questions from "./Questions"
 import Swal from "sweetalert2"
 
 const data = [
+  {
+    title: "Information",
+    id: "info_firstname",
+    link: "firstname",
+    i: 0.5,
+    type: "info",
+    content: "my text",
+  },
   {
     title: "Nom?",
     id: "firstname",
@@ -14,9 +22,17 @@ const data = [
   {
     title: "Prenom?",
     id: "lastname",
-    link: "choice",
+    link: "info_lastname",
     i: 2,
     type: "text",
+  },
+  {
+    title: "Information",
+    id: "info_lastname",
+    link: "choice",
+    i: 2.5,
+    type: "info",
+    content: "my text",
   },
   {
     title: "Choisissez l'un des trois",
@@ -29,29 +45,46 @@ const data = [
   {
     title: "Envoyer les fichiers?",
     id: "files",
-    link: "",
+    link: "confirmation",
     i: 4,
     type: "file",
   },
+  {
+    title: "Confirmation",
+    id: "confirmation",
+    link: "",
+    i: 5,
+    type: "info",
+    content: "confirmation",
+  },
 ]
-
-// const infoBlocks = [
-//   {
-//     id: "info_first",
-//     content: "text 1",
-//   },
-//   {
-//     id: "info_second",
-//     content: "text 2",
-//   },
-// ]
 
 const anchorFunc = (anchor_data) => {
   return anchor_data.map((item) => item.id)
 }
 
 function Estimation() {
-  const [obj, setObj] = useState({})
+  const [obj, setObj] = useState(() => {
+    const savedData = JSON.parse(localStorage.getItem("estimation")) || {}
+    return savedData
+  })
+
+  useEffect(() => {
+    localStorage.setItem("estimation", JSON.stringify(obj))
+  }, [obj])
+
+  const inputDataHandler = (name, value, files) => {
+    const isInfoType = data.find(
+      (item) => item.id === name && item.type === "info"
+    )
+    if (!isInfoType) {
+      setObj((prevState) => ({
+        ...prevState,
+        [name]: value,
+        files: files,
+      }))
+    }
+  }
 
   let options = {
     sectionClassName: "section",
@@ -62,16 +95,6 @@ function Estimation() {
     sectionPaddingTop: "50px",
     sectionPaddingBottom: "50px",
     arrowNavigation: false,
-  }
-
-  const inputDataHandler = (name, value, files) => {
-    setObj((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-        files: files,
-      }
-    })
   }
 
   const submitBtnHandler = () => {

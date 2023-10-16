@@ -187,7 +187,7 @@ function Pro() {
         </div>
         <div>
           <div
-            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            className="w-[55%] h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
             id="entrepreneur"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -338,7 +338,7 @@ function Pro() {
             </div>
           </div>
           <div
-            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            className="w-[55%] h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
             id="architecte"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -489,7 +489,7 @@ function Pro() {
             </div>
           </div>
           <div
-            className="w-1/2 h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
+            className="w-[55%] h-[85vh] bg-marron rounded-3xl mx-auto mt-20 relative flex justify-between py-16 px-14"
             id="maitredouevre"
             data-aos="fade-up"
             data-aos-duration="1000"
