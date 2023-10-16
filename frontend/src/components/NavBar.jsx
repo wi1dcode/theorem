@@ -151,6 +151,11 @@ function NavBar() {
       path: "/parteneriat",
     },
     {
+      title: "PRO",
+      path: "/pro",
+      target: "_blank",
+    },
+    {
       title: "En savoir plus",
       path: "/",
       isDrapdown: true,
@@ -184,7 +189,11 @@ function NavBar() {
     <nav className="border-gray-200 bg-gray-50 z-50 w-full sticky top-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <Link to="/" className="flex items-center">
-          <img src={LogoBlack} className="md:h-20 h-14 mr-3" alt="Theorem Logo" />
+          <img
+            src={LogoBlack}
+            className="md:h-20 h-14 mr-3"
+            alt="Theorem Logo"
+          />
         </Link>
         <div className="inline-flex items-center w-10 h-10 justify-start text-sm rounded-lg md:hidden focus:outline-none">
           <div className="relative">
@@ -266,6 +275,7 @@ function NavBar() {
                   ) : (
                     <Link
                       to={item.path}
+                      target={item.target}
                       onClick={item.onClick}
                       className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
                     >

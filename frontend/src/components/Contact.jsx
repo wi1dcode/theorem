@@ -19,7 +19,7 @@ function Contact() {
                 <div className="h-[500px] w-full">
                   <iframe
                     title="card"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20945.044392749984!2d2.2579626999999998!3d48.989073000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e667ba7576b8b5%3A0x40b82c3688b3320!2zOTUxMjAg0K3RgNC80L7QvQ!5e0!3m2!1sru!2sfr!4v1695654711131!5m2!1sru!2sfr"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2618.2047167522396!2d2.2552655!3d48.9876615!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e667b0c1bcd85d%3A0x1d0ced49301af2e4!2s27%20Rue%20de%20Stalingrad%2C%2095120%20Ermont!5e0!3m2!1sfr!2sfr!4v1697448321889!5m2!1sfr!2sfr"
                     className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
                     frameBorder="0"
                     allowFullScreen
@@ -29,7 +29,12 @@ function Contact() {
               <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap">
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">🗺</span>
-                  <p>nous sommes situés à...</p>
+                  <p>
+                    Nous sommes situés à <br />
+                    <span className="font-semibold">
+                      27 Rue de Stalingrad, 95120 Ermont
+                    </span>
+                  </p>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">💼</span>
@@ -54,7 +59,7 @@ function Contact() {
                     </button>
                   </a>
                 </div>
-                <div className="h-full w-[45%] py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">☎️</span>
                   <p>
                     Contactez-nous pour nous demander de l'aide, nous vous

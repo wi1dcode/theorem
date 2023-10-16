@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React from "react"
+import Contact from "../../components/Contact"
 function ProContact() {
   return (
-    <div>ProContact</div>
+    <div className="mt-12">
+      <Contact />
+    </div>
   )
 }
 
