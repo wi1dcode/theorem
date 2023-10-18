@@ -128,6 +128,7 @@ function Estimation() {
                     isSubmit={i === data.length - 1 ? true : false}
                     inputDataHandler={inputDataHandler}
                     submitBtnHandler={submitBtnHandler}
+                    data={data}
                   />
                 </header>
               </div>

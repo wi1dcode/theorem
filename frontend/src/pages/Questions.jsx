@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react"
+import Swal from "sweetalert2"
+
 import FileUpload from "../components/FileUpload"
 import ArrowUp from "../images/svg/ArrowUp"
 import ArrowDown from "../images/svg/ArrowDown"
 import HomeSvg from "../images/svg/HomeSvg"
 
 export default function Questions({
+  data,
   item,
   index,
   isSubmit,
@@ -20,8 +23,56 @@ export default function Questions({
     if (element) {
       element.focus()
     }
+
     inputDataHandler(item.id, value, uploadedFiles)
+    console.log("updated")
   }, [index, uploadedFiles])
+
+
+  const editItem = async (fieldId) => {
+    const selectedItem = data.find((item) => item.id === fieldId)
+
+    if (!selectedItem) {
+      console.error("Item not found")
+      return
+    }
+
+    let options = {
+      title: `Edit ${fieldId}`,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+    }
+
+    if (selectedItem.type === "text") {
+      options = {
+        ...options,
+        input: "text",
+        inputValue: savedData[fieldId] || "",
+      }
+    } else if (selectedItem.type === "button") {
+      options = {
+        ...options,
+        input: "select",
+        inputOptions: selectedItem.options.reduce((acc, option) => {
+          acc[option] = option
+          return acc
+        }, {}),
+        inputValue: savedData[fieldId] || "",
+      }
+    } else {
+      console.log("else")
+      return
+    }
+
+    await Swal.fire(options).then(async (result) => {
+      if (result.isConfirmed) {
+        const newValue = result.value
+        await handleChange(newValue)
+        const updatedItem = { ...savedData, [fieldId]: newValue }
+        localStorage.setItem("estimation", JSON.stringify(updatedItem))
+      }
+    })
+  }
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -43,12 +94,12 @@ export default function Questions({
   const handleFileUpload = (files) => {
     setUploadedFiles(files)
   }
-  const handleChange = (value) => {
-    return new Promise((resolve) => {
-      inputDataHandler(item.id, value)
-      setValue(value)
-      resolve()
-    })
+
+  const handleChange = async (newValue) => {
+    await inputDataHandler(item.id, newValue)
+    await setValue(newValue)
+    const updatedItem = { ...savedData, [item.id]: newValue }
+    localStorage.setItem("estimation", JSON.stringify(updatedItem))
   }
 
   return (
@@ -141,52 +192,56 @@ export default function Questions({
               <div className="text-3xl avenirtext-center">
                 <p className="mb-2 font-semibold text-center">Check info:</p>
                 <div>
-                  <p>Firstname: {savedData?.firstname}</p>
-                  <p>Lastname: {savedData?.lastname}</p>
-                  <p>Choice: {savedData?.choice}</p>
+                  <div className="flex gap-x-3">
+                    <p>Firstname: {savedData?.firstname}</p>
+                    <button
+                      onClick={() => editItem("firstname")}
+                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <div className="flex gap-x-3">
+                    <p>Lastname: {savedData?.lastname}</p>
+                    <button
+                      onClick={() => editItem("lastname")}
+                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <div className="flex gap-x-3">
+                    <p>Choice: {savedData?.choice}</p>
+                    <button
+                      onClick={() => editItem("choice")}
+                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                    >
+                      Edit
+                    </button>
+                  </div>
                   <p>Files uploaded: {savedData?.files?.length}</p>
                 </div>
               </div>
             )}
           </div>
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded-lg"
-            onClick={() => clickHandler(item.link, item.i)}
-          >
-            Commencer
-          </button>
+          {isSubmit ? (
+            <button
+              className="bg-green-500 text-white px-4 py-2 rounded-lg"
+              onClick={submitBtnHandler}
+            >
+              Valider
+            </button>
+          ) : (
+            <button
+              className="bg-green-500 text-white px-4 py-2 rounded-lg"
+              onClick={() => clickHandler(item.link, item.i)}
+            >
+              Commencer
+            </button>
+          )}
         </div>
       )}
-
       <br />
-      {isSubmit && (
-        <button
-          id="submit-btn"
-          onClick={submitBtnHandler}
-          className="relative mr-3 inline-flex items-center justify-center p-4 px-8 py-3 overflow-hidden font-medium text-green-600 transition duration-300 ease-out border-2 border-green-500 rounded-full shadow-md group"
-        >
-          <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-green-500 group-hover:translate-x-0 ease">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </span>
-          <span className="absolute flex items-center justify-center w-full h-full text-green-500 transition-all duration-300 transform group-hover:translate-x-full ease">
-            SUBMIT
-          </span>
-          <span className="relative invisible">SUBMIT</span>
-        </button>
-      )}
       {!isSubmit && item.type !== "button" && item.type !== "info" && (
         <div>
           <button
@@ -215,9 +270,6 @@ export default function Questions({
             </span>
             <span className="relative invisible">OK</span>
           </button>
-          <span className="opacity-50 text-green-700">
-            press <span className="font-semibold">ENTER</span>
-          </span>
         </div>
       )}
     </div>
