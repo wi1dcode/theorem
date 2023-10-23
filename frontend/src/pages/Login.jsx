@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom"
 import UserContext from "../services/userContext"
 import { login } from "../api/users"
 import logo from "../images/icons/logo_black.png"
-import LoginBg from "../images/login_bg.jpg"
 import NavBar from "../components/NavBar"
 
 function Login() {
@@ -39,14 +38,14 @@ function Login() {
   }
 
   return (
-    <section>
+    <section
+    className="h-screen"
+      style={{
+        backgroundImage: `url(https://app.globalradar.com/Images/login-background.jpg)`,
+      }}
+    >
       <NavBar />
-      <div
-        className="flex flex-col h-[92.3vh] justify-center items-center bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${LoginBg})`,
-        }}
-      >
+      <div className="flex flex-col justify-center h-[80vh] items-center bg-center bg-cover">
         {!connected && (
           <>
             <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">

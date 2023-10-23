@@ -7,40 +7,60 @@ const data = [
   {
     title: "Information",
     id: "info_firstname",
-    link: "firstname",
+    link: "type",
     i: 0.5,
     type: "info",
     content: "my text",
   },
   {
-    title: "Nom?",
-    id: "firstname",
-    link: "lastname",
+    title: "Votre type de rénovation?",
+    id: "type",
+    link: "search",
     i: 1,
-    type: "text",
+    type: "button",
+    options: [
+      "Appartement ",
+      "Maison",
+      "Commerce / Restaurant",
+      "Bureaux",
+      "Rénovation énergétique",
+      "Extension",
+      "Surélévation",
+    ],
   },
   {
-    title: "Prenom?",
-    id: "lastname",
-    link: "info_lastname",
+    title: "Quel est le but de votre recherche?",
+    id: "search",
+    link: "sizes",
     i: 2,
-    type: "text",
+    type: "button",
+    options: [
+      "électricité",
+      "isolation",
+      "menuiseries intérieures",
+      "toiture / charpente / combles",
+      "sols / murs / plafonds",
+      "cuisine",
+      "fenêtres",
+      "plomberie",
+      "aménagement / agencement",
+    ],
+  },
+  {
+    title: "Connaissez-vous les dimensions de la pièce ?",
+    id: "sizes",
+    link: "info_lastname",
+    i: 3,
+    type: "button",
+    options: ["Oui", "Non"],
   },
   {
     title: "Information",
     id: "info_lastname",
-    link: "choice",
-    i: 2.5,
+    link: "files",
+    i: 3.5,
     type: "info",
     content: "my text",
-  },
-  {
-    title: "Choisissez l'un des trois",
-    id: "choice",
-    link: "files",
-    i: 3,
-    type: "button",
-    options: ["Option 1", "Option 2", "Option 3"],
   },
   {
     title: "Envoyer les fichiers?",
@@ -102,9 +122,9 @@ function Estimation() {
       title: "Good job!",
       html: `
         <div>
-          <p>firstname: ${obj.firstname}</p>
-          <p>lastname: ${obj.lastname}</p>
-          <p>Choice: ${obj.choice}</p>
+          <p>${obj.type}</p>
+          <p>${obj.search}</p>
+          <p>${obj.sizes}</p>
         </div>
       `,
       icon: "success",

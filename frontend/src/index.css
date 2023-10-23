@@ -131,3 +131,7 @@
 .inside-shadow {
   box-shadow: inset 0 0 10px #aa935e;
 }
+
+.Navigation-Anchor {
+  background-color: #9b895f !important;
+}

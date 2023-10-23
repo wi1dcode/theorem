@@ -11,7 +11,7 @@ export const login = async (userData) => {
 
 export const getUsers = async (token) => {
   try {
-    const response = await get(`/account/users`, {
+    const response = await get(`/dashboard/users`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

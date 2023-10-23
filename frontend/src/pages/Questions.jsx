@@ -18,16 +18,16 @@ export default function Questions({
   const [value, setValue] = useState(savedData[item.id] || "")
   const [uploadedFiles, setUploadedFiles] = useState(savedData.files || [])
 
-  useEffect(() => {
-    const element = document.getElementById(index.toString())
-    if (element) {
-      element.focus()
-    }
+  // useEffect(() => {
+  //   const element = document.getElementById(index.toString())
+  //   if (element) {
+  //     element.focus()
+  //   }
 
-    inputDataHandler(item.id, value, uploadedFiles)
-    console.log("updated")
-  }, [index, uploadedFiles])
-
+  //   inputDataHandler(item.id, value, uploadedFiles)
+  //   console.log("updated")
+  //   // eslint-disable-next-line
+  // }, [index, uploadedFiles])
 
   const editItem = async (fieldId) => {
     const selectedItem = data.find((item) => item.id === fieldId)
@@ -67,7 +67,8 @@ export default function Questions({
     await Swal.fire(options).then(async (result) => {
       if (result.isConfirmed) {
         const newValue = result.value
-        await handleChange(newValue)
+        await inputDataHandler(fieldId, newValue)
+        setValue(newValue)
         const updatedItem = { ...savedData, [fieldId]: newValue }
         localStorage.setItem("estimation", JSON.stringify(updatedItem))
       }
@@ -97,7 +98,7 @@ export default function Questions({
 
   const handleChange = async (newValue) => {
     await inputDataHandler(item.id, newValue)
-    await setValue(newValue)
+    setValue(newValue)
     const updatedItem = { ...savedData, [item.id]: newValue }
     localStorage.setItem("estimation", JSON.stringify(updatedItem))
   }
@@ -144,7 +145,7 @@ export default function Questions({
         />
       )}
       {item.type === "button" && (
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap w-1/2 items-center justify-center gap-2 space-x-4">
           {item.options.map((option, i) => (
             <button
               key={i}
@@ -183,7 +184,24 @@ export default function Questions({
             }}
           >
             {item.id === "info_firstname" && (
-              <p className="text-3xl avenir font-semibold">Hello</p>
+              <div className="flex flex-col justify-center items-center gap-y-4 avenir">
+                <h2 className="text-4xl font-semibold">👋 Bonjour</h2>
+                <p className="text-2xl text-center">
+                  nos services éligible uniquement
+                  <br /> dans les codes postales suivantes:
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                  <li className="bg-gray-200 py-1 px-2 rounded-full">95219</li>
+                </ul>
+                <p className="text-1xl text-gray-500 text-center">
+                  si vous etes éligible veuillez cliquez «Commencer»
+                </p>
+              </div>
             )}
             {item.id === "info_lastname" && (
               <p className="text-3xl avenir font-semibold">Choice</p>
@@ -193,7 +211,7 @@ export default function Questions({
                 <p className="mb-2 font-semibold text-center">Check info:</p>
                 <div>
                   <div className="flex gap-x-3">
-                    <p>Firstname: {savedData?.firstname}</p>
+                    <p>Type: {savedData?.type}</p>
                     <button
                       onClick={() => editItem("firstname")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
@@ -202,7 +220,7 @@ export default function Questions({
                     </button>
                   </div>
                   <div className="flex gap-x-3">
-                    <p>Lastname: {savedData?.lastname}</p>
+                    <p>Search: {savedData?.search}</p>
                     <button
                       onClick={() => editItem("lastname")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
@@ -211,7 +229,7 @@ export default function Questions({
                     </button>
                   </div>
                   <div className="flex gap-x-3">
-                    <p>Choice: {savedData?.choice}</p>
+                    <p>Sizes: {savedData?.sizes}</p>
                     <button
                       onClick={() => editItem("choice")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"

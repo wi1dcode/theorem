@@ -75,7 +75,7 @@ function Dashboard() {
             </div>
           </aside>
 
-          <div className="rounded-xl w-full h-[95vh] mt-6 flex justify-center mr-6 p-6 bg-nuage/50">
+          <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-nuage/50">
             <Outlet />
           </div>
         </section>
