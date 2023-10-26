@@ -3,8 +3,10 @@ import NavBar from "../components/NavBar"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useLocation } from "react-router-dom"
 
 function Pro() {
+  const { pathname } = useLocation()
   const tabItems = ["Tes Garanties", "Tes Missions"]
   const [selectedItem, setSelectedItem] = useState(0)
 
@@ -18,8 +20,9 @@ function Pro() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     AOS.init()
-  }, [])
+  }, [pathname])
 
   return (
     <section className="mb-12">

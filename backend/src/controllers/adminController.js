@@ -1,5 +1,6 @@
 require("dotenv").config()
 const User = require("../models/userModel")
+const Client = require("../models/clientModel")
 const Entrepreneur = require("../models/entrepreneurModel")
 const Architecte = require("../models/architecteModel")
 const Manager = require("../models/managerModel")
@@ -14,10 +15,49 @@ const getUsers = async (req, res) => {
   }
 }
 
+const getProjects = async (req, res) => {
+  try {
+    const project = await Client.find()
+    res.json(project)
+  } catch (e) {
+    res.status(400).json({ message: "Get project error" })
+  }
+}
+
+const getProjectByEmail = async (req, res) => {
+  try {
+    const { email } = req.body
+    const project = await Client.findOne({ email })
+
+    if (!project) {
+      return res.status(404).json({ message: "project not found!" })
+    }
+
+    res.json(project)
+  } catch (e) {
+    res.status(400).json({ message: "Get project error" })
+  }
+}
+
 const getUserBySlug = async (req, res) => {
   try {
     const { username } = req.params
     const user = await User.findOne({ username })
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" })
+    }
+
+    res.json(user)
+  } catch (e) {
+    res.status(400).json({ message: "Get user error" })
+  }
+}
+
+const getUserByEmail = async (req, res) => {
+  try {
+    const { email } = req.body
+    const user = await User.findOne({ email })
 
     if (!user) {
       return res.status(404).json({ message: "User not found!" })
@@ -302,6 +342,7 @@ const getPendingManager = async (req, res) => {
 module.exports = {
   getUsers,
   getUserBySlug,
+  getUserByEmail,
   deleteUser,
   giveAdmin,
   givePro,
@@ -315,4 +356,6 @@ module.exports = {
   getPendingArchitecte,
   getPendingEntrepreneur,
   getPendingManager,
+  getProjects,
+  getProjectByEmail,
 }

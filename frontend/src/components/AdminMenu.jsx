@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function AdminMenu() {
   return (
     <nav className="flex-1 -mx-3 space-y-3 ">
-      <h2 className="text-center">Admin</h2>
+      <h2 className="text-center">You are Admin</h2>
       <hr />
       <Link
         className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -51,7 +51,7 @@ export default function AdminMenu() {
 
       <Link
         className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-        to="#"
+        to="./projects"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

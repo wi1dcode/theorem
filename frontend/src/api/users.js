@@ -2,7 +2,7 @@ import { get, post } from "./api"
 
 export const login = async (userData) => {
   try {
-    const response = await post(`http://localhost:5000/account/login`, userData)
+    const response = await post(`/account/login`, userData)
     return response.data
   } catch (error) {
     throw error

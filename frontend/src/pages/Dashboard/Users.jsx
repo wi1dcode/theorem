@@ -33,6 +33,7 @@ function Users() {
           <User
             key={user._id}
             name={user.name || "none"}
+            type={user.type}
             date={format(new Date(user.createdAt), "dd/MM/yyyy")}
           />
         ))}

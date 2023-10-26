@@ -18,7 +18,7 @@ function Work() {
   return (
     <section>
       <div className="relative flex justify-center items-center">
-        <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 avenir z-10">
+        <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 avenir font-semibold z-10">
           Nos réalisations
           {/* <span className="text-2xl ml-2"> 🎬</span> */}
         </h2>

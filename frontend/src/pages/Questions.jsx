@@ -18,16 +18,16 @@ export default function Questions({
   const [value, setValue] = useState(savedData[item.id] || "")
   const [uploadedFiles, setUploadedFiles] = useState(savedData.files || [])
 
-  // useEffect(() => {
-  //   const element = document.getElementById(index.toString())
-  //   if (element) {
-  //     element.focus()
-  //   }
+  useEffect(() => {
+    const element = document.getElementById(index.toString())
+    if (element) {
+      element.focus()
+    }
 
-  //   inputDataHandler(item.id, value, uploadedFiles)
-  //   console.log("updated")
-  //   // eslint-disable-next-line
-  // }, [index, uploadedFiles])
+    inputDataHandler(item.id, value, uploadedFiles)
+    console.log("updated")
+    // eslint-disable-next-line
+  }, [index, uploadedFiles])
 
   const editItem = async (fieldId) => {
     const selectedItem = data.find((item) => item.id === fieldId)
@@ -208,12 +208,14 @@ export default function Questions({
             )}
             {item.id === "confirmation" && (
               <div className="text-3xl avenirtext-center">
-                <p className="mb-2 font-semibold text-center">Check info:</p>
+                <p className="mb-2 font-semibold text-center">
+                  Vérifier les informations:
+                </p>
                 <div>
                   <div className="flex gap-x-3">
                     <p>Type: {savedData?.type}</p>
                     <button
-                      onClick={() => editItem("firstname")}
+                      onClick={() => editItem("type")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit
@@ -222,7 +224,7 @@ export default function Questions({
                   <div className="flex gap-x-3">
                     <p>Search: {savedData?.search}</p>
                     <button
-                      onClick={() => editItem("lastname")}
+                      onClick={() => editItem("search")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit
@@ -231,7 +233,7 @@ export default function Questions({
                   <div className="flex gap-x-3">
                     <p>Sizes: {savedData?.sizes}</p>
                     <button
-                      onClick={() => editItem("choice")}
+                      onClick={() => editItem("sizes")}
                       className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit

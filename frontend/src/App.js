@@ -19,6 +19,8 @@ import ProClients from "./pages/Pro/ProClients"
 import ProWork from "./pages/Pro/ProWork"
 import ProContact from "./pages/Pro/ProContact"
 import ProMain from "./pages/Pro/ProMain"
+import Projects from "./pages/Dashboard/Projects"
+import Gallery from "./pages/Gallery"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -40,6 +42,7 @@ function App() {
         <Route path="/services" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/realisations" element={<Realisations />} />
+        <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/parteneriat" element={<Parteneriat />} />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/contact" element={<Home />} />
@@ -47,6 +50,7 @@ function App() {
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route index element={<Menu />} />
           <Route path="users" element={<Users />} />
+          <Route path="projects" element={<Projects />} />
         </Route>
         <Route path="pro/*" element={<Pro />}>
           <Route index element={<ProMain />} />

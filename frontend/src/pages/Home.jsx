@@ -11,8 +11,10 @@ import NavBar from "../components/NavBar"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useLocation } from "react-router-dom"
 
 function Home() {
+  const { pathname } = useLocation()
   const [isVisible, setIsVisible] = useState(false)
 
   const toggleVisibility = () => {
@@ -29,6 +31,10 @@ function Home() {
       behavior: "smooth",
     })
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     AOS.init()
