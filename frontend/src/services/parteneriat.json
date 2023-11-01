@@ -1,0 +1,108 @@
+[
+    {
+      "id": "entrepreneur",
+      "title": "Entrepreneur(euse) du Bâtiment",
+      "description": "Tu es entrepreneur(euse) du bâtiment ? Tu prends ton travail à coeur ? Tu es accro à la finition millimétrée ? Alors oui, tu as toute ta place chez Theorem Services. Rejoins nous dès maintenant. On t’attend !",
+      "mustHave": ["Tu es passionné", "Tu as au moins 3 ans d’expérience dans le monde du bâtiment", "Tu as les assurances décennales pour tous les corps d’états que tu exerces", "Tu as soif de chantiers !"],
+      "garanties": [
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "missions": [
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    },
+    {
+      "id": "architecte",
+      "title": "Architecte Décorateur(ice)",
+      "description": "Tu es architecte et/ou décorateur(ice) ? Tu façonnes les intérieurs plus vite que ton ombre ? Tu sais donner du sens et faire vivre un intérieur comme personne ? Au top ! Nous avons besoin de professionels de ton calibre !",
+      "mustHave": ["Tu es passionné", "Tu as au moins 3 ans d’expérience dans le monde du bâtiment", "Tu as les assurances décennales pour tous les corps d’états que tu exerces", "Tu as soif de chantiers !"],
+      "garanties": [
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "missions": [
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    },
+    {
+      "id": "maitredouevre",
+      "title": "Maître(sse) d’Oeuvre",
+      "description": "Tu es maître(esse) d’oeuvre ? Diriger un chantier et le mener à son terme dans le respect des contraintes coût, qualité, délais c’est ton quotidien ? Tu as à coeur la satisfaction client ? Toque donc à notre porte !",
+      "mustHave": ["Tu es passionné", "Tu as au moins 3 ans d’expérience dans le monde du bâtiment", "Tu as les assurances décennales pour tous les corps d’états que tu exerces", "Tu as soif de chantiers !"],
+      "garanties": [
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Des projets super qualifiés",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "missions": [
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        },
+        {
+          "title": "Tu respectes notre code d’honneur",
+          "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, earum?"
+        }
+      ],
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    }
+  ]
+  

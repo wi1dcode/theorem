@@ -1,0 +1,24 @@
+[
+    {
+      "id": "entrepreneur",
+      "type": "Entrepreneur(euse)",
+      "title": "du Bâtiment",
+      "description": "Tu es entrepreneur(euse) du bâtiment ? Tu prends ton travail à coeur ? Tu es accro à la finition millimétrée ? Alors oui, tu as toute ta place chez Theorem Services. Rejoins nous dès maintenant. On t’attend !",
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    },
+    {
+      "id": "architecte",
+      "type": "Architecte",
+      "title": "Décorateur(ice)",
+      "description": "Tu es architecte et/ou décorateur(ice) ? Tu façonnes les intérieurs plus vite que ton ombre ? Tu sais donner du sens et faire vivre un intérieur comme personne ? Au top ! Nous avons besoin de professionels de ton calibre !",
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    },
+    {
+      "id": "maitredouevre",
+      "type": "Maître(sse)",
+      "title": "d’Oeuvre",
+      "description": "Tu es maître(esse) d’oeuvre ? Diriger un chantier et le mener à son terme dans le respect des contraintes coût, qualité, délais c’est ton quotidien ? Tu as à coeur la satisfaction client ? Toque donc à notre porte !",
+      "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
+    }
+  ]
+  

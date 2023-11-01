@@ -6,25 +6,25 @@ function NavBarPro() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navigation = [
-    {
-      title: "L'entreprise",
-      path: "/pro",
-    },
-    {
-      title: "Savoir-faire",
-      path: "/pro/savoir-faire",
-    },
-    {
-      title: "Clients",
-      path: "/pro/clients",
-    },
+    // {
+    //   title: "L'entreprise",
+    //   path: "/pro",
+    // },
+    // {
+    //   title: "Savoir-faire",
+    //   path: "/pro/savoir-faire",
+    // },
+    // {
+    //   title: "Clients",
+    //   path: "/pro/clients",
+    // },
+    // {
+    //   title: "Contact",
+    //   path: "/pro/contact",
+    // },
     {
       title: "Réalisations",
       path: "/pro/realisations",
-    },
-    {
-      title: "Contact",
-      path: "/pro/contact",
     },
   ]
 
@@ -35,7 +35,7 @@ function NavBarPro() {
   return (
     <nav className="border-gray-200 shadow bg-gray-50 z-50 w-full sticky top-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-        <Link to="/pro" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img
             src={LogoBlack}
             className="md:h-20 h-14 mr-3"

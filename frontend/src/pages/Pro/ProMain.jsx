@@ -2,6 +2,10 @@ import React from "react"
 import logo from "../../images/icons/logo_black.png"
 import CountUp from "react-countup"
 
+import ProSavoir from "./ProSavoir.jsx"
+import ProClients from "./ProClients.jsx"
+import ProContact from "./ProContact.jsx"
+
 function Pro() {
   return (
     <div className="mt-6">
@@ -111,11 +115,16 @@ function Pro() {
               </div>
             </div>
           </div>
-          <p className="mx-auto mb-4 text-gray-600 sm:text-center lg:max-w-2xl lg:mb-6 md:px-16">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
         </div>
+      </div>
+      <div className="mb-12 ">
+        <ProSavoir />
+      </div>
+      <div className="mb-6">
+        <ProClients />
+      </div>
+      <div className="mt-6">
+        <ProContact />
       </div>
     </div>
   )

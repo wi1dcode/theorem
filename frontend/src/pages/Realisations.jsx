@@ -30,7 +30,7 @@ function Realisations() {
               <Link
                 to={`/realisations/${item.id}`}
                 key={item.id}
-                className="w-[30%] max-md:w-[80%] overflow-hidden shadow-lg rounded-xl"
+                className="w-[30%] max-md:w-[80%] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
               >
                 <div>
                   <img

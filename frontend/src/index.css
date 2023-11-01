@@ -135,3 +135,24 @@
 .Navigation-Anchor {
   background-color: #9b895f !important;
 }
+
+.paper {
+  margin: 2em auto;
+  background: #fff;
+  box-shadow: 4px 4px 0 #c8b790;
+  background-image: linear-gradient(
+      90deg,
+      #fff 12px,
+      0,
+      #c8b790 15px,
+      0,
+      #eee9dd 20px,
+      0,
+      #fff 100%
+    ),
+    radial-gradient(circle closest-side, rgba(255, 255, 255, 0) 88%, #fff 100%),
+    radial-gradient(circle at 22px 8px, #eee9dd 40%, #c8b790 40%, #c8b790 100%);
+  background-size: 32px 8px, 32px 16px, 32px 16px;
+  background-repeat: space no-repeat;
+  background-position: center top, center 6px, center 6px;
+}
