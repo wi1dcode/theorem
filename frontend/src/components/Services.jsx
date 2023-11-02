@@ -2,11 +2,11 @@ function Services() {
   return (
     <section className="w-full">
       <div className="relative flex justify-center items-center">
-        <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 avenir z-10">
+        <h2 className="text-center underline max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
           Service
           {/* <span className="text-2xl ml-2"> 🤝</span> */}
         </h2>
-        <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" />
+        {/* <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" /> */}
       </div>
       <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center">
         <article className="shadow-xl w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">

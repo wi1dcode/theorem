@@ -1,36 +1,50 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import LogoBlack from "../images/icons/logo_black.png"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import LogoBlack from "../images/icons/logo2.png";
 
 function NavBarPro() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
-    // {
-    //   title: "L'entreprise",
-    //   path: "/pro",
-    // },
-    // {
-    //   title: "Savoir-faire",
-    //   path: "/pro/savoir-faire",
-    // },
-    // {
-    //   title: "Clients",
-    //   path: "/pro/clients",
-    // },
-    // {
-    //   title: "Contact",
-    //   path: "/pro/contact",
-    // },
+    {
+      title: "L'entreprise",
+      path: "/pro",
+      onClick: () => scrollToSection("main"),
+    },
+    {
+      title: "Savoir-faire",
+      path: "/pro",
+      onClick: () => scrollToSection("savoir"),
+    },
+    {
+      title: "Clients",
+      path: "/pro",
+      onClick: () => scrollToSection("clients"),
+    },
+    {
+      title: "Contact",
+      path: "/pro",
+      onClick: () => scrollToSection("contact"),
+    },
     {
       title: "Réalisations",
       path: "/pro/realisations",
     },
-  ]
+  ];
+
+  const scrollToSection = (sectionId) => {
+    setTimeout(() => {
+      const contactSection = document.getElementById(sectionId);
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setIsOpen(false);
+    }, 100);
+  };
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="border-gray-200 shadow bg-gray-50 z-50 w-full sticky top-0">
@@ -46,7 +60,7 @@ function NavBarPro() {
           <div className="relative">
             <button
               onClick={() => {
-                toggleMenu()
+                toggleMenu();
               }}
               type="button"
               className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
@@ -81,20 +95,20 @@ function NavBarPro() {
               return (
                 <li key={idx} className="max-md:w-full">
                   <Link
-                    onClick={() => setIsOpen(false)}
+                    onClick={item.onClick}
                     to={item.path}
                     className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
                   >
                     {item.title}
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default NavBarPro
+export default NavBarPro;

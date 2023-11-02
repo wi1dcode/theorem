@@ -11,7 +11,7 @@ function Pro() {
 
   return (
     <>
-      <div>
+      <div className="bg-gray-50 z-50 w-full sticky top-0">
         <NavBarPro />
       </div>
       <div data-aos="fade-up" data-aos-duration="1000">

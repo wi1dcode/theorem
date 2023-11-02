@@ -1,14 +1,14 @@
-import React from "react"
-import logo from "../../images/icons/logo_black.png"
-import CountUp from "react-countup"
+import React from "react";
+import logo from "../../images/icons/logo_black.png";
+import CountUp from "react-countup";
 
-import ProSavoir from "./ProSavoir.jsx"
-import ProClients from "./ProClients.jsx"
-import ProContact from "./ProContact.jsx"
+import ProSavoir from "./ProSavoir.jsx";
+import ProClients from "./ProClients.jsx";
+import ProContact from "./ProContact.jsx";
 
 function Pro() {
   return (
-    <div className="mt-6">
+    <div className="mt-6" id="main">
       <div>
         <div className="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-20">
           <img src={logo} alt="logo" className="pb-6 w-[500px] mx-auto" />
@@ -117,17 +117,17 @@ function Pro() {
           </div>
         </div>
       </div>
-      <div className="mb-12 ">
+      <div className="mb-12" id="savoir">
         <ProSavoir />
       </div>
-      <div className="mb-6">
+      <div className="mb-6" id="clients">
         <ProClients />
       </div>
-      <div className="mt-6">
+      <div className="mt-6" id="contact">
         <ProContact />
       </div>
     </div>
-  )
+  );
 }
 
-export default Pro
+export default Pro;

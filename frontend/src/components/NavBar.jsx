@@ -1,22 +1,22 @@
-import { Link, NavLink } from "react-router-dom"
-import LogoBlack from "../images/icons/logo_black.png"
-import { useEffect, useState } from "react"
-import UserSvg from "../images/svg/UserSvg"
+import { Link, NavLink } from "react-router-dom";
+import LogoBlack from "../images/icons/logo2.png";
+import { useEffect, useState } from "react";
+import UserSvg from "../images/svg/UserSvg";
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [drapdown, setDrapdown] = useState({
     isActive: false,
     idx: null,
-  })
+  });
 
   const dropdownNavs = [
     {
       label: "Label",
       navs: [
         {
-          title: "Titre",
-          desc: "Duis aute irure dolor in reprehenderit",
+          title: "Nos expertisés",
+          desc: "Nos expertisés",
           path: "/",
           icon: (
             <svg
@@ -36,9 +36,9 @@ function NavBar() {
           ),
         },
         {
-          title: "Titre",
-          desc: "Duis aute irure dolor in reprehenderit",
-          path: "/",
+          title: "Partenariat",
+          desc: "Rejoindre le réseau Theorem Services ",
+          path: "/partenariat",
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +71,8 @@ function NavBar() {
           ),
         },
         {
-          title: "Titre",
-          desc: "Duis aute irure dolor in reprehenderit",
+          title: "Demarches écologiques",
+          desc: "Coming soon",
           path: "/",
           icon: (
             <svg
@@ -132,57 +132,64 @@ function NavBar() {
         },
       ],
     },
-  ]
+  ];
 
   const navigation = [
     {
-      title: "Nos réalisations",
+      title: "Réalisations",
       path: "/realisations",
       onClick: () => setIsOpen(false),
       isDrapdown: false,
     },
 
     {
-      title: "Parteneriat",
-      path: "/parteneriat",
+      title: "🌿 Rénovation énergétique",
+      path: "/",
     },
-    {
-      title: "Estimation",
-      path: "/estimation",
-    },
+
     {
       title: "En savoir plus",
       path: "/",
       isDrapdown: true,
       navs: dropdownNavs,
     },
-  ]
+    {
+      title: "Estimation gratuite",
+      path: "/estimation",
+      class: "bg-marron md:logo-pulse",
+    },
+    {
+      title: "📞",
+      path: "/",
+      onClick: () => scrollToContact("contact"),
+    },
+  ];
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const scrollToContact = (sectionId) => {
     setTimeout(() => {
-      const contactSection = document.getElementById(sectionId)
+      const contactSection = document.getElementById(sectionId);
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" })
+        contactSection.scrollIntoView({ behavior: "smooth" });
       }
-      setIsOpen(false)
-    }, 100)
-  }
+      setIsOpen(false);
+    }, 100);
+  };
 
   useEffect(() => {
     document.onclick = (e) => {
-      const target = e.target
+      const target = e.target;
       if (!target.closest(".nav-menu"))
-        setDrapdown({ isActive: false, idx: null })
-    }
-  }, [])
+        setDrapdown({ isActive: false, idx: null });
+    };
+  }, []);
 
   return (
     <nav className="border-gray-200 bg-gray-50 z-50 w-full sticky top-0">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+      <div className="flex flex-wrap items-center justify-around max-md:justify-between mx-auto p-2">
         <Link to="/" className="flex items-center">
           <img
             src={LogoBlack}
@@ -194,7 +201,7 @@ function NavBar() {
           <div className="relative">
             <button
               onClick={() => {
-                toggleMenu()
+                toggleMenu();
               }}
               type="button"
               className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
@@ -224,18 +231,18 @@ function NavBar() {
             isOpen ? "max-h-96" : "max-md:max-h-0 max-md:overflow-hidden"
           }`}
         >
-          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 items-center max-md:items-start">
+          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-6 md:mt-0 md:border-0 items-center max-md:items-start">
             {navigation.map((item, idx) => {
               return (
                 <li key={idx} className="max-md:w-full">
                   {item.isDrapdown ? (
                     <button
-                      className="w-full flex md:text-xl items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                      className={` w-full flex md:text-xl items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
                       onClick={() => {
                         setDrapdown({
                           idx,
                           isActive: !drapdown.isActive,
-                        })
+                        });
                       }}
                     >
                       {item.title}
@@ -272,7 +279,7 @@ function NavBar() {
                       to={item.path}
                       target={item.target}
                       onClick={item.onClick}
-                      className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                      className={`block ${item.class} avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
                     >
                       {item.title}
                     </Link>
@@ -294,7 +301,7 @@ function NavBar() {
                                     to={navItem.path}
                                     onClick={() => {
                                       if (navItem.onClick) {
-                                        navItem.onClick()
+                                        navItem.onClick();
                                       }
                                     }}
                                     className="flex gap-3 items-center"
@@ -322,16 +329,17 @@ function NavBar() {
                     ""
                   )}
                 </li>
-              )
+              );
             })}
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             <li>
               <NavLink
                 to="/pro"
+                target="_blank"
                 onClick={() => setIsOpen(false)}
-                className="block avenir max-md:mb-1 md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                className="block avenir max-md:mb-1 md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 hover:bg-marron md:ease-in-out"
               >
-                Client PRO
+                Clients PRO
               </NavLink>
             </li>
             <li>
@@ -350,7 +358,7 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

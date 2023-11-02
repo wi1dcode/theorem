@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Contact() {
   return (
@@ -31,9 +32,13 @@ function Contact() {
                   <span className="text-5xl">🗺</span>
                   <p>
                     Nous sommes situés à <br />
-                    <span className="font-semibold">
+                    <Link
+                      to="https://maps.app.goo.gl/QvpcjKJfxtMFy3Cb7"
+                      target="_blank"
+                      className="font-semibold"
+                    >
                       27 Rue de Stalingrad, 95120 Ermont
-                    </span>
+                    </Link>
                   </p>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
@@ -84,7 +89,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

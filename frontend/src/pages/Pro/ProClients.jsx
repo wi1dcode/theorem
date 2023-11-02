@@ -41,7 +41,7 @@ function ProClients() {
           Ils nous font confience
         </h2>
       </div>
-      <div className="w-[65%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-6">
+      <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-6">
         {data.map((clients) => {
           return (
             <div

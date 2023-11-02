@@ -34,7 +34,7 @@ function Realisations() {
               >
                 <div>
                   <img
-                    className="w-full"
+                    className="w-full h-[250px] object-cover"
                     src={item.img}
                     alt="Sunset in the mountains"
                   />

@@ -101,7 +101,7 @@ function Pro() {
           {parteneriatData.map((item) => (
             <div
               key={item.id}
-              className="w-[55%] h-[85vh] bg-marron mx-auto mt-20 relative flex justify-between py-16 px-14 paper"
+              className="w-[65%] h-[85vh] bg-marron mx-auto mt-20 relative flex justify-between py-16 px-14 paper"
               id={item.id}
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -170,7 +170,7 @@ function Pro() {
                   </ul>
 
                   {item[selectedItem].map((selectedItemData) => (
-                    <div className="flex flex-col items-center justify-center text-center px-4 py-2 gap-y-4 rounded-2xl">
+                    <div className="flex flex-col items-center justify-center text-center px-4 gap-y-2 rounded-2xl">
                       <article
                         key={selectedItemData.title}
                         className="border-b-2 border-marron py-2"

@@ -44,7 +44,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:id" element={<Gallery />} />
-        <Route path="/parteneriat" element={<Parteneriat />} />
+        <Route path="/partenariat" element={<Parteneriat />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />
