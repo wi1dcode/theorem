@@ -1,3 +1,8 @@
+import DiamondSvg from "../images/svg/DiamondSvg"
+import TimeSvg from "../images/svg/TimeSvg"
+import CardSvg from "../images/svg/CardSvg"
+import BestSvg from "../images/svg/BestSvg"
+
 function Services() {
   return (
     <section className="w-full">
@@ -10,7 +15,8 @@ function Services() {
       </div>
       <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center">
         <article className="shadow-xl w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
-          <span className="text-6xl">⏰</span>
+          {/* <span className="text-6xl">⏰</span> */}
+          <TimeSvg />
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-2">
               Estimation gratuite
@@ -21,7 +27,8 @@ function Services() {
           </div>
         </article>
         <article className="shadow-xl w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
-          <span className="text-6xl">🏆</span>
+          {/* <span className="text-6xl">🏆</span> */}
+          <BestSvg />
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-2">
               Les meilleurs artisans
@@ -32,7 +39,8 @@ function Services() {
           </div>
         </article>
         <article className="shadow-xl w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
-          <span className="text-6xl">💳</span>
+          {/* <span className="text-6xl">💳</span> */}
+          <CardSvg />
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-2">Simple et sécurisé</h3>
             <p className="avenir">
@@ -41,7 +49,8 @@ function Services() {
           </div>
         </article>
         <article className="shadow-xl w-[45%] md:w-[14%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
-          <span className="text-6xl">💎</span>
+          {/* <span className="text-6xl">💎</span> */}
+          <DiamondSvg />
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-2">
               Une équipe d’experts

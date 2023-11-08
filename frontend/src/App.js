@@ -22,6 +22,7 @@ import ProMain from "./pages/Pro/ProMain"
 import Projects from "./pages/Dashboard/Projects"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
+import Expertises from "./pages/Expertises"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/expertises" element={<Expertises />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/partenariat" element={<Parteneriat />} />

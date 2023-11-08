@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "description": "Pilotage Projet / Agencement",
+    "icon": "ProjectSvg"
+  },
+  {
+    "id": 2,
+    "description": "Isolation",
+    "icon": "IsolationSvg"
+  },
+  {
+    "id": 3,
+    "description": "Plomberie",
+    "icon": "PlomberieSvg"
+  },
+  {
+    "id": 4,
+    "description": "Électricité / Domotique Panneaux Solaires / Bornes de recharge pour véhicules électriques (IRVE)",
+    "icon": "ElectroSvg"
+  },
+  {
+    "id": 5,
+    "description": "Plâterie",
+    "icon": "PlaterieSvg"
+  },
+  {
+    "id": 6,
+    "description": "Couverture",
+    "icon": "CouvertureSvg"
+  },
+  {
+    "id": 7,
+    "description": "Maçonnerie",
+    "icon": "MaconnerieSvg"
+  },
+  {
+    "id": 8,
+    "description": "Peinture",
+    "icon": "PeintureSvg"
+  },
+  {
+    "id": 9,
+    "description": "Sols",
+    "icon": "SolsSvg"
+  }
+]

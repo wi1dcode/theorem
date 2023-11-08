@@ -1,13 +1,22 @@
-import React from "react"
-import { useParams } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Link, useLocation, useParams } from "react-router-dom"
 import NavBar from "../components/NavBar"
 
 const GalleryData = require("../services/gallery.json")
 
 function Gallery() {
+  const { pathname } = useLocation()
   const params = useParams()
   const { id } = params
   const galleryItem = GalleryData.find((item) => item.id === parseInt(id))
+  const similarWorks = GalleryData.filter(
+    (item) =>
+      galleryItem.suggestion.includes(item.id) && item.id !== galleryItem.id
+  )
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
     <div>
@@ -49,6 +58,28 @@ function Gallery() {
               alt={galleryItem.title}
               className="rounded-xl "
             />
+          </div>
+        </div>
+        <span className="inline-block h-1 w-1/2 rounded bg-marron mt-10"></span>
+
+        <div className="mt-6 flex flex-col justify-center items-center">
+          <h2 className="text-3xl font-semibold">Vous pourriez aussi aimer:</h2>
+          <div className="flex flex-wrap justify-center mt-4 text-center">
+            {similarWorks.map((item) => (
+              <div
+                key={item.id}
+                className="m-4 transition duration-300 transform hover:scale-105"
+              >
+                <Link to={`/realisations/${item.id}`}>
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="rounded-xl w-64 h-48 object-cover cursor-pointer shadow "
+                  />
+                </Link>
+                <h3 className="text-xl mt-2">{item.title}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </div>

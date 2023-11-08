@@ -129,7 +129,7 @@ function Pro() {
                 </div>
                 <div className="flex justify-start">
                   <button className="bg-marron px-10 font-semibold text-white py-2 rounded-lg">
-                    Candidater
+                    Contacter nous pour candidater
                   </button>
                 </div>
               </div>
