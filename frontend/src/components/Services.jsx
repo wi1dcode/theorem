@@ -1,7 +1,7 @@
-import DiamondSvg from "../images/svg/DiamondSvg";
-import TimeSvg from "../images/svg/TimeSvg";
-import CardSvg from "../images/svg/CardSvg";
-import BestSvg from "../images/svg/BestSvg";
+import DiamondSvg from "../images/svg/DiamondSvg"
+import TimeSvg from "../images/svg/TimeSvg"
+import CardSvg from "../images/svg/CardSvg"
+import BestSvg from "../images/svg/BestSvg"
 
 function Services() {
   return (
@@ -62,7 +62,7 @@ function Services() {
         </article>
       </div>
     </section>
-  );
+  )
 }
 
-export default Services;
+export default Services
