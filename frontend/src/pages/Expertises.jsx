@@ -103,7 +103,7 @@ function Expertises() {
               <h2 className="font-semibold  text-2xl mb-2">{info.title}</h2>
               <ul className="text-center flex flex-col gap-y-2">
                 {info.description.map((description) => (
-                  <li>{description}</li>
+                  <li key={description}>{description}</li>
                 ))}
               </ul>
             </article>

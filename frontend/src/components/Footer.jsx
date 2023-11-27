@@ -25,7 +25,7 @@ function Footer() {
               className="inline-flex items-center"
             >
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                <img src={Logo} alt="theorem-logo" className="w-[120px]" />
+                <img src={Logo} alt="theorem-logo" className="w-[170px]" />
               </span>
             </Link>
             <div className="mt-4 lg:max-w-sm">

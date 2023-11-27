@@ -1,5 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
+import TelSvg from "../images/svg/TelSvg"
+import MapSvg from "../images/svg/MapSvg"
+import BizSvg from "../images/svg/BizSvg"
+import MailSvg from "../images/svg/MailSvg"
 
 function Contact() {
   return (
@@ -29,7 +33,9 @@ function Contact() {
               </div>
               <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap">
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">🗺</span>
+                  <span className="text-5xl">
+                    <MapSvg />
+                  </span>
                   <p>
                     Nous sommes situés à <br />
                     <Link
@@ -42,11 +48,15 @@ function Contact() {
                   </p>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">💼</span>
+                  <span className="text-5xl">
+                    <BizSvg />
+                  </span>
                   <p>Informations complémentaires...</p>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">📧</span>
+                  <span className="text-5xl">
+                    <MailSvg />
+                  </span>
                   <p>
                     Contactez-nous pour nous demander de l'aide, nous vous
                     contacterons dans les plus brefs délais
@@ -65,7 +75,9 @@ function Contact() {
                   </a>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">☎️</span>
+                  <span className="text-5xl">
+                    <TelSvg />
+                  </span>
                   <p>
                     Contactez-nous pour nous demander de l'aide, nous vous
                     contacterons dans les plus brefs délais
@@ -89,7 +101,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

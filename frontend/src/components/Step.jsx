@@ -5,9 +5,9 @@ export const Step = () => {
     <div className="px-4 mb-12 pt-16 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-20">
       <div className="max-w-xl mb-10 md:mx-auto max-sm:text-center sm:text-center lg:max-w-2xl md:mb-12">
         <div>
-          <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+          {/* <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
             Notre super accompagnement
-          </p>
+          </p> */}
         </div>
         <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           <span className="relative inline-block">
@@ -38,8 +38,8 @@ export const Step = () => {
           ça marche ? 🤔
         </h2>
         <p className="text-base text-gray-700 md:text-lg">
-          Trois étapes pour des travaux sans stress, votre expert Theorem
-          Services vous guide dès réception de votre demande en ligne.
+          Découvrez la simplicité avec Theorem en 3 étapes. Détendez-vous, on
+          vous accompagne dès la prise de contact en ligne
         </p>
       </div>
       <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
@@ -48,18 +48,17 @@ export const Step = () => {
             1
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
-            Décrivez-nous votre projet
+            Partagez les détails de votre projet
           </h6>
           <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            maxime in tenetur ut laborum molestiae ratione consectetur
-            laudantium. Voluptate, voluptas!
+            Lancez-vous dans votre projet en partageant les détails avec nous
+            pour obtenir une estimation gratuite personnalisée.
           </p>
           <Link
             to="/estimation"
             className="flex justify-center bg-blue-200 items-center rounded-full w-[100px] mx-auto font-semibold text-white"
           >
-            Décrire
+            Estimation
           </Link>
           <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
             <svg
@@ -91,12 +90,11 @@ export const Step = () => {
             2
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
-            Nous l’estimons gratuitement sous 24h
+            Nous l’estimons gratuitement et sur mesure
           </h6>
           <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-            maxime nisi illum, iure eligendi ad cupiditate repellendus dolorem
-            minus consectetur!
+            Nous élaborons votre estimation gratuite et personnalisée et vous la
+            transmettons rapidement.
           </p>
           <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
             <svg
@@ -128,12 +126,12 @@ export const Step = () => {
             3
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
-            Nous vous accompagnons jusqu’à la réception du chantier
+            De la conception à la réalisation : notre expertise à votre service
           </h6>
           <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            officia illo veritatis corporis, voluptas hic numquam magni
-            explicabo. Animi, vel?
+            Nous vous accompagnons tout au long de votre projet, de la
+            conception à la réalisation sur le chantier, avec expertise et
+            dévouement.
           </p>
         </div>
       </div>

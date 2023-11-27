@@ -27,10 +27,10 @@ function About() {
             </div>
             <div className="max-w-xl mb-6">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                Theorem Services
+                Chez Theorem,
                 <br className="hidden md:block" />
-                your next{" "}
-                <span className="inline-block text-green-500">destination</span>
+                nous transformons chaque projet en un carré{" "}
+                <span className="inline-block text-green-500">parfait</span>
               </h2>
               <p className="text-base text-gray-700 md:text-lg mb-1">
                 Depuis sa création, THEOREM SERVICES est reconnue pour ses
@@ -61,7 +61,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Prévoyance
+                    Transparente
                   </li>
                   <li className="flex">
                     <span className="mr-1">
@@ -79,7 +79,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Confiance
+                    Habile
                   </li>
                   <li className="flex">
                     <span className="mr-1">
@@ -97,7 +97,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Précision
+                    Efficace
                   </li>
                 </ul>
                 <ul className="space-y-3">
@@ -117,7 +117,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Précision
+                    Respectueuse
                   </li>
                   <li className="flex">
                     <span className="mr-1">
@@ -135,7 +135,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Précision
+                    Experte
                   </li>
                   <li className="flex">
                     <span className="mr-1">
@@ -153,7 +153,7 @@ function About() {
                         />
                       </svg>
                     </span>
-                    Précision
+                    Maîtrisée
                   </li>
                 </ul>
               </div>

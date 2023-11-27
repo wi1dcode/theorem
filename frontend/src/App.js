@@ -23,6 +23,8 @@ import Projects from "./pages/Dashboard/Projects"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
 import Expertises from "./pages/Expertises"
+import Eco from "./pages/Eco"
+import Energetique from "./pages/Energetique"
 
 function App() {
   const { token } = useContext(UserContext)
@@ -47,6 +49,8 @@ function App() {
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/partenariat" element={<Parteneriat />} />
+        <Route path="/eco" element={<Eco />} />
+        <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />

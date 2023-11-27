@@ -156,3 +156,7 @@
   background-repeat: space no-repeat;
   background-position: center top, center 6px, center 6px;
 }
+
+.eco_bg {
+  background-image: url("./images/eco.jpg");
+}
