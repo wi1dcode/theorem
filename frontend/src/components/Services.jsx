@@ -14,7 +14,7 @@ function Services() {
         {/* <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" /> */}
       </div>
       <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center">
-        <article className="shadow-xl w-[45%] md:w-[16%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">⏰</span> */}
           <TimeSvg />
           <div className="text-center px-3">
@@ -26,7 +26,7 @@ function Services() {
             </p>
           </div>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[16%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">🏆</span> */}
           <BestSvg />
           <div className="text-center px-3">
@@ -36,7 +36,7 @@ function Services() {
             <p className="avenir">Sélectionnés pour votre projet d’exception</p>
           </div>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[16%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">💳</span> */}
           <CardSvg />
           <div className="text-center px-3">
@@ -48,7 +48,7 @@ function Services() {
             </p>
           </div>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[16%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">💎</span> */}
           <DiamondSvg />
           <div className="text-center px-3">
