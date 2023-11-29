@@ -17,10 +17,22 @@ function Pro() {
               Theorem Services c'est:
             </h2> */}
             <p className="text-base text-gray-700 md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-              numquam alias deserunt consectetur ab obcaecati, et excepturi enim
-              vel vero quo neque doloribus! Esse quasi ab facere tempore sint
-              commodi?
+              <span className="font-semibold">
+                Bienvenue dans l'Espace Professionnel de THEOREM.
+              </span>
+              <br />
+              <br />
+              Chez THEOREM, nous comprenons l'importance d'une collaboration
+              efficace pour mener à bien vos projets professionnels. Dans cet espace dédié aux
+              professionnels, nous mettons à votre disposition l'ensemble de nos
+              compétences techniques et relationnelles ; que vous soyez engagés
+              dans la conception, la réalisation ou la gestion de travaux, notre
+              équipe expérimentée est prête à relever tous les défis pour
+              concrétiser vos ambitions.<br/><br/>
+              Explorez l'Espace Professionnel de THEOREM pour découvrir comment
+              nous pouvons être le partenaire stratégique dont vous avez besoin.
+              Merci de choisir la qualité, la confiance et l'excellence pour
+              mener à bien vos projets professionnels.
             </p>
           </div>
           <div className="grid gap-8 row-gap-5 mb-8 md:row-gap-8 lg:grid-cols-4 sm:grid-cols-2">

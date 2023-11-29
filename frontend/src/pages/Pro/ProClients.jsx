@@ -38,7 +38,7 @@ function ProClients() {
     <div>
       <div>
         <h2 className="font-semibold text-center mt-8 avenir text-3xl">
-          Ils nous font confience
+          Ils nous font confiance
         </h2>
       </div>
       <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-6">

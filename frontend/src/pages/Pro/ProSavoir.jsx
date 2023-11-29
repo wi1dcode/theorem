@@ -43,12 +43,22 @@ function ProSavoir() {
               </svg>
             </div>
             <div className="flex flex-col items-center gap-y-3 md:w-1/2 mx-auto py-6 text-center justify-center">
-              <h2 className="font-semibold text-3xl">Lorem Ipsum</h2>
+              <h2 className="font-semibold text-3xl">Savoir faire</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequuntur sapiente libero expedita inventore a, doloremque
-                quisquam animi necessitatibus facere illo, obcaecati consequatur
-                vero recusandae aliquid nihil impedit, magni nam eaque.
+              Depuis
+              notre création, notre réputation repose sur la qualité de nos
+              services, notre approche bienveillante et notre engagement
+              indéfectible envers nos clients
+              
+              Nous comprenons que chaque projet professionnel nécessite une
+              approche personnalisée; c’est pourquoi nous mettons un point
+              d'honneur à vous offrir non seulement des solutions sur mesure,
+              mais aussi un accompagnement réactif et des conseils avisés. Nos
+              valeurs telles que la confiance et la précision sont au cœur de
+              chacune de nos interventions. Nous sommes déterminés à faire de
+              vos projets des réussites mémorables, en accordant une attention
+              particulière à la réalisation méticuleuse de chaque collaboration.
+           
               </p>
             </div>
             <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

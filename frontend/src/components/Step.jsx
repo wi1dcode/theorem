@@ -9,7 +9,7 @@ export const Step = () => {
             Notre super accompagnement
           </p> */}
         </div>
-        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto avenir">
           <span className="relative inline-block">
             <svg
               viewBox="0 0 52 24"
@@ -33,7 +33,7 @@ export const Step = () => {
                 height="23"
               />
             </svg>
-            <span className="relative">Comment</span>
+            <span className="relative ">Comment</span>
           </span>{" "}
           ça marche ? 🤔
         </h2>
@@ -44,7 +44,7 @@ export const Step = () => {
       </div>
       <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
         <div className="sm:text-center relative">
-          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
+          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
             1
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
@@ -56,13 +56,13 @@ export const Step = () => {
           </p>
           <Link
             to="/estimation"
-            className="flex justify-center bg-blue-200 items-center rounded-full w-[100px] mx-auto font-semibold text-white"
+            className="flex justify-center bg-marron/80 items-center rounded-full w-[100px] mx-auto font-semibold text-white"
           >
             Estimation
           </Link>
           <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
             <svg
-              className="w-8 text-gray-700 transform rotate-90 lg:rotate-0"
+            className="w-12 text-marron transform rotate-90 lg:rotate-0"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -86,7 +86,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="sm:text-center relative">
-          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
+          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
             2
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
@@ -122,7 +122,7 @@ export const Step = () => {
           </div>
         </div>
         <div className="sm:text-center">
-          <div className="flex border border-black items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-deep-purple-accent-400 bg-marron sm:mx-auto max-sm:mx-auto">
+          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
             3
           </div>
           <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">

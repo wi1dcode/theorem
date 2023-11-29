@@ -1,9 +1,10 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import TelSvg from "../images/svg/TelSvg"
-import MapSvg from "../images/svg/MapSvg"
-import BizSvg from "../images/svg/BizSvg"
-import MailSvg from "../images/svg/MailSvg"
+import React from "react";
+import { Link } from "react-router-dom";
+// import TelSvg from "../images/svg/TelSvg";
+import MapSvg from "../images/svg/MapSvg";
+import BizSvg from "../images/svg/BizSvg";
+import MailSvg from "../images/svg/MailSvg";
+import TelTwoSvg from "../images/svg/TelTwoSvg";
 
 function Contact() {
   return (
@@ -51,7 +52,17 @@ function Contact() {
                   <span className="text-5xl">
                     <BizSvg />
                   </span>
-                  <p>Informations complémentaires...</p>
+                  <p>
+                    Nous sommes ouverts
+                    <br/>
+
+                    <span className="font-semibold"> Du lundi au samedi de 10h à 18h </span> 
+                    <br/>
+                    <span className="font-semibold">  </span>
+                    <span className="font-semibold">  </span>
+
+                    
+                  </p>
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
@@ -76,7 +87,7 @@ function Contact() {
                 </div>
                 <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
-                    <TelSvg />
+                    <TelTwoSvg />
                   </span>
                   <p>
                     Contactez-nous pour nous demander de l'aide, nous vous
@@ -101,7 +112,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

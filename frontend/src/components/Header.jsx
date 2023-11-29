@@ -17,7 +17,7 @@ function Header() {
         />
         {/* <h1 className="text-5xl vogue text-center">Theorem Services</h1> */}
         <p className="text-center bg-white bg-opacity-40 rounded-lg p-2 shadow text-lg max-md:w-full max-xl:w-[50%] w-1/4 text-noir avenir">
-          Votre rénovation en toute tranquillité : une expérience rapide,
+          Votre rénovation en toute tranquillité! une expérience rapide,
           simplifiée et sécurisée. Profitez d'un accompagnement personnalisé
           pour donner vie à vos projets
         </p>

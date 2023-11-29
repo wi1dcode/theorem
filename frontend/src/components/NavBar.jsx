@@ -1,23 +1,61 @@
-import { Link, NavLink } from "react-router-dom"
-import LogoBlack from "../images/icons/logo2.png"
-import { useEffect, useState } from "react"
-import UserSvg from "../images/svg/UserSvg"
+import { Link, NavLink } from "react-router-dom";
+import LogoBlack from "../images/icons/logo2.png";
+import { useEffect, useState } from "react";
+import UserSvg from "../images/svg/UserSvg";
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [drapdown, setDrapdown] = useState({
     isActive: false,
     idx: null,
-  })
+  });
 
   const dropdownNavs = [
     {
-      label: "Label",
+      label: "Rubriques:",
       navs: [
         {
-          title: "Nos expertisés",
-          desc: "Nos expertisés",
-          path: "/expertises",
+          title: "Histoire",
+          desc: "Naissance de Theorem",
+          path: "/histoire",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-8 h-8"
+            >
+              <path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Identité",
+          desc: "A propos de nous",
+          path: "/about",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          ),
+        },
+      ],
+    },
+    {
+      navs: [
+        {
+          title: "Expertises",
+          desc: "Expertises",
+          path: "/histoire",
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,41 +70,6 @@ function NavBar() {
                 strokeLinejoin="round"
                 d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
               />
-            </svg>
-          ),
-        },
-        {
-          title: "Partenariat",
-          desc: "Rejoindre le réseau Theorem Services ",
-          path: "/partenariat",
-          icon: (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-8 h-8"
-            >
-              <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
-            </svg>
-          ),
-        },
-      ],
-    },
-    {
-      label: "Label",
-      navs: [
-        {
-          title: "Rénovation énergétique",
-          desc: "Coming soon",
-          path: "/energetique",
-          icon: (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-8 h-8"
-            >
-              <path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z" />
             </svg>
           ),
         },
@@ -88,12 +91,11 @@ function NavBar() {
       ],
     },
     {
-      label: "Label",
       navs: [
         {
-          title: "A propos",
-          desc: "A propos de nous",
-          path: "/about",
+          title: "Partenariat",
+          desc: "Devenir partenaire",
+          path: "/partenariat",
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,11 +103,7 @@ function NavBar() {
               fill="currentColor"
               className="w-8 h-8"
             >
-              <path
-                fillRule="evenodd"
-                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                clipRule="evenodd"
-              />
+              <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
             </svg>
           ),
         },
@@ -132,7 +130,7 @@ function NavBar() {
         },
       ],
     },
-  ]
+  ];
 
   const navigation = [
     {
@@ -163,29 +161,29 @@ function NavBar() {
       path: "/",
       onClick: () => scrollToContact("contact"),
     },
-  ]
+  ];
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const scrollToContact = (sectionId) => {
     setTimeout(() => {
-      const contactSection = document.getElementById(sectionId)
+      const contactSection = document.getElementById(sectionId);
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" })
+        contactSection.scrollIntoView({ behavior: "smooth" });
       }
-      setIsOpen(false)
-    }, 100)
-  }
+      setIsOpen(false);
+    }, 100);
+  };
 
   useEffect(() => {
     document.onclick = (e) => {
-      const target = e.target
+      const target = e.target;
       if (!target.closest(".nav-menu"))
-        setDrapdown({ isActive: false, idx: null })
-    }
-  }, [])
+        setDrapdown({ isActive: false, idx: null });
+    };
+  }, []);
 
   return (
     <nav className="border-gray-200 bg-gray-50 z-50 w-full sticky top-0">
@@ -205,7 +203,7 @@ function NavBar() {
           <div className="relative">
             <button
               onClick={() => {
-                toggleMenu()
+                toggleMenu();
               }}
               type="button"
               className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
@@ -246,7 +244,7 @@ function NavBar() {
                         setDrapdown({
                           idx,
                           isActive: !drapdown.isActive,
-                        })
+                        });
                       }}
                     >
                       {item.title}
@@ -305,7 +303,7 @@ function NavBar() {
                                     to={navItem.path}
                                     onClick={() => {
                                       if (navItem.onClick) {
-                                        navItem.onClick()
+                                        navItem.onClick();
                                       }
                                     }}
                                     className="flex gap-3 items-center"
@@ -333,7 +331,7 @@ function NavBar() {
                     ""
                   )}
                 </li>
-              )
+              );
             })}
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             <li>
@@ -362,7 +360,7 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

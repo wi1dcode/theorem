@@ -1,28 +1,28 @@
-import React, { useEffect } from "react"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
-import { Link } from "react-router-dom"
-import Stats from "../components/Stats"
+import React, { useEffect } from "react";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
+import Stats from "../components/Stats";
 
-import AOS from "aos"
-import "aos/dist/aos.css"
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function About() {
   useEffect(() => {
-    AOS.init()
-  }, [])
+    AOS.init();
+  }, []);
 
   return (
     <section>
       <NavBar />
       <div
-        className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+        className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-green-400/20">
+            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-marron/20">
               <span className="text-3xl">💼</span>
             </div>
             <div className="max-w-xl mb-6">
@@ -30,25 +30,25 @@ function About() {
                 Chez Theorem,
                 <br className="hidden md:block" />
                 nous transformons chaque projet en un carré{" "}
-                <span className="inline-block text-green-500">parfait</span>
+                <span className="inline-block text-marron">parfait</span>
               </h2>
-              <p className="text-base text-gray-700 md:text-lg mb-1">
-                Depuis sa création, THEOREM SERVICES est reconnue pour ses
-                services de qualité, sa bienveillance et son accompagnement sans
-                faille.
+              <p className="text-base avenir text-gray-700 md:text-lg mb-1">
+                Theorem est bien plus qu'une simple entreprise; c'est une entité
+                qui incarne l’essence d’une marque engagée et responsable. La
+                mission est de transcender les attentes en offrant des solutions
+                de rénovation novatrices et pérennes. Guidés par des valeurs de
+                confiance et d'engagement envers l’avenir, Theorem rassemble une
+                équipe dynamique, curieuse, à l'écoute et réactive.
               </p>
-              <p className="mt-3">
-                Nos compétences techniques et relationnelles nous permettent de
-                gérer toutes les phases, ainsi que tous les corps d'état de
-                votre projet que ce soit la conception, la réalisation ou la
-                gestion des travaux.
+              <p className="mt-3 avenir text-gray-700 md:text-lg">
+   
               </p>
-              <div className="pt-6 grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
+              <div className="pt-6 text-gray-700 avenir grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
                 <ul className="space-y-3">
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -66,7 +66,7 @@ function About() {
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -84,7 +84,7 @@ function About() {
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -104,7 +104,7 @@ function About() {
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -122,7 +122,7 @@ function About() {
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -140,7 +140,7 @@ function About() {
                   <li className="flex">
                     <span className="mr-1">
                       <svg
-                        className="w-5 h-5 mt-px text-green-500"
+                        className="w-5 h-5 mt-px text-marron"
                         stroke="currentColor"
                         viewBox="0 0 52 52"
                       >
@@ -192,33 +192,27 @@ function About() {
               />
             </div>
             <div className="lg:pr-10">
-              <h5 className="mb-4 text-4xl font-extrabold leading-none">
+              <h5 className="mb-4 text-4xl font-bold leading-none font-sans">
                 Notre but est de rendre
                 <br className="hidden md:block" />{" "}
-                <span className="inline-block text-green-500">réel</span> votre
+                <span className="inline-block text-marron">réel</span> votre
                 imaginaire 🌌
               </h5>
-              <p className="mb-6 text-gray-900">
-                Notre but est de rendre réel votre imaginaire en vous apportant
-                réactivité et conseils. Nos valeurs telles que la prévoyance, la
-                confiance et la précision permettront de faire de vos projets un
-                souvenir mémorable. Nous nous attachons également à faire une
-                fine sélection de nos projets pour être au plus proche de nos
-                clients et répondre au mieux à vos besoins.
+              <p className="mb-6 text-gray-700 avenir md:text-lg">
+              Ces principes autour desquels se réunissent Theorem permettent
+                d’atteindre l’objectif défini étant la satisfaction des clients
+                en matière de rénovation. L’expérience Theorem représente
+                l'engagement envers un avenir meilleur, où l'innovation
+                rencontre l’équité, et où rénovation et travaux riment avec
+                sérénité et quiétude créant ainsi une expérience qui va au-delà
+                des simples modifications d’espaces.
               </p>
               <hr className="mb-5 border-gray-300" />
               <div className="flex items-center space-x-4">
+
                 <Link
                   to="/"
-                  className="text-gray-600 transition-colors duration-300 hover:text-green-500"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z" />
-                  </svg>
-                </Link>
-                <Link
-                  to="/"
-                  className="text-gray-600 transition-colors duration-300 hover:text-green-500"
+                  className="text-gray-600 transition-colors duration-300 hover:text-marron"
                 >
                   <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
                     <circle cx="15" cy="15" r="4" />
@@ -227,20 +221,13 @@ function About() {
                 </Link>
                 <Link
                   to="/"
-                  className="text-gray-600 transition-colors duration-300 hover:text-green-500"
+                  className="text-gray-600 transition-colors duration-300 hover:text-marron"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
                     <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z" />
                   </svg>
                 </Link>
-                <Link
-                  to="/"
-                  className="text-gray-600 transition-colors duration-300 hover:text-green-500"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-6">
-                    <path d="M23.8,7.2c0,0-0.2-1.7-1-2.4c-0.9-1-1.9-1-2.4-1C17,3.6,12,3.6,12,3.6h0c0,0-5,0-8.4,0.2 c-0.5,0.1-1.5,0.1-2.4,1c-0.7,0.7-1,2.4-1,2.4S0,9.1,0,11.1v1.8c0,1.9,0.2,3.9,0.2,3.9s0.2,1.7,1,2.4c0.9,1,2.1,0.9,2.6,1 c1.9,0.2,8.2,0.2,8.2,0.2s5,0,8.4-0.3c0.5-0.1,1.5-0.1,2.4-1c0.7-0.7,1-2.4,1-2.4s0.2-1.9,0.2-3.9v-1.8C24,9.1,23.8,7.2,23.8,7.2z M9.5,15.1l0-6.7l6.5,3.4L9.5,15.1z" />
-                  </svg>
-                </Link>
+
               </div>
             </div>
           </div>
@@ -251,7 +238,7 @@ function About() {
       </div>
       <Footer />
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

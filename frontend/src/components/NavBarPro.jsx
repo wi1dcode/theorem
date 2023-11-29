@@ -17,6 +17,10 @@ function NavBarPro() {
       onClick: () => scrollToSection("savoir"),
     },
     {
+      title: "Réalisations",
+      path: "/pro/realisations",
+    },
+    {
       title: "Clients",
       path: "/pro",
       onClick: () => scrollToSection("clients"),
@@ -25,10 +29,6 @@ function NavBarPro() {
       title: "Contact",
       path: "/pro",
       onClick: () => scrollToSection("contact"),
-    },
-    {
-      title: "Réalisations",
-      path: "/pro/realisations",
     },
   ];
 
