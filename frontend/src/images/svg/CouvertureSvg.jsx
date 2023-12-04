@@ -2,9 +2,11 @@ export default function CouvertureSvg() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
       width="50"
       height="50"
       viewBox="0 0 24 24"
+      className="w-8 h-8 text-white"
     >
       <path
         fill="#c8b790"

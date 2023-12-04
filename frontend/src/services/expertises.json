@@ -1,47 +1,56 @@
 [
   {
     "id": 1,
-    "description": "Pilotage Projet / Agencement",
-    "icon": "ProjectSvg"
+    "title": "Pilotage Projet / Agencement",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "ProjectSvg"
   },
   {
     "id": 2,
-    "description": "Isolation",
-    "icon": "IsolationSvg"
+    "title": "Isolation",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "IsolationSvg"
   },
   {
     "id": 3,
-    "description": "Plomberie",
-    "icon": "PlomberieSvg"
+    "title": "Plomberie",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "PlomberieSvg"
   },
   {
     "id": 4,
-    "description": "Électricité / Domotique Panneaux Solaires / Bornes de recharge pour véhicules électriques (IRVE)",
-    "icon": "ElectroSvg"
+    "title": "Électricité / Domotique Panneaux Solaires / Bornes de recharge pour véhicules électriques (IRVE)",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "ElectroSvg"
   },
   {
     "id": 5,
-    "description": "Plâterie",
-    "icon": "PlaterieSvg"
+    "title": "Plâterie",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "PlaterieSvg"
   },
   {
     "id": 6,
-    "description": "Couverture",
-    "icon": "CouvertureSvg"
+    "title": "Couverture",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "CouvertureSvg"
   },
   {
     "id": 7,
-    "description": "Maçonnerie",
-    "icon": "MaconnerieSvg"
+    "title": "Maçonnerie",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "MaconnerieSvg"
   },
   {
     "id": 8,
-    "description": "Peinture",
-    "icon": "PeintureSvg"
+    "title": "Peinture",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "PeintureSvg"
   },
   {
     "id": 9,
-    "description": "Sols",
-    "icon": "SolsSvg"
+    "title": "Sols",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "svg": "SolsSvg"
   }
 ]

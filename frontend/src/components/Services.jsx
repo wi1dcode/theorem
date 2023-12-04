@@ -2,8 +2,18 @@ import DiamondSvg from "../images/svg/DiamondSvg"
 import TimeSvg from "../images/svg/TimeSvg"
 import CardSvg from "../images/svg/CardSvg"
 import BestSvg from "../images/svg/BestSvg"
+import SvgInfo from "../images/svg/SvgInfo"
+import Swal from "sweetalert2"
 
 function Services() {
+  const paymentInfo = () => {
+    Swal.fire({
+      title: "Information sur paiement",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellendus, saepe labore ratione at veniam vel id harum quaerat commodi!",
+      icon: "question",
+    })
+  }
+
   return (
     <section className="w-full">
       <div className="relative flex justify-center items-center">
@@ -13,8 +23,8 @@ function Services() {
         </h2>
         {/* <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" /> */}
       </div>
-      <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center">
-        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+      <div className="flex flex-wrap gap-2 md:gap-x-6 justify-center items-center max-sm:flex-col max-sm:gap-y-10">
+        <article className="shadow-xl w-[45%] max-sm:w-[80%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">⏰</span> */}
           <TimeSvg />
           <div className="text-center px-3">
@@ -26,7 +36,7 @@ function Services() {
             </p>
           </div>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] max-sm:w-[80%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">🏆</span> */}
           <BestSvg />
           <div className="text-center px-3">
@@ -36,7 +46,7 @@ function Services() {
             <p className="avenir">Sélectionnés pour votre projet d’exception</p>
           </div>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] max-sm:w-[80%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center relative">
           {/* <span className="text-6xl">💳</span> */}
           <CardSvg />
           <div className="text-center px-3">
@@ -47,8 +57,11 @@ function Services() {
               Signature électronique et paiements sécurisés
             </p>
           </div>
+          <span className="absolute top-2 right-2" onClick={paymentInfo}>
+            <SvgInfo />
+          </span>
         </article>
-        <article className="shadow-xl w-[45%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
+        <article className="shadow-xl w-[45%] max-sm:w-[80%] md:w-[18%] h-[230px] md:h-[240px] rounded-xl flex flex-col justify-center gap-y-6 items-center">
           {/* <span className="text-6xl">💎</span> */}
           <DiamondSvg />
           <div className="text-center px-3">

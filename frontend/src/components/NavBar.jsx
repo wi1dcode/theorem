@@ -55,7 +55,7 @@ function NavBar() {
         {
           title: "Expertises",
           desc: "Expertises",
-          path: "/histoire",
+          path: "/expertises",
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"

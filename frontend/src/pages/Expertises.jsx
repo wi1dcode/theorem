@@ -1,18 +1,20 @@
 import React from "react"
 import NavBar from "../components/NavBar"
 import ProjectSvg from "../images/svg/ProjectSvg"
-import ElectroSvg from "../images/svg/ElectroSvg"
 import MaconnerieSvg from "../images/svg/MaconnerieSvg"
 import PeintureSvg from "../images/svg/PeintureSvg"
 import PlomberieSvg from "../images/svg/PlomberieSvg"
 import CouvertureSvg from "../images/svg/CouvertureSvg"
 
-import EtudesImage from "../images/etudes.jpg"
-import PilotageImage from "../images/pilotage.jpg"
-import ExecImage from "../images/exec.jpg"
+// import EtudesImage from "../images/etudes.jpg"
+// import PilotageImage from "../images/pilotage.jpg"
+// import ExecImage from "../images/exec.jpg"
 
 import expertiseData from "../services/expertises.json"
-import expertiseInfo from "../services/expertisesInfo.json"
+import CircleSvg from "../images/svg/CircleSvg"
+import LittleCard from "../components/LittleCard"
+import TestSvg from "../images/svg/TestSvg"
+// import expertiseInfo from "../services/expertisesInfo.json"
 
 function Expertises() {
   const getSvg = (icon) => {
@@ -28,25 +30,25 @@ function Expertises() {
       case "CouvertureSvg":
         return <CouvertureSvg />
       case "ElectroSvg":
-        return <ElectroSvg />
+        return <TestSvg />
 
       default:
         return null
     }
   }
 
-  const getImg = (image) => {
-    switch (image) {
-      case "Etudes":
-        return EtudesImage
-      case "Pilotage":
-        return PilotageImage
-      case "Maintenance":
-        return ExecImage
-      default:
-        return null
-    }
-  }
+  // const getImg = (image) => {
+  //   switch (image) {
+  //     case "Etudes":
+  //       return EtudesImage
+  //     case "Pilotage":
+  //       return PilotageImage
+  //     case "Maintenance":
+  //       return ExecImage
+  //     default:
+  //       return null
+  //   }
+  // }
 
   return (
     <div>
@@ -71,28 +73,25 @@ function Expertises() {
             </p>
           </div>
         </article>
-        <div className="px-10 mt-8 w-[70%] max-md:w-full mx-auto grid gap-3 row-gap-5 mb-8 md:row-gap-8 lg:grid-cols-3 sm:grid-cols-2">
-          {expertiseData.map((expert) => (
-            <article
-              className="duration-300 transform bg-white border-l-4 border-marron hover:-translate-y-2"
-              key={expert.id}
-            >
-              <div className="h-full p-5 border border-l-0 rounded-r shadow-sm">
-                <h6 className="mb-2 font-semibold leading-5">
-                  <span className="absolute top-12 right-3">
-                    {getSvg(expert.icon)}
-                  </span>
-                  <p>{expert.description}</p>
-                </h6>
-                <p className="text-sm w-1/2 max-md:w-[75%] text-gray-900">
-                  Sportacus andrew weatherall goose Refined gentlemen super
-                  mario des lynam alpha trion zap rowsdower.
-                </p>
-              </div>
-            </article>
-          ))}
+
+        <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12">
+          <div className="absolute inset-x-0 top-0 items-center justify-center hidden overflow-hidden md:flex md:inset-y-0 h-[80vh]">
+            <CircleSvg className="w-[50%]" />
+          </div>
+          <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {expertiseData.map((card) => (
+              <LittleCard
+                key={card.id}
+                title={card.title}
+                description={card.description}
+              >
+                {getSvg(card.svg)}
+              </LittleCard>
+            ))}
+          </div>
         </div>
-        <div className="w-full bg-marron py-4 avenir mb-20 flex max-md:flex-col justify-around items-center">
+
+        {/* <div className="w-full bg-marron py-4 avenir mb-20 flex max-md:flex-col justify-around items-center">
           {expertiseInfo.map((info) => (
             <article className="mt-2 text-center" key={info.id}>
               <img
@@ -108,7 +107,7 @@ function Expertises() {
               </ul>
             </article>
           ))}
-        </div>
+        </div> */}
       </section>
     </div>
   )
