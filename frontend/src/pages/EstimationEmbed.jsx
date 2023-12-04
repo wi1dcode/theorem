@@ -1,4 +1,3 @@
-import React from "react"
 import { Widget } from "@typeform/embed-react"
 
 function EstimationEmbed() {
@@ -9,16 +8,15 @@ function EstimationEmbed() {
   }
 
   return (
-    <div className="bg-red-200">
+    <div className=" ">
       <Widget
         id="gEqyK00T"
-        fullScreen
-        style={{ fontSize: 20 }}
+        style={{ fontSize: 20, height: "100vh" }}
         onReady={() => {
           console.log("Form ready")
         }}
         onSubmit={handleSubmit}
-        className="my-button"
+        className="my-class bg-[#262626]"
       />
     </div>
   )
