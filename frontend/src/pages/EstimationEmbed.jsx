@@ -19,9 +19,7 @@ function EstimationEmbed() {
         }}
         onSubmit={handleSubmit}
         className="my-button"
-      >
-        click to open form in popup
-      </Widget>
+      />
     </div>
   )
 }
