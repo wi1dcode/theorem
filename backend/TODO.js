@@ -4,6 +4,7 @@
 // RELATION WITH FORM AND USER (EMAIL OR _ID)
 
 // OR OTHER METHODS WITH API OF TYPEFORM + REACT : https://www.typeform.com/developers
+// https://api.typeform.com/forms/{form_id}/responses?included_response_ids={response_id} = send response id from react (onSubmit) to back
 // TO SAVE RESPONSES IN STATE AND CREATE MANUALLY USER WITH USER PASSWORD, WITH RESPONSES RELATED
 
 app.post("/webhook", async (req, res) => {
