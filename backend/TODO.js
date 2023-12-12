@@ -22,7 +22,7 @@ app.post("/webhook", async (req, res) => {
       email: formData.event.form_response.fields.find(
         (field) => field.ref === "email"
       ).text,
-      // ANOTHER DATA
+      // ANO  THER DATA
     }
 
     const client = new Client(clientData)

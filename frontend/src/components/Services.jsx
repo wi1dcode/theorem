@@ -11,13 +11,15 @@ function Services() {
       title: "Information sur paiement",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellendus, saepe labore ratione at veniam vel id harum quaerat commodi!",
       icon: "question",
+      iconColor: "#C8B790",
+      confirmButtonColor: "#C8B790",
     })
   }
 
   return (
     <section className="w-full">
       <div className="relative flex justify-center items-center">
-        <h2 className="text-center underline max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
+        <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
           Services
           {/* <span className="text-2xl ml-2"> 🤝</span> */}
         </h2>

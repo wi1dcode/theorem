@@ -39,6 +39,12 @@ const User = new Schema(
       type: String,
       unique: true,
     },
+    forms: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Form",
+      },
+    ],
   },
   {
     timestamps: true,

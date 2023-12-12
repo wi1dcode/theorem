@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose")
 
-const Client = new Schema(
+const Form = new Schema(
   {
     author: {
       type: String,
@@ -15,7 +15,7 @@ const Client = new Schema(
       required: true,
     },
     sizes: {
-      type: String,
+      type: Boolean,
       required: true,
     },
     type: {
@@ -23,17 +23,17 @@ const Client = new Schema(
       required: true,
     },
     havePhoto: {
-      type: String,
+      type: Boolean,
       required: true,
     },
     photos: [
       {
-        name: String,
-        url: String,
+        type: String,
+        file_url: String,
       },
     ],
     help: {
-      type: String,
+      type: Boolean,
       required: true,
     },
     surface: {
@@ -48,13 +48,10 @@ const Client = new Schema(
       type: String,
       required: true,
     },
-    information: {
-      type: String,
-    },
     documents: [
       {
-        name: String,
-        url: String,
+        type: String,
+        file_url: String,
       },
     ],
     adresse: {
@@ -89,4 +86,4 @@ const Client = new Schema(
   }
 )
 
-module.exports = model("Client", Client)
+module.exports = model("Form", Form)

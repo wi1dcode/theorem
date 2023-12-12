@@ -18,7 +18,7 @@ function Work() {
   return (
     <section>
       <div className="relative flex justify-center items-center">
-        <h2 className="text-center underline max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
+        <h2 className="text-center max-md:text-2xl text-3xl pb-4 pt-5 maves z-10">
           Réalisations
           {/* <span className="text-2xl ml-2"> 🎬</span> */}
         </h2>
@@ -37,6 +37,14 @@ function Work() {
                 spaceBetween: 1,
               },
               250: {
+                slidesPerView: 1,
+                spaceBetween: 1,
+              },
+              500: {
+                slidesPerView: 2,
+                spaceBetween: 2,
+              },
+              800: {
                 slidesPerView: 4,
                 spaceBetween: 4,
               },

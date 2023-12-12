@@ -1,6 +1,6 @@
 require("dotenv").config()
 const User = require("../models/userModel")
-const Client = require("../models/clientModel")
+const Form = require("../models/formModel")
 const Entrepreneur = require("../models/entrepreneurModel")
 const Architecte = require("../models/architecteModel")
 const Manager = require("../models/managerModel")
@@ -17,7 +17,7 @@ const getUsers = async (req, res) => {
 
 const getProjects = async (req, res) => {
   try {
-    const project = await Client.find()
+    const project = await Form.find()
     res.json(project)
   } catch (e) {
     res.status(400).json({ message: "Get project error" })
@@ -27,7 +27,7 @@ const getProjects = async (req, res) => {
 const getProjectByEmail = async (req, res) => {
   try {
     const { email } = req.body
-    const project = await Client.findOne({ email })
+    const project = await Form.findOne({ email })
 
     if (!project) {
       return res.status(404).json({ message: "project not found!" })

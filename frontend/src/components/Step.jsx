@@ -98,7 +98,7 @@ export const Step = () => {
           </p>
           <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
             <svg
-              className="w-8 text-gray-700 transform rotate-90 lg:rotate-0"
+              className="w-12 text-marron transform rotate-90 lg:rotate-0"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"

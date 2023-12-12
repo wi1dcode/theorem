@@ -6,7 +6,7 @@ const { check } = require("express-validator")
 const proController = require("../controllers/proController")
 const clientController = require("../controllers/clientController")
 const Manager = require("../models/managerModel")
-const Client = require("../models/clientModel")
+const Form = require("../models/formModel")
 
 router.post(
   "/pro/entrepreneur",
@@ -162,7 +162,7 @@ router.post(
       .notEmpty()
       .withMessage("L'e-mail ne peut pas être vide!")
       .custom(async (value) => {
-        const client = await Client.findOne({ email: value })
+        const client = await Form.findOne({ email: value })
         if (client) {
           throw new Error("Cette email deja exist!")
         }
@@ -201,5 +201,7 @@ router.post(
   ],
   clientController.createRequest
 )
+
+router.post("/send-responses", clientController.getData)
 
 module.exports = router
