@@ -9,7 +9,7 @@ function Services() {
   const paymentInfo = () => {
     Swal.fire({
       title: "Information sur paiement",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellendus, saepe labore ratione at veniam vel id harum quaerat commodi!",
+      text: "Nous comprenons que les chantiers représentent plus que de simples travaux ; ils incarnent des moments de transformation et d’évolution dans votre vie. Soyez assurés que chez Theorem, la gestion de vos fonds est une priorité absolue. Nous mettons en œuvre une pratique de mise en séquestre de fonds rigoureuse et transparente pour assurer la sécurité de votre investissement.   Notre équipe est là pour répondre à toutes vos questions et vous offrir une visibilité totale sur l'utilisation de vos fonds. Votre tranquillité d'esprit est notre engagement.",
       icon: "question",
       iconColor: "#C8B790",
       confirmButtonColor: "#C8B790",

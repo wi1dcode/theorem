@@ -46,18 +46,22 @@ function Pro() {
         ></path>
       </svg>
       <div>
-        <div className="flex justify-center items-center flex-col mt-16">
+        <div className="flex justify-center items-center flex-col max-md:mt-10 mt-16">
           <h2 className="font-semibold text-4xl avenir">Pose ta candidature</h2>
-          <p className="avenir text-xl mt-4 w-1/4 max-md:w-[80%] max-xl:w-1/3 text-center">
-            Tu souhaites rejoindre le réseau Theorem Services pour des chantiers
-            sérieux, chiffrés et ceci toute l’année ? Tu es au bon endroit !
+          <p className="avenir text-xl mt-4 max-md:mt-20 w-1/2 max-md:w-[90%] max-xl:w-1/3 text-center">
+            Nous considérons nos partenaires comme des piliers essentiels de
+            notre réussite. En collaborant étroitement avec des entreprises de
+            confiance, nous renforçons notre capacité à offrir des solutions
+            fiables et qualitatives. Nous sommes ouverts à des partenariats
+            durables. Rejoignez-nous pour créer ensemble des projets
+            exceptionnels et développer des relations professionnelles solides.
           </p>
         </div>
         <div className="flex gap-x-6 justify-center items-center flex-wrap max-md:gap-y-4 mt-20">
           {partCard.map((card) => (
             <article
               key={card.id}
-              className="w-[330px] h-[500px] flex flex-col justify-evenly items-center text-center p-3 rounded-lg shadow-lg bg-white/50 backdrop-blur-2xl relative"
+              className="w-[350px] h-[500px] flex flex-col justify-evenly items-center text-center p-3 rounded-lg shadow-lg bg-white/50 xl:backdrop-blur-2xl relative"
             >
               <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-14 inside-shadow">
                 <img alt="entrepreneur du bâtiment" src={card.imageUrl} />
@@ -101,7 +105,7 @@ function Pro() {
           {parteneriatData.map((item) => (
             <div
               key={item.id}
-              className="w-[65%] h-[85vh] bg-marron mx-auto mt-20 relative flex justify-between py-16 px-14 paper"
+              className="w-[70%] max-md:w-full max-lg:w-[90%] max-xl:w-[80%] h-[85vh] bg-marron mx-auto mt-20 relative flex max-md:flex-col max-md:items-center justify-between py-16 px-14 paper"
               id={item.id}
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -109,7 +113,7 @@ function Pro() {
               <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-12 left-[45%] inside-shadow">
                 <img alt={item.title} src={item.imageUrl} />
               </div>
-              <div className="w-1/2 px-2 flex flex-col gap-y-6 avenir">
+              <div className="w-1/2 max-md:w-full px-2 flex flex-col gap-y-6 avenir">
                 <h2 className="text-2xl font-semibold pt-4 ">
                   {item.title}
                   <span className="w-[100px] mt-4 h-[5px] bg-[#af9a6a] block" />
@@ -133,7 +137,7 @@ function Pro() {
                   </button>
                 </div>
               </div>
-              <div className="w-1/2 bg-marron/30 rounded-lg flex justify-center">
+              <div className="w-1/2 bg-marron/30 rounded-lg flex justify-center max-md:hidden">
                 <div className="flex flex-col items-center gap-y-10">
                   <ul
                     role="tablist"

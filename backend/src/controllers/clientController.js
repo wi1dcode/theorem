@@ -96,8 +96,7 @@ const createRequest = async (req, res) => {
 const getData = async (req, res) => {
   try {
     const { formId, responseId, password } = req.body
-    const token =
-      "tfp_BC4ipYJMY1bRmTMn49JXWZYXpPZSRdjm7E1B6YZuMahH_3pc4Uv6gFrVxgx"
+    const token = process.env.TYPEFORM_TOKEN
 
     const typeformResponse = await axios.get(
       `https://api.typeform.com/forms/${formId}/responses?included_response_ids=${responseId}`,

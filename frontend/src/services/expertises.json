@@ -1,56 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Pilotage Projet / Agencement",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "ProjectSvg"
+    "title": "Pilotage projet / agencement ",
+    "description": "Theorem se distingue dans la gestion globale de projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
+    "svg": "ElectroSvg"
   },
   {
     "id": 2,
-    "title": "Isolation",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "IsolationSvg"
+    "title": "Bornes de recharge / Panneaux solaires",
+    "description": "Engagés vers un avenir durable, nous proposons des solutions de bornes de recharge et de panneaux solaires reposent sur des matériaux de pointe. Theorem conjugue innovation et éco-responsabilité pour contribuer à la transition énergétique.",
+    "svg": "ElectroSvg"
   },
   {
     "id": 3,
-    "title": "Plomberie",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "PlomberieSvg"
+    "title": "Plomberie / Chauffagiste / VMC",
+    "description": "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage, et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
+    "svg": "ElectroSvg"
   },
   {
     "id": 4,
-    "title": "Électricité / Domotique Panneaux Solaires / Bornes de recharge pour véhicules électriques (IRVE)",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "title": "Revêtements muraux / Plâtrerie",
+    "description": "Chez Theorem, notre engagement envers l'alliance de style et de praticité transcende chaque détail, de la peinture à la faïence et aux tasseaux minutieusement positionnés pour ajouter une profondeur architecturale.  Theorem donne vie à des espaces uniques à travers la peinture. Nous harmonisons couleurs et texture avec précision pour créer des atmosphères personnalisées et esthétiques.",
     "svg": "ElectroSvg"
   },
   {
     "id": 5,
-    "title": "Plâterie",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "PlaterieSvg"
-  },
-  {
-    "id": 6,
-    "title": "Couverture",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "CouvertureSvg"
-  },
-  {
-    "id": 7,
-    "title": "Maçonnerie",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "MaconnerieSvg"
-  },
-  {
-    "id": 8,
-    "title": "Peinture",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "PeintureSvg"
-  },
-  {
-    "id": 9,
-    "title": "Sols",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    "svg": "SolsSvg"
+    "title": "Revêtement de sols",
+    "description": "Theorem offre à chaque pièce une base élégante et résistante en matière de revêtement de sols. Des sols PVC, au carrelage, en passant par les parquets massifs, chaque choix est pensé pour assurer une harmonie entre élégance et praticité, créant ainsi des espaces exceptionnels où confort et design se rencontrent.",
+    "svg": "ElectroSvg"
   }
 ]

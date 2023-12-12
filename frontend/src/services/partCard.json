@@ -1,23 +1,23 @@
 [
     {
       "id": "entrepreneur",
-      "type": "Entrepreneur(euse)",
-      "title": "du Bâtiment",
-      "description": "Tu es entrepreneur(euse) du bâtiment ? Tu prends ton travail à coeur ? Tu es accro à la finition millimétrée ? Alors oui, tu as toute ta place chez Theorem Services. Rejoins nous dès maintenant. On t’attend !",
+      "type": "Entrepreneur",
+      "title": "du bâtiment",
+      "description": "En tant qu’entrepreneur du bâtiment ou entreprise, collaborer avec Theorem vous offre une opportunité unique de démarquer votre entreprise. Notre partenariat vous donne accès à des projets variés, une expertise pointue et des ressources de qualité. Travaillez avec Theorem pour élever votre activité à de nouveaux sommets.",
       "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
     },
     {
       "id": "architecte",
       "type": "Architecte",
-      "title": "Décorateur(ice)",
-      "description": "Tu es architecte et/ou décorateur(ice) ? Tu façonnes les intérieurs plus vite que ton ombre ? Tu sais donner du sens et faire vivre un intérieur comme personne ? Au top ! Nous avons besoin de professionels de ton calibre !",
+      "title": "décorateur",
+      "description": "Découvrez chez Theorem un espace fertile pour exprimer votre créativité. Notre engagement envers l'excellence artistique et fonctionnelle offre l'opportunité idéale de concrétiser des concepts novateurs. Faites équipe avec nous pour transformer chaque espace en une œuvre d'art vivante.",
       "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
     },
     {
       "id": "maitredouevre",
-      "type": "Maître(sse)",
-      "title": "d’Oeuvre",
-      "description": "Tu es maître(esse) d’oeuvre ? Diriger un chantier et le mener à son terme dans le respect des contraintes coût, qualité, délais c’est ton quotidien ? Tu as à coeur la satisfaction client ? Toque donc à notre porte !",
+      "type": "Maître",
+      "title": "d’oeuvre",
+      "description": "En collaborant avec l’équipe Theorem, vous découvrirez un environnement propice à la réalisation de projets. En tant que maître d’oeuvre, vous bénéficierez d’une plateforme dynamique où la qualité et la communication priment. Sollicitez-nous pour rendre vos projets plus simples que jamais.",
       "imageUrl": "https://www.datocms-assets.com/7890/1578643148-worker.svg"
     }
   ]

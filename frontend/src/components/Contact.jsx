@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 // import TelSvg from "../images/svg/TelSvg";
-import MapSvg from "../images/svg/MapSvg";
-import BizSvg from "../images/svg/BizSvg";
-import MailSvg from "../images/svg/MailSvg";
-import TelTwoSvg from "../images/svg/TelTwoSvg";
+import MapSvg from "../images/svg/MapSvg"
+import BizSvg from "../images/svg/BizSvg"
+import MailSvg from "../images/svg/MailSvg"
+import TelTwoSvg from "../images/svg/TelTwoSvg"
 
 function Contact() {
   return (
@@ -32,8 +32,8 @@ function Contact() {
                   ></iframe>
                 </div>
               </div>
-              <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap">
-                <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+              <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap max-md:flex-col max-md:items-center">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <MapSvg />
                   </span>
@@ -48,35 +48,37 @@ function Contact() {
                     </Link>
                   </p>
                 </div>
-                <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <BizSvg />
                   </span>
                   <p>
                     Nous sommes ouverts
-                    <br/>
-
-                    <span className="font-semibold"> Du lundi au samedi de 10h à 18h </span> 
-                    <br/>
-                    <span className="font-semibold">  </span>
-                    <span className="font-semibold">  </span>
-
-                    
+                    <br />
+                    <span className="font-semibold">
+                      Du lundi au samedi de 10h à 18h
+                    </span>
+                    <br />
+                    <span className="font-semibold"> </span>
+                    <span className="font-semibold"> </span>
                   </p>
                 </div>
-                <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <MailSvg />
                   </span>
                   <p>
-                    Contactez-nous pour nous demander de l'aide, nous vous
-                    contacterons dans les plus brefs délais
+                    N'hésitez pas à nous contacter par mail pour toute question
+                    ou demande. <br />
+                    <span className="font-semibold">
+                      Nous sommes là pour vous aider !
+                    </span>
                   </p>
                   <a
-                    href="mailto:contact@theorem-servies.com"
+                    href="mailto:theorem.services@gmail.com"
                     className="text-marron flex flex-col items-center gap-y-2"
                   >
-                    contact@theorem-servies.com
+                    theorem.services@gmail.com
                     <button
                       type="button"
                       className="py-2 px-6 text-white font-semibold bg-marron rounded-full overflow-hidden"
@@ -85,19 +87,22 @@ function Contact() {
                     </button>
                   </a>
                 </div>
-                <div className="h-full w-[45%] text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <TelTwoSvg />
                   </span>
                   <p>
-                    Contactez-nous pour nous demander de l'aide, nous vous
-                    contacterons dans les plus brefs délais
+                    Pour toute question, contactez-nous par téléphone
+                    <br />
+                    <span className="font-semibold">
+                      Nous sommes disponibles pour vous assister !
+                    </span>
                   </p>
                   <a
-                    href="tel:555-555-555"
+                    href="tel:0695753702"
                     className="text-marron flex flex-col items-center gap-y-2"
                   >
-                    555-555-555
+                    06.95.75.37.02
                     <button
                       type="button"
                       className="py-2 px-4 text-white font-semibold bg-marron rounded-full overflow-hidden"
@@ -112,7 +117,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
