@@ -14,6 +14,7 @@ function EstimationEmbed() {
           "Attention, le mot de passe doit contenir entre 5 et 16 caractères.",
         inputPlaceholder: "Entrez votre mot de passe",
         inputAttributes: {
+          maxlength: "16",
           autocapitalize: "off",
           autocorrect: "off",
           autocomplete: "off",

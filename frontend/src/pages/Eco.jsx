@@ -5,6 +5,7 @@ function Eco() {
     <div className="eco_bg h-screen">
       <NavBar />
       <section className="flex max-md:flex-col max-md:gap-y-10 gap-x-10 justify-center items-center mt-20 container mx-auto">
+
         <div className="flex items-center justify-center -mx-4 lg:pl-8 drop-shadow-lg">
           <div className="flex flex-col items-end px-3">
             <img

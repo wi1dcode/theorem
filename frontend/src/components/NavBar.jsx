@@ -1,14 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
-import LogoBlack from "../images/icons/logo2.png";
-import { useEffect, useState } from "react";
-import UserSvg from "../images/svg/UserSvg";
+import { Link, NavLink } from "react-router-dom"
+import LogoBlack from "../images/icons/logo2.png"
+import { useEffect, useState } from "react"
+import UserSvg from "../images/svg/UserSvg"
 
 function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   const [drapdown, setDrapdown] = useState({
     isActive: false,
     idx: null,
-  });
+  })
 
   const dropdownNavs = [
     {
@@ -130,7 +130,7 @@ function NavBar() {
         },
       ],
     },
-  ];
+  ]
 
   const navigation = [
     {
@@ -161,29 +161,29 @@ function NavBar() {
       path: "/",
       onClick: () => scrollToContact("contact"),
     },
-  ];
+  ]
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   const scrollToContact = (sectionId) => {
     setTimeout(() => {
-      const contactSection = document.getElementById(sectionId);
+      const contactSection = document.getElementById(sectionId)
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
+        contactSection.scrollIntoView({ behavior: "smooth" })
       }
-      setIsOpen(false);
-    }, 100);
-  };
+      setIsOpen(false)
+    }, 100)
+  }
 
   useEffect(() => {
     document.onclick = (e) => {
-      const target = e.target;
+      const target = e.target
       if (!target.closest(".nav-menu"))
-        setDrapdown({ isActive: false, idx: null });
-    };
-  }, []);
+        setDrapdown({ isActive: false, idx: null })
+    }
+  }, [])
 
   return (
     <nav className="border-gray-200 bg-gray-50 z-50 w-full sticky top-0">
@@ -203,7 +203,7 @@ function NavBar() {
           <div className="relative">
             <button
               onClick={() => {
-                toggleMenu();
+                toggleMenu()
               }}
               type="button"
               className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
@@ -244,7 +244,7 @@ function NavBar() {
                         setDrapdown({
                           idx,
                           isActive: !drapdown.isActive,
-                        });
+                        })
                       }}
                     >
                       {item.title}
@@ -303,7 +303,7 @@ function NavBar() {
                                     to={navItem.path}
                                     onClick={() => {
                                       if (navItem.onClick) {
-                                        navItem.onClick();
+                                        navItem.onClick()
                                       }
                                     }}
                                     className="flex gap-3 items-center"
@@ -331,7 +331,7 @@ function NavBar() {
                     ""
                   )}
                 </li>
-              );
+              )
             })}
             <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
             <li>
@@ -360,7 +360,7 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar
