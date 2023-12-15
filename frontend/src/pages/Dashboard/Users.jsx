@@ -7,14 +7,14 @@ import User from "../../components/User"
 function Users() {
   const { token } = useContext(UserContext)
   const [user, setUser] = useState(null)
-  const [formValue, setFormValue] = useState({})
+  // const [formValue, setFormValue] = useState({})
 
-  const handleChange = (event) => {
-    setFormValue({
-      ...formValue,
-      [event.target.name]: event.target.value,
-    })
-  }
+  // const handleChange = (event) => {
+  //   setFormValue({
+  //     ...formValue,
+  //     [event.target.name]: event.target.value,
+  //   })
+  // }
 
   useEffect(() => {
     const fetchData = async () => {
