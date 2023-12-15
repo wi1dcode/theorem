@@ -65,9 +65,12 @@ function EstimationEmbed() {
         text: "Veuillez entrer votre code postal pour vérifier notre disponibilité de service.",
         input: "text",
         inputLabel: "Ex. : 95123, 92456, 78123...",
+        cancelButtonText: "Retour à l'accueil",
+        showCancelButton: true,
         inputPlaceholder: "Entrez votre code postal",
         confirmButtonText: "Vérifier",
         confirmButtonColor: "#C8B790",
+        cancelButtonColor: "#D76C66",
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: true,
@@ -88,6 +91,8 @@ function EstimationEmbed() {
           showConfirmButton: false,
           timer: 1500,
         })
+      } else if (Swal.DismissReason.cancel === "cancel") {
+        window.location.href = "/"
       } else {
         Swal.fire(
           Swal.fire(
