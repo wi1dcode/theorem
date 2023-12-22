@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const path = require("path")
+const cookieParser = require("cookie-parser")
 
 const guestRouter = require("./routes/guestRouter")
 const userRouter = require("./routes/userRouter")
@@ -12,12 +13,14 @@ const app = express()
 
 app.use(
   cors({
+    credentials: true,
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
   })
 )
 
 app.use(express.json())
+app.use(cookieParser())
 app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")))
 app.use("/", guestRouter)
 app.use("/account", userRouter)

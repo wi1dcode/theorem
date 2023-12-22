@@ -14,9 +14,7 @@ import "./fonts/Avenir-Next-Condensed-Bold.ttf"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <UserContextProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </UserContextProvider>
 )
 

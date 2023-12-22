@@ -12,9 +12,11 @@ function Projects() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projects = await getProjects(token)
+        const projects = await getProjects()
         setProjects(projects)
-      } catch (error) {}
+      } catch (error) {
+        console.log(error)
+      }
     }
     fetchData()
   }, [token])

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import UserContext from "../services/userContext"
-import { login } from "../api/users"
+import { login } from "../api/session"
 import logo from "../images/icons/logo_black.png"
 import NavBar from "../components/NavBar"
 
@@ -23,9 +23,9 @@ function Login() {
   const logIn = async () => {
     try {
       const res = await login(userLogin.current)
-      setConnected(res.user)
-      const { token } = res
-      localStorage.setItem("token", token)
+      setConnected(true)
+      const { accessToken } = res.tokens
+      localStorage.setItem("token", accessToken)
       window.location.reload()
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -39,7 +39,7 @@ function Login() {
 
   return (
     <section
-    className="h-screen"
+      className="h-screen"
       style={{
         backgroundImage: `url(https://app.globalradar.com/Images/login-background.jpg)`,
       }}
@@ -100,6 +100,7 @@ function Login() {
                           email: e.target.value,
                         }
                       }}
+                      autoComplete="email"
                       required
                     />
                   </div>
@@ -135,6 +136,7 @@ function Login() {
                           password: e.target.value,
                         }
                       }}
+                      autoComplete="current-password"
                       required
                     />
                   </div>
@@ -149,7 +151,7 @@ function Login() {
 
                     <button
                       type="submit"
-                      className="tracking-wide rounded-lg bg-blue-700 px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-blue-600"
+                      className="tracking-wide rounded-lg bg-marron px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
                     >
                       <span className="w-full"> Se connecter </span>
                     </button>

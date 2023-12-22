@@ -1,12 +1,8 @@
 import { get, post } from "./api"
 
-export const getProjects = async (token) => {
+export const getProjects = async () => {
   try {
-    const response = await get(`/dashboard/projects`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    const response = await get(`/dashboard/projects`)
     return response.data
   } catch (error) {
     throw error

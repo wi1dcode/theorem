@@ -1,5 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from "react"
-import jwtDecode from "jwt-decode"
+import { get } from "../api/api"
+import { validateToken } from "../api/session"
 
 const UserContext = createContext()
 
@@ -8,15 +9,54 @@ export function UserContextProvider({ children }) {
   const [role, setRole] = useState(null)
   const [token, setToken] = useState(localStorage.getItem("token"))
 
-  useEffect(() => {
+  const checkSession = async () => {
     if (token) {
-      setConnected(true)
-      const decodedToken = jwtDecode(token)
-      setRole(decodedToken)
-    } else {
-      setConnected(false)
+      try {
+        const verifiedToken = await validateToken()
+        console.log(verifiedToken)
+        if (verifiedToken.userData) {
+          setConnected(true)
+          setRole(verifiedToken.userData)
+        } else {
+          setConnected(false)
+          setRole(null)
+          console.log(
+            "Token will be refreshed!!!!! " + "CONNECTED " + connected
+          )
+          refreshToken()
+        }
+
+        const now = new Date().getTime()
+        const expToken = verifiedToken.exp * 1000
+        if (now > expToken) {
+          localStorage.removeItem("token")
+          setConnected(false)
+        }
+      } catch (error) {
+        console.log("[userContext] Error while validating token, i will remove token:", error)
+        localStorage.removeItem("token")
+      }
     }
+  }
+
+  useEffect(() => {
+    checkSession()
   }, [token])
+
+  const refreshToken = async () => {
+    try {
+      const response = await get("/account/refresh")
+      const newToken = response.data
+      console.log(newToken)
+
+      localStorage.setItem("token", newToken)
+      setToken(newToken)
+      setConnected(true)
+    } catch (error) {
+      console.error("Error in refreshing token:", error)
+      localStorage.removeItem("token")
+    }
+  }
 
   const contextData = useMemo(
     () => ({
@@ -25,6 +65,7 @@ export function UserContextProvider({ children }) {
       token,
       setToken,
       role,
+      refreshToken,
     }),
     [connected, token, setConnected, role]
   )

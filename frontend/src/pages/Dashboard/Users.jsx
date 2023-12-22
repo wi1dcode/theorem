@@ -19,7 +19,7 @@ function Users() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const users = await getUsers(token)
+        const users = await getUsers()
         setUser(users)
       } catch (error) {}
     }

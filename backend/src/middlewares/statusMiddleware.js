@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken")
+const authService = require("../services/authService")
 require("dotenv").config()
 module.exports = function (requiredStatus) {
   return (req, res, next) => {
@@ -15,7 +16,7 @@ module.exports = function (requiredStatus) {
           .status(403)
           .json({ message: "Accès refusé, autorisation requise!" })
       }
-      const user = jwt.verify(token, process.env.SECRET)
+      const user = authService.validateAccessToken(token)
 
       if (user.status !== requiredStatus) {
         return res.status(403).json({ message: "Accès refusé!" })

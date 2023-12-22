@@ -1,21 +1,8 @@
 import { get, post } from "./api"
 
-export const login = async (userData) => {
+export const getUsers = async () => {
   try {
-    const response = await post(`/account/login`, userData)
-    return response.data
-  } catch (error) {
-    throw error
-  }
-}
-
-export const getUsers = async (token) => {
-  try {
-    const response = await get(`/dashboard/users`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    const response = await get(`/dashboard/users`)
     return response.data
   } catch (error) {
     throw error

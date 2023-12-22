@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken")
+const authService = require("../services/authService")
 require("dotenv").config()
 module.exports = function () {
   return function (req, res, next) {
@@ -15,7 +16,8 @@ module.exports = function () {
           .status(403)
           .json({ message: "Accès refusé, autorisation requise!" })
       }
-      const userRoles = jwt.verify(token, process.env.SECRET).roles
+      const userRoles = authService.validateAccessToken(token).roles
+      console.log(userRoles)
       let hasRole = false
       if (userRoles.includes("ADMIN")) {
         hasRole = true
