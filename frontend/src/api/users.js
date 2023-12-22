@@ -1,4 +1,4 @@
-import { get, post } from "./api"
+import { get } from "./api"
 
 export const getUsers = async () => {
   try {

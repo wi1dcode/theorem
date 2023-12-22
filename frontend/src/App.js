@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import UserContext from "./services/userContext"
-import jwtdecode from "jwt-decode"
 
 import Home from "./pages/Home"
 // import Estimation from "./pages/Estimation"
@@ -28,7 +27,7 @@ import Energetique from "./pages/Energetique"
 import History from "./pages/History"
 
 function App() {
-  const { token, connected } = useContext(UserContext)
+  const { connected } = useContext(UserContext)
 
   return (
     <BrowserRouter>
