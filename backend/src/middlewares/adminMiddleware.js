@@ -7,13 +7,13 @@ module.exports = function () {
       const authHeader = req.headers.authorization
       if (!authHeader) {
         return res
-          .status(403)
+          .status(401)
           .json({ message: "Accès refusé, autorisation requise!" })
       }
       const token = req.headers.authorization.split(" ")[1]
       if (!token) {
         return res
-          .status(403)
+          .status(401)
           .json({ message: "Accès refusé, autorisation requise!" })
       }
       const userRoles = authService.validateAccessToken(token).roles
@@ -28,7 +28,7 @@ module.exports = function () {
       next()
     } catch (e) {
       return res
-        .status(403)
+        .status(401)
         .json({ message: "Accès refusé, autorisation requise!" })
     }
   }

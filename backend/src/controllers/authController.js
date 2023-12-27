@@ -1,6 +1,5 @@
 const User = require("../models/userModel")
 const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
 const authService = require("../services/authService")
 const { validationResult } = require("express-validator")
 require("dotenv").config()
@@ -47,45 +46,16 @@ const login = async (req, res) => {
       return res.status(400).json({ message: `Mot de passe incorrect!` })
     }
 
-    const tokens = authService.generateTokens(
+    const token = authService.generateAccessToken(
       user._id,
       user.email,
       user.roles,
       user.status
     )
-    await authService.saveToken(user._id, tokens.refreshToken)
-    res.cookie("refreshToken", tokens.refreshToken, {
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-    })
-    return res.json({ tokens })
+
+    return res.json({ token })
   } catch (e) {
     res.status(400).json({ message: "Login error" })
-  }
-}
-
-const refresh = async (req, res) => {
-  try {
-    const { refreshToken } = req.cookies
-    if (!refreshToken) {
-      return res.status(403).json({ message: "Refresh token is required" })
-    }
-
-    const userData = await authService.validateRefreshToken(refreshToken)
-    if (!userData) {
-      return res.status(403).json({ message: "Invalid refresh token" })
-    }
-
-    const newTokens = authService.generateAccessToken(
-      userData.id,
-      userData.email,
-      userData.roles,
-      userData.status
-    )
-
-    return res.json(newTokens)
-  } catch (e) {
-    res.status(500).json({ message: "Internal Server Error" })
   }
 }
 
@@ -104,21 +74,44 @@ const validateToken = async (req, res) => {
   }
 }
 
-const logout = async (req, res, next) => {
-  try {
-    const { refreshToken } = req.cookies
-    const token = await authService.removeToken(refreshToken)
-    res.clearCookie("refreshToken")
-    return res.json(token)
-  } catch (e) {
-    next(e)
-  }
-}
+// const refresh = async (req, res) => {
+//   try {
+//     const { refreshToken } = req.cookies
+//     if (!refreshToken) {
+//       return res.status(403).json({ message: "Refresh token is required" })
+//     }
+
+//     const userData = await authService.validateRefreshToken(refreshToken)
+//     if (!userData) {
+//       return res.status(403).json({ message: "Invalid refresh token" })
+//     }
+
+//     const newTokens = authService.generateAccessToken(
+//       userData.id,
+//       userData.email,
+//       userData.roles,
+//       userData.status
+//     )
+
+//     return res.json(newTokens)
+//   } catch (e) {
+//     res.status(500).json({ message: "Internal Server Error" })
+//   }
+// }
+
+// const logout = async (req, res, next) => {
+//   try {
+//     const { refreshToken } = req.cookies
+//     const token = await authService.removeToken(refreshToken)
+//     res.clearCookie("refreshToken")
+//     return res.json(token)
+//   } catch (e) {
+//     next(e)
+//   }
+// }
 
 module.exports = {
   register,
   login,
-  refresh,
   validateToken,
-  logout,
 }

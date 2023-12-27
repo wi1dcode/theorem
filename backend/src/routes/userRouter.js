@@ -4,9 +4,9 @@ const { check } = require("express-validator")
 
 const authController = require("../controllers/authController")
 
-router.get("/refresh", authController.refresh)
+// router.get("/refresh", authController.refresh)
+// router.post("/logout", authController.logout)
 router.get("/session", authController.validateToken)
-router.post("/logout", authController.logout)
 // router.get('/activate/:link', authController.activate)
 router.post("/login", authController.login)
 

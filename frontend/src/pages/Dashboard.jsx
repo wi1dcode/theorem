@@ -10,23 +10,21 @@ import { logout } from "../api/session"
 
 function Dashboard() {
   const navigate = useNavigate()
-  const { token, role, setConnected } = useContext(UserContext)
+  const { role, connected, setConnected } = useContext(UserContext)
 
   useEffect(() => {
-    if (!token) {
+    if (!connected) {
       navigate("/")
     }
-  }, [token, navigate])
+  }, [connected, navigate])
 
   const exit = async () => {
     try {
-      const exit = await logout()
       localStorage.clear()
       setConnected(false)
-      console.log(exit)
       navigate("/")
     } catch (e) {
-      console.log(e.response?.data?.message)
+      console.log(e)
     }
   }
 

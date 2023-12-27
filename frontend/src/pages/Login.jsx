@@ -11,7 +11,7 @@ function Login() {
     email: false,
     password: false,
   })
-  const { connected, setConnected } = useContext(UserContext)
+  const { connected, setConnected, setToken } = useContext(UserContext)
   const [redInput, setRedInput] = useState(false)
 
   useEffect(() => {
@@ -23,10 +23,10 @@ function Login() {
   const logIn = async () => {
     try {
       const res = await login(userLogin.current)
+      console.log(res)
+      localStorage.setItem("token", res.token)
+      setToken(res.token)
       setConnected(true)
-      const { accessToken } = res.tokens
-      localStorage.setItem("token", accessToken)
-      window.location.reload()
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setRedInput(true)

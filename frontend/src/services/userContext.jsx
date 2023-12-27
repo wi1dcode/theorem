@@ -1,5 +1,4 @@
 import { createContext, useEffect, useMemo, useState } from "react"
-import { get } from "../api/api"
 import { validateToken } from "../api/session"
 
 const UserContext = createContext()
@@ -20,10 +19,8 @@ export function UserContextProvider({ children }) {
         } else {
           setConnected(false)
           setRole(null)
-          console.log(
-            "Token will be refreshed!!!!! " + "CONNECTED " + connected
-          )
-          refreshToken()
+          setToken(null)
+          console.log("Token expired! " + "CONNECTED " + connected)
         }
 
         const now = new Date().getTime()
@@ -31,32 +28,29 @@ export function UserContextProvider({ children }) {
         if (now > expToken) {
           localStorage.removeItem("token")
           setConnected(false)
+          setRole(null)
+          setToken(null)
         }
       } catch (error) {
-        console.log("[userContext] Error while validating token, i will remove token:", error)
+        console.log(
+          "[userContext] Error while validating token, i will remove token:",
+          error
+        )
         localStorage.removeItem("token")
+        setConnected(false)
+        setRole(null)
+        setToken(null)
       }
+    } else {
+      setConnected(false)
+      setRole(null)
+      setToken(null)
     }
   }
 
   useEffect(() => {
     checkSession()
   }, [token])
-
-  const refreshToken = async () => {
-    try {
-      const response = await get("/account/refresh")
-      const newToken = response.data
-      console.log(newToken)
-
-      localStorage.setItem("token", newToken)
-      setToken(newToken)
-      setConnected(true)
-    } catch (error) {
-      console.error("Error in refreshing token:", error)
-      localStorage.removeItem("token")
-    }
-  }
 
   const contextData = useMemo(
     () => ({
@@ -65,7 +59,7 @@ export function UserContextProvider({ children }) {
       token,
       setToken,
       role,
-      refreshToken,
+      checkSession,
     }),
     [connected, token, setConnected, role]
   )

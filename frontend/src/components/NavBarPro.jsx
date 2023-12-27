@@ -1,9 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import LogoBlack from "../images/icons/logo2.png";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import LogoBlack from "../images/icons/logo2.png"
+import React, { useRef } from "react"
+import { useEffect } from "react"
 
 function NavBarPro() {
-  const [isOpen, setIsOpen] = useState(false);
+  const navigationProRef = useRef(null)
+  const [navProHeight, setNavProHeight] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
 
   const navigation = [
     {
@@ -30,21 +34,29 @@ function NavBarPro() {
       path: "/pro",
       onClick: () => scrollToSection("contact"),
     },
-  ];
+  ]
+
+  useEffect(() => {
+    if (navigationProRef.current) {
+      const height = navigationProRef.current.offsetHeight
+      setNavProHeight(height)
+    }
+  }, [])
 
   const scrollToSection = (sectionId) => {
     setTimeout(() => {
-      const contactSection = document.getElementById(sectionId);
+      const contactSection = document.getElementById(sectionId)
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
+        const offsetTop = contactSection.offsetTop - navProHeight
+        window.scrollTo({ top: offsetTop, behavior: "smooth" })
       }
-      setIsOpen(false);
-    }, 100);
-  };
+      setIsOpen(false)
+    }, 100)
+  }
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   return (
     <nav className="border-gray-200 shadow bg-gray-50 z-50 w-full sticky top-0">
@@ -60,7 +72,7 @@ function NavBarPro() {
           <div className="relative">
             <button
               onClick={() => {
-                toggleMenu();
+                toggleMenu()
               }}
               type="button"
               className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
@@ -102,13 +114,13 @@ function NavBarPro() {
                     {item.title}
                   </Link>
                 </li>
-              );
+              )
             })}
           </ul>
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default NavBarPro;
+export default NavBarPro

@@ -169,10 +169,11 @@ function NavBar() {
 
   const scrollToContact = (sectionId) => {
     setTimeout(() => {
-      const contactSection = document.getElementById(sectionId)
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" })
-      }
+      const section = document.getElementById(sectionId)
+      const yOffset = -230
+      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+
+      window.scrollTo({ top: y, behavior: "smooth" })
       setIsOpen(false)
     }, 100)
   }
