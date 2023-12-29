@@ -18,8 +18,6 @@ api.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config
-    console.log("Интерцептор работает    +" + JSON.stringify(originalRequest))
-
     if (error.response.status === 401 && !originalRequest._isRetry) {
       originalRequest._isRetry = true
       window.location.reload()

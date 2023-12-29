@@ -24,6 +24,16 @@ const getProjects = async (req, res) => {
   }
 }
 
+const getProjectById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const project = await Form.findOne({ _id: id })
+    res.json(project)
+  } catch (e) {
+    res.status(400).json({ message: "Get project error" })
+  }
+}
+
 const getProjectByEmail = async (req, res) => {
   try {
     const { email } = req.body
@@ -36,6 +46,62 @@ const getProjectByEmail = async (req, res) => {
     res.json(project)
   } catch (e) {
     res.status(400).json({ message: "Get project error" })
+  }
+}
+
+const getProjectsByStatus = async (req, res) => {
+  try {
+    const { status } = req.query
+
+    const allowedStatusValues = [
+      "PENDING",
+      "REFUSED",
+      "APPROVED",
+      "PROGRESS",
+      "FINISH",
+    ]
+
+    if (!allowedStatusValues.includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" })
+    }
+
+    const projects = await Form.find({ status })
+    res.json(projects)
+  } catch (e) {
+    res.status(400).json({ message: "Error getting projects by status" })
+  }
+}
+
+const changeProjectStatus = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { status } = req.body
+
+    const allowedStatusValues = [
+      "PENDING",
+      "REFUSED",
+      "APPROVED",
+      "PROGRESS",
+      "FINISH",
+    ]
+
+    if (!allowedStatusValues.includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" })
+    }
+
+    const project = await Form.findOneAndUpdate(
+      { _id: id },
+      { status: status },
+      { new: true }
+    )
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found!" })
+    }
+
+    return res.json({ message: "Project status updated successfully", project })
+  } catch (e) {
+    return res.status(400).json({ message: "Error updating project status" })
   }
 }
 
@@ -358,4 +424,7 @@ module.exports = {
   getPendingManager,
   getProjects,
   getProjectByEmail,
+  getProjectById,
+  changeProjectStatus,
+  getProjectsByStatus,
 }

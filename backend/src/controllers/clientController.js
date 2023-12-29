@@ -45,7 +45,7 @@ const createRequest = async (req, res) => {
       information,
       documents,
       adresse,
-      status,
+      residence,
       when,
       about,
       email,
@@ -70,12 +70,13 @@ const createRequest = async (req, res) => {
       information, // ?
       documents,
       adresse,
-      status,
+      residence,
       when,
       about,
       email,
       tel,
       password,
+      status: "PENDING",
     })
 
     const user = await createAccount(email, password, name, city, tel)
@@ -169,7 +170,7 @@ const getData = async (req, res) => {
       budget: answersData.budget,
       documents: answersData.documents,
       photos: answersData.photos,
-      status: answersData.status,
+      residence: answersData.residence,
       when: answersData.when,
       about: answersData.about,
       name: answersData.name,
@@ -177,6 +178,7 @@ const getData = async (req, res) => {
       tel: answersData.tel,
       adresse: answersData.address,
       password: password,
+      status: "PENDING"
     })
 
     console.log(client)

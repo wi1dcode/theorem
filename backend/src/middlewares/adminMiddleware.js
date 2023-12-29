@@ -17,7 +17,6 @@ module.exports = function () {
           .json({ message: "Accès refusé, autorisation requise!" })
       }
       const userRoles = authService.validateAccessToken(token).roles
-      console.log(userRoles)
       let hasRole = false
       if (userRoles.includes("ADMIN")) {
         hasRole = true

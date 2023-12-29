@@ -30,7 +30,7 @@ class AuthService {
       status,
     }
     return jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
-      expiresIn: "10s",
+      expiresIn: "1h",
     })
   }
 

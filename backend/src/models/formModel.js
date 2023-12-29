@@ -58,7 +58,7 @@ const Form = new Schema(
       type: String,
       required: true,
     },
-    status: {
+    residence: {
       type: String,
       required: true,
     },
@@ -78,6 +78,11 @@ const Form = new Schema(
     tel: {
       type: Number,
       required: true,
+    },
+    status: {
+      type: String,
+      required: true,
+      enum: ["PENDING", "REFUSED", "APPROVED", "PROGRESS", "FINISH"],
     },
   },
   {
