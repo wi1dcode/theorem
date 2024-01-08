@@ -1,6 +1,10 @@
 import React from "react"
+import { Widget } from "@typeform/embed-react"
+import { Link } from "react-router-dom"
 
 function Menu() {
+  const handleSubmit = () => {}
+
   return (
     <section className="text-center">
       <div className="text-3xl font-bold mt-12">• Dashboard •</div>
@@ -16,6 +20,11 @@ function Menu() {
         incidunt iste quidem officiis itaque aspernatur doloremque atque quis
         nesciunt magni aut corporis suscipit quod
       </p>
+      <Link to="./new-project">
+        <button className="p-2 bg-green-500 rounded-lg mt-12 text-white font-semibold">
+          Créer un nouveau projet
+        </button>
+      </Link>
     </section>
   )
 }

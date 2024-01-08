@@ -31,9 +31,12 @@ const User = new Schema(
         default: "USER",
       },
     ],
-    status: {
+    isActivated: {
+      type: Boolean,
+      default: false,
+    },
+    activationLink: {
       type: String,
-      default: "PENDING",
     },
     username: {
       type: String,

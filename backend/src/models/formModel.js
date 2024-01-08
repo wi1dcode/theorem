@@ -72,7 +72,6 @@ const Form = new Schema(
     },
     email: {
       type: String,
-      unique: true,
       required: true,
     },
     tel: {
@@ -82,6 +81,7 @@ const Form = new Schema(
     status: {
       type: String,
       required: true,
+      default: "PENDING",
       enum: ["PENDING", "REFUSED", "APPROVED", "PROGRESS", "FINISH"],
     },
   },

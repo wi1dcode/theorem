@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 const session = require("../models/sessionModel")
+const userModel = require("../models/userModel")
 
 class AuthService {
   // generateTokens(id, email, roles, status) {
@@ -70,6 +71,15 @@ class AuthService {
   async findToken(refreshToken) {
     const tokenData = await session.findOne({ refreshToken })
     return tokenData
+  }
+
+  async activate(activationLink) {
+    const user = await userModel.findOne({ activationLink })
+    if (!user) {
+      throw new Error(400, "User not found")
+    }
+    user.isActivated = true
+    await user.save()
   }
 }
 

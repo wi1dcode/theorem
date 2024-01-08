@@ -1,6 +1,7 @@
 const User = require("../models/userModel")
 const bcrypt = require("bcryptjs")
 const authService = require("../services/authService")
+const mailService = require("../services/mailService")
 const { validationResult } = require("express-validator")
 require("dotenv").config()
 
@@ -74,6 +75,17 @@ const validateToken = async (req, res) => {
   }
 }
 
+const activate = async (req, res) => {
+  try {
+    const activationLink = req.params.link
+    await authService.activate(activationLink)
+    return res.redirect(process.env.CLIENT_URL)
+  } catch (e) {
+    res.redirect(process.env.CLIENT_URL)
+    res.status(400).json({ message: "Error in account activation" })
+  }
+}
+
 // const refresh = async (req, res) => {
 //   try {
 //     const { refreshToken } = req.cookies
@@ -114,4 +126,5 @@ module.exports = {
   register,
   login,
   validateToken,
+  activate,
 }

@@ -26,6 +26,7 @@ import Eco from "./pages/Eco"
 import Energetique from "./pages/Energetique"
 import History from "./pages/History"
 import ProjectInfo from "./pages/Dashboard/ProjectInfo"
+import NewProject from "./pages/Dashboard/NewProject"
 
 function App() {
   const { connected } = useContext(UserContext)
@@ -54,6 +55,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="projects" element={<Projects />} />
           <Route path="projects/:id" element={<ProjectInfo />} />
+          <Route path="new-project" element={<NewProject />} />
         </Route>
         <Route path="pro/*" element={<Pro />}>
           <Route index element={<ProMain />} />

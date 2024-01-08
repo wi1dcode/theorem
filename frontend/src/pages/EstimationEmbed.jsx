@@ -57,7 +57,7 @@ function EstimationEmbed() {
 
         if (confirmPassword === password) {
           const { formId, responseId } = event
-          const formData = { formId, responseId, password }
+          const formData = { formId, responseId, password, city }
 
           const response = await axios.post(
             "http://localhost:5000/send-responses",

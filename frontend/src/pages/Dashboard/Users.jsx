@@ -60,7 +60,7 @@ function Users() {
                   tel={user.tel}
                   type={user.type}
                   forms={user.forms?.length}
-                  status={user.status}
+                  status={user.isActivated}
                 />
               ))}
           </tbody>
