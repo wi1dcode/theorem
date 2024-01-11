@@ -1,24 +1,25 @@
 import { createContext, useEffect, useMemo, useState } from "react"
 import { validateToken } from "../api/session"
+import { getMe } from "../api/client"
 
 const UserContext = createContext()
 
 export function UserContextProvider({ children }) {
   const [connected, setConnected] = useState(false)
-  const [role, setRole] = useState(null)
+  const [user, setUser] = useState(null)
   const [token, setToken] = useState(localStorage.getItem("token"))
 
   const checkSession = async () => {
     if (token) {
       try {
         const verifiedToken = await validateToken()
-        console.log(verifiedToken)
         if (verifiedToken.userData) {
           setConnected(true)
-          setRole(verifiedToken.userData)
+          const userInfo = await getMe()
+          setUser(userInfo)
         } else {
           setConnected(false)
-          setRole(null)
+          setUser(null)
           setToken(null)
           console.log("Token expired! " + "CONNECTED " + connected)
         }
@@ -28,7 +29,7 @@ export function UserContextProvider({ children }) {
         if (now > expToken) {
           localStorage.removeItem("token")
           setConnected(false)
-          setRole(null)
+          setUser(null)
           setToken(null)
         }
       } catch (error) {
@@ -38,12 +39,11 @@ export function UserContextProvider({ children }) {
         )
         localStorage.removeItem("token")
         setConnected(false)
-        setRole(null)
+        setUser(null)
         setToken(null)
       }
     } else {
       setConnected(false)
-      setRole(null)
       setToken(null)
     }
   }
@@ -58,10 +58,11 @@ export function UserContextProvider({ children }) {
       setConnected,
       token,
       setToken,
-      role,
+      user,
+      setUser,
       checkSession,
     }),
-    [connected, token, setConnected, role]
+    [connected, token, setConnected, user, setUser]
   )
 
   return (

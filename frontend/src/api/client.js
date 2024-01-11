@@ -9,6 +9,15 @@ export const estimation = async (userData) => {
   }
 }
 
+export const getMe = async () => {
+  try {
+    const response = await get(`/account/userinfo`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const getProjects = async () => {
   try {
     const response = await get(`/dashboard/projects`)
@@ -29,12 +38,12 @@ export const getProject = async (id) => {
 
 export const getProjectsByStatus = async (status) => {
   try {
-    const response = await get(`/dashboard/projects?status=${status}`);
-    return response.data;
+    const response = await get(`/dashboard/projects?status=${status}`)
+    return response.data
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}
 
 export const updateProjectStatus = async (id, status) => {
   try {

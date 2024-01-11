@@ -3,11 +3,14 @@ const router = new Router()
 const { check } = require("express-validator")
 
 const authController = require("../controllers/authController")
+const clientController = require("../controllers/clientController")
 
 // router.get("/refresh", authController.refresh)
 // router.post("/logout", authController.logout)
+
 router.get("/session", authController.validateToken)
 router.get("/activate/:link", authController.activate)
+router.get("/userinfo", clientController.getMe)
 router.post("/login", authController.login)
 
 router.post(

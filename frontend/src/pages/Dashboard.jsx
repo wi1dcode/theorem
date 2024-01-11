@@ -6,11 +6,10 @@ import logo from "../images/icons/logo_black.png"
 import AdminMenu from "../components/AdminMenu"
 import ClientMenu from "../components/ClientMenu"
 import ProMenu from "../components/ProMenu"
-import { logout } from "../api/session"
 
 function Dashboard() {
   const navigate = useNavigate()
-  const { role, connected, setConnected } = useContext(UserContext)
+  const { user, connected, setConnected } = useContext(UserContext)
 
   useEffect(() => {
     if (!connected) {
@@ -49,7 +48,7 @@ function Dashboard() {
           </Link>
 
           <div className="flex flex-col justify-between flex-1 mt-6">
-            {roleMenu(role && role?.roles)}
+            {roleMenu(user && user?.roles)}
             <div className="mt-6">
               <div className="flex items-center justify-between mt-6">
                 <Link
@@ -72,7 +71,7 @@ function Dashboard() {
                     />
                   </svg>
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                    {role?.email}
+                    Déconnexion
                   </span>
                 </Link>
               </div>

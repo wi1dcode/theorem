@@ -8,57 +8,59 @@ function EstimationEmbed() {
 
   const handleSubmit = async (event) => {
     try {
-      const { value: password } = await Swal.fire({
+      const { value: passValues } = await Swal.fire({
         title: "Entrez votre mot de passe",
-        iconColor: "#C8B790",
-        confirmButtonColor: "#C8B790",
-        input: "password",
-        inputLabel:
-          "Attention, le mot de passe doit contenir entre 5 et 16 caractères.",
-        inputPlaceholder: "Entrez votre mot de passe",
-        inputAttributes: {
-          maxlength: "16",
-          autocapitalize: "off",
-          autocorrect: "off",
-          autocomplete: "off",
-        },
-        confirmButtonText: "Suivant",
-        showLoaderOnConfirm: true,
+        html: `
+        <div class="mb-2">
+        <input type="password" id="password" class="swal2-input rounded-lg w-[70%]" placeholder="Entrez votre mot de passe">
+        <input type="password" id="confirmPassword" class="swal2-input rounded-lg w-[70%]" placeholder="Confirmez votre mot de passe">
+        </div>
+        <button type="button" id="togglePasswordBtn" class="text-sm opacity-50">Afficher mot de passe</button>
+        `,
+        focusConfirm: false,
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: true,
-        inputValidator: (value) => {
-          if (!value) {
-            return "Le mot de passe est requis"
-          } else if (value.length < 5 || value.length > 16) {
-            return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères."
-          }
+        confirmButtonColor: "#C8B790",
+        iconColor: "#C8B790",
+        didRender: () => {
+          document
+            .getElementById("togglePasswordBtn")
+            .addEventListener("click", () => {
+              const passwordInput = document.getElementById("password")
+              const confirmPasswordInput =
+                document.getElementById("confirmPassword")
+              const isPassword = passwordInput.type === "password"
+              passwordInput.type = isPassword ? "text" : "password"
+              confirmPasswordInput.type = isPassword ? "text" : "password"
+            })
         },
+        preConfirm: () => {
+          const password = Swal.getPopup().querySelector("#password").value
+          const confirmPassword =
+            Swal.getPopup().querySelector("#confirmPassword").value
+          if (!password || !confirmPassword) {
+            Swal.showValidationMessage("Les deux champs sont requis")
+          } else if (password !== confirmPassword) {
+            Swal.showValidationMessage("Les mots de passe ne correspondent pas")
+          } else if (password.length < 5 || password.length > 16) {
+            Swal.showValidationMessage(
+              "La longueur du mot de passe doit être comprise entre 5 et 16 caractères"
+            )
+          }
+          return { password, confirmPassword }
+        },
+        showCancelButton: false,
+        confirmButtonText: "Créer mon compte",
+        cancelButtonText: "Annuler",
       })
 
-      if (password) {
-        const { value: confirmPassword } = await Swal.fire({
-          title: "Confirmez votre mot de passe",
-          iconColor: "#C8B790",
-          confirmButtonColor: "#C8B790",
-          input: "password",
-          inputPlaceholder: "Confirmez votre mot de passe",
-          confirmButtonText: "Créer mon compte",
-          showLoaderOnConfirm: true,
-          allowOutsideClick: false,
-          allowEscapeKey: false,
-          allowEnterKey: true,
-          inputValidator: (value) => {
-            if (value !== password) {
-              return "Les mots de passe ne correspondent pas"
-            }
-          },
-        })
+      if (passValues) {
+        const { password, confirmPassword } = passValues
 
-        if (confirmPassword === password) {
+        if (password === confirmPassword) {
           const { formId, responseId } = event
           const formData = { formId, responseId, password, city }
-
           const response = await axios.post(
             "http://localhost:5000/send-responses",
             formData
@@ -71,7 +73,11 @@ function EstimationEmbed() {
               "success"
             )
           } else {
-            await Swal.fire("Error", "Failed to submit form", "error")
+            await Swal.fire(
+              "Erreur",
+              "Échec de la soumission du formulaire",
+              "error"
+            )
           }
         }
       }

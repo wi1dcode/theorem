@@ -23,7 +23,6 @@ function Login() {
   const logIn = async () => {
     try {
       const res = await login(userLogin.current)
-      console.log(res)
       localStorage.setItem("token", res.token)
       setToken(res.token)
       setConnected(true)

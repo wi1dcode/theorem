@@ -5,6 +5,7 @@ const axios = require("axios")
 const Form = require("../models/formModel")
 const mailService = require("../services/mailService")
 const { validationResult } = require("express-validator")
+const authService = require("../services/authService")
 
 const createAccount = async (email, password, name, city, tel) => {
   try {
@@ -218,4 +219,31 @@ const createRequest = async (req, res) => {
   }
 }
 
-module.exports = { createRequest, getData }
+const getMe = async (req, res) => {
+  try {
+    const token = req.headers.authorization
+    if (!token) {
+      return res.status(403).json({ message: "Token is missing" })
+    }
+
+    const userData = authService.validateAccessToken(token.split("Bearer ")[1])
+
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
+
+    const user = await User.findById(userData.id)
+      .select("-password -isActivated -activationLink -username")
+      .populate("forms")
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" })
+    }
+
+    res.json(user)
+  } catch (e) {
+    res.status(500).json({ message: "Server error" })
+  }
+}
+
+module.exports = { createRequest, getData, getMe }
