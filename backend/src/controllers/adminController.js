@@ -135,9 +135,33 @@ const getUserByEmail = async (req, res) => {
   }
 }
 
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { name, city, tel, type, isActivated, roles } = req.body
+    const user = await User.findById(id)
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" })
+    }
+
+    user.name = name || user.name
+    user.city = city || user.city
+    user.tel = tel || user.tel
+    user.type = type || user.type
+    user.isActivated = isActivated 
+    user.roles = roles
+
+    await user.save()
+    return res.json({ message: "User updated successfully" })
+  } catch (e) {
+    return res.status(400).json({ message: "Error in updating user" })
+  }
+}
+
 const deleteUser = async (req, res) => {
   try {
-    const { email } = req.body
+    const { email } = req.params
     const deletedUser = await User.findOneAndDelete({
       email: email,
     })
@@ -412,6 +436,7 @@ module.exports = {
   deleteUser,
   giveAdmin,
   givePro,
+  updateUser,
   getPendingProUsers,
   getApprovedProUsers,
   getPendingUsers,
