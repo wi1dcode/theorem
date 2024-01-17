@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, Routes, Route } from "react-router-dom"
 import UserContext from "../services/userContext"
-import { Outlet } from "react-router-dom"
 import logo from "../images/icons/logo_black.png"
-import AdminMenu from "../components/AdminMenu"
 import ClientMenu from "../components/ClientMenu"
-import ProMenu from "../components/ProMenu"
+import Menu from "./User/Menu"
+import NewProject from "./Dashboard/NewProject"
+import Calendly from "./User/Calendly"
 
-function Dashboard() {
+function UserDashboard() {
   const navigate = useNavigate()
-  const { user, setConnected } = useContext(UserContext)
+  const { setConnected } = useContext(UserContext)
 
   const exit = async () => {
     try {
@@ -18,18 +18,6 @@ function Dashboard() {
       navigate("/")
     } catch (e) {
       console.log(e)
-    }
-  }
-
-  const roleMenu = (roles) => {
-    if (roles && roles?.includes("ADMIN")) {
-      return <AdminMenu />
-    } else if (roles?.includes("PRO")) {
-      return <ProMenu />
-    } else if (roles?.includes("USER")) {
-      return <ClientMenu />
-    } else {
-      return null
     }
   }
 
@@ -42,7 +30,7 @@ function Dashboard() {
           </Link>
 
           <div className="flex flex-col justify-between flex-1 mt-6">
-            {roleMenu(user && user?.roles)}
+            <ClientMenu />
             <div className="mt-6">
               <div className="flex items-center justify-between mt-6">
                 <Link
@@ -74,11 +62,16 @@ function Dashboard() {
         </aside>
 
         <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50">
-          <Outlet />
+          <Routes>
+            <Route index element={<Menu />} />
+            <Route path="projects/:id" element={null} />
+            <Route path="new-project" element={<NewProject />} />
+            <Route path="rdv" element={<Calendly />} />
+          </Routes>
         </div>
       </section>
     </section>
   )
 }
 
-export default Dashboard
+export default UserDashboard

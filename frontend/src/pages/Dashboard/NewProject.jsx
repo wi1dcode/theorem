@@ -1,7 +1,5 @@
-import Swal from "sweetalert2"
 import { Widget } from "@typeform/embed-react"
 import axios from "axios"
-import { useState } from "react"
 
 function NewProject() {
   const handleSubmit = async (event) => {
@@ -13,7 +11,6 @@ function NewProject() {
       console.error(error)
     }
   }
-  const handleFormReady = () => {}
 
   return (
     <section className="w-full">

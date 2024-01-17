@@ -11,14 +11,15 @@ function Login() {
     email: false,
     password: false,
   })
-  const { connected, setConnected, setToken } = useContext(UserContext)
+  const { isAdmin, connected, setConnected, setToken } = useContext(UserContext)
   const [redInput, setRedInput] = useState(false)
 
   useEffect(() => {
     if (connected) {
-      navigate("/dashboard")
+      const redirectPath = isAdmin ? "/dashboard" : "/account"
+      navigate(redirectPath)
     }
-  }, [connected, navigate])
+  }, [connected, isAdmin, navigate])
 
   const logIn = async () => {
     try {

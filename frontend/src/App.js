@@ -4,11 +4,8 @@ import UserContext from "./services/userContext"
 
 import Home from "./pages/Home"
 // import Estimation from "./pages/Estimation"
-import Dashboard from "./pages/Dashboard"
-import Menu from "./pages/Dashboard/Menu"
 import Login from "./pages/Login"
 import About from "./pages/About"
-import Users from "./pages/Dashboard/Users"
 import Realisations from "./pages/Realisations"
 import Parteneriat from "./pages/Parteneriat"
 
@@ -18,19 +15,18 @@ import ProClients from "./pages/Pro/ProClients"
 import ProWork from "./pages/Pro/ProWork"
 import ProContact from "./pages/Pro/ProContact"
 import ProMain from "./pages/Pro/ProMain"
-import Projects from "./pages/Dashboard/Projects"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
 import Expertises from "./pages/Expertises"
 import Eco from "./pages/Eco"
 import Energetique from "./pages/Energetique"
 import History from "./pages/History"
-import ProjectInfo from "./pages/Dashboard/ProjectInfo"
-import NewProject from "./pages/Dashboard/NewProject"
 import Loading from "./components/Loading"
+import UserDashboard from "./pages/UserDashboard"
+import AdminDashboard from "./pages/AdminDashboard"
 
 function App() {
-  const { connected } = useContext(UserContext)
+  const { connected, isAdmin, isLoading } = useContext(UserContext)
 
   return (
     <BrowserRouter>
@@ -49,23 +45,29 @@ function App() {
         <Route path="/contact" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route
-          path="dashboard/*"
+          path="/dashboard/*"
           element={
-            connected === null ? (
+            isLoading ? (
               <Loading />
-            ) : connected ? (
-              <Dashboard />
+            ) : connected && isAdmin ? (
+              <AdminDashboard />
+            ) : (
+              <Navigate to={connected ? "/account" : "/login"} />
+            )
+          }
+        />
+        <Route
+          path="/account/*"
+          element={
+            isLoading ? (
+              <Loading />
+            ) : connected && !isAdmin ? (
+              <UserDashboard />
             ) : (
               <Navigate to="/login" />
             )
           }
-        >
-          <Route index element={<Menu />} />
-          <Route path="users" element={<Users />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="projects/:id" element={<ProjectInfo />} />
-          <Route path="new-project" element={<NewProject />} />
-        </Route>
+        />
         <Route path="pro/*" element={<Pro />}>
           <Route index element={<ProMain />} />
           <Route path="savoir-faire" element={<ProSavoir />} />
