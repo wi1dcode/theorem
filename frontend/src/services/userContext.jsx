@@ -5,7 +5,7 @@ import { getMe } from "../api/client"
 const UserContext = createContext()
 
 export function UserContextProvider({ children }) {
-  const [connected, setConnected] = useState(false)
+  const [connected, setConnected] = useState(null)
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(localStorage.getItem("token"))
 
@@ -21,7 +21,6 @@ export function UserContextProvider({ children }) {
           setConnected(false)
           setUser(null)
           setToken(null)
-          console.log("Token expired! " + "CONNECTED " + connected)
         }
 
         const now = new Date().getTime()
@@ -33,10 +32,7 @@ export function UserContextProvider({ children }) {
           setToken(null)
         }
       } catch (error) {
-        console.log(
-          "[userContext] Error while validating token, i will remove token:",
-          error
-        )
+        console.log(error)
         localStorage.removeItem("token")
         setConnected(false)
         setUser(null)

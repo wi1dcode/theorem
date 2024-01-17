@@ -1,6 +1,8 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import UserContext from "../../services/userContext"
+import UserProjectCard from "../../components/UserProjectCard"
+import { format } from "date-fns"
 
 function Menu() {
   const { user } = useContext(UserContext)
@@ -35,18 +37,24 @@ function Menu() {
         </p>
         {user?.forms?.length ? (
           user.forms.map((project) => (
-            <div key={project._id} className="mb-4">
+            <div key={project._id} className="mb-4 flex flex-col items-center">
               <p className="font-semibold my-2">
                 Votre projet "{project.renovation}" est actuellement{" "}
                 {getStatusText(project.status)}.
               </p>
               <p>Informations sur votre projet:</p>
-              <ul className="list-disc list-inside">
-                <li>Type de rénovation: {project.renovation}</li>
-                <li>Surface: {project.surface} m²</li>
-                <li>Budget: {project.budget} €</li>
-                <li>Adresse: {project.adresse}</li>
-              </ul>
+                <UserProjectCard
+                  key={project._id}
+                  id={project._id}
+                  renovation={project.renovation}
+                  date={format(new Date(project.createdAt), "dd/MM/yyyy")}
+                  tel={project.tel}
+                  email={project.email}
+                  status={project.status}
+                  surface={project.surface}
+                  budget={project.budget}
+                  adresse={project.adresse}
+                />
             </div>
           ))
         ) : (

@@ -116,7 +116,7 @@ export default function AdminMenu() {
           />
         </svg>
 
-        <span className="mx-2 text-sm font-medium">Reporting</span>
+        <span className="mx-2 text-sm font-medium">Logging</span>
       </Link>
 
       <Link

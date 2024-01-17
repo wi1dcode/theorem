@@ -1,7 +1,17 @@
 import React, { useContext } from "react"
 import UserContext from "../services/userContext"
 
-function UserTable({ name, city, email, tel, type, status, forms }) {
+function UserTable({
+  name,
+  city,
+  email,
+  tel,
+  type,
+  status,
+  forms,
+  modifyButton,
+  deleteButton,
+}) {
   const { connected } = useContext(UserContext)
 
   return (
@@ -31,12 +41,22 @@ function UserTable({ name, city, email, tel, type, status, forms }) {
           </td>
           <td className="px-6 py-4">{forms}</td>
           <td className="px-6 py-4">
-            <button
-              type="button"
-              className="font-medium text-blue-500  hover:underline"
-            >
-              Modifier
-            </button>
+            <div className="flex gap-x-3">
+              <button
+                type="button"
+                onClick={modifyButton}
+                className="font-medium text-green-500  hover:underline"
+              >
+                Modifier
+              </button>
+              <button
+                type="button"
+                onClick={deleteButton}
+                className="font-medium text-red-500  hover:underline"
+              >
+                Supprimer
+              </button>
+            </div>
           </td>
         </tr>
       )}

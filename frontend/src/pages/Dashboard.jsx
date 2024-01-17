@@ -9,13 +9,7 @@ import ProMenu from "../components/ProMenu"
 
 function Dashboard() {
   const navigate = useNavigate()
-  const { user, connected, setConnected } = useContext(UserContext)
-
-  useEffect(() => {
-    if (!connected) {
-      navigate("/")
-    }
-  }, [connected, navigate])
+  const { user, setConnected } = useContext(UserContext)
 
   const exit = async () => {
     try {
@@ -79,7 +73,7 @@ function Dashboard() {
           </div>
         </aside>
 
-        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-nuage/50">
+        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50">
           <Outlet />
         </div>
       </section>

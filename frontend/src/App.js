@@ -27,6 +27,7 @@ import Energetique from "./pages/Energetique"
 import History from "./pages/History"
 import ProjectInfo from "./pages/Dashboard/ProjectInfo"
 import NewProject from "./pages/Dashboard/NewProject"
+import Loading from "./components/Loading"
 
 function App() {
   const { connected } = useContext(UserContext)
@@ -49,7 +50,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="dashboard/*"
-          element={connected ? <Dashboard /> : <Navigate to="/login" />}
+          element={
+            connected === null ? (
+              <Loading />
+            ) : connected ? (
+              <Dashboard />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         >
           <Route index element={<Menu />} />
           <Route path="users" element={<Users />} />

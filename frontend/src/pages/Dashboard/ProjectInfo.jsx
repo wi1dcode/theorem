@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import UserContext from "../../services/userContext"
-import {
-  getProject,
-  updateProjectStatus,
-} from "../../api/client"
+import { getProject, updateProjectStatus } from "../../api/client"
+import Loading from "../../components/Loading"
 
 function ProjectInfo() {
   const { id } = useParams()
@@ -42,7 +40,7 @@ function ProjectInfo() {
       <h2 className="text-center mb-2 ">Project info:</h2>
 
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : projectData ? (
         <div className="text-center">
           <p>{projectData.renovation}</p>
