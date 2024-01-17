@@ -16,7 +16,7 @@ function Users() {
       } catch (error) {}
     }
     fetchData()
-  }, [token, user])
+  }, [token])
 
   const handleUserEdit = async (userData) => {
     const { value: formValues } = await Swal.fire({
@@ -97,13 +97,27 @@ function Users() {
         roles: [formValues.role],
       }
 
-      const response = await updateUser(userData._id, updatedData)
-      console.log(response)
-      Swal.fire(
-        "Modifié!",
-        "Les données de l'utilisateur ont été mises à jour.",
-        "success"
-      )
+      try {
+        const response = await updateUser(userData._id, updatedData)
+        console.log(response)
+
+        setUser((prevUsers) => {
+          return prevUsers.map((user) => {
+            if (user._id === userData._id) {
+              return { ...user, ...updatedData }
+            }
+            return user
+          })
+        })
+
+        Swal.fire(
+          "Modifié!",
+          "Les données de l'utilisateur ont été mises à jour.",
+          "success"
+        )
+      } catch (error) {
+        console.error("Error updating user:", error)
+      }
     }
   }
 

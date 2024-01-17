@@ -8,6 +8,7 @@ import Users from "./Admin/Users"
 import Projects from "./Admin/Projects"
 import ProjectInfo from "./Admin/ProjectInfo"
 import NewProject from "./Dashboard/NewProject"
+import Logging from "./Admin/Logging"
 
 function AdminDashboard() {
   const navigate = useNavigate()
@@ -70,6 +71,7 @@ function AdminDashboard() {
             <Route path="users" element={<Users />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<ProjectInfo />} />
+            <Route path="logs" element={<Logging />} />
           </Routes>
         </div>
       </section>

@@ -19,5 +19,6 @@ router.get("/user", adminController.getUserByEmail)
 router.delete("/users/remove/:email", adminController.deleteUser)
 router.post("/add/admin", adminController.giveAdmin)
 router.post("/add/pro", adminController.givePro)
+router.get("/logs", adminController.getLogs)
 
 module.exports = router

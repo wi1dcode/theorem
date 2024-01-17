@@ -6,6 +6,7 @@ const Form = require("../models/formModel")
 const mailService = require("../services/mailService")
 const { validationResult } = require("express-validator")
 const authService = require("../services/authService")
+const logService = require("../services/logService")
 
 const createAccount = async (email, password, name, city, tel) => {
   try {
@@ -210,6 +211,13 @@ const createRequest = async (req, res) => {
 
     await user.save()
     await client.save()
+    await logService.logEvent(
+      "user_registration",
+      `Nouvel utilisateur enregistré: ${email} avec le projet ${renovation}`,
+      "SYSTEM",
+      req.ip,
+      req.headers["user-agent"]
+    )
 
     res.json({ message: "request created successfully" })
   } catch (error) {

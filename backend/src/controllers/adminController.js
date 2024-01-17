@@ -4,7 +4,8 @@ const Form = require("../models/formModel")
 const Entrepreneur = require("../models/entrepreneurModel")
 const Architecte = require("../models/architecteModel")
 const Manager = require("../models/managerModel")
-const slugify = require("slugify")
+const logService = require("../services/logService")
+const Log = require("../models/logModel")
 
 const getUsers = async (req, res) => {
   try {
@@ -99,6 +100,17 @@ const changeProjectStatus = async (req, res) => {
       return res.status(404).json({ message: "Project not found!" })
     }
 
+    const statusMessage = logService.customizeLogMessage(
+      `L'administrateur a changé le statut du projet ( Email: ${project.author} ID:${project._id} ) à ${status}`
+    )
+    await logService.logEvent(
+      "project_status_change",
+      statusMessage,
+      "ADMIN",
+      req.ip,
+      req.headers["user-agent"]
+    )
+
     return res.json({ message: "Project status updated successfully", project })
   } catch (e) {
     return res.status(400).json({ message: "Error updating project status" })
@@ -145,14 +157,51 @@ const updateUser = async (req, res) => {
       return res.status(404).json({ message: "User not found!" })
     }
 
-    user.name = name || user.name
-    user.city = city || user.city
-    user.tel = tel || user.tel
-    user.type = type || user.type
-    user.isActivated = isActivated 
-    user.roles = roles
+    let updatedFields = {}
+    if (name && name !== user.name) {
+      user.name = name
+      updatedFields.name = name
+    }
+    if (city && city !== user.city) {
+      user.city = city
+      updatedFields.city = city
+    }
+    if (tel && tel !== user.tel) {
+      user.tel = tel
+      updatedFields.tel = tel
+    }
+    if (type && type !== user.type) {
+      user.type = type
+      updatedFields.type = type
+    }
+    if (isActivated !== undefined && isActivated !== user.isActivated) {
+      user.isActivated = isActivated
+      updatedFields.isActivated = isActivated
+    }
+    if (roles && !roles.every((role) => user.roles.includes(role))) {
+      user.roles = roles
+      updatedFields.roles = roles
+    }
 
     await user.save()
+
+    const updatedFieldsDescriptions = Object.entries(updatedFields)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(", ")
+
+    const logMessage = logService.customizeLogMessage(
+      updatedFieldsDescriptions
+        ? `L'administrateur a mis à jour l'utilisateur ${user.email} avec les valeurs ${updatedFieldsDescriptions}`
+        : `L'administrateur a mis à jour l'utilisateur ${user.email} sans changements`
+    )
+
+    await logService.logEvent(
+      "admin_update",
+      logMessage,
+      "ADMIN",
+      req.ip,
+      req.headers["user-agent"]
+    )
     return res.json({ message: "User updated successfully" })
   } catch (e) {
     return res.status(400).json({ message: "Error in updating user" })
@@ -429,6 +478,28 @@ const getPendingManager = async (req, res) => {
   }
 }
 
+const getLogs = async (req, res) => {
+  try {
+    const { page = 1, search = "" } = req.query
+    const logsPerPage = 10
+
+    const query = search
+      ? { description: { $regex: search, $options: "i" } }
+      : {}
+    const logs = await Log.find(query)
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * logsPerPage)
+      .limit(logsPerPage)
+
+    const totalLogs = await Log.countDocuments(query)
+    const totalPages = Math.ceil(totalLogs / logsPerPage)
+
+    res.json({ logs, totalPages })
+  } catch (error) {
+    res.status(500).json({ message: "Erreur du serveur" })
+  }
+}
+
 module.exports = {
   getUsers,
   getUserBySlug,
@@ -452,4 +523,5 @@ module.exports = {
   getProjectById,
   changeProjectStatus,
   getProjectsByStatus,
+  getLogs,
 }
