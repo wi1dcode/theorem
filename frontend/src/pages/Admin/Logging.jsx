@@ -46,13 +46,33 @@ function Logging() {
   }
 
   const parseBrowser = (userAgent) => {
-    if (userAgent.includes("Chrome")) {
+    if (userAgent.includes("Brave")) {
+      return "Brave"
+    } else if (userAgent.includes("YaBrowser")) {
+      return "Yandex Browser"
+    } else if (userAgent.includes("OPR") && userAgent.includes("GX")) {
+      return "Opera GX"
+    } else if (userAgent.includes("OPR")) {
+      return "Opera"
+    } else if (userAgent.includes("Chrome")) {
       return "Chrome"
-    }
-    if (userAgent.includes("Firefox")) {
+    } else if (userAgent.includes("Firefox")) {
       return "Firefox"
+    } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+      return "Safari"
+    } else if (userAgent.includes("Edge")) {
+      return "Edge"
+    } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+      return "Internet Explorer"
+    } else if (userAgent.includes("Opera") || userAgent.includes("OPR")) {
+      return "Opera"
+    } else if (userAgent.includes("CriOS")) {
+      return "Chrome for iOS"
+    } else if (userAgent.includes("FxiOS")) {
+      return "Firefox for iOS"
     }
-    return userAgent
+
+    return "Unknown Browser"
   }
 
   const processDescription = (description) => {
@@ -60,7 +80,11 @@ function Logging() {
     const match = description.match(idRegex)
     if (match) {
       const projectId = match[1]
-      return <Link to={`/dashboard/projects/${projectId}`} className="text-blue-700">{description}</Link>
+      return (
+        <Link to={`/dashboard/projects/${projectId}`} className="text-blue-700">
+          {description}
+        </Link>
+      )
     }
     return description
   }
