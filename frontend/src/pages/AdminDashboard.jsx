@@ -9,6 +9,7 @@ import Projects from "./Admin/Projects"
 import ProjectInfo from "./Admin/ProjectInfo"
 import NewProject from "./Dashboard/NewProject"
 import Logging from "./Admin/Logging"
+import Settings from "./Dashboard/Settings"
 
 function AdminDashboard() {
   const navigate = useNavigate()
@@ -72,6 +73,7 @@ function AdminDashboard() {
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<ProjectInfo />} />
             <Route path="logs" element={<Logging />} />
+            <Route path="settings" element={<Settings />} />
           </Routes>
         </div>
       </section>

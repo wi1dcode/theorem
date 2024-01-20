@@ -10,6 +10,20 @@ const clientController = require("../controllers/clientController")
 
 router.get("/session", authController.validateToken)
 router.get("/activate/:link", authController.activate)
+router.post(
+  "/change-password",
+  [
+    check("newPassword", "Le mot de passe ne peut pas être vide !").notEmpty(),
+    check(
+      "newPassword",
+      "Le mot de passe doit comporter entre 5 et 16 caractères."
+    ).isLength({
+      min: 5,
+      max: 16,
+    }),
+  ],
+  clientController.changePassword
+)
 router.get("/userinfo", clientController.getMe)
 router.post("/login", authController.login)
 

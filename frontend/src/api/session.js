@@ -35,3 +35,37 @@ export const login = async (userData) => {
     throw error
   }
 }
+
+export const changePassword = async (oldPassword, newPassword) => {
+  try {
+    const response = await post("/account/change-password", {
+      oldPassword,
+      newPassword,
+    })
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const resetPasswordRequest = async (email) => {
+  try {
+    const response = await post(`/reset-request`, { email })
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const setNewPassword = async (email, resetCode, newPassword) => {
+  try {
+    const response = await post(`/new-password`, {
+      email,
+      resetCode,
+      newPassword,
+    })
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

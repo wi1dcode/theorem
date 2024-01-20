@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import UserContext from "../services/userContext"
 import { login } from "../api/session"
+import { resetPasswordRequest, setNewPassword } from "../api/session"
 import logo from "../images/icons/logo_black.png"
 import NavBar from "../components/NavBar"
+import Swal from "sweetalert2"
 
 function Login() {
   const navigate = useNavigate()
@@ -33,6 +35,127 @@ function Login() {
         setTimeout(() => {
           setRedInput(false)
         }, 3000)
+      }
+    }
+  }
+
+  const handleForgotPassword = async () => {
+    const { value: email } = await Swal.fire({
+      title: "Mot de passe oublié",
+      html: "Entrez votre email<br/><small>Attention! vous ne pouvez demander la réinitialisation  du mot de passe qu'une fois par heure !</small>",
+      input: "email",
+      inputPlaceholder: "Entrez votre email",
+      confirmButtonText: "Envoyer le code",
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      confirmButtonColor: "#C8B790",
+      iconColor: "#C8B790",
+      cancelButtonColor: "#D76C66",
+      showCancelButton: true,
+      cancelButtonText: "Annuler",
+    })
+
+    if (email) {
+      try {
+        const response = await resetPasswordRequest(email)
+        if (response.message) {
+          const { value: code } = await Swal.fire({
+            title: "Entrez le code reçu",
+            html: "Code de réinitialisation<br/><small>Le code est valable pendant 10 minutes.</small>",
+            input: "text",
+            inputPlaceholder: "Code de réinitialisation",
+            confirmButtonText: "Vérifier le code",
+            showCancelButton: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonColor: "#C8B790",
+            iconColor: "#C8B790",
+            cancelButtonColor: "#D76C66",
+            cancelButtonText: "Annuler",
+          })
+
+          if (code) {
+            let newPassword
+
+            do {
+              const { value: newPasswordInput } = await Swal.fire({
+                title: "Nouveau mot de passe",
+                input: "password",
+                inputPlaceholder: "Entrez votre nouveau mot de passe",
+                confirmButtonText: "Changer le mot de passe",
+                showCancelButton: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonColor: "#C8B790",
+                iconColor: "#C8B790",
+                cancelButtonColor: "#D76C66",
+                cancelButtonText: "Annuler",
+                inputValidator: (value) => {
+                  if (value.length < 5 || value.length > 16) {
+                    return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères"
+                  }
+                  return null
+                },
+              })
+
+              if (newPasswordInput) {
+                newPassword = newPasswordInput
+              }
+            } while (!newPassword)
+
+            if (newPassword) {
+              await setNewPassword(email, code, newPassword)
+              Swal.fire({
+                title: "Mot de passe changé",
+                text: "Mot de passe changé avec succès",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+              })
+            }
+          }
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 429) {
+          Swal.fire({
+            title: "Trop de demandes!",
+            text: "Vous avez atteint la limite de demandes. Veuillez réessayer plus tard.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          })
+        } else if (error.response && error.response.status === 404) {
+          Swal.fire({
+            title: "Utilisateur pas trouvé",
+            text: "L'email que vous avez saisi n'existe pas. Veuillez vérifier et réessayer.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          })
+        } else if (error.response && error.response.status === 403) {
+          Swal.fire({
+            title: "Code expiré!",
+            text: "Le code de réinitialisation a expiré!",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          })
+        } else if (error.response && error.response.status === 400) {
+          Swal.fire({
+            title: "Code invalid!",
+            text: "Le code de confirmation n'a pas été saisi correctement !",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          })
+        } else {
+          Swal.fire("Erreur", error.message, "error")
+        }
       }
     }
   }
@@ -142,12 +265,13 @@ function Login() {
                   </div>
 
                   <div className="flex items-center justify-between mt-4">
-                    <Link
-                      to="/"
+                    <button
+                      type="button"
+                      onClick={handleForgotPassword}
                       className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500"
                     >
                       Mot de passe oublié ?
-                    </Link>
+                    </button>
 
                     <button
                       type="submit"

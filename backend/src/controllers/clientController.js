@@ -254,4 +254,42 @@ const getMe = async (req, res) => {
   }
 }
 
-module.exports = { createRequest, getData, getMe }
+const changePassword = async (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body
+    const token = req.headers.authorization.split(" ")[1]
+
+    const userData = authService.validateAccessToken(token)
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
+
+    const user = await User.findById(userData.id)
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" })
+    }
+
+    const isMatch = await bcrypt.compare(oldPassword, user.password)
+    if (!isMatch) {
+      return res.status(400).json({ message: "Mot de passe actuel incorrect" })
+    }
+
+    const hourAgo = new Date(Date.now() - 3600000)
+    if (user.activationLimit > hourAgo) {
+      return res.status(429).json({
+        message: "Changement de mot de passe limité à une fois par heure.",
+      })
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 12)
+    user.password = hashedPassword
+    user.activationLimit = new Date()
+    await user.save()
+
+    res.json({ message: "Mot de passe changé avec succès" })
+  } catch (error) {
+    res.status(500).json({ message: "Erreur serveur" })
+  }
+}
+
+module.exports = { createRequest, getData, getMe, changePassword }

@@ -38,6 +38,9 @@ const User = new Schema(
     activationLink: {
       type: String,
     },
+    activationLimit: {
+      type: Date,
+    },
     username: {
       type: String,
       unique: true,

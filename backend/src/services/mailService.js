@@ -22,7 +22,7 @@ class MailService {
     })
   }
 
-  generateEmailTemplate(type, link, name = "") {
+  generateEmailTemplate(type, link, name = "", code = "") {
     let email
     switch (type) {
       case "activation":
@@ -46,24 +46,14 @@ class MailService {
           },
         }
         break
-      case "passwordReset":
+      case "passwordResetCode":
         email = {
           body: {
             greeting: `Bonjour`,
             signature: false,
-            intro:
-              "Vous avez demandé la réinitialisation de votre mot de passe.",
-            action: {
-              instructions:
-                "Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous :",
-              button: {
-                color: "#DC4D2F",
-                text: "Réinitialiser le mot de passe",
-                link: link,
-              },
-            },
+            intro: `Voici votre code de réinitialisation de mot de passe: <strong>${code}</strong>`,
             outro:
-              "Si vous n'avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer cet email.",
+              "Ce code est valide pour 10 minutes. Si vous n'avez pas demandé cette réinitialisation, veuillez ignorer cet email.",
           },
         }
         break
@@ -81,13 +71,17 @@ class MailService {
     })
   }
 
-  async sendPasswordResetMail(to, link) {
-    const emailBody = this.generateEmailTemplate("passwordReset", link)
+  async sendPasswordResetCode(to, code) {
+    const emailBody = this.generateEmailTemplate(
+      "passwordResetCode",
+      "",
+      "",
+      code
+    )
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,
       to,
-      subject:
-        "Réinitialisation de votre mot de passe sur " + process.env.API_URL,
+      subject: "Réinitialisation du mot de passe",
       html: emailBody,
     })
   }

@@ -8,6 +8,14 @@ export const estimation = async (userData) => {
     throw error
   }
 }
+export const sendResponses = async (formData) => {
+  try {
+    const response = await post(`/send-responses`, formData)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
 
 export const getMe = async () => {
   try {

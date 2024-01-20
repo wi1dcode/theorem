@@ -6,6 +6,7 @@ import ClientMenu from "../components/ClientMenu"
 import Menu from "./User/Menu"
 import NewProject from "./Dashboard/NewProject"
 import Calendly from "./User/Calendly"
+import Settings from "./Dashboard/Settings"
 
 function UserDashboard() {
   const navigate = useNavigate()
@@ -67,6 +68,7 @@ function UserDashboard() {
             <Route path="projects/:id" element={null} />
             <Route path="new-project" element={<NewProject />} />
             <Route path="rdv" element={<Calendly />} />
+            <Route path="settings" element={<Settings />} />
           </Routes>
         </div>
       </section>

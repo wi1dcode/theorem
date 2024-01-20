@@ -86,6 +86,55 @@ const activate = async (req, res) => {
   }
 }
 
+const resetPasswordRequest = async (req, res) => {
+  const { email } = req.body
+  const user = await User.findOne({ email })
+  if (!user) {
+    return res.status(404).json({ message: "Utilisateur non trouvé" })
+  }
+
+  const now = new Date()
+  const activationLimit = user.activationLimit || new Date(0)
+
+  // Vérifier si une demande de réinitialisation a été faite dans la dernière heure
+  if (now - activationLimit < 3600000) {
+    return res.status(429).json({
+      message: "Réinitialisation déjà demandée. Veuillez réessayer plus tard.",
+    })
+  }
+
+  const resetCode = Math.floor(10000 + Math.random() * 90000).toString()
+  user.activationLink = resetCode
+  user.activationLimit = new Date(now.getTime() + 10 * 60000) // 10 minutes validity
+  await user.save()
+
+  await mailService.sendPasswordResetCode(email, resetCode)
+  res.json({ message: "Email de réinitialisation envoyé avec succès." })
+}
+
+const newPassword = async (req, res) => {
+  const { email, resetCode, newPassword } = req.body
+  const user = await User.findOne({ email })
+
+  if (!user || user.activationLink !== resetCode) {
+    return res.status(400).json({
+      message: "Code de réinitialisation invalide ou utilisateur non trouvé",
+    })
+  }
+
+  const now = new Date()
+  if (user.activationLimit < now) {
+    return res.status(403).json({ message: "Code de réinitialisation expiré" })
+  }
+
+  const hashedPassword = bcrypt.hashSync(newPassword, 7)
+  user.password = hashedPassword
+  user.activationLink = Math.floor(10000 + Math.random() * 90000).toString()
+  await user.save()
+
+  res.json({ message: "Mot de passe changé avec succès" })
+}
+
 // const refresh = async (req, res) => {
 //   try {
 //     const { refreshToken } = req.cookies
@@ -127,4 +176,6 @@ module.exports = {
   login,
   validateToken,
   activate,
+  resetPasswordRequest,
+  newPassword,
 }

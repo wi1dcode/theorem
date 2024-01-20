@@ -1,7 +1,7 @@
 import Swal from "sweetalert2"
 import { Widget } from "@typeform/embed-react"
-import axios from "axios"
 import { useState } from "react"
+import { sendResponses } from "../api/client"
 
 function EstimationEmbed() {
   const [city, setCity] = useState("")
@@ -61,10 +61,7 @@ function EstimationEmbed() {
         if (password === confirmPassword) {
           const { formId, responseId } = event
           const formData = { formId, responseId, password, city }
-          const response = await axios.post(
-            "http://localhost:5000/send-responses",
-            formData
-          )
+          const response = await sendResponses(formData)
 
           if (response.status === 200) {
             await Swal.fire(
