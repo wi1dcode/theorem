@@ -1,9 +1,11 @@
 const Router = require("express")
 const router = new Router()
 const { check } = require("express-validator")
+const upload = require("../services/documentUpload")
 
 const authController = require("../controllers/authController")
 const clientController = require("../controllers/clientController")
+const authMiddleware = require("../middlewares/authMiddleware")
 
 // router.get("/refresh", authController.refresh)
 // router.post("/logout", authController.logout)
@@ -22,9 +24,10 @@ router.post(
       max: 16,
     }),
   ],
+  authMiddleware(),
   clientController.changePassword
 )
-router.get("/userinfo", clientController.getMe)
+router.get("/userinfo", authMiddleware(), clientController.getMe)
 router.post("/login", authController.login)
 
 router.post(
@@ -41,6 +44,19 @@ router.post(
     }),
   ],
   authController.register
+)
+
+router.post(
+  "/upload/document/:formId",
+  authMiddleware(),
+  upload.single("document"),
+  clientController.uploadDocument
+)
+
+router.get(
+  "/download/document/:formId/:documentName",
+  authMiddleware(),
+  clientController.downloadDocument
 )
 
 module.exports = router

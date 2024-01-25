@@ -10,6 +10,7 @@ import ProjectInfo from "./Admin/ProjectInfo"
 import NewProject from "./Dashboard/NewProject"
 import Logging from "./Admin/Logging"
 import Settings from "./Dashboard/Settings"
+import UserDetails from "./Admin/UserDetails"
 
 function AdminDashboard() {
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ function AdminDashboard() {
 
   return (
     <section>
-      <section className="max-sm:items-center flex items-start max-sm:flex-col gap-x-6">
+      <section className="max-sm:items-center flex items-start max-sm:flex-col gap-x-6 avenir">
         <aside className="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-gray-50 border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
           <Link to="/">
             <img className="mx-auto w-auto" src={logo} alt="" />
@@ -65,11 +66,12 @@ function AdminDashboard() {
           </div>
         </aside>
 
-        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50">
+        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50 avenir">
           <Routes>
             <Route index element={<Menu />} />
             <Route path="new-project" element={<NewProject />} />
             <Route path="users" element={<Users />} />
+            <Route path="users/:username" element={<UserDetails />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<ProjectInfo />} />
             <Route path="logs" element={<Logging />} />

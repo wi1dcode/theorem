@@ -1,6 +1,9 @@
+import React, { useState, useEffect } from "react"
 import { InlineWidget } from "react-calendly"
+import Loading from "../../components/Loading"
 
 function Calendly() {
+  const [isLoading, setIsLoading] = useState(true)
   const pageSettings = {
     backgroundColor: "ffffff",
     hideEventTypeDetails: false,
@@ -9,8 +12,17 @@ function Calendly() {
     textColor: "4d5055",
   }
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="w-full">
+      {isLoading && <Loading />}
       <InlineWidget
         url="https://calendly.com/unknownmagomed/30min"
         pageSettings={pageSettings}

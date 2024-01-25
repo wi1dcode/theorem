@@ -1,41 +1,88 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import LocationSvg from "../images/svg/LocationSvg"
+import EuroSvg from "../images/svg/EuroSvg"
+import ProductsSvg from "../images/svg/ProductsSvg"
+import SurfaceSvg from "../images/svg/SurfaceSvg"
+import CalendarSvg from "../images/svg/CalendarSvg"
+
+function MiniCard({
+  title,
+  text,
+  icon,
+  iconContainerClassName = "",
+  hasBottomBorder,
+}) {
+  return (
+    <div
+      className={`flex ${
+        hasBottomBorder ? "pb-3 border-b border-gray-300" : ""
+      }`}
+    >
+      <div
+        className={`flex h-10 w-10 min-w-[2.5rem] min-h-[2.5rem] items-center justify-center rounded-lg shadow-md ${iconContainerClassName}`}
+      >
+        {icon}
+      </div>
+      <div className="text-left ml-2.5">
+        <p className="text-xs text-gray-600">{title}</p>
+        <p>{text}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function UserProjectCard({
   id,
   renovation,
-  tel,
-  email,
   date,
-  status,
   surface,
   budget,
   adresse,
+  products,
+  when,
 }) {
   return (
     <section>
       <Link
-        to={`./${id}`}
-        className="w-96 mb-2 bg-marron/30 text-stone-200 flex flex-col rounded-xl transition duration-300 transform hover:scale-105 cursor-pointer"
+        to={`./projects/${id}`}
+        className="w-96 mt-4 mb-2 bg-gray-200 text-stone-200 flex flex-col rounded-xl transition duration-300 transform hover:scale-105 cursor-pointer"
       >
         <div className="p-2">
-          <h2 className="font-medium text-center border-b border-anthracite/50 pb-2">
-            {renovation}
-          </h2>
-          <p className="mt-2 text-xs text-center font-normal opacity-75">
-            Tel: {tel} <br />
-            Author: {email}
-            <br />
-            Date: {date} <br />
-            Status: {status}
-            <br />
-            Surface: {surface}
-            <br />
-            Budget: {budget}
-            <br />
-            Adresse: {adresse}
-            <br />
-          </p>
+          <div className="flex flex-col gap-2">
+            <MiniCard
+              title="Adresse"
+              text={adresse}
+              icon={<LocationSvg />}
+              hasBottomBorder
+            />
+            <MiniCard
+              title="Produits"
+              text={products}
+              icon={<ProductsSvg />}
+              hasBottomBorder
+            />
+            <MiniCard
+              title="Surface"
+              text={`${surface} m²`}
+              icon={<SurfaceSvg />}
+              hasBottomBorder
+            />
+            <MiniCard
+              title="Budget"
+              text={`${budget} €`}
+              icon={<EuroSvg />}
+              hasBottomBorder
+            />
+            <MiniCard
+              title="Date de demande / début du chantier"
+              text={`${date} - ${when}`}
+              icon={<CalendarSvg />}
+            />
+          </div>
+        </div>
+        <div className="bg-gray-300 rounded-b-lg py-2 font-semibold">
+          {renovation}
         </div>
       </Link>
     </section>

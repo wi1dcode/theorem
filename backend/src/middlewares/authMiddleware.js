@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken")
 const authService = require("../services/authService")
 require("dotenv").config()
-module.exports = function (requiredStatus) {
-  return (req, res, next) => {
+module.exports = function () {
+  return function (req, res, next) {
     try {
       const authHeader = req.headers.authorization
       if (!authHeader) {
@@ -16,12 +16,13 @@ module.exports = function (requiredStatus) {
           .status(403)
           .json({ message: "Accès refusé, autorisation requise!" })
       }
-      const user = authService.validateAccessToken(token)
+      const auth = authService.validateAccessToken(token)
 
-      if (user.status !== requiredStatus) {
-        return res.status(403).json({ message: "Accès refusé!" })
+      if (!auth) {
+        return res
+          .status(403)
+          .json({ message: "Accès refusé! autorisation requise!" })
       }
-
       next()
     } catch (e) {
       return res

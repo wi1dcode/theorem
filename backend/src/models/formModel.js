@@ -50,8 +50,9 @@ const Form = new Schema(
     },
     documents: [
       {
-        type: String,
-        file_url: String,
+        name: String,
+        originalName: String,
+        path: String,
       },
     ],
     adresse: {

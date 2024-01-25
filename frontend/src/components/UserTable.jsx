@@ -1,5 +1,9 @@
 import React, { useContext } from "react"
 import UserContext from "../services/userContext"
+import EyeSvg from "../images/svg/EyeSvg"
+import EditSvg from "../images/svg/EditSvg"
+import DeleteSvg from "../images/svg/DeleteSvg"
+import { Link } from "react-router-dom"
 
 function UserTable({
   name,
@@ -11,6 +15,7 @@ function UserTable({
   forms,
   modifyButton,
   deleteButton,
+  username,
 }) {
   const { connected } = useContext(UserContext)
 
@@ -42,19 +47,26 @@ function UserTable({
           <td className="px-6 py-4">{forms}</td>
           <td className="px-6 py-4">
             <div className="flex gap-x-3">
+              <Link
+                to={`./${username}`}
+                onClick={null}
+                className="text-green-500 font-semibold hover:underline"
+              >
+                <EyeSvg />
+              </Link>
               <button
                 type="button"
                 onClick={modifyButton}
-                className="font-medium text-green-500  hover:underline"
+                className="text-green-500 font-semibold hover:underline"
               >
-                Modifier
+                <EditSvg />
               </button>
               <button
                 type="button"
                 onClick={deleteButton}
-                className="font-medium text-red-500  hover:underline"
+                className="text-red-500 font-semibold hover:underline"
               >
-                Supprimer
+                <DeleteSvg />
               </button>
             </div>
           </td>

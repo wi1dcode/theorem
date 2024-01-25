@@ -9,6 +9,15 @@ export const getUsers = async () => {
   }
 }
 
+export const getUserByUsername = async (username) => {
+  try {
+    const response = await get(`/dashboard/users/${username}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const deleteUser = async (email) => {
   try {
     const response = await remove(`/dashboard/users/remove/${email}`)

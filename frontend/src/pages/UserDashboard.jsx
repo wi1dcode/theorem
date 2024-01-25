@@ -7,6 +7,7 @@ import Menu from "./User/Menu"
 import NewProject from "./Dashboard/NewProject"
 import Calendly from "./User/Calendly"
 import Settings from "./Dashboard/Settings"
+import Project from "./User/Project"
 
 function UserDashboard() {
   const navigate = useNavigate()
@@ -62,10 +63,10 @@ function UserDashboard() {
           </div>
         </aside>
 
-        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50">
+        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50 avenir">
           <Routes>
             <Route index element={<Menu />} />
-            <Route path="projects/:id" element={null} />
+            <Route path="projects/:id" element={<Project />} />
             <Route path="new-project" element={<NewProject />} />
             <Route path="rdv" element={<Calendly />} />
             <Route path="settings" element={<Settings />} />

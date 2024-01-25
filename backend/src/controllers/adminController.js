@@ -120,7 +120,7 @@ const changeProjectStatus = async (req, res) => {
 const getUserBySlug = async (req, res) => {
   try {
     const { username } = req.params
-    const user = await User.findOne({ username })
+    const user = await User.findOne({ username }).populate("forms")
 
     if (!user) {
       return res.status(404).json({ message: "User not found!" })

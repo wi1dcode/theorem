@@ -7,54 +7,54 @@ import { format } from "date-fns"
 function Menu() {
   const { user } = useContext(UserContext)
 
-  const getStatusText = (status) => {
-    switch (status) {
-      case "PENDING":
-        return "en attente de vérification par l'administrateur"
-      case "REFUSED":
-        return "refusé, vous pouvez soumettre un nouveau projet"
-      case "APPROVED":
-        return "approuvé, attendez plus d'informations"
-      case "PROGRESS":
-        return "en cours, le travail avance"
-      case "FINISH":
-        return "terminé, félicitations et merci de nous avoir fait confiance"
-      default:
-        return "inconnue"
-    }
-  }
+  // const getStatusText = (status) => {
+  //   switch (status) {
+  //     case "PENDING":
+  //       return "en attente de vérification par l'administrateur"
+  //     case "REFUSED":
+  //       return "refusé, vous pouvez soumettre un nouveau projet"
+  //     case "APPROVED":
+  //       return "approuvé, attendez plus d'informations"
+  //     case "PROGRESS":
+  //       return "en cours"
+  //     case "FINISH":
+  //       return "terminé, félicitations et merci de nous avoir fait confiance"
+  //     default:
+  //       return "inconnue"
+  //   }
+  // }
 
   return (
     <section className="text-center">
-      <div className="text-3xl font-bold mt-12">Bonjour, {user?.name}</div>
+      <div className="text-3xl font-bold mt-2">Bonjour, {user?.name}</div>
       <p className="mt-12 w-[70%] mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet eaque
-        dolorem.
+        Sélectionnez votre projet qui vous intéresse et cliquez dessus pour voir
+        les informations plus détaillées et le gérer.
       </p>
       <div>
-        <p className="font-semibold text-2xl mt-2">
-          Vous avez {user?.forms?.length || 0} projet:
+        <p className="font-semibold text-2xl mt-4">
+          Vous avez {user?.forms?.length || 0} projet
         </p>
         {user?.forms?.length ? (
           user.forms.map((project) => (
             <div key={project._id} className="mb-4 flex flex-col items-center">
-              <p className="font-semibold my-2">
+              {/* <p className="font-semibold my-2">
                 Votre projet "{project.renovation}" est actuellement{" "}
                 {getStatusText(project.status)}.
-              </p>
+              </p> */}
               <p>Informations sur votre projet:</p>
-                <UserProjectCard
-                  key={project._id}
-                  id={project._id}
-                  renovation={project.renovation}
-                  date={format(new Date(project.createdAt), "dd/MM/yyyy")}
-                  tel={project.tel}
-                  email={project.email}
-                  status={project.status}
-                  surface={project.surface}
-                  budget={project.budget}
-                  adresse={project.adresse}
-                />
+              <UserProjectCard
+                key={project._id}
+                id={project._id}
+                renovation={project.renovation}
+                date={format(new Date(project.createdAt), "dd/MM/yyyy")}
+                when={format(new Date(project.when), "dd/MM/yyyy")}
+                products={project.products}
+                status={project.status}
+                surface={project.surface}
+                budget={project.budget}
+                adresse={project.adresse}
+              />
             </div>
           ))
         ) : (

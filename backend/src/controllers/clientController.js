@@ -7,6 +7,7 @@ const mailService = require("../services/mailService")
 const { validationResult } = require("express-validator")
 const authService = require("../services/authService")
 const logService = require("../services/logService")
+const path = require("path")
 
 const createAccount = async (email, password, name, city, tel) => {
   try {
@@ -241,8 +242,13 @@ const getMe = async (req, res) => {
     }
 
     const user = await User.findById(userData.id)
-      .select("-password -isActivated -activationLink -username")
-      .populate("forms")
+      .select(
+        "-password -isActivated -activationLink -activationLimit -username"
+      )
+      .populate({
+        path: "forms",
+        select: "-documents.name",
+      })
 
     if (!user) {
       return res.status(404).json({ message: "User not found" })
@@ -292,4 +298,80 @@ const changePassword = async (req, res) => {
   }
 }
 
-module.exports = { createRequest, getData, getMe, changePassword }
+const uploadDocument = async (req, res) => {
+  try {
+    const { formId } = req.params
+    const token = req.headers.authorization.split(" ")[1]
+    const userData = authService.validateAccessToken(token)
+
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
+
+    const form = await Form.findById(formId)
+
+    if (!form) {
+      return res.status(404).json({ message: "Form not found" })
+    }
+
+    if (form.author !== userData.email && !userData.roles.includes("ADMIN")) {
+      return res.status(403).json({ message: "Unauthorized access" })
+    }
+
+    form.documents.push({
+      originalName: req.file.originalname,
+      name: req.file.filename,
+      path: `uploads/${form.author}/${req.file.filename}`,
+    })
+
+    await form.save()
+    res.status(200).json({ message: "Document uploaded successfully" })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: error.message })
+  }
+}
+
+const downloadDocument = async (req, res) => {
+  try {
+    const { formId, documentName } = req.params
+    const token = req.headers.authorization.split(" ")[1]
+
+    const userData = authService.validateAccessToken(token)
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
+
+    const form = await Form.findById(formId)
+    if (!form) {
+      return res.status(404).send("Form not found")
+    }
+
+    if (form.author !== userData.email && !userData.roles.includes("ADMIN")) {
+      return res.status(403).json({ message: "Unauthorized access" })
+    }
+
+    const document = form.documents.find(
+      (doc) => doc.originalName === documentName
+    )
+    if (!document) {
+      return res.status(404).send("Document not found")
+    }
+
+    const filePath = path.join(__dirname, "../../public", document.path)
+    res.download(filePath, document.originalName)
+  } catch (error) {
+    console.log(error)
+
+    res.status(500).json({ message: error.message })
+  }
+}
+
+module.exports = {
+  createRequest,
+  getData,
+  getMe,
+  changePassword,
+  uploadDocument,
+  downloadDocument,
+}

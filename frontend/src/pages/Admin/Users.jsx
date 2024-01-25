@@ -73,7 +73,11 @@ function Users() {
           </button>
         </div>`,
       focusConfirm: false,
+      showCancelButton: true,
       confirmButtonColor: "#C8B790",
+      cancelButtonColor: "#D76C66",
+      confirmButtonText: "Changer",
+      cancelButtonText: "Annuler",
       preConfirm: () => {
         return {
           name: document.getElementById("swal-input-name").value,
@@ -128,7 +132,7 @@ function Users() {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#C8B790",
-      cancelButtonColor: "#d33",
+      cancelButtonColor: "#D76C66",
       confirmButtonText: "Supprimer",
       cancelButtonText: "Annuler",
     })
@@ -169,9 +173,9 @@ function Users() {
                 Status
               </th>
               <th scope="col" className="px-6 py-3">
-                Forms
+                Projets
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 w-24 text-center">
                 Action
               </th>
             </tr>
@@ -188,6 +192,7 @@ function Users() {
                   type={user.type}
                   forms={user.forms?.length}
                   status={user.isActivated}
+                  username={user.username}
                   modifyButton={() => handleUserEdit(user)}
                   deleteButton={() => handleUserDelete(user.email)}
                 />
