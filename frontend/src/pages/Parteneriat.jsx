@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom"
 
 import parteneriatData from "../services/parteneriat.json"
 import partCard from "../services/partCard.json"
+import { Helmet } from "react-helmet"
 
 function Pro() {
   const { pathname } = useLocation()
@@ -29,6 +30,14 @@ function Pro() {
 
   return (
     <section className="bg-marron/30 pb-10">
+      <Helmet>
+        <title>Partenariat avec Theorem Services</title>
+        <meta
+          name="description"
+          content="Rejoignez le réseau de partenaires de Theorem Services. Ensemble, nous pouvons réaliser des projets de rénovation exceptionnels et développer des relations professionnelles durables."
+        />
+      </Helmet>
+
       <NavBar />
       <svg
         id="visual"

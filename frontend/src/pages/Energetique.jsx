@@ -1,8 +1,16 @@
+import { Helmet } from "react-helmet"
 import NavBar from "../components/NavBar"
 
 function Energetique() {
   return (
     <div>
+      <Helmet>
+        <title>Rénovation Énergétique | Theorem Services</title>
+        <meta
+          name="description"
+          content="Optez pour une rénovation énergétique avec Theorem Services. Nos solutions innovantes contribuent à l'amélioration de l'efficacité énergétique de vos espaces de vie."
+        />
+      </Helmet>
       <div className="eco_bg h-screen">
         <NavBar />
         <section className="flex flex-col gap-y-10 justify-center items-center mt-20 container mx-auto">

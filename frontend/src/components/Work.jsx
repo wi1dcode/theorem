@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Mousewheel, Keyboard } from "swiper/modules"
 // import { EffectCoverflow, Pagination } from "swiper/modules"
 // import { EffectCards } from "swiper/modules"
-
 // import Iphones from "../images/iphones.png"
 
 import "swiper/css"

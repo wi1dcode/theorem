@@ -1,11 +1,19 @@
+import { Helmet } from "react-helmet"
 import NavBar from "../components/NavBar"
 
 function Eco() {
   return (
     <div className="eco_bg h-screen">
+      <Helmet>
+        <title>Écologiques | Theorem Services</title>
+        <meta
+          name="description"
+          content="Découvrez nos démarches écologiques chez Theorem Services. Engagés dans la préservation de l'environnement, nous adoptons des pratiques durables dans tous nos projets de rénovation."
+        />
+      </Helmet>
+
       <NavBar />
       <section className="flex max-md:flex-col max-md:gap-y-10 gap-x-10 justify-center items-center mt-20 container mx-auto">
-
         <div className="flex items-center justify-center -mx-4 lg:pl-8 drop-shadow-lg">
           <div className="flex flex-col items-end px-3">
             <img

@@ -2,6 +2,7 @@ import Swal from "sweetalert2"
 import { Widget } from "@typeform/embed-react"
 import { useState } from "react"
 import { sendResponses } from "../api/client"
+import { Helmet } from "react-helmet"
 
 function EstimationEmbed() {
   const [city, setCity] = useState("")
@@ -207,6 +208,13 @@ function EstimationEmbed() {
 
   return (
     <div>
+      <Helmet>
+        <title>Estimation | Theorem Services</title>
+        <meta
+          name="description"
+          content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Services. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
+        />
+      </Helmet>
       <Widget
         id="gEqyK00T"
         style={{ fontSize: 20, height: "100vh" }}

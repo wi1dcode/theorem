@@ -1,10 +1,19 @@
 import React from "react"
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
+import { Helmet } from "react-helmet"
 
 function History() {
   return (
     <div>
+      <Helmet>
+        <title>Histoire | Theorem Services</title>
+        <meta
+          name="description"
+          content="Plongez dans l'histoire de Theorem Services. Découvrez notre parcours, nos valeurs et comment nous transformons chaque projet de rénovation en une réussite exceptionnelle."
+        />
+      </Helmet>
+
       <NavBar />
       <section
         className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"

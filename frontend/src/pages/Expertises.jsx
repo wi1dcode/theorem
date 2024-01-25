@@ -5,6 +5,7 @@ import expertiseData from "../services/expertises.json"
 import CircleSvg from "../images/svg/CircleSvg"
 import LittleCard from "../components/LittleCard"
 import TestSvg from "../images/svg/TestSvg"
+import { Helmet } from "react-helmet"
 
 function Expertises() {
   const getSvg = (icon) => {
@@ -19,6 +20,13 @@ function Expertises() {
 
   return (
     <div>
+      <Helmet>
+        <title>Nos Expertises | Theorem Services</title>
+        <meta
+          name="description"
+          content="Explorez nos domaines d'expertises chez Theorem Services. Notre équipe apporte des solutions complètes et personnalisées pour tous vos projets de construction et de rénovation."
+        />
+      </Helmet>
       <NavBar />
       <section>
         <article className="w-1/2 avenir mx-auto text-center">

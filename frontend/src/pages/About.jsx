@@ -1,19 +1,27 @@
-import React, { useEffect } from "react";
-import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
-import { Link } from "react-router-dom";
-import Stats from "../components/Stats";
+import React, { useEffect } from "react"
+import Footer from "../components/Footer"
+import NavBar from "../components/NavBar"
+import { Link } from "react-router-dom"
+import Stats from "../components/Stats"
+import { Helmet } from "react-helmet"
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function About() {
   useEffect(() => {
-    AOS.init();
-  }, []);
+    AOS.init()
+  }, [])
 
   return (
     <section>
+      <Helmet>
+        <title>A propos | Theorem Services</title>
+        <meta
+          name="description"
+          content="Découvrez Theorem Services, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
+        />
+      </Helmet>
       <NavBar />
       <div
         className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"
@@ -40,9 +48,7 @@ function About() {
                 confiance et d'engagement envers l’avenir, Theorem rassemble une
                 équipe dynamique, curieuse, à l'écoute et réactive.
               </p>
-              <p className="mt-3 avenir text-gray-700 md:text-lg">
-   
-              </p>
+              <p className="mt-3 avenir text-gray-700 md:text-lg"></p>
               <div className="pt-6 text-gray-700 avenir grid space-y-3 sm:gap-2 sm:grid-cols-2 sm:space-y-0">
                 <ul className="space-y-3">
                   <li className="flex">
@@ -199,7 +205,7 @@ function About() {
                 imaginaire 🌌
               </h5>
               <p className="mb-6 text-gray-700 avenir md:text-lg">
-              Ces principes autour desquels se réunissent Theorem permettent
+                Ces principes autour desquels se réunissent Theorem permettent
                 d’atteindre l’objectif défini étant la satisfaction des clients
                 en matière de rénovation. L’expérience Theorem représente
                 l'engagement envers un avenir meilleur, où l'innovation
@@ -209,7 +215,6 @@ function About() {
               </p>
               <hr className="mb-5 border-gray-300" />
               <div className="flex items-center space-x-4">
-
                 <Link
                   to="/"
                   className="text-gray-600 transition-colors duration-300 hover:text-marron"
@@ -227,7 +232,6 @@ function About() {
                     <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z" />
                   </svg>
                 </Link>
-
               </div>
             </div>
           </div>
@@ -238,7 +242,7 @@ function About() {
       </div>
       <Footer />
     </section>
-  );
+  )
 }
 
-export default About;
+export default About

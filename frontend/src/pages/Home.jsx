@@ -12,6 +12,7 @@ import NavBar from "../components/NavBar"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 function Home() {
   const { pathname } = useLocation()
@@ -46,6 +47,13 @@ function Home() {
 
   return (
     <main className="w-full">
+      <Helmet>
+        <title>Theorem Services | Rénovation</title>
+        <meta
+          name="description"
+          content="Bienvenue sur Theorem Services. Découvrez nos services de rénovation immobilière et nos solutions personnalisées pour tous vos projets."
+        />
+      </Helmet>
       <NavBar />
       <Header />
       <div id="work" className="w-full mt-2 px-2">

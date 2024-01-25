@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { Link, useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 const gallery = require("../services/gallery.json")
 
@@ -15,6 +16,14 @@ function Realisations() {
   }, [pathname])
   return (
     <section>
+      <Helmet>
+        <title>Nos Réalisations | Theorem Services</title>
+        <meta
+          name="description"
+          content="Découvrez nos réalisations et projets chez Theorem Services. Chaque projet est un témoignage de notre engagement envers la qualité et la satisfaction client."
+        />
+      </Helmet>
+
       <NavBar />
       <div className="mb-16">
         <h2 className="text-center text-4xl avenir mt-6 mb-4">
