@@ -4,6 +4,7 @@ import UserContext from "../services/userContext"
 import { login } from "../api/session"
 import { resetPasswordRequest, setNewPassword } from "../api/session"
 import logo from "../images/icons/logo_black.png"
+import login_bg from "../images/login-background.jpg"
 import NavBar from "../components/NavBar"
 import Swal from "sweetalert2"
 
@@ -164,7 +165,7 @@ function Login() {
     <section
       className="h-screen"
       style={{
-        backgroundImage: `url(https://app.globalradar.com/Images/login-background.jpg)`,
+        backgroundImage: `url(${login_bg})`,
       }}
     >
       <NavBar />
