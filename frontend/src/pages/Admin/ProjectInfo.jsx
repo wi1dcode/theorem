@@ -130,7 +130,7 @@ function ProjectInfo() {
         </div>
       </section>
 
-      <section className="flex w-full items-center justify-between mt-4">
+      <section className="flex w-full gap-x-4 items-center justify-between mt-4">
         <div className="h-[65vh] w-[300px] rounded-lg bg-gray-200 flex flex-col justify-between">
           <div>
             <div className="text-center py-2 rounded-t-lg text-xl font-semibold bg-gray-300">

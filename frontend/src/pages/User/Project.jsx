@@ -91,8 +91,8 @@ function Project() {
         </div>
       </article>
 
-      <section className="flex w-full items-center justify-between mt-10">
-        <div className="h-[77vh] w-[300px] rounded-lg bg-gray-200 flex flex-col justify-between overflow-auto">
+      <section className="flex w-full gap-x-4 items-center justify-between mt-10">
+        <div className="h-[78vh] w-[300px] rounded-lg bg-gray-200 flex flex-col justify-between overflow-auto">
           <div>
             <div className="text-center py-2 rounded-t-lg text-xl font-semibold bg-gray-300">
               Documents
