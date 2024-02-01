@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { getLogs } from "../../api/logs"
+import { getLogs, downloadLogs } from "../../api/logs"
+import Swal from "sweetalert2"
 import { Link } from "react-router-dom"
 
 function Logging() {
@@ -10,7 +11,7 @@ function Logging() {
 
   useEffect(() => {
     fetchLogs()
-  }, [page])
+  }, [page, searchTerm])
 
   const fetchLogs = async () => {
     try {
@@ -28,8 +29,23 @@ function Logging() {
   }
 
   const getPageButtons = () => {
-    const buttons = []
-    for (let i = 1; i <= totalPages; i++) {
+    let buttons = []
+    let startPage = Math.max(page - 2, 1)
+    let endPage = Math.min(page + 2, totalPages)
+
+    if (page > 1) {
+      buttons.push(
+        <button
+          key="prev"
+          onClick={() => setPage(page - 1)}
+          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+        >
+          Prev
+        </button>
+      )
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
       buttons.push(
         <button
           key={i}
@@ -42,7 +58,63 @@ function Logging() {
         </button>
       )
     }
+
+    if (page < totalPages) {
+      buttons.push(
+        <button
+          key="next"
+          onClick={() => setPage(page + 1)}
+          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+        >
+          Next
+        </button>
+      )
+    }
+
     return buttons
+  }
+
+  const handleDownloadLogs = async () => {
+    const { value: period } = await Swal.fire({
+      title: "Sélectionnez la période",
+      confirmButtonColor: "#C8B790",
+      cancelButtonColor: "#D76C66",
+      input: "select",
+      inputOptions: {
+        "7d": "Les 7 derniers jours",
+        "30d": "Les 30 derniers jours",
+        all: "Tous les temps",
+      },
+      inputPlaceholder: "Choisissez la période",
+      showCancelButton: true,
+      inputValidator: (value) => {
+        return new Promise((resolve) => {
+          if (value) {
+            resolve()
+          } else {
+            resolve("Vous devez choisir une période")
+          }
+        })
+      },
+    })
+
+    if (period) {
+      try {
+        await downloadLogs(period)
+        Swal.fire(
+          "Téléchargé!",
+          "Les logs ont été téléchargés avec succès.",
+          "success"
+        )
+      } catch (error) {
+        console.error("Erreur lors du téléchargement des logs:", error)
+        Swal.fire(
+          "Erreur!",
+          "Une erreur s'est produite lors du téléchargement des logs.",
+          "error"
+        )
+      }
+    }
   }
 
   const parseBrowser = (userAgent) => {
@@ -72,7 +144,7 @@ function Logging() {
       return "Firefox for iOS"
     }
 
-    return "Unknown Browser"
+    return "Browser"
   }
 
   const processDescription = (description) => {
@@ -92,18 +164,29 @@ function Logging() {
   return (
     <div className="w-full">
       <div className="w-full flex items-center gap-2 mb-4">
-        <input
-          type="text"
-          placeholder="Recherche..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button
-          onClick={handleSearch}
-          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
-        >
-          Find
-        </button>
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Recherche..."
+            className="rounded-lg"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button
+            onClick={handleSearch}
+            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+          >
+            Chercher
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={handleDownloadLogs}
+            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+          >
+            Télécharger
+          </button>
+        </div>
       </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead className="text-xs text-gray-700 uppercase bg-marron/30">

@@ -114,7 +114,7 @@ function Settings() {
             value={newPassword}
             maxLength="16"
             className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg"
-            placeholder="Votre nouveau mot de passe"
+            placeholder="Nouveau mot de passe"
             onChange={(e) => setNewPassword(e.target.value)}
             required
           />

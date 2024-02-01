@@ -46,14 +46,13 @@ function Menu() {
               <UserProjectCard
                 key={project._id}
                 id={project._id}
+                name={`${project.profile?.firstname} ${project.profile?.lastname}`}
                 renovation={project.renovation}
                 date={format(new Date(project.createdAt), "dd/MM/yyyy")}
-                when={format(new Date(project.when), "dd/MM/yyyy")}
-                products={project.products}
-                status={project.status}
-                surface={project.surface}
+                when={project.when}
+                search={project.search}
                 budget={project.budget}
-                adresse={project.adresse}
+                adresse={project.adresse?.address}
               />
             </div>
           ))

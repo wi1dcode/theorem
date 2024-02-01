@@ -1,10 +1,13 @@
-const { Schema, model } = require("mongoose")
+const mongoose = require("mongoose")
 
-const Form = new Schema(
+const { Schema, model } = mongoose
+
+const FormSchema = new Schema(
   {
     author: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
+      ref: "User",
     },
     renovation: {
       type: String,
@@ -14,71 +17,54 @@ const Form = new Schema(
       type: String,
       required: true,
     },
-    sizes: {
+    // documents: [
+    //   {
+    //     name: String,
+    //     originalName: String,
+    //     path: String,
+    //   },
+    // ],
+    // photos: [
+    //   {
+    //     type: String,
+    //     path: String,
+    //   },
+    // ],
+    // inspirationPhoto: [
+    //   {
+    //     type: String,
+    //     path: String,
+    //   },
+    // ],
+    documents: {
       type: Boolean,
-      required: true,
     },
-    type: {
-      type: String,
-      required: true,
-    },
-    havePhoto: {
+    photos: {
       type: Boolean,
-      required: true,
     },
-    photos: [
-      {
-        type: String,
-        file_url: String,
-      },
-    ],
-    help: {
+    inspirationPhoto: {
       type: Boolean,
-      required: true,
-    },
-    surface: {
-      type: String,
-      required: true,
-    },
-    products: {
-      type: String,
-      required: true,
     },
     budget: {
       type: String,
       required: true,
     },
-    documents: [
-      {
-        name: String,
-        originalName: String,
-        path: String,
-      },
-    ],
-    adresse: {
-      type: String,
-      required: true,
-    },
-    residence: {
-      type: String,
-      required: true,
-    },
     when: {
       type: String,
-      required: true,
     },
-    about: {
-      type: String,
-      required: true,
+    profile: {
+      firstname: String,
+      lastname: String,
+      email: String,
+      phone: String,
     },
-    email: {
-      type: String,
-      required: true,
+    adresse: {
+      address: String,
+      city: String,
+      zip: String,
+      country: String,
     },
-    tel: {
-      type: Number,
-      required: true,
-    },
+    additionalInfo: Schema.Types.Mixed,
     status: {
       type: String,
       required: true,
@@ -92,4 +78,4 @@ const Form = new Schema(
   }
 )
 
-module.exports = model("Form", Form)
+module.exports = model("Form", FormSchema)

@@ -9,6 +9,15 @@ export const validateToken = async () => {
   }
 }
 
+export const activate = async (link) => {
+  try {
+    const response = await get(`/activate/${link}`)
+    return response
+  } catch (error) {
+    throw error
+  }
+}
+
 export const refreshToken = async () => {
   try {
     const response = await get(`/account/refresh`)

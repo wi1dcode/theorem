@@ -24,6 +24,7 @@ import History from "./pages/History"
 import Loading from "./components/Loading"
 import UserDashboard from "./pages/UserDashboard"
 import AdminDashboard from "./pages/AdminDashboard"
+import Activation from "./pages/Activation"
 
 function App() {
   const { connected, isAdmin, isLoading } = useContext(UserContext)
@@ -43,6 +44,7 @@ function App() {
         <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/contact" element={<Home />} />
+        <Route path="/activate/:link" element={<Activation />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard/*"

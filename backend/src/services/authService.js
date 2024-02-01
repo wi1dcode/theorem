@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken")
+const uuid = require("uuid")
 const session = require("../models/sessionModel")
 const userModel = require("../models/userModel")
 
@@ -76,9 +77,13 @@ class AuthService {
   async activate(activationLink) {
     const user = await userModel.findOne({ activationLink })
     if (!user) {
-      throw new Error(400, "User not found")
+      throw { status: 404, message: "Activation link is invalid or expired" }
+    }
+    if (user.isActivated) {
+      throw { status: 400, message: "Account is already activated" }
     }
     user.isActivated = true
+    user.activationLink = uuid.v4()
     await user.save()
   }
 }

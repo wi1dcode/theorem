@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import LocationSvg from "../images/svg/LocationSvg"
 import EuroSvg from "../images/svg/EuroSvg"
 import CalendarSvg from "../images/svg/CalendarSvg"
+import ProjectUserSvg from "../images/svg/ProjectUserSvg"
 
 function MiniCard({
   title,
@@ -39,6 +40,7 @@ function Pending({
   date,
   adresse,
   budget,
+  name,
   when,
 }) {
   const { connected, token } = useContext(UserContext)
@@ -50,30 +52,24 @@ function Pending({
           to={link}
           className="w-96 mt-4 mb-2 bg-gray-200 text-stone-200 flex flex-col rounded-xl transition duration-300 transform hover:scale-105 cursor-pointer"
         >
-          {/* <div className="p-2">
-            <h2 className="font-medium text-center border-b border-anthracite/50 pb-2">
-              {renovation}
-            </h2>
-            <p className="mt-2 text-xs text-center font-normal opacity-75">
-              Tel: {tel} <br />
-              Author: {email}
-              <br />
-              Date: {date} <br />
-              Status: {status}
-            </p>
-          </div> */}
           <div className="p-2">
             <div className="flex flex-col gap-2">
               <MiniCard
                 title="Date de demande / début du chantier"
-                text={`${date} - ${when}`}
+                text={`${date} — ${when}`}
                 icon={<CalendarSvg />}
                 hasBottomBorder
               />
               <MiniCard
                 title="Budget"
-                text={`${budget} €`}
+                text={`${budget}`}
                 icon={<EuroSvg />}
+                hasBottomBorder
+              />
+              <MiniCard
+                title="Nom"
+                text={name}
+                icon={<ProjectUserSvg />}
                 hasBottomBorder
               />
               <MiniCard

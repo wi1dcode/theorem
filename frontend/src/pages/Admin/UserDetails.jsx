@@ -74,13 +74,17 @@ function UserDetails() {
               <Pending
                 key={project._id}
                 link={`../projects/${project._id}`}
-                email={project.email || "none"}
-                tel={project.tel}
+                email={project.profile?.email || "none"}
+                name={
+                  `${project.profile?.firstname} ${project.profile?.lastname}` ||
+                  "none"
+                }
+                tel={project.profile?.phone || "none"}
                 renovation={project.renovation}
                 budget={project.budget}
-                adresse={project.adresse}
+                adresse={project.adresse?.address || "none"}
                 date={format(new Date(project.createdAt), "dd/MM/yyyy")}
-                when={format(new Date(project.when), "dd/MM/yyyy")}
+                when={project.when}
               />
             </div>
           ))

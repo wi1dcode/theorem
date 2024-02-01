@@ -1,4 +1,6 @@
 require("dotenv").config()
+const ExcelJS = require("exceljs")
+const moment = require("moment")
 const User = require("../models/userModel")
 const Form = require("../models/formModel")
 const Entrepreneur = require("../models/entrepreneurModel")
@@ -500,6 +502,62 @@ const getLogs = async (req, res) => {
   }
 }
 
+const downloadLogs = async (req, res) => {
+  const { period } = req.params
+  let startDate
+
+  switch (period) {
+    case "7d":
+      startDate = moment().subtract(7, "days")
+      break
+    case "30d":
+      startDate = moment().subtract(30, "days")
+      break
+    case "all":
+      startDate = moment().subtract(100, "years")
+      break
+    default:
+      return res.status(400).send("Invalid period")
+  }
+
+  const logs = await Log.find({
+    createdAt: { $gte: startDate.toDate() },
+  })
+
+  const workbook = new ExcelJS.Workbook()
+  const sheet = workbook.addWorksheet("Logs")
+
+  sheet.columns = [
+    { header: "Date", key: "date", width: 25 },
+    { header: "Author", key: "author", width: 20 },
+    { header: "Description", key: "description", width: 30 },
+    { header: "IP", key: "ip", width: 20 },
+    { header: "Browser", key: "browser", width: 20 },
+  ]
+
+  logs.forEach((log) => {
+    sheet.addRow({
+      date: moment(log.createdAt).format("YYYY-MM-DD HH:mm:ss"),
+      author: log.author,
+      description: log.description,
+      ip: log.ip,
+      browser: log.browser,
+    })
+  })
+
+  res.setHeader(
+    "Content-Type",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  )
+  res.setHeader(
+    "Content-Disposition",
+    `attachment; filename="logs-${period}.xlsx"`
+  )
+
+  await workbook.xlsx.write(res)
+  res.end()
+}
+
 module.exports = {
   getUsers,
   getUserBySlug,
@@ -524,4 +582,5 @@ module.exports = {
   changeProjectStatus,
   getProjectsByStatus,
   getLogs,
+  downloadLogs,
 }

@@ -7,32 +7,38 @@ const mailService = require("../services/mailService")
 const { validationResult } = require("express-validator")
 const authService = require("../services/authService")
 const logService = require("../services/logService")
+const questions = require("../services/questions.json")
 const path = require("path")
 
 const createAccount = async (email, password, name, city, tel) => {
   try {
     const hashPassword = bcrypt.hashSync(password, 7)
     const activationLink = uuid.v4()
+    const userRole = "USER"
+    console.log("const user")
 
     const user = new User({
       email: email,
       password: hashPassword,
-      roles: ["USER"],
+      roles: [userRole],
       name: name,
       city: city,
       tel: tel,
       activationLink: activationLink,
     })
+    console.log(user)
 
     await user.save()
     await mailService.sendActivationMail(
       email,
-      `${process.env.API_URL}/account/activate/${activationLink}`,
+      `${process.env.CLIENT_URL}/account/activate/${activationLink}`,
       name
     )
 
+    console.log("created")
     return user
   } catch (error) {
+    console.log(error)
     throw new Error("Error creating user: " + error)
   }
 }
@@ -147,6 +153,118 @@ const getData = async (req, res) => {
     res.json({ message: "request created successfully" })
   } catch (error) {
     console.log(error)
+    res.status(400).json({ message: "Error processing: " + error.message })
+  }
+}
+
+const getResponses = async (req, res) => {
+  try {
+    const { formId, responseId, password, city } = req.body
+    const token = process.env.TYPEFORM_TOKEN
+
+    const typeformResponse = await axios.get(
+      `https://api.typeform.com/forms/${formId}/responses?included_response_ids=${responseId}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+
+    const answers = typeformResponse.data.items[0]?.answers
+    const keys = questions.keys
+    let formData = {
+      renovation: "",
+      search: "",
+      budget: "",
+      when: "",
+      documents: [],
+      photos: [],
+      inspirationPhoto: [],
+      profile: {},
+      adresse: {},
+      additionalInfo: [],
+    }
+
+    answers.forEach((answer) => {
+      const { field, type, choice, choices, file_url } = answer
+      let answerValue =
+        type === "choice"
+          ? choice.label
+          : choices
+          ? choices.labels.join(", ")
+          : answer[type]
+
+      // if (type === "file_url") {
+      //   const fileInfo = {
+      //     name: choice.label,
+      //     path: file_url,
+      //   }
+      //   switch (field.ref) {
+      //     case keys.documents:
+      //       formData.documents.push(fileInfo)
+      //       break
+      //     case keys.photos:
+      //       formData.photos.push({ file_url: file_url })
+      //       break
+      //     case keys.inspirationPhoto:
+      //       formData.inspirationPhoto.push({ file_url: file_url })
+      //       break
+      //   }
+      // } else {
+      let key = Object.keys(keys).find(
+        (key) => keys[key] === field.ref || keys[key] === field.id
+      )
+      if (key) {
+        if (key.startsWith("profile") || key.startsWith("adresse")) {
+          const profileOrAddressKey = key
+            .replace("profile", "")
+            .replace("adresse", "")
+            .toLowerCase()
+          formData[key.includes("profile") ? "profile" : "adresse"][
+            profileOrAddressKey
+          ] = answerValue
+        } else {
+          formData[key] = answerValue
+        }
+      } else {
+        const questionText =
+          questions.questions.find(
+            (q) => q.id === field.id || q.ref === field.ref
+          )?.title || "Unknown Question"
+        formData.additionalInfo.push({
+          question: questionText,
+          answer: answerValue,
+        })
+      }
+      // }
+    })
+
+    let user = await User.findOne({ email: formData.profile.email })
+    if (!user) {
+      user = await createAccount(
+        formData.profile.email,
+        password,
+        `${formData.profile.firstname} ${formData.profile.lastname}`,
+        city,
+        formData.profile.phone
+      )
+    }
+
+    console.log("getResponse:" + " " + user)
+
+    const form = new Form({ ...formData, author: user._id })
+    await form.save()
+
+    user.forms.push(form._id)
+    await user.save()
+    await logService.logEvent(
+      "user_registration",
+      `Nouvel utilisateur enregistré: ${formData.profile.email} avec le projet ${formData.renovation}`,
+      "SYSTEM",
+      req.ip,
+      req.headers["user-agent"]
+    )
+
+    res.json({ message: "Form response recorded successfully", formData })
+  } catch (error) {
+    console.error(error)
     res.status(400).json({ message: "Error processing: " + error.message })
   }
 }
@@ -370,6 +488,7 @@ const downloadDocument = async (req, res) => {
 module.exports = {
   createRequest,
   getData,
+  getResponses,
   getMe,
   changePassword,
   uploadDocument,

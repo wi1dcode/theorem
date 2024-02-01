@@ -72,9 +72,9 @@ function EstimationEmbed() {
             )
           } else {
             await Swal.fire(
-              "Erreur",
-              "Échec de la soumission du formulaire",
-              "error"
+              "Warning!",
+              "Votre compte a été créé mais nous n'avons pas pu vous envoyer de code pour vérifier votre email.",
+              "warning"
             )
           }
         }
@@ -216,7 +216,7 @@ function EstimationEmbed() {
         />
       </Helmet>
       <Widget
-        id="gEqyK00T"
+        id="Sj5GsUhX"
         style={{ fontSize: 20, height: "100vh" }}
         onReady={handleFormReady}
         onSubmit={handleSubmit}

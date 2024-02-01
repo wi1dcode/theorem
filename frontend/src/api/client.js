@@ -61,6 +61,3 @@ export const updateProjectStatus = async (id, status) => {
     throw error
   }
 }
-
-
-

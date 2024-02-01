@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import LocationSvg from "../images/svg/LocationSvg"
 import EuroSvg from "../images/svg/EuroSvg"
 import ProductsSvg from "../images/svg/ProductsSvg"
-import SurfaceSvg from "../images/svg/SurfaceSvg"
 import CalendarSvg from "../images/svg/CalendarSvg"
+import ProjectUserSvg from "../images/svg/ProjectUserSvg"
 
 function MiniCard({
   title,
@@ -34,12 +34,12 @@ function MiniCard({
 
 export default function UserProjectCard({
   id,
+  name,
   renovation,
   date,
-  surface,
   budget,
   adresse,
-  products,
+  search,
   when,
 }) {
   return (
@@ -51,26 +51,26 @@ export default function UserProjectCard({
         <div className="p-2">
           <div className="flex flex-col gap-2">
             <MiniCard
+              title="Nom"
+              text={name}
+              icon={<ProjectUserSvg />}
+              hasBottomBorder
+            />
+            <MiniCard
               title="Adresse"
               text={adresse}
               icon={<LocationSvg />}
               hasBottomBorder
             />
             <MiniCard
-              title="Produits"
-              text={products}
+              title="But de recherche"
+              text={search}
               icon={<ProductsSvg />}
               hasBottomBorder
             />
             <MiniCard
-              title="Surface"
-              text={`${surface} m²`}
-              icon={<SurfaceSvg />}
-              hasBottomBorder
-            />
-            <MiniCard
               title="Budget"
-              text={`${budget} €`}
+              text={`${budget}`}
               icon={<EuroSvg />}
               hasBottomBorder
             />

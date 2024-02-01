@@ -17,7 +17,7 @@ class MailService {
       theme: "default",
       product: {
         name: "Theorem Services",
-        link: process.env.API_URL,
+        link: process.env.CLIENT_URL,
       },
     })
   }

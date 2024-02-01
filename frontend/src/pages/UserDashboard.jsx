@@ -63,7 +63,7 @@ function UserDashboard() {
           </div>
         </aside>
 
-        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center mr-6 p-6 bg-gray-50 avenir">
+        <div className="rounded-xl w-full h-[95vh] overflow-auto mt-6 flex justify-center md:mr-6 md:p-6 bg-gray-50 avenir max-md:h-full">
           <Routes>
             <Route index element={<Menu />} />
             <Route path="projects/:id" element={<Project />} />

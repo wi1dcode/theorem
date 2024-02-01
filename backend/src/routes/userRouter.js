@@ -11,7 +11,6 @@ const authMiddleware = require("../middlewares/authMiddleware")
 // router.post("/logout", authController.logout)
 
 router.get("/session", authController.validateToken)
-router.get("/activate/:link", authController.activate)
 router.post(
   "/change-password",
   [
