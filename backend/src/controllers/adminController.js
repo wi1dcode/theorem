@@ -94,6 +94,10 @@ const changeProjectStatus = async (req, res) => {
   try {
     const { id } = req.params
     const { status } = req.body
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress
 
     const allowedStatusValues = [
       "PENDING",
@@ -118,13 +122,14 @@ const changeProjectStatus = async (req, res) => {
     }
 
     const statusMessage = logService.customizeLogMessage(
-      `L'administrateur a changé le statut du projet ( Email: ${project.author} ID:${project._id} ) à ${status}`
+      `L'administrateur a changé le statut du projet ( Email: ${project.profile?.email} ID:${project._id} ) à ${status}`
     )
+    console.log(project)
     await logService.logEvent(
       "project_status_change",
       statusMessage,
       "ADMIN",
-      req.ip,
+      clientIp,
       req.headers["user-agent"]
     )
 
@@ -166,6 +171,10 @@ const getUserByEmail = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress
     const { id } = req.params
     const { name, city, tel, type, isActivated, roles } = req.body
     const user = await User.findById(id)
@@ -216,7 +225,7 @@ const updateUser = async (req, res) => {
       "admin_update",
       logMessage,
       "ADMIN",
-      req.ip,
+      clientIp,
       req.headers["user-agent"]
     )
     return res.json({ message: "User updated successfully" })

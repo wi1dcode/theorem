@@ -98,7 +98,7 @@ function EstimationEmbed() {
 
   const fetchLocationData = async (zipCode) => {
     const countryCode = "fr"
-    const url = `http://api.zippopotam.us/${countryCode}/${zipCode}`
+    const url = `https://api.zippopotam.us/${countryCode}/${zipCode}`
 
     try {
       const response = await fetch(url)
@@ -144,7 +144,7 @@ function EstimationEmbed() {
 
         if (zipCode) {
           const countryCode = "fr"
-          const url = `http://api.zippopotam.us/${countryCode}/${zipCode}`
+          const url = `https://api.zippopotam.us/${countryCode}/${zipCode}`
 
           const response = await fetch(url)
           const data = await response.json()

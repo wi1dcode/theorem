@@ -73,10 +73,10 @@ function Users() {
           <label class="font-semibold">Rôle</label>
           <select id="swal-input-role" class="swal2-input">
             <option value="USER" ${
-              userData.roles.includes("USER") ? "selected" : ""
+              userData.roles?.includes("USER") ? "selected" : ""
             }>USER</option>
             <option value="ADMIN" ${
-              userData.roles.includes("ADMIN") ? "selected" : ""
+              userData.roles?.includes("ADMIN") ? "selected" : ""
             }>ADMIN</option>
           </select>
   
@@ -266,8 +266,8 @@ function Users() {
                   forms={user.forms?.length}
                   status={user.isActivated}
                   username={user.username}
-                  modifyButton={() => handleUserEdit(users)}
-                  deleteButton={() => handleUserDelete(users.email)}
+                  modifyButton={() => handleUserEdit(user)}
+                  deleteButton={() => handleUserDelete(user.email)}
                 />
               ))}
           </tbody>

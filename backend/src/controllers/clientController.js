@@ -143,8 +143,6 @@ const getData = async (req, res) => {
       status: "PENDING",
     })
 
-    console.log("client" + client)
-
     await client.save()
     user.forms.push(client._id)
     await user.save()
@@ -160,6 +158,10 @@ const getResponses = async (req, res) => {
   try {
     const { formId, responseId, password, city } = req.body
     const token = process.env.TYPEFORM_TOKEN
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress
 
     const typeformResponse = await axios.get(
       `https://api.typeform.com/forms/${formId}/responses?included_response_ids=${responseId}`,
@@ -245,7 +247,7 @@ const getResponses = async (req, res) => {
         formData.profile.phone
       )
     }
-    
+
     const form = new Form({ ...formData, author: user._id })
     await form.save()
 
@@ -255,7 +257,7 @@ const getResponses = async (req, res) => {
       "user_registration",
       `Nouvel utilisateur enregistré: ${formData.profile.email} avec le projet ${formData.renovation}`,
       "SYSTEM",
-      req.ip,
+      clientIp,
       req.headers["user-agent"]
     )
 
@@ -268,6 +270,10 @@ const getResponses = async (req, res) => {
 
 const createRequest = async (req, res) => {
   try {
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       return res.status(400).json({ message: "Create request error", errors })
@@ -331,7 +337,7 @@ const createRequest = async (req, res) => {
       "user_registration",
       `Nouvel utilisateur enregistré: ${email} avec le projet ${renovation}`,
       "SYSTEM",
-      req.ip,
+      clientIp,
       req.headers["user-agent"]
     )
 
@@ -429,7 +435,10 @@ const uploadDocument = async (req, res) => {
       return res.status(404).json({ message: "Form not found" })
     }
 
-    if (form.profile?.email !== userData.email && !userData.roles.includes("ADMIN")) {
+    if (
+      form.profile?.email !== userData.email &&
+      !userData.roles.includes("ADMIN")
+    ) {
       return res.status(403).json({ message: "Unauthorized access" })
     }
 
@@ -462,7 +471,10 @@ const downloadDocument = async (req, res) => {
       return res.status(404).send("Form not found")
     }
 
-    if (form.profile?.email !== userData.email && !userData.roles.includes("ADMIN")) {
+    if (
+      form.profile?.email !== userData.email &&
+      !userData.roles.includes("ADMIN")
+    ) {
       return res.status(403).json({ message: "Unauthorized access" })
     }
 
