@@ -19,9 +19,12 @@ export const uploadDocument = async (formId, formData) => {
 
 export const downloadDocument = async (formId, documentName) => {
   try {
-    const response = await get(`/account/download/document/${formId}/${documentName}`, {
-      responseType: "blob",
-    })
+    const response = await get(
+      `/account/download/document/${formId}/${documentName}`,
+      {
+        responseType: "blob",
+      }
+    )
 
     const url = window.URL.createObjectURL(new Blob([response.data]))
     const link = document.createElement("a")
@@ -32,6 +35,6 @@ export const downloadDocument = async (formId, documentName) => {
 
     link.parentNode.removeChild(link)
   } catch (error) {
-    console.error("Ошибка при скачивании документа:", error)
+    console.error("Error in downloading:", error)
   }
 }

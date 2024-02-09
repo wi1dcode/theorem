@@ -196,7 +196,7 @@ function NavBar() {
         >
           <img
             src={LogoBlack}
-            className="md:h-20 h-14 mr-3"
+            className="xl:h-20  h-14 mr-3"
             alt="Theorem Logo"
           />
         </Link>
@@ -234,13 +234,13 @@ function NavBar() {
             isOpen ? "max-h-96" : "max-md:max-h-0 max-md:overflow-hidden"
           }`}
         >
-          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-6 md:mt-0 md:border-0 items-center max-md:items-start">
+          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row xl:space-x-6 md:space-x-2 md:mt-0 md:border-0 items-center max-md:items-start">
             {navigation.map((item, idx) => {
               return (
                 <li key={idx} className="max-md:w-full">
                   {item.isDrapdown ? (
                     <button
-                      className={` w-full flex md:text-xl items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
+                      className={`w-full flex xl:text-lg max-lg:text-sm items-center justify-between gap-1 avenir py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
                       onClick={() => {
                         setDrapdown({
                           idx,
@@ -282,7 +282,7 @@ function NavBar() {
                       to={item.path}
                       target={item.target}
                       onClick={item.onClick}
-                      className={`block ${item.class} avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
+                      className={`block ${item.class} avenir xl:text-lg max-lg:text-sm py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out`}
                     >
                       {item.title}
                     </Link>
@@ -340,7 +340,7 @@ function NavBar() {
                 to="/pro"
                 target="_blank"
                 onClick={() => setIsOpen(false)}
-                className="block avenir max-md:mb-1 md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 hover:bg-marron md:ease-in-out"
+                className="block avenir max-md:mb-1 xl:text-lg max-lg:text-sm py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 hover:bg-marron md:ease-in-out"
               >
                 Clients PRO
               </NavLink>
@@ -349,7 +349,7 @@ function NavBar() {
               <NavLink
                 to="/login"
                 onClick={() => setIsOpen(false)}
-                className="block avenir py-2  pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
+                className="block avenir py-2 pl-3 pr-4 text-gray-900 rounded md:border-0 md:hover:text-marron shadow md:p-2 md:rounded-lg md:duration-150 md:ease-in-out max-md:text-marron"
               >
                 <div className="flex gap-x-2">
                   <UserSvg className="border-l border-red-100" />

@@ -236,3 +236,38 @@
     transform: rotate(-360deg);
   }
 }
+
+/* ===== Scrollbar CSS ===== */
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #c8b790 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c8b790;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+}
+
+/* selection text */
+::selection {
+  background-color: #c8b790;
+  color: #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-selection {
+  background-color: #c8b790;
+  color: #ffffff;
+}

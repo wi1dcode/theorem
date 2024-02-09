@@ -31,11 +31,10 @@ const createAccount = async (email, password, name, city, tel) => {
     await user.save()
     await mailService.sendActivationMail(
       email,
-      `${process.env.CLIENT_URL}/account/activate/${activationLink}`,
+      `${process.env.CLIENT_URL}/activate/${activationLink}`,
       name
     )
 
-    console.log("created")
     return user
   } catch (error) {
     console.log(error)
@@ -246,9 +245,7 @@ const getResponses = async (req, res) => {
         formData.profile.phone
       )
     }
-
-    console.log("getResponse:" + " " + user)
-
+    
     const form = new Form({ ...formData, author: user._id })
     await form.save()
 
@@ -432,14 +429,14 @@ const uploadDocument = async (req, res) => {
       return res.status(404).json({ message: "Form not found" })
     }
 
-    if (form.author !== userData.email && !userData.roles.includes("ADMIN")) {
+    if (form.profile?.email !== userData.email && !userData.roles.includes("ADMIN")) {
       return res.status(403).json({ message: "Unauthorized access" })
     }
 
     form.documents.push({
       originalName: req.file.originalname,
       name: req.file.filename,
-      path: `uploads/${form.author}/${req.file.filename}`,
+      path: `uploads/${form.profile?.email}/${req.file.filename}`,
     })
 
     await form.save()
@@ -465,7 +462,7 @@ const downloadDocument = async (req, res) => {
       return res.status(404).send("Form not found")
     }
 
-    if (form.author !== userData.email && !userData.roles.includes("ADMIN")) {
+    if (form.profile?.email !== userData.email && !userData.roles.includes("ADMIN")) {
       return res.status(403).json({ message: "Unauthorized access" })
     }
 

@@ -21,7 +21,8 @@ const storage = multer.diskStorage({
       const form = await Form.findById(req.params.formId)
       if (
         !form ||
-        (form.author !== userData.email && !userData.roles.includes("ADMIN"))
+        (form.profile?.email !== userData.email &&
+          !userData.roles.includes("ADMIN"))
       ) {
         return cb(new Error("Accès non autorisé"), false)
       }
@@ -29,7 +30,7 @@ const storage = multer.diskStorage({
       const userFolderPath = path.join(
         __dirname,
         "../../public/uploads",
-        form.author
+        form.profile?.email
       )
 
       if (!fs.existsSync(userFolderPath)) {

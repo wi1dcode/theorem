@@ -10,11 +10,26 @@ const logService = require("../services/logService")
 const Log = require("../models/logModel")
 
 const getUsers = async (req, res) => {
+  const { page = 1, limit = 15, search = "" } = req.query
   try {
-    const users = await User.find()
-    res.json(users)
-  } catch (e) {
-    res.status(400).json({ message: "Get users error" })
+    const query = {
+      $or: [
+        { name: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } },
+        { tel: { $regex: search, $options: "i" } },
+      ],
+    }
+    const users = await User.find(query)
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+    const count = await User.countDocuments(query)
+    res.json({
+      users,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page,
+    })
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
 }
 

@@ -6,17 +6,29 @@ import Swal from "sweetalert2"
 
 function Users() {
   const { token } = useContext(UserContext)
-  const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([])
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const users = await getUsers()
-        setUser(users)
-      } catch (error) {}
+    fetchUsers()
+  }, [token, page])
+
+  const fetchUsers = async () => {
+    try {
+      const { users, totalPages } = await getUsers(page, searchTerm)
+      setUsers(users)
+      setTotalPages(totalPages)
+    } catch (error) {
+      console.error("Failed to fetch users:", error)
     }
-    fetchData()
-  }, [token])
+  }
+
+  const handleSearch = () => {
+    setPage(1)
+    fetchUsers()
+  }
 
   const handleUserEdit = async (userData) => {
     const { value: formValues } = await Swal.fire({
@@ -105,12 +117,12 @@ function Users() {
         const response = await updateUser(userData._id, updatedData)
         console.log(response)
 
-        setUser((prevUsers) => {
-          return prevUsers.map((user) => {
-            if (user._id === userData._id) {
-              return { ...user, ...updatedData }
+        setUsers((prevUsers) => {
+          return prevUsers.map((users) => {
+            if (users._id === userData._id) {
+              return { ...users, ...updatedData }
             }
-            return user
+            return users
           })
         })
 
@@ -148,8 +160,69 @@ function Users() {
     }
   }
 
+  const getPageButtons = () => {
+    let buttons = []
+    let startPage = Math.max(page - 2, 1)
+    let endPage = Math.min(page + 2, totalPages)
+
+    if (page > 1) {
+      buttons.push(
+        <button
+          key="prev"
+          onClick={() => setPage(page - 1)}
+          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+        >
+          Prev
+        </button>
+      )
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      buttons.push(
+        <button
+          key={i}
+          onClick={() => setPage(i)}
+          className={`bg-marron rounded-lg px-4 py-2 text-white font-semibold ${
+            i === page ? "bg-marron/50" : ""
+          }`}
+        >
+          {i}
+        </button>
+      )
+    }
+
+    if (page < totalPages) {
+      buttons.push(
+        <button
+          key="next"
+          onClick={() => setPage(page + 1)}
+          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+        >
+          Next
+        </button>
+      )
+    }
+
+    return buttons
+  }
+
   return (
     <div className="w-full">
+      <div className="w-full flex items-center gap-2 mb-4 max-md:justify-center max-md:mt-4">
+        <input
+          type="text"
+          placeholder="Recherche..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="rounded-lg"
+        />
+        <button
+          onClick={handleSearch}
+          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+        >
+          Chercher
+        </button>
+      </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-marron/30">
@@ -181,8 +254,8 @@ function Users() {
             </tr>
           </thead>
           <tbody>
-            {user?.length &&
-              user.map((user) => (
+            {users?.length &&
+              users.map((user) => (
                 <UserTable
                   key={user._id}
                   name={user.name || "Pas defini"}
@@ -193,13 +266,14 @@ function Users() {
                   forms={user.forms?.length}
                   status={user.isActivated}
                   username={user.username}
-                  modifyButton={() => handleUserEdit(user)}
-                  deleteButton={() => handleUserDelete(user.email)}
+                  modifyButton={() => handleUserEdit(users)}
+                  deleteButton={() => handleUserDelete(users.email)}
                 />
               ))}
           </tbody>
         </table>
       </div>
+      <div className="my-4 flex gap-x-2 justify-end">{getPageButtons()}</div>
     </div>
   )
 }

@@ -41,7 +41,10 @@ function Projects() {
       <div className="flex gap-5 flex-wrap justify-center">
         {projects?.length ? (
           projects.map((project) => (
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div
+              className="flex gap-4 flex-wrap justify-center"
+              key={project._id}
+            >
               <Pending
                 key={project._id}
                 link={`./${project._id}`}

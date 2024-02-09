@@ -4,6 +4,9 @@
     "search": "search",
     "budget": "budget",
     "when": "when",
+    "documents": "documents",
+    "photos": "photos",
+    "inspirationPhoto": "inspirationPhoto",
     "profileFirstName": "c5FbKkfjCHEY",
     "profileLastName": "25YiEEuJgG6U",
     "profileEmail": "utYYv7qPkYgP",
@@ -627,144 +630,48 @@
       "title": "L'installation électrique - Cuisine"
     },
     {
-      "id": "ZYd1VEIhnNV7",
-      "title": "Pièces à rénover - Cuisine"
-    },
-    {
-      "id": "E8wTzy651dr6",
-      "title": "Pièces à rénover - Cuisine"
-    },
-    {
       "id": "9MdTIGftZNk3",
       "title": "L'installation électrique - Salle de bain"
-    },
-    {
-      "id": "XgQq7GbUnnG5",
-      "title": "Pièces à rénover - Salle de bain"
-    },
-    {
-      "id": "O9K5ZewwEBsF",
-      "title": "Pièces à rénover - Salle de bain"
     },
     {
       "id": "6AWcnzhFuoTP",
       "title": "L'installation électrique - Salon"
     },
     {
-      "id": "OO9BIrWCAXZF",
-      "title": "Pièces à rénover - Salon"
-    },
-    {
-      "id": "Hih29laog9oJ",
-      "title": "Pièces à rénover - Salon"
-    },
-    {
       "id": "H8Qlkj9QoKSi",
       "title": "L'installation électrique - Chambre"
-    },
-    {
-      "id": "14jYAoZHRgSM",
-      "title": "Pièces à rénover - Chambre"
-    },
-    {
-      "id": "xeoMU6iJrgnp",
-      "title": "Pièces à rénover - Chambre"
     },
     {
       "id": "z9idKUiB0Zv9",
       "title": "L'installation électrique - Bureau"
     },
     {
-      "id": "8MBqyXT5xZUl",
-      "title": "Pièces à rénover - Bureau"
-    },
-    {
-      "id": "qDTVeuZR6SEw",
-      "title": "Pièces à rénover - Bureau"
-    },
-    {
       "id": "vR8sqFD2UzHG",
       "title": "L'installation électrique - Garage"
-    },
-    {
-      "id": "OeVCqM2cxuOq",
-      "title": "Pièces à rénover - Garage"
-    },
-    {
-      "id": "ObMgIwfZ1F4O",
-      "title": "Pièces à rénover - Garage"
     },
     {
       "id": "xQNJSgkZKFvN",
       "title": "L'installation électrique - Couloir"
     },
     {
-      "id": "qHkoOXNwXozr",
-      "title": "Pièces à rénover - Couloir"
-    },
-    {
-      "id": "SeGmI1j3gKad",
-      "title": "Pièces à rénover - Couloir"
-    },
-    {
       "id": "wRyVz1pYsu9G",
       "title": "L'installation électrique - Buanderie"
-    },
-    {
-      "id": "RNnOiH0jqCko",
-      "title": "Pièces à rénover - Buanderie"
-    },
-    {
-      "id": "CpTY7tZ290Jc",
-      "title": "Pièces à rénover - Buanderie"
     },
     {
       "id": "nyDpapmSp5cq",
       "title": "L'installation électrique - Salle à manger"
     },
     {
-      "id": "utEerOoZa2ZA",
-      "title": "LPièces à rénover - Salle à manger"
-    },
-    {
-      "id": "UKvtO6PxpIV2",
-      "title": "LPièces à rénover - Salle à manger"
-    },
-    {
       "id": "V8WaKFzyiU23",
       "title": "L'installation électrique - Toilettes"
-    },
-    {
-      "id": "yrniBbbMp4tU",
-      "title": "Pièces à rénover - Toilettes"
-    },
-    {
-      "id": "dLsAY4ARlAYB",
-      "title": "Pièces à rénover - Toilettes"
     },
     {
       "id": "tFMhNz4zjr13",
       "title": "L'installation électrique - Dressing"
     },
     {
-      "id": "duSEp2sR99gm",
-      "title": "Pièces à rénover - Dressing"
-    },
-    {
-      "id": "epen4y02p7W6",
-      "title": "Pièces à rénover - Dressing"
-    },
-    {
       "id": "AGJGGGYGNVWy",
       "title": "L'installation électrique - Autre"
-    },
-    {
-      "id": "RVFTwef5hTPS",
-      "title": "Pièces à rénover - Autre"
-    },
-    {
-      "id": "hxljURmIeeXu",
-      "title": "Pièces à rénover - Autre"
     }
   ]
 }

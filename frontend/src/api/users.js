@@ -1,8 +1,13 @@
 import { get, remove, put } from "./api"
 
-export const getUsers = async () => {
+export const getUsers = async (page, searchTerm) => {
   try {
-    const response = await get(`/dashboard/users`)
+    const query = new URLSearchParams({
+      page: page,
+      search: searchTerm,
+    }).toString()
+
+    const response = await get(`/dashboard/users?${query}`)
     return response.data
   } catch (error) {
     throw error

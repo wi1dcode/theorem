@@ -21,10 +21,13 @@ app.use(
 
 app.use(express.json())
 app.use(cookieParser())
-app.use("/uploads", express.static(path.join(__dirname, "../public/uploads")))
-app.use("/", guestRouter)
-app.use("/account", userRouter)
-app.use("/dashboard", adminMiddleware(), adminRouter)
+app.use(
+  "/api/uploads",
+  express.static(path.join(__dirname, "../public/uploads"))
+)
+app.use("/api", guestRouter)
+app.use("/api/account", userRouter)
+app.use("/api/dashboard", adminMiddleware(), adminRouter)
 // app.use("/pro")
 
 // Serve the public folder for public resources

@@ -164,7 +164,7 @@ function Logging() {
   return (
     <div className="w-full">
       <div className="w-full flex items-center gap-2 mb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-md:justify-center max-md:mt-4">
           <input
             type="text"
             placeholder="Recherche..."
@@ -182,7 +182,7 @@ function Logging() {
         <div>
           <button
             onClick={handleDownloadLogs}
-            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold max-md:mt-4"
           >
             Télécharger
           </button>

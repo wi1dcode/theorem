@@ -17,34 +17,27 @@ const FormSchema = new Schema(
       type: String,
       required: true,
     },
-    // documents: [
-    //   {
-    //     name: String,
-    //     originalName: String,
-    //     path: String,
-    //   },
-    // ],
-    // photos: [
-    //   {
-    //     type: String,
-    //     path: String,
-    //   },
-    // ],
-    // inspirationPhoto: [
-    //   {
-    //     type: String,
-    //     path: String,
-    //   },
-    // ],
-    documents: {
-      type: Boolean,
-    },
-    photos: {
-      type: Boolean,
-    },
-    inspirationPhoto: {
-      type: Boolean,
-    },
+    documents: [
+      {
+        name: String,
+        originalName: String,
+        path: String,
+      },
+    ],
+    photos: [
+      {
+        name: String,
+        originalName: String,
+        path: String,
+      },
+    ],
+    inspirationPhoto: [
+      {
+        name: String,
+        originalName: String,
+        path: String,
+      },
+    ],
     budget: {
       type: String,
       required: true,

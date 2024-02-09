@@ -1,12 +1,12 @@
 import { Widget } from "@typeform/embed-react"
-import axios from "axios"
+import { sendResponses } from "../../api/client"
 
 function NewProject() {
   const handleSubmit = async (event) => {
     try {
       const { formId, responseId } = event
       const formData = { formId, responseId }
-      await axios.post("http://localhost:5000/send-responses", formData)
+      await sendResponses(formData)
     } catch (error) {
       console.error(error)
     }

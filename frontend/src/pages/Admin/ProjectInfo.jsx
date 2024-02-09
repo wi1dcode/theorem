@@ -84,7 +84,7 @@ function ProjectInfo() {
           "Votre document a été téléchargé avec succès.",
           "success"
         )
-        // need update project state ?
+        window.location.reload()
       }
     } catch (error) {
       Swal.fire(
@@ -93,6 +93,17 @@ function ProjectInfo() {
         "error"
       )
     }
+  }
+
+  function formatFileName(fileName) {
+    const maxLength = 20
+    const extension = fileName.slice(
+      ((fileName.lastIndexOf(".") - 1) >>> 0) + 2
+    )
+    if (fileName.length > maxLength) {
+      return `${fileName.slice(0, maxLength - 3)}... .${extension}`
+    }
+    return fileName
   }
 
   if (loading) return <Loading />
@@ -150,14 +161,14 @@ function ProjectInfo() {
               className="flex-grow overflow-auto"
               style={{ maxHeight: "calc(70vh - 100px)" }}
             >
-              {/* {projectData.documents?.map((doc, index) => (
+              {projectData.documents?.map((doc, index) => (
                 <div
                   key={index}
                   className="bg-gray-300 m-2 rounded-lg py-4 px-2 flex items-center justify-between"
                 >
                   <span className="flex items-center gap-x-1 overflow-hidden">
                     <DocSvg />
-                    <p>{doc.originalName}</p>
+                    <p>{formatFileName(doc.originalName)}</p>
                   </span>
                   <button
                     className="cursor-pointer"
@@ -169,7 +180,7 @@ function ProjectInfo() {
                     <DownloadSvg />
                   </button>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
           <button
@@ -232,9 +243,7 @@ function ProjectInfo() {
           <div className="h-[65vh] max-md:h-auto w-full rounded-lg p-6 flex flex-col gap-y-2 divide-y divide-gray-300">
             {projectDetails.map((detail, index) => (
               <div key={index} className="flex gap-x-4 pt-2 max-md:flex-col">
-                <dt className="text-gray-500 md:text-lg">
-                  {detail?.label}:
-                </dt>
+                <dt className="text-gray-500 md:text-lg">{detail?.label}:</dt>
                 <dd className="text-lg font-semibold whitespace-normal break-all">
                   {detail?.value}
                 </dd>

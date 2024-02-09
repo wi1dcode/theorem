@@ -40,7 +40,7 @@ function Project() {
           "Votre document a été téléchargé avec succès.",
           "success"
         )
-        // need update project state ?
+        window.location.reload()
       }
     } catch (error) {
       Swal.fire(
@@ -49,6 +49,17 @@ function Project() {
         "error"
       )
     }
+  }
+
+  function formatFileName(fileName) {
+    const maxLength = 16
+    const extension = fileName.slice(
+      ((fileName.lastIndexOf(".") - 1) >>> 0) + 2
+    )
+    if (fileName.length > maxLength) {
+      return `${fileName.slice(0, maxLength - 3)}... .${extension}`
+    }
+    return fileName
   }
 
   const projectInfo = [
@@ -112,26 +123,28 @@ function Project() {
                 className="flex-grow overflow-auto"
                 style={{ maxHeight: "calc(70vh - 100px)" }}
               >
-                {/* {project.documents?.map((doc, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-300 m-2 rounded-lg py-4 px-2 flex items-center justify-between"
-                >
-                  <span className="flex items-center gap-x-1 overflow-hidden">
-                    <DocSvg />
-                    <p>{doc.originalName}</p>
-                  </span>
-                  <button
-                    className="cursor-pointer"
-                    type="button"
-                    onClick={() =>
-                      downloadDocument(project._id, doc.originalName)
-                    }
+                {project.documents?.map((doc, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-300 m-2 rounded-lg py-4 px-2 flex items-center justify-between"
                   >
-                    <DownloadSvg />
-                  </button>
-                </div>
-              ))} */}
+                    <div className="flex items-center gap-x-1 overflow-hidden">
+                      <DocSvg />
+                      <p title={doc.originalName}>
+                        {formatFileName(doc.originalName)}
+                      </p>
+                    </div>
+                    <button
+                      className="cursor-pointer"
+                      type="button"
+                      onClick={() =>
+                        downloadDocument(project._id, doc.originalName)
+                      }
+                    >
+                      <DownloadSvg />
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
             <button

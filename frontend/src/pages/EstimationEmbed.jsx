@@ -1,13 +1,16 @@
 import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom"
 import { Widget } from "@typeform/embed-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { sendResponses } from "../api/client"
 import { Helmet } from "react-helmet"
 
 function EstimationEmbed() {
+  const navigate = useNavigate()
   const [city, setCity] = useState("")
+  const [isFormReady, setIsFormReady] = useState(false)
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (formId, responseId) => {
     try {
       const { value: passValues } = await Swal.fire({
         title: "Entrez votre mot de passe",
@@ -60,22 +63,26 @@ function EstimationEmbed() {
         const { password, confirmPassword } = passValues
 
         if (password === confirmPassword) {
-          const { formId, responseId } = event
+          // const { formId, responseId } = event
           const formData = { formId, responseId, password, city }
           const response = await sendResponses(formData)
 
-          if (response.status === 200) {
+          if (response.status !== 400) {
             await Swal.fire(
-              "Success",
-              "Form submitted successfully!",
+              "Merci",
+              "Formulaire soumis avec succès ! Vous pouvez maintenant vous se connecter à votre compte",
               "success"
-            )
+            ).then(() => {
+              navigate("/login")
+            })
           } else {
             await Swal.fire(
-              "Warning!",
-              "Votre compte a été créé mais nous n'avons pas pu vous envoyer de code pour vérifier votre email.",
+              "Merci!",
+              "Formulaire soumis avec succès ! Vous pouvez maintenant vous se connecter à votre compte",
               "warning"
-            )
+            ).then(() => {
+              navigate("/login")
+            })
           }
         }
       }
@@ -104,6 +111,7 @@ function EstimationEmbed() {
   }
 
   const askForZipCode = async () => {
+    document.body.style.backgroundColor = "#C8B790"
     try {
       if (!city) {
         const { value: zipCode } = await Swal.fire({
@@ -184,6 +192,7 @@ function EstimationEmbed() {
                   timer: 3000,
                   timerProgressBar: true,
                 })
+                setIsFormReady(true)
               } else if (Swal.DismissReason.cancel === "cancel") {
                 window.location.href = "/"
               }
@@ -198,16 +207,12 @@ function EstimationEmbed() {
     }
   }
 
-  const handleFormReady = async () => {
-    try {
-      await askForZipCode()
-    } catch (error) {
-      console.error("Erreur:", error)
-    }
-  }
+  useEffect(() => {
+    askForZipCode()
+  }, [])
 
   return (
-    <div>
+    <div className="bg-black">
       <Helmet>
         <title>Estimation | Theorem Services</title>
         <meta
@@ -215,13 +220,16 @@ function EstimationEmbed() {
           content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Services. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
         />
       </Helmet>
-      <Widget
-        id="Sj5GsUhX"
-        style={{ fontSize: 20, height: "100vh" }}
-        onReady={handleFormReady}
-        onSubmit={handleSubmit}
-        className="my-class bg-[#262626]"
-      />
+      {isFormReady && (
+        <Widget
+          id="Sj5GsUhX"
+          style={{ fontSize: 20, height: "100vh" }}
+          className="my-class bg-[#262626]"
+          onSubmit={({ formId, responseId }) =>
+            handleSubmit(formId, responseId)
+          }
+        />
+      )}
     </div>
   )
 }
