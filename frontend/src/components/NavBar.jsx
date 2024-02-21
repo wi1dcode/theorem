@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom"
 import LogoBlack from "../images/icons/logo2.png"
 import { useEffect, useState } from "react"
 import UserSvg from "../images/svg/UserSvg"
+import MenuCloseSvg from "../images/svg/MenuCloseSvg"
+import MenuSvg from "../images/svg/MenuSvg"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -207,25 +209,9 @@ function NavBar() {
                 toggleMenu()
               }}
               type="button"
-              className="w-5 h-5 flex items-center justify-center transition-transform transform hover:scale-110"
+              className="w-8 h-8 flex items-center justify-center transition-transform transform hover:scale-110"
             >
-              <svg
-                className={`text-black transition-transform ${
-                  isOpen ? "rotate-95 scale-135" : "rotate-0 scale-100"
-                }`}
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 17"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d={isOpen ? "M1 1l15 15M16 1L1 16" : "M1 1h15M1 7h15M1 13h15"}
-                />
-              </svg>
+              {isOpen ? <MenuCloseSvg /> : <MenuSvg />}
             </button>
           </div>
         </div>

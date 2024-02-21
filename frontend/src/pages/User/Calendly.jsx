@@ -21,7 +21,7 @@ function Calendly() {
   }, [])
 
   return (
-    <div className="w-full">
+    <div className="w-full max-md:h-screen">
       {isLoading && <Loading />}
       <InlineWidget
         url="https://calendly.com/unknownmagomed/30min"

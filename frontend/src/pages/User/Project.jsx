@@ -109,7 +109,7 @@ function Project() {
         </div>
       </article>
 
-      <section className="flex flex-col w-full gap-x-4 items-center justify-between mt-2 max-md:flex-col">
+      <section className="flex flex-col w-full gap-x-4 items-center justify-between mt-2 max-md:flex-col max-md:overflow-hidden">
         <div className="w-full mx-auto">
           <Stepper status={project.status} />
         </div>
