@@ -111,7 +111,6 @@ function EstimationEmbed() {
   }
 
   const askForZipCode = async () => {
-    document.body.style.backgroundColor = "#C8B790"
     try {
       if (!city) {
         const { value: zipCode } = await Swal.fire({
