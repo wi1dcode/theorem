@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { getLogs, downloadLogs } from "../../api/logs"
 import Swal from "sweetalert2"
 import { Link } from "react-router-dom"
+import UserContext from "../../services/userContext"
 
 function Logging() {
+  const { token } = useContext(UserContext)
   const [logs, setLogs] = useState([])
   const [page, setPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState("")
@@ -11,7 +13,7 @@ function Logging() {
 
   useEffect(() => {
     fetchLogs()
-  }, [page, searchTerm])
+  }, [token, page])
 
   const fetchLogs = async () => {
     try {
