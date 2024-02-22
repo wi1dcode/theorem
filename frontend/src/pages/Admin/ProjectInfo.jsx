@@ -9,12 +9,15 @@ import { format } from "date-fns"
 import DocSvg from "../../images/svg/DocSvg"
 import DownloadSvg from "../../images/svg/DownloadSvg"
 import Swal from "sweetalert2"
+import { get } from "../../api/api"
+import { uploadImage } from "../../api/image"
 
 function ProjectInfo() {
   const { id } = useParams()
   const { connected } = useContext(UserContext)
   const [projectData, setProjectData] = useState()
   const [loading, setLoading] = useState(true)
+  const [imageUrls, setImageUrls] = useState([])
 
   useEffect(() => {
     const fetchProject = async (id) => {
@@ -22,6 +25,20 @@ function ProjectInfo() {
         const data = await getProject(id)
         setProjectData(data)
         setLoading(false)
+
+        const urls = await Promise.all(
+          data.photos.map(async (doc) => {
+            try {
+              const response = await get(doc.path, { responseType: "blob" })
+              return URL.createObjectURL(response.data)
+            } catch (error) {
+              console.error("Error fetching image", error)
+              return null
+            }
+          })
+        )
+
+        setImageUrls(urls.filter((url) => url !== null))
       } catch (error) {
         console.log(error)
         setLoading(false)
@@ -30,6 +47,16 @@ function ProjectInfo() {
 
     fetchProject(id)
   }, [id, connected])
+
+  const handleImageClick = (url) => {
+    Swal.fire({
+      imageUrl: url,
+      imageAlt: "Custom image",
+      showConfirmButton: false,
+      width: "50%",
+      background: "transparent",
+    })
+  }
 
   const handleFormStatus = async (status) => {
     try {
@@ -90,6 +117,46 @@ function ProjectInfo() {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement du document.",
+        "error"
+      )
+    }
+  }
+
+  const handleImageUpload = async () => {
+    try {
+      const { value: files } = await Swal.fire({
+        title: "Sélectionnez des images",
+        input: "file",
+        inputAttributes: {
+          accept: "image/jpeg, image/png, image/jpg",
+          "aria-label": "Téléchargez vos images ici",
+          multiple: true,
+        },
+        showCancelButton: true,
+        confirmButtonText: "Ajouter",
+        cancelButtonText: "Annuler",
+        confirmButtonColor: "#C8B790",
+        cancelButtonColor: "#D76C66",
+      })
+
+      if (files) {
+        const formData = new FormData()
+        ;[...files].forEach((file) => {
+          formData.append("images", file)
+        })
+
+        await uploadImage(projectData._id, formData)
+        Swal.fire(
+          "Ajoutées!",
+          "Vos images ont été ajoutées avec succès.",
+          "success"
+        )
+        window.location.reload()
+      }
+    } catch (error) {
+      Swal.fire(
+        "Erreur!",
+        "Une erreur s'est produite lors du téléchargement des images.",
         "error"
       )
     }
@@ -186,14 +253,14 @@ function ProjectInfo() {
           <button
             type="button"
             onClick={handleDocumentUpload}
-            className="w-full text-center py-2 rounded-b-lg text-xl font-semibold bg-green-300 cursor-pointer"
+            className="w-full opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-b-lg text-xl font-semibold bg-green-300 cursor-pointer"
           >
-            Ajouter
+            Ajouter document
           </button>
         </div>
 
         <div className="w-full h-[70vh] flex flex-col justify-between overflow-auto bg-gray-200 rounded-lg max-md:w-full max-md:h-auto">
-          <div className="flex flex-col items-center p-6">
+          <div className="flex flex-col items-center p-6 pb-0">
             <p className="font-semibold text-lg opacity-50">
               Changer le statut:
             </p>
@@ -239,6 +306,13 @@ function ProjectInfo() {
                 {format(new Date(projectData?.updatedAt), "dd/MM/yyyy - HH:mm")}
               </p>
             </div>
+            <button
+              type="button"
+              onClick={handleImageUpload}
+              className="w-[250px] mt-2 opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-lg text-xl font-semibold bg-green-300 cursor-pointer"
+            >
+              Ajouter images
+            </button>
           </div>
           <div className="h-[65vh] max-md:h-auto w-full rounded-lg p-6 flex flex-col gap-y-2 divide-y divide-gray-300">
             {projectDetails.map((detail, index) => (
@@ -250,6 +324,25 @@ function ProjectInfo() {
               </div>
             ))}
             {additionalInfo}
+            <div className="mt-4">
+              <dt className="text-gray-500 md:text-lg mt-2">Images:</dt>
+              <div className="flex">
+                {imageUrls.map((url, index) => (
+                  <img
+                    key={index}
+                    src={url}
+                    alt={`uploaded ${index}`}
+                    style={{
+                      maxWidth: "200px",
+                      maxHeight: "200px",
+                      cursor: "pointer",
+                      margin: "5px",
+                    }}
+                    onClick={() => handleImageClick(url)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

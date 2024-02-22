@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken")
 const authService = require("../services/authService")
 require("dotenv").config()
 module.exports = function () {

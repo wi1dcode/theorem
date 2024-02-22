@@ -1,18 +1,55 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import UserContext from "../../services/userContext"
 import DocSvg from "../../images/svg/DocSvg"
 import DownloadSvg from "../../images/svg/DownloadSvg"
 import Stepper from "../../components/Stepper"
-import { format } from "date-fns"
 import { uploadDocument, downloadDocument } from "../../api/document"
+import { uploadImage } from "../../api/image"
+
 import Swal from "sweetalert2"
+import { get } from "../../api/api"
 
 function Project() {
   const { id } = useParams()
   const { user } = useContext(UserContext)
+  const [imageUrls, setImageUrls] = useState([])
 
   const project = user.forms?.find((project) => project._id === id)
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const imagePaths = project.photos?.map((photo) => photo.path) || []
+
+      const urls = await Promise.all(
+        imagePaths.map(async (path) => {
+          try {
+            const response = await get(path, { responseType: "blob" })
+            return URL.createObjectURL(response.data)
+          } catch (error) {
+            console.error("Error fetching image", error)
+            return null
+          }
+        })
+      )
+
+      setImageUrls(urls.filter((url) => url !== null))
+    }
+
+    if (project.photos && project.photos.length > 0) {
+      fetchImages()
+    }
+  }, [project.photos])
+
+  const handleImageClick = (url) => {
+    Swal.fire({
+      imageUrl: url,
+      imageAlt: "Custom image",
+      showConfirmButton: false,
+      width: "50%",
+      background: "transparent",
+    })
+  }
 
   const handleDocumentUpload = async () => {
     try {
@@ -24,7 +61,7 @@ function Project() {
           "aria-label": "Téléchargez votre document ici",
         },
         showCancelButton: true,
-        confirmButtonText: "Télécharger",
+        confirmButtonText: "Ajouter",
         cancelButtonText: "Annuler",
         confirmButtonColor: "#C8B790",
         cancelButtonColor: "#D76C66",
@@ -36,8 +73,8 @@ function Project() {
 
         await uploadDocument(project._id, formData)
         Swal.fire(
-          "Téléchargé!",
-          "Votre document a été téléchargé avec succès.",
+          "Ajoutées!",
+          "Votre document a été ajoutées avec succès.",
           "success"
         )
         window.location.reload()
@@ -46,6 +83,46 @@ function Project() {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement du document.",
+        "error"
+      )
+    }
+  }
+
+  const handleImageUpload = async () => {
+    try {
+      const { value: files } = await Swal.fire({
+        title: "Sélectionnez des images",
+        input: "file",
+        inputAttributes: {
+          accept: "image/jpeg, image/png, image/jpg",
+          "aria-label": "Téléchargez vos images ici",
+          multiple: true,
+        },
+        showCancelButton: true,
+        confirmButtonText: "Ajouter",
+        cancelButtonText: "Annuler",
+        confirmButtonColor: "#C8B790",
+        cancelButtonColor: "#D76C66",
+      })
+
+      if (files) {
+        const formData = new FormData()
+        ;[...files].forEach((file) => {
+          formData.append("images", file)
+        })
+
+        await uploadImage(project._id, formData)
+        Swal.fire(
+          "Ajoutées!",
+          "Vos images ont été ajoutées avec succès.",
+          "success"
+        )
+        window.location.reload()
+      }
+    } catch (error) {
+      Swal.fire(
+        "Erreur!",
+        "Une erreur s'est produite lors du téléchargement des images.",
         "error"
       )
     }
@@ -147,17 +224,22 @@ function Project() {
                 ))}
               </div>
             </div>
-            <button
-              type="button"
-              onClick={handleDocumentUpload}
-              className="w-full text-center py-2 rounded-b-lg text-xl font-semibold bg-green-300 cursor-pointer"
-            >
-              Ajouter
-            </button>
+            <div className="w-full  opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-b-lg text-xl font-semibold bg-green-300 cursor-pointer">
+              <button type="button" onClick={handleDocumentUpload}>
+                Ajouter document
+              </button>
+            </div>
           </div>
 
           <div className="w-full flex flex-col gap-y-4 max-md:w-full">
-            <div className="h-[70vh] bg-gray-200 rounded-lg p-6 flex flex-col gap-y-2 overflow-auto divide-y divide-gray-300 max-md:h-auto">
+            <div className="h-[70vh] bg-gray-200 rounded-lg p-6 flex flex-col gap-y-2 overflow-auto divide-y divide-gray-300 max-md:h-auto pt-4">
+              <button
+                type="button"
+                onClick={handleImageUpload}
+                className="w-full opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-lg text-xl font-semibold bg-green-300 cursor-pointer"
+              >
+                Ajouter images
+              </button>
               {projectInfo.map((detail, index) => (
                 <div key={index} className="flex gap-x-4 pt-2 max-md:flex-col">
                   <dt className="text-gray-500 md:text-lg">{detail.label}:</dt>
@@ -167,6 +249,25 @@ function Project() {
                 </div>
               ))}
               {additionalInfo}
+              <div className="mt-4">
+                <dt className="text-gray-500 md:text-lg mt-2">Images:</dt>
+                <div className="flex">
+                  {imageUrls.map((url, index) => (
+                    <img
+                      key={index}
+                      src={url}
+                      alt={`uploaded ${index}`}
+                      style={{
+                        maxWidth: "200px",
+                        maxHeight: "200px",
+                        cursor: "pointer",
+                        margin: "5px",
+                      }}
+                      onClick={() => handleImageClick(url)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

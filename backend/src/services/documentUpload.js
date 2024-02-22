@@ -58,7 +58,7 @@ const upload = multer({
   fileFilter: function (req, file, cb) {
     const allowedMimeTypes = [
       "application/pdf", // PDF
-      "application/msword", //  DOC
+      "application/msword", // DOC
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // DOCX
       "application/vnd.ms-excel", // XLS
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // XLSX
@@ -71,11 +71,14 @@ const upload = multer({
     } else {
       cb(
         new Error(
-          "Seuls les fichiers de type document (PDF, DOC, DOCX, XLS) sont autorisés !"
+          "Seuls les fichiers de type document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX) sont autorisés !"
         ),
         false
       )
     }
+  },
+  limits: {
+    fileSize: 30 * 1024 * 1024, // 30MB
   },
 })
 

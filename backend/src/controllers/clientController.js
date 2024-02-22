@@ -15,7 +15,6 @@ const createAccount = async (email, password, name, city, tel) => {
     const hashPassword = bcrypt.hashSync(password, 7)
     const activationLink = uuid.v4()
     const userRole = "USER"
-    console.log("const user")
 
     const user = new User({
       email: email,
@@ -26,7 +25,6 @@ const createAccount = async (email, password, name, city, tel) => {
       tel: tel,
       activationLink: activationLink,
     })
-    console.log(user)
 
     await user.save()
     await mailService.sendActivationMail(
@@ -45,7 +43,6 @@ const createAccount = async (email, password, name, city, tel) => {
 const getData = async (req, res) => {
   try {
     const { formId, responseId, password, city } = req.body
-    console.log(`req.body ${formId} + ${responseId} + ${password} + ${city} `)
     const token = process.env.TYPEFORM_TOKEN
 
     const typeformResponse = await axios.get(
@@ -58,9 +55,7 @@ const getData = async (req, res) => {
     )
 
     const responseData = typeformResponse?.data
-    console.log(responseData)
     const answers = responseData.items[0]?.answers
-    console.log(answers)
 
     const answersData = {}
     const addressFieldsToExclude = [
@@ -456,6 +451,45 @@ const uploadDocument = async (req, res) => {
   }
 }
 
+const uploadImages = async (req, res) => {
+  try {
+    const { formId } = req.params
+    const token = req.headers.authorization.split(" ")[1]
+    const userData = authService.validateAccessToken(token)
+
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
+
+    const form = await Form.findById(formId)
+    if (!form) {
+      return res.status(404).json({ message: "Form not found" })
+    }
+
+    if (
+      form.profile?.email !== userData.email &&
+      !userData.roles.includes("ADMIN")
+    ) {
+      return res.status(403).json({ message: "Unauthorized access" })
+    }
+
+    req.files.forEach((file) => {
+      form.photos.push({
+        originalName: file.originalname,
+        name: file.filename,
+        path: `uploads/${form.profile?.email}/images/${file.filename}`,
+      })
+    })
+
+
+    await form.save()
+    res.status(200).json({ message: "Images uploaded successfully" })
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: error.message })
+  }
+}
+
 const downloadDocument = async (req, res) => {
   try {
     const { formId, documentName } = req.params
@@ -502,4 +536,5 @@ module.exports = {
   changePassword,
   uploadDocument,
   downloadDocument,
+  uploadImages,
 }

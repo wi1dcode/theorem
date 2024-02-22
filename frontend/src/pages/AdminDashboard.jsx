@@ -30,7 +30,7 @@ function AdminDashboard() {
 
   return (
     <section className="relative max-md:bg-gray-50 h-screen">
-      {isOpen && (
+      {isOpen && window.innerWidth < 768 && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20"
           onClick={() => setIsOpen(false)}

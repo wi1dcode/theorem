@@ -6,6 +6,7 @@ const upload = require("../services/documentUpload")
 const authController = require("../controllers/authController")
 const clientController = require("../controllers/clientController")
 const authMiddleware = require("../middlewares/authMiddleware")
+const { uploadImages } = require("../services/imageUpload")
 
 // router.get("/refresh", authController.refresh)
 // router.post("/logout", authController.logout)
@@ -50,6 +51,13 @@ router.post(
   authMiddleware(),
   upload.single("document"),
   clientController.uploadDocument
+)
+
+router.post(
+  "/upload/image/:formId",
+  authMiddleware(),
+  uploadImages.array("images", 10),
+  clientController.uploadImages
 )
 
 router.get(
