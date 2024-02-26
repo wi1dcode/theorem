@@ -166,6 +166,25 @@ function Project() {
     )
   })
 
+  function getStatusLabel(status) {
+    switch (status) {
+      case "PENDING":
+        return { label: "En attente", color: "bg-yellow-500" }
+      case "REFUSED":
+        return { label: "Refusé", color: "bg-red-500" }
+      case "APPROVED":
+        return { label: "Approuvé", color: "bg-green-500" }
+      case "PROGRESS":
+        return { label: "En cours", color: "bg-blue-500" }
+      case "FINISH":
+        return { label: "Terminé", color: "bg-purple-500" }
+      default:
+        return { label: "Inconnu", color: "bg-gray-500" }
+    }
+  }
+
+  const projectStatus = getStatusLabel(project.status)
+
   if (!project) {
     return <div>Projet non trouvé</div>
   }
@@ -182,6 +201,11 @@ function Project() {
           </span>
           <span className="bg-gray-300 px-2 rounded-full avenir">
             {project.when}
+          </span>
+          <span
+            className={`${projectStatus.color} px-2 rounded-full text-white`}
+          >
+            {projectStatus.label}
           </span>
         </div>
       </article>

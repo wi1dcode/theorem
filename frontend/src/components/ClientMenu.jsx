@@ -1,6 +1,23 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import UserContext from "../services/userContext"
 
 export default function ClientMenu({ onClick }) {
+  const { user } = useContext(UserContext)
+
+  function isProjectApproved(user) {
+    if (!user || !user.isActivated) {
+      return false
+    }
+
+    const firstProject = user.forms && user.forms[0]
+    if (!firstProject || firstProject.status === "PENDING") {
+      return false
+    }
+
+    return true
+  }
+
   return (
     <nav className="flex-1 -mx-3 space-y-3 avenir">
       <h2 className="text-center">Client</h2>
@@ -29,50 +46,54 @@ export default function ClientMenu({ onClick }) {
         <span className="mx-2 text-sm font-semibold">Mes projets</span>
       </Link>
 
-      {/* <Link
-        className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
-        to="#"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-5 h-5"
+      {isProjectApproved(user) && (
+        <Link
+          className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
+          to="./rdv"
+          onClick={onClick}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12"
+            />
+          </svg>
 
-        <span className="mx-2 text-sm font-semibold">Projects</span>
-      </Link> */}
+          <span className="mx-2 text-sm font-semibold">Prendre RDV</span>
+        </Link>
+      )}
 
-      <Link
-        className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
-        to="./rdv"
-        onClick={onClick}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-5 h-5"
+      {isProjectApproved(user) && (
+        <Link
+          className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
+          to="#"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
+            />
+          </svg>
 
-        <span className="mx-2 text-sm font-semibold">Prendre RDV</span>
-      </Link>
+          <span className="mx-2 text-sm font-semibold">Information</span>
+        </Link>
+      )}
 
       <Link
         className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"

@@ -124,7 +124,6 @@ const changeProjectStatus = async (req, res) => {
     const statusMessage = logService.customizeLogMessage(
       `L'administrateur a changé le statut du projet ( Email: ${project.profile?.email} ID:${project._id} ) à ${status}`
     )
-    console.log(project)
     await logService.logEvent(
       "project_status_change",
       statusMessage,

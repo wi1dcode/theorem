@@ -358,9 +358,7 @@ const getMe = async (req, res) => {
     }
 
     const user = await User.findById(userData.id)
-      .select(
-        "-password -isActivated -activationLink -activationLimit -username"
-      )
+      .select("-password -activationLink -activationLimit -username")
       .populate({
         path: "forms",
         select: "-documents.name",
@@ -480,7 +478,6 @@ const uploadImages = async (req, res) => {
         path: `uploads/${form.profile?.email}/images/${file.filename}`,
       })
     })
-
 
     await form.save()
     res.status(200).json({ message: "Images uploaded successfully" })
