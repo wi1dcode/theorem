@@ -2,9 +2,11 @@ const Log = require("../models/logModel")
 
 const statusTranslations = {
   PENDING: "en attente de vérification",
+  ANALYSE: "en étude",
   REFUSED: "refusé",
   APPROVED: "approuvé",
   PROGRESS: "en cours",
+  PAYMENT: "En attente de paiement",
   FINISH: "terminé",
 }
 

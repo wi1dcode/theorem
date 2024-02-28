@@ -13,7 +13,7 @@ function EstimationEmbed() {
   const handleSubmit = async (formId, responseId) => {
     try {
       const { value: passValues } = await Swal.fire({
-        title: "Entrez votre mot de passe",
+        title: "Créer votre mot de passe",
         html: `
         <div class="mb-2">
         <input type="password" id="password" class="swal2-input rounded-lg w-[70%]" placeholder="Entrez votre mot de passe">

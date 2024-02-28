@@ -170,12 +170,16 @@ function Project() {
     switch (status) {
       case "PENDING":
         return { label: "En attente", color: "bg-yellow-500" }
+      case "ANALYSE":
+        return { label: "En étude", color: "bg-yellow-500" }
       case "REFUSED":
         return { label: "Refusé", color: "bg-red-500" }
       case "APPROVED":
         return { label: "Approuvé", color: "bg-green-500" }
       case "PROGRESS":
         return { label: "En cours", color: "bg-blue-500" }
+      case "PAYMENT":
+        return { label: "En attente de paiement", color: "bg-yellow-500" }
       case "FINISH":
         return { label: "Terminé", color: "bg-purple-500" }
       default:

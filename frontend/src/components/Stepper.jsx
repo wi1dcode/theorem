@@ -3,25 +3,40 @@ import WorkSvg from "../images/svg/WorkSvg"
 import CheckSvg from "../images/svg/CheckSvg"
 import AnalyseSvg from "../images/svg/AnalyseSvg"
 import SmileSvg from "../images/svg/SmileSvg"
+import ClockSvg from "../images/svg/ClockSvg"
+import XSvg from "../images/svg/XSvg"
+import BankCardSvg from "../images/svg/BankCardSvg"
 
 function Stepper({ status }) {
-  const steps = [
+  let steps = [
     {
-      label: "Analyse",
+      label: "En attente",
+      isCompleted: true,
+      icon: <ClockSvg />,
+    },
+    {
+      label: "En étude",
       isCompleted: status !== "PENDING",
       icon: <AnalyseSvg />,
     },
     {
-      label: "Accepté",
-      isCompleted: ["APPROVED", "PROGRESS", "FINISH"].includes(status),
-      icon: <CheckSvg />,
+      label: status === "REFUSED" ? "Refusé" : "Accepté",
+      isCompleted:
+        ["APPROVED", "PROGRESS", "FINISH", "PAYMENT"].includes(status) ||
+        status === "REFUSED",
+      icon: status === "REFUSED" ? <XSvg /> : <CheckSvg />,
     },
     {
-      label: "En cours",
-      isCompleted: ["PROGRESS", "FINISH"].includes(status),
-      icon: <WorkSvg />,
+      label: status === "PAYMENT" ? "Paiement" : "En cours",
+      isCompleted:
+        ["PROGRESS", "FINISH"].includes(status) || status === "PAYMENT",
+      icon: status === "PAYMENT" ? <BankCardSvg /> : <WorkSvg />,
     },
-    { label: "Terminé", isCompleted: status === "FINISH", icon: <SmileSvg /> },
+    {
+      label: "Terminé",
+      isCompleted: status === "FINISH",
+      icon: <SmileSvg />,
+    },
   ]
 
   const getStepClass = (isCompleted) => {
@@ -34,14 +49,16 @@ function Stepper({ status }) {
         {steps.map((step, index) => (
           <React.Fragment key={index}>
             <div
-              className={`flex items-center ${getStepClass(
-                step.isCompleted
-              )} relative`}
+              className={`flex items-center ${getStepClass(step.isCompleted)} ${
+                status === "REFUSED" && "border-red-500 text-red-500"
+              } relative`}
             >
               <div
                 className={`rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 ${
                   step.isCompleted ? "border-green-500" : "border-gray-300"
-                } flex items-center justify-center`}
+                } flex items-center justify-center ${
+                  status === "REFUSED" && "border-red-500"
+                }`}
               >
                 {step.icon}
               </div>
@@ -53,7 +70,7 @@ function Stepper({ status }) {
               <div
                 className={`flex-auto border-t-2 transition duration-500 ease-in-out ${
                   step.isCompleted ? "border-green-500" : "border-gray-300"
-                }`}
+                } ${status === "REFUSED" && "border-red-500"}`}
               ></div>
             )}
           </React.Fragment>

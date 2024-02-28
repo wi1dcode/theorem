@@ -1,8 +1,24 @@
 import React from "react"
 
 export default function Tabs({ currentStatus, onStatusChange }) {
-  const tabTitles = ["PENDING", "APPROVED", "REFUSED", "PROGRESS", "FINISH"]
-  const tabTexts = ["En attente", "Accepté", "Rejeté", "En cours", "Terminé"]
+  const tabTitles = [
+    "PENDING",
+    "ANALYSE",
+    "APPROVED",
+    "REFUSED",
+    "PROGRESS",
+    "PAYMENT",
+    "FINISH",
+  ]
+  const tabTexts = [
+    "En attente",
+    "En étude",
+    "Accepté",
+    "Rejeté",
+    "En cours",
+    "En attente de paiement",
+    "Terminé",
+  ]
 
   return (
     <>

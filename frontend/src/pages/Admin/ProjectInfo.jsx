@@ -71,13 +71,17 @@ function ProjectInfo() {
   const getStatusText = (status) => {
     switch (status) {
       case "PENDING":
-        return "Analyse"
+        return "En attente"
+      case "ANALYSE":
+        return "En étude"
       case "REFUSED":
         return "Refusé"
       case "APPROVED":
         return "Accepté"
       case "PROGRESS":
         return "En cours"
+      case "PAYMENT":
+        return "En attente de paiement"
       case "FINISH":
         return "Terminé"
       default:
@@ -266,10 +270,16 @@ function ProjectInfo() {
             </p>
             <div className="flex gap-x-4 mt-4 max-md:flex-col max-md:gap-y-2">
               <button
-                className="bg-yellow-400 p-2 rounded-lg px-3"
+                className="bg-gray-400 p-2 rounded-lg px-3"
                 onClick={() => handleFormStatus("PENDING")}
               >
-                Analyse
+                En attente
+              </button>
+              <button
+                className="bg-yellow-400 p-2 rounded-lg px-3"
+                onClick={() => handleFormStatus("ANALYSE")}
+              >
+                En étude
               </button>
               <button
                 className="bg-green-400 p-2 rounded-lg px-3"
@@ -288,6 +298,12 @@ function ProjectInfo() {
                 onClick={() => handleFormStatus("PROGRESS")}
               >
                 En cours
+              </button>
+              <button
+                className="bg-yellow-300 p-2 rounded-lg px-3"
+                onClick={() => handleFormStatus("PAYMENT")}
+              >
+                En attente de paiement
               </button>
               <button
                 className="bg-marron p-2 rounded-lg px-3"

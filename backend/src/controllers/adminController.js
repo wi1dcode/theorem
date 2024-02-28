@@ -73,9 +73,11 @@ const getProjectsByStatus = async (req, res) => {
 
     const allowedStatusValues = [
       "PENDING",
+      "ANALYSE",
       "REFUSED",
       "APPROVED",
       "PROGRESS",
+      "PAYMENT",
       "FINISH",
     ]
 
@@ -101,9 +103,11 @@ const changeProjectStatus = async (req, res) => {
 
     const allowedStatusValues = [
       "PENDING",
+      "ANALYSE",
       "REFUSED",
       "APPROVED",
       "PROGRESS",
+      "PAYMENT",
       "FINISH",
     ]
 

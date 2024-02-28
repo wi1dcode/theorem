@@ -62,7 +62,7 @@ const FormSchema = new Schema(
       type: String,
       required: true,
       default: "PENDING",
-      enum: ["PENDING", "REFUSED", "APPROVED", "PROGRESS", "FINISH"],
+      enum: ["PENDING", "ANALYSE", "REFUSED", "APPROVED", "PROGRESS", "PAYMENT", "FINISH"],
     },
   },
   {
