@@ -10,11 +10,11 @@ import Realisations from "./pages/Realisations"
 import Parteneriat from "./pages/Parteneriat"
 
 import Pro from "./pages/Pro"
-import ProSavoir from "./pages/Pro/ProSavoir"
-import ProClients from "./pages/Pro/ProClients"
-import ProWork from "./pages/Pro/ProWork"
-import ProContact from "./pages/Pro/ProContact"
-import ProMain from "./pages/Pro/ProMain"
+import ProSavoir from "./pages/ProPage/ProSavoir"
+import ProClients from "./pages/ProPage/ProClients"
+import ProWork from "./pages/ProPage/ProWork"
+import ProContact from "./pages/ProPage/ProContact"
+import ProMain from "./pages/ProPage/ProMain"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
 import Expertises from "./pages/Expertises"
@@ -25,9 +25,11 @@ import Loading from "./components/Loading"
 import UserDashboard from "./pages/UserDashboard"
 import AdminDashboard from "./pages/AdminDashboard"
 import Activation from "./pages/Activation"
+import CandidatePro from "./pages/CandidatePro"
+import ProDashboard from "./pages/ProDashboard"
 
 function App() {
-  const { connected, isAdmin, isLoading } = useContext(UserContext)
+  const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
 
   return (
     <BrowserRouter>
@@ -43,6 +45,7 @@ function App() {
         <Route path="/histoire" element={<History />} />
         <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
+        <Route path="/candidate" element={<CandidatePro />} />
         <Route path="/contact" element={<Home />} />
         <Route path="/activate/:link" element={<Activation />} />
         <Route path="/login" element={<Login />} />
@@ -59,11 +62,23 @@ function App() {
           }
         />
         <Route
+          path="/pro-account/*"
+          element={
+            isLoading ? (
+              <Loading />
+            ) : connected && isPro ? (
+              <ProDashboard />
+            ) : (
+              <Navigate to={connected ? "/account" : "/login"} />
+            )
+          }
+        />
+        <Route
           path="/account/*"
           element={
             isLoading ? (
               <Loading />
-            ) : connected && !isAdmin ? (
+            ) : connected && !isAdmin && !isPro ? (
               <UserDashboard />
             ) : (
               <Navigate to="/login" />

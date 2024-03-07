@@ -6,7 +6,7 @@ const statusTranslations = {
   REFUSED: "refusé",
   APPROVED: "approuvé",
   PROGRESS: "en cours",
-  PAYMENT: "En attente de paiement",
+  PAYMENT: "en attente de paiement",
   FINISH: "terminé",
 }
 

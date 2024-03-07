@@ -1,219 +1,160 @@
-const User = require("../models/userModel")
+const Pro = require("../models/proModel")
 const bcrypt = require("bcryptjs")
-const Entrepreneur = require("../models/entrepreneurModel")
-const Architecte = require("../models/architecteModel")
-const Manager = require("../models/managerModel")
-const { validationResult } = require("express-validator")
+const { v4: uuidv4 } = require("uuid")
+const mailService = require("../services/mailService")
+const axios = require("axios")
+const questions = require("../services/pro-questions.json")
+const authService = require("../services/authService")
+const logService = require("../services/logService")
 
-const createAccount = async (email, password, name, city, tel) => {
-  try {
-    const hashPassword = bcrypt.hashSync(password, 7)
-    const user = new User({
-      email: email,
-      password: hashPassword,
-      roles: ["PRO"],
-      name: name,
-      city: city,
-      tel: tel,
-    })
+const createProAccount = async (
+  profile,
+  password,
+  documents,
+  additionalInfo
+) => {
+  const hashedPassword = await bcrypt.hash(password, 12)
+  const activationLink = uuidv4()
 
-    await user.save()
+  const proUser = new Pro({
+    profile,
+    password: hashedPassword,
+    documents,
+    additionalInfo,
+    activationLink,
+    roles: ["PRO"],
+    isActivated: false,
+  })
 
-    return user
-  } catch (error) {
-    throw new Error("Error creating user: " + error)
-  }
+  console.log(proUser)
+
+  await proUser.save()
+
+  await mailService.sendActivationMail(
+    profile.email,
+    `${process.env.CLIENT_URL}/activate/${activationLink}`,
+    profile.firstname
+  )
+
+  return proUser
 }
 
-const createEntrepreneur = async (req, res) => {
+const getResponses = async (req, res) => {
   try {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res
-        .status(400)
-        .json({ message: "Create entrepreneur error", errors })
+    const { formId, responseId, password } = req.body
+    const token = process.env.TYPEFORM_TOKEN
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress
+
+    const typeformResponse = await axios.get(
+      `https://api.typeform.com/forms/${formId}/responses?included_response_ids=${responseId}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+
+    const answers = typeformResponse.data.items[0]?.answers
+
+    let profile = {}
+    let documents = []
+    let additionalInfo = []
+
+    answers.forEach((answer) => {
+      const { field, type, choice, choices, file_url } = answer
+      const answerValue =
+        type === "choice"
+          ? choice.label
+          : choices
+          ? choices.labels.join(", ")
+          : answer[type]
+      const key = Object.keys(questions.keys).find(
+        (k) => questions.keys[k] === field.ref
+      )
+
+      if (key) {
+        profile[key] = answerValue
+      } else if (type === "file_upload") {
+        documents.push({
+          name: choice ? choice.label : "Document",
+          path: file_url,
+        })
+      } else {
+        const questionTitle =
+          questions.questions.find((q) => q.id === field.id)?.title ||
+          "Unknown question"
+        if (!Object.values(questions.keys).includes(field.ref)) {
+          additionalInfo.push({ question: questionTitle, answer: answerValue })
+        }
+      }
+    })
+
+    questions.questions.forEach((q) => {
+      if (!additionalInfo.some((info) => info.question === q.title)) {
+        const answer = answers.find((a) => a.field.id === q.id)
+        if (answer) {
+          const value =
+            answer.type === "choice"
+              ? answer.choice.label
+              : answer.choices
+              ? answer.choices.labels.join(", ")
+              : answer[answer.type]
+          additionalInfo.push({ question: q.title, answer: value })
+        }
+      }
+    })
+
+    let user = await Pro.findOne({ "profile.email": profile.email })
+    if (!user) {
+      user = await createProAccount(
+        profile,
+        password,
+        documents,
+        additionalInfo
+      )
     }
-    const {
-      author,
-      civil,
-      name,
-      company,
-      city,
-      capital,
-      lastYearTurnover,
-      actualTurnover,
-      staff,
-      manager,
-      channels,
-      clients,
-      job,
-      mobility,
-      email,
-      tel,
-      about,
-      password,
-    } = req.body
 
-    const entrepreneur = new Entrepreneur({
-      author,
-      civil,
-      name,
-      company,
-      city,
-      capital,
-      lastYearTurnover,
-      actualTurnover,
-      staff,
-      manager,
-      channels,
-      clients,
-      job,
-      mobility,
-      email,
-      tel,
-      about,
-    })
+    console.log(user)
 
-    const user = await createAccount(email, password, name, city, tel)
+    logService.logEvent(
+      "PRO_registration",
+      `Nouvel utilisateur PRO enregistré: ${profile.email} - ${profile.job}`,
+      "SYSTEM",
+      clientIp,
+      req.headers["user-agent"]
+    )
 
-    entrepreneur.author = user.email
-
-    await user.save()
-    await entrepreneur.save()
-
-    res.json({ message: "Entrepreneur account created successfully" })
+    res.json({ message: "Pro account created successfully", user })
   } catch (error) {
-    res
-      .status(400)
-      .json({ message: "Error creating Entrepreneur and user" + error })
+    console.error(error)
+    res.status(400).json({ message: "Error processing: " + error.message })
   }
 }
 
-const createArchitecte = async (req, res) => {
+const getMe = async (req, res) => {
   try {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res
-        .status(400)
-        .json({ message: "Create architecte error", errors })
+    const token = req.headers.authorization
+    if (!token) {
+      return res.status(403).json({ message: "Token is missing" })
     }
-    const {
-      author,
-      civil,
-      name,
-      status,
-      type,
-      prestations,
-      diplome,
-      manager,
-      company,
-      city,
-      clients,
-      channels,
-      documents,
-      mobility,
-      tel,
-      email,
-      about,
-      password,
-    } = req.body
 
-    const architecte = new Architecte({
-      author,
-      civil,
-      name,
-      status,
-      type,
-      prestations,
-      diplome,
-      manager,
-      company,
-      city,
-      clients,
-      channels,
-      documents,
-      mobility,
-      tel,
-      email,
-      about,
-      about,
-    })
+    const userData = authService.validateAccessToken(token.split("Bearer ")[1])
 
-    const user = await createAccount(email, password, name, city, tel)
+    if (!userData) {
+      return res.status(403).json({ message: "Token invalid" })
+    }
 
-    architecte.author = user.email
+    const user = await Pro.findById(userData.id).select(
+      "-password -activationLink -activationLimit -username"
+    )
 
-    await user.save()
-    await architecte.save()
+    if (!user) {
+      return res.status(404).json({ message: "User not found" })
+    }
 
-    res.json({ message: "Architecte account created successfully" })
-  } catch (error) {
-    res
-      .status(400)
-      .json({ message: "Error creating architecte and user" + error })
+    res.json(user)
+  } catch (e) {
+    res.status(500).json({ message: "Server error" })
   }
 }
 
-const createManager = async (req, res) => {
-  try {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ message: "Create manager error", errors })
-    }
-    const {
-      author,
-      civil,
-      name,
-      status,
-      type,
-      prestations,
-      diplome,
-      manager,
-      company,
-      city,
-      clients,
-      channels,
-      photos,
-      mobility,
-      tel,
-      email,
-      about,
-      password,
-    } = req.body
-
-    const managerPro = new Manager({
-      author,
-      civil,
-      name,
-      status,
-      type,
-      prestations,
-      diplome,
-      manager,
-      company,
-      city,
-      clients,
-      channels,
-      photos,
-      mobility,
-      tel,
-      email,
-      about,
-    })
-
-    const user = await createAccount(email, password, name, city, tel)
-
-    managerPro.author = user.email
-
-    await user.save()
-    await managerPro.save()
-
-    res.json({ message: "Manager account created successfully" })
-  } catch (error) {
-    res.status(400).json({
-      message: "Error creating Manager and user" + error,
-    })
-  }
-}
-
-module.exports = { createEntrepreneur, createArchitecte, createManager }
+module.exports = { getResponses, getMe }

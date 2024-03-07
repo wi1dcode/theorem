@@ -51,9 +51,10 @@ export default function AdminMenu({ onClick }) {
         <span className="mx-2 text-sm font-semibold">Projects</span>
       </Link>
 
-      {/* <Link
-        className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-        to="#"
+      <Link
+        className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
+        to="./information"
+        onClick={onClick}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,8 +71,8 @@ export default function AdminMenu({ onClick }) {
           />
         </svg>
 
-        <span className="mx-2 text-sm font-semibold">Tasks</span>
-      </Link> */}
+        <span className="mx-2 text-sm font-semibold">Information</span>
+      </Link>
 
       <Link
         className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"

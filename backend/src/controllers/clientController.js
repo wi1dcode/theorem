@@ -1,4 +1,5 @@
 const User = require("../models/userModel")
+const Pro = require("../models/proModel")
 const bcrypt = require("bcryptjs")
 const uuid = require("uuid")
 const axios = require("axios")
@@ -186,24 +187,6 @@ const getResponses = async (req, res) => {
           : choices
           ? choices.labels.join(", ")
           : answer[type]
-
-      // if (type === "file_url") {
-      //   const fileInfo = {
-      //     name: choice.label,
-      //     path: file_url,
-      //   }
-      //   switch (field.ref) {
-      //     case keys.documents:
-      //       formData.documents.push(fileInfo)
-      //       break
-      //     case keys.photos:
-      //       formData.photos.push({ file_url: file_url })
-      //       break
-      //     case keys.inspirationPhoto:
-      //       formData.inspirationPhoto.push({ file_url: file_url })
-      //       break
-      //   }
-      // } else {
       let key = Object.keys(keys).find(
         (key) => keys[key] === field.ref || keys[key] === field.id
       )
@@ -229,7 +212,6 @@ const getResponses = async (req, res) => {
           answer: answerValue,
         })
       }
-      // }
     })
 
     let user = await User.findOne({ email: formData.profile.email })
@@ -352,17 +334,22 @@ const getMe = async (req, res) => {
     }
 
     const userData = authService.validateAccessToken(token.split("Bearer ")[1])
-
     if (!userData) {
       return res.status(403).json({ message: "Token invalid" })
     }
 
-    const user = await User.findById(userData.id)
+    let user = await User.findById(userData.id)
       .select("-password -activationLink -activationLimit -username")
       .populate({
         path: "forms",
         select: "-documents.name",
       })
+
+    if (!user) {
+      user = await Pro.findById(userData.id).select(
+        "-password -activationLink -activationLimit"
+      )
+    }
 
     if (!user) {
       return res.status(404).json({ message: "User not found" })

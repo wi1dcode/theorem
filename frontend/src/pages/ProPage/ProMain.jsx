@@ -1,10 +1,10 @@
-import React from "react";
-import logo from "../../images/icons/logo_black.png";
-import CountUp from "react-countup";
+import React from "react"
+import logo from "../../images/icons/logo_black.png"
+import CountUp from "react-countup"
 
-import ProSavoir from "./ProSavoir.jsx";
-import ProClients from "./ProClients.jsx";
-import ProContact from "./ProContact.jsx";
+import ProSavoir from "./ProSavoir.jsx"
+import ProClients from "./ProClients.jsx"
+import ProContact from "./ProContact.jsx"
 
 function Pro() {
   return (
@@ -23,12 +23,14 @@ function Pro() {
               <br />
               <br />
               Chez THEOREM, nous comprenons l'importance d'une collaboration
-              efficace pour mener à bien vos projets professionnels. Dans cet espace dédié aux
-              professionnels, nous mettons à votre disposition l'ensemble de nos
-              compétences techniques et relationnelles ; que vous soyez engagés
-              dans la conception, la réalisation ou la gestion de travaux, notre
-              équipe expérimentée est prête à relever tous les défis pour
-              concrétiser vos ambitions.<br/><br/>
+              efficace pour mener à bien vos projets professionnels. Dans cet
+              espace dédié aux professionnels, nous mettons à votre disposition
+              l'ensemble de nos compétences techniques et relationnelles ; que
+              vous soyez engagés dans la conception, la réalisation ou la
+              gestion de travaux, notre équipe expérimentée est prête à relever
+              tous les défis pour concrétiser vos ambitions.
+              <br />
+              <br />
               Explorez l'Espace Professionnel de THEOREM pour découvrir comment
               nous pouvons être le partenaire stratégique dont vous avez besoin.
               Merci de choisir la qualité, la confiance et l'excellence pour
@@ -139,7 +141,7 @@ function Pro() {
         <ProContact />
       </div>
     </div>
-  );
+  )
 }
 
-export default Pro;
+export default Pro

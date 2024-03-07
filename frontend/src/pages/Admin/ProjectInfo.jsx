@@ -60,9 +60,31 @@ function ProjectInfo() {
 
   const handleFormStatus = async (status) => {
     try {
-      await updateProjectStatus(id, status)
-      const updatedData = await getProject(id)
-      setProjectData(updatedData)
+      let comment = ""
+
+      if (status === "FINISH") {
+        const { value: text, isConfirmed } = await Swal.fire({
+          title: "Ajouter un commentaire",
+          input: "textarea",
+          inputPlaceholder: "Votre commentaire ici...",
+          showCancelButton: true,
+          confirmButtonColor: "#C8B790",
+          cancelButtonColor: "#D76C66",
+          confirmButtonText: "Envoyer",
+          cancelButtonText: "Annuler",
+        })
+
+        if (isConfirmed && text) {
+          comment = text
+          await updateProjectStatus(id, { status, comment })
+          const updatedData = await getProject(id)
+          setProjectData(updatedData)
+        }
+      } else {
+        await updateProjectStatus(id, { status })
+        const updatedData = await getProject(id)
+        setProjectData(updatedData)
+      }
     } catch (error) {
       console.error("Error updating project status:", error)
     }

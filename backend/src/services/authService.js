@@ -24,12 +24,12 @@ class AuthService {
   //   }
   // }
 
-  generateAccessToken = (id, email, roles, status) => {
+  generateAccessToken = (id, email, roles, isActivated) => {
     const payload = {
       id,
       email,
       roles,
-      status,
+      isActivated,
     }
     return jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
       expiresIn: "1h",

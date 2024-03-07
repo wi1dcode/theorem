@@ -53,9 +53,9 @@ export const getProjectsByStatus = async (status) => {
   }
 }
 
-export const updateProjectStatus = async (id, status) => {
+export const updateProjectStatus = async (id, data) => {
   try {
-    const response = await put(`/dashboard/project/${id}/status`, { status })
+    const response = await put(`/dashboard/project/${id}/status`, data)
     return response.data
   } catch (error) {
     throw error

@@ -120,29 +120,32 @@ function Logging() {
   }
 
   const parseBrowser = (userAgent) => {
-    if (userAgent.includes("Brave")) {
+    if (userAgent?.includes("Brave")) {
       return "Brave"
-    } else if (userAgent.includes("YaBrowser")) {
+    } else if (userAgent?.includes("YaBrowser")) {
       return "Yandex Browser"
-    } else if (userAgent.includes("OPR") && userAgent.includes("GX")) {
+    } else if (userAgent?.includes("OPR") && userAgent?.includes("GX")) {
       return "Opera GX"
-    } else if (userAgent.includes("OPR")) {
+    } else if (userAgent?.includes("OPR")) {
       return "Opera"
-    } else if (userAgent.includes("Chrome")) {
+    } else if (userAgent?.includes("Chrome")) {
       return "Chrome"
-    } else if (userAgent.includes("Firefox")) {
+    } else if (userAgent?.includes("Firefox")) {
       return "Firefox"
-    } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+    } else if (
+      userAgent?.includes("Safari") &&
+      !userAgent?.includes("Chrome")
+    ) {
       return "Safari"
-    } else if (userAgent.includes("Edge")) {
+    } else if (userAgent?.includes("Edge")) {
       return "Edge"
-    } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+    } else if (userAgent?.includes("Trident") || userAgent?.includes("MSIE")) {
       return "Internet Explorer"
-    } else if (userAgent.includes("Opera") || userAgent.includes("OPR")) {
+    } else if (userAgent?.includes("Opera") || userAgent?.includes("OPR")) {
       return "Opera"
-    } else if (userAgent.includes("CriOS")) {
+    } else if (userAgent?.includes("CriOS")) {
       return "Chrome for iOS"
-    } else if (userAgent.includes("FxiOS")) {
+    } else if (userAgent?.includes("FxiOS")) {
       return "Firefox for iOS"
     }
 
@@ -212,16 +215,19 @@ function Logging() {
         </thead>
         <tbody>
           {logs.map((log) => (
-            <tr key={log._id} className="bg-nuage/50 border-b border-marron/30">
+            <tr
+              key={log?._id}
+              className="bg-nuage/50 border-b border-marron/30"
+            >
               <td className="px-6 py-4">
-                {new Date(log.createdAt).toLocaleString()}
+                {new Date(log?.createdAt).toLocaleString()}
               </td>
-              <td className="px-6 py-4">{log.author}</td>
+              <td className="px-6 py-4">{log?.author}</td>
               <td className="px-6 py-4">
-                {processDescription(log.description)}
+                {processDescription(log?.description)}
               </td>
-              <td className="px-6 py-4">{log.ip}</td>
-              <td className="px-6 py-4">{parseBrowser(log.browser)}</td>
+              <td className="px-6 py-4">{log?.ip}</td>
+              <td className="px-6 py-4">{parseBrowser(log?.browser)}</td>
             </tr>
           ))}
         </tbody>

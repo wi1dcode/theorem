@@ -61,6 +61,38 @@ class MailService {
     return this.mailGenerator.generate(email)
   }
 
+  generateProjectStatusUpdateEmail(name, status, link, comment = "") {
+    const emailBody = {
+      body: {
+        name: name,
+        intro: `Bonjour ${name}, le statut de votre projet a été changé à "${status}".`,
+        action: {
+          instructions:
+            "Vous pouvez consulter les détails de votre projet en vous connectant à votre espace client:",
+          button: {
+            color: "#22BC66",
+            text: "Voir mon projet",
+            link: link,
+          },
+        },
+        signature: "Cordialement",
+        outro: "Si vous avez des questions, n'hésitez pas à nous contacter.",
+      },
+    }
+
+    if (comment) {
+      emailBody.body.intro += `
+        <br><br>
+        <div style="border-left: 4px solid #C8B790; background-color: #f2f3f5; padding: 10px; margin-top: 10px; border-radius: 5px;">
+          <span style="color: #C8B790; font-weight: bold;">Commentaire:</span>
+          <p style="color: #555;">${comment}</p>
+        </div>
+      `
+    }
+
+    return this.mailGenerator.generate(emailBody)
+  }
+
   async sendActivationMail(to, name, link) {
     const emailBody = this.generateEmailTemplate("activation", name, link)
     await this.transporter.sendMail({
@@ -82,6 +114,21 @@ class MailService {
       from: process.env.SMTP_USER,
       to,
       subject: "Réinitialisation du mot de passe",
+      html: emailBody,
+    })
+  }
+
+  async sendProjectStatusUpdateMail(to, name, status, link, comment = "") {
+    const emailBody = this.generateProjectStatusUpdateEmail(
+      name,
+      status,
+      link,
+      comment
+    )
+    await this.transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to,
+      subject: `Mise à jour du statut de votre projet - ${status}`,
       html: emailBody,
     })
   }

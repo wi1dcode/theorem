@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 import parteneriatData from "../services/parteneriat.json"
 import partCard from "../services/partCard.json"
@@ -141,9 +141,12 @@ function Pro() {
                   </div>
                 </div>
                 <div className="flex justify-start">
-                  <button className="bg-marron px-10 font-semibold text-white py-2 rounded-lg">
-                    Contacter nous pour candidater
-                  </button>
+                  <Link
+                    to="/candidate"
+                    className="bg-marron px-10 font-semibold text-white py-2 rounded-lg"
+                  >
+                    Déposer ma candidature
+                  </Link>
                 </div>
               </div>
               <div className="w-1/2 bg-marron/30 rounded-lg flex justify-center max-md:hidden">

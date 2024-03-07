@@ -8,6 +8,7 @@ const Architecte = require("../models/architecteModel")
 const Manager = require("../models/managerModel")
 const logService = require("../services/logService")
 const Log = require("../models/logModel")
+const mailService = require("../services/mailService")
 
 const getUsers = async (req, res) => {
   const { page = 1, limit = 15, search = "" } = req.query
@@ -95,7 +96,7 @@ const getProjectsByStatus = async (req, res) => {
 const changeProjectStatus = async (req, res) => {
   try {
     const { id } = req.params
-    const { status } = req.body
+    const { status, comment } = req.body
     const clientIp =
       req.headers["x-real-ip"] ||
       req.headers["x-forwarded-for"] ||
@@ -126,8 +127,13 @@ const changeProjectStatus = async (req, res) => {
     }
 
     const statusMessage = logService.customizeLogMessage(
-      `L'administrateur a changé le statut du projet ( Email: ${project.profile?.email} ID:${project._id} ) à ${status}`
+      `L'administrateur a changé le statut du projet ( Email: ${
+        project.profile?.email
+      } ID:${project._id} ) à ${status} ${
+        comment ? `, avec commentaire: ${comment}` : ""
+      }`
     )
+
     await logService.logEvent(
       "project_status_change",
       statusMessage,
@@ -136,8 +142,28 @@ const changeProjectStatus = async (req, res) => {
       req.headers["user-agent"]
     )
 
+    const statusTranslations = {
+      PENDING: "en attente de vérification",
+      ANALYSE: "en étude",
+      REFUSED: "refusé",
+      APPROVED: "approuvé",
+      PROGRESS: "en cours",
+      PAYMENT: "en attente de paiement",
+      FINISH: "terminé",
+    }
+
+    const linkToProject = `${process.env.CLIENT_URL}/dashboard/projects/${project._id}`
+    await mailService.sendProjectStatusUpdateMail(
+      project.profile?.email,
+      project.profile?.firstname,
+      statusTranslations[status],
+      linkToProject,
+      comment
+    )
+
     return res.json({ message: "Project status updated successfully", project })
   } catch (e) {
+    console.log(e)
     return res.status(400).json({ message: "Error updating project status" })
   }
 }

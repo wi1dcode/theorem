@@ -39,7 +39,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
           ))}
         </select>
       </div>
-      <ul className="hidden text-sm font-semibold text-center text-gray-500 shadow sm:flex w-[500px]">
+      <ul className="hidden text-sm font-semibold text-center text-gray-500 shadow sm:flex w-full">
         {tabTitles.map((title, index) => (
           <li key={title} className="w-full">
             <button

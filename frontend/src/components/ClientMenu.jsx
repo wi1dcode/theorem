@@ -74,7 +74,8 @@ export default function ClientMenu({ onClick }) {
       {isProjectApproved(user) && (
         <Link
           className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 hover:text-gray-700"
-          to="#"
+          to="./information"
+          onClick={onClick}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

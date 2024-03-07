@@ -1,4 +1,5 @@
 const User = require("../models/userModel")
+const Pro = require("../models/proModel")
 const bcrypt = require("bcryptjs")
 const authService = require("../services/authService")
 const mailService = require("../services/mailService")
@@ -36,26 +37,35 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body
-    const user = await User.findOne({ email })
+    let user = await User.findOne({ email })
+    let isPro = false
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: `Utilisateur ${email} n'existe pas!` })
+      user = await Pro.findOne({ "profile.email": email })
+      if (user) {
+        isPro = true
+      } else {
+        return res
+          .status(400)
+          .json({ message: `Utilisateur ${email} n'existe pas!` })
+      }
     }
-    const validPassword = bcrypt.compareSync(password, user.password)
+
+    const validPassword = await bcrypt.compare(password, user.password)
     if (!validPassword) {
       return res.status(400).json({ message: `Mot de passe incorrect!` })
     }
 
+    const userEmail = isPro ? user.profile.email : user.email
     const token = authService.generateAccessToken(
       user._id,
-      user.email,
+      userEmail,
       user.roles,
-      user.status
+      user.isActivated
     )
 
     return res.json({ token })
   } catch (e) {
+    console.error(e)
     res.status(400).json({ message: "Login error" })
   }
 }

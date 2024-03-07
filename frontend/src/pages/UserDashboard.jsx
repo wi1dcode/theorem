@@ -9,6 +9,7 @@ import Calendly from "./User/Calendly"
 import Settings from "./Dashboard/Settings"
 import Project from "./User/Project"
 import MenuSvg from "../images/svg/MenuSvg"
+import Information from "./Dashboard/Information"
 
 function UserDashboard() {
   const navigate = useNavigate()
@@ -89,6 +90,7 @@ function UserDashboard() {
             <Route path="new-project" element={<NewProject />} />
             <Route path="rdv" element={<Calendly />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="information" element={<Information />} />
           </Routes>
         </div>
       </section>

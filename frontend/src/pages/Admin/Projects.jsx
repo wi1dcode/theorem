@@ -31,8 +31,8 @@ function Projects() {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex items-center justify-center mb-4">
+    <div className="flex flex-col items-center w-full">
+      <div className="flex items-center justify-center mb-4 w-full">
         <Tabs
           currentStatus={currentStatus}
           onStatusChange={handleFilterByStatus}
