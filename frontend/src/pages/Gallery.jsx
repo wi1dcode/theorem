@@ -23,16 +23,18 @@ function Gallery() {
       <NavBar />
       <div className="flex flex-col items-center avenir">
         <h2 className="text-4xl font-semibold mt-14">{galleryItem.title}</h2>
-        <div className="flex items-center gap-x-20 justify-center mt-16">
-          <div className="flex w-[40%]">
+        <div className="flex items-center gap-x-20 justify-center mt-16 max-md:flex-col max-md:w-full">
+          <div className="flex w-[40%] max-md:w-[90%]">
             <img
               src={galleryItem.img}
               alt={galleryItem.title}
               className="rounded-xl "
             />
           </div>
-          <div className="flex flex-col items-center text-3xl w-[40%] text-center">
-            <p className="mb-6 font-semibold">{galleryItem.description}</p>
+          <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:mt-4 text-center">
+            <p className="mb-6 font-semibold max-md:text-lg">
+              {galleryItem.description}
+            </p>
             <div className="flex ">
               {galleryItem.tags.map((tag, index) => (
                 <div
@@ -46,13 +48,13 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="flex items-center gap-x-20 justify-center mt-16">
-          <div className="flex flex-col items-center text-3xl w-[40%] text-center">
-            <div className="flex px-3 py-1 text-2xl font-semibold text-gray-700 mr-2 mb-2">
+        <div className="flex items-center gap-x-20 justify-center mt-16 max-md:mt-10 max-md:flex-col-reverse">
+          <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:text-sm text-center">
+            <div className="flex px-3 py-1 text-2xl font-semibold text-gray-700 mr-2 mb-2 max-md:text-lg">
               {galleryItem.full_desc}
             </div>
           </div>
-          <div className="flex w-[40%]">
+          <div className="flex w-[40%] max-md:w-[90%] max-md:mb-4">
             <img
               src={galleryItem.img}
               alt={galleryItem.title}

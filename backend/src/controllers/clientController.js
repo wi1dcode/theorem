@@ -371,7 +371,13 @@ const changePassword = async (req, res) => {
       return res.status(403).json({ message: "Token invalid" })
     }
 
-    const user = await User.findById(userData.id)
+    let user
+    if (userData.roles.includes("PRO")) {
+      user = await Pro.findById(userData.id)
+    } else {
+      user = await User.findById(userData.id)
+    }
+
     if (!user) {
       return res.status(404).json({ message: "Utilisateur non trouvé" })
     }
@@ -395,6 +401,7 @@ const changePassword = async (req, res) => {
 
     res.json({ message: "Mot de passe changé avec succès" })
   } catch (error) {
+    console.error(error)
     res.status(500).json({ message: "Erreur serveur" })
   }
 }

@@ -57,7 +57,7 @@ function Pro() {
       <div>
         <div className="flex justify-center items-center flex-col max-md:mt-10 mt-16">
           <h2 className="font-semibold text-4xl avenir">Pose ta candidature</h2>
-          <p className="avenir text-xl mt-4 max-md:mt-20 w-1/2 max-md:w-[90%] max-xl:w-1/3 text-center">
+          <p className="avenir text-xl mt-4 max-md:mt-20 w-1/2 max-lg:w-[90%] max-xl:w-1/3 text-center drop-shadow-md">
             Nous considérons nos partenaires comme des piliers essentiels de
             notre réussite. En collaborant étroitement avec des entreprises de
             confiance, nous renforçons notre capacité à offrir des solutions
@@ -114,7 +114,7 @@ function Pro() {
           {parteneriatData.map((item) => (
             <div
               key={item.id}
-              className="w-[70%] max-md:w-full max-lg:w-[90%] max-xl:w-[80%] h-[85vh] bg-marron mx-auto mt-20 relative flex max-md:flex-col max-md:items-center justify-between py-16 px-14 paper"
+              className="w-[70%] max-md:w-full max-lg:w-[90%] max-xl:w-[80%] h-auto bg-marron mx-auto mt-20 relative flex max-md:flex-col max-md:items-center justify-between py-16 px-14 paper"
               id={item.id}
               data-aos="fade-up"
               data-aos-duration="1000"
@@ -122,19 +122,24 @@ function Pro() {
               <div className="bg-marron rounded-full p-5 flex items-center justify-center absolute -top-12 left-[45%] inside-shadow">
                 <img alt={item.title} src={item.imageUrl} />
               </div>
-              <div className="w-1/2 max-md:w-full px-2 flex flex-col gap-y-6 avenir">
+              <div className="w-1/2 max-md:w-full h-auto px-2 flex flex-col gap-y-6 avenir">
                 <h2 className="text-2xl font-semibold pt-4 ">
                   {item.title}
                   <span className="w-[100px] mt-4 h-[5px] bg-[#af9a6a] block" />
                 </h2>
-                <p className="mt-4 text-xl">{item.description}</p>
+                <p className="mt-4 text-xl max-md:text-sm max-lg:text-md">
+                  {item.description}
+                </p>
                 <div>
                   <p className="mb-4 text-2xl font-semibold">
                     Tes supers pouvoirs ?
                   </p>
                   <div className="flex flex-col gap-y-2">
                     {item.mustHave.map((have) => (
-                      <p key={have} className="text-xl">
+                      <p
+                        key={have}
+                        className="text-xl max-md:text-sm max-lg:text-md"
+                      >
                         {have}
                       </p>
                     ))}
@@ -143,7 +148,7 @@ function Pro() {
                 <div className="flex justify-start">
                   <Link
                     to="/candidate"
-                    className="bg-marron px-10 font-semibold text-white py-2 rounded-lg"
+                    className="bg-marron px-10 font-semibold text-white py-2 rounded-lg text-center max-md:text-sm"
                   >
                     Déposer ma candidature
                   </Link>
