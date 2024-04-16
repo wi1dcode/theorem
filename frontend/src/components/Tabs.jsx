@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export default function Tabs({ currentStatus, onStatusChange }) {
   const tabTitles = [
@@ -9,7 +9,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
     "PROGRESS",
     "PAYMENT",
     "FINISH",
-  ]
+  ];
   const tabTexts = [
     "En attente",
     "En étude",
@@ -18,7 +18,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
     "En cours",
     "En attente de paiement",
     "Terminé",
-  ]
+  ];
 
   return (
     <>
@@ -39,13 +39,13 @@ export default function Tabs({ currentStatus, onStatusChange }) {
           ))}
         </select>
       </div>
-      <ul className="hidden text-sm font-semibold text-center text-gray-500 shadow sm:flex w-full">
+      <ul className="hidden text-sm font-semibold text-center text-gray-500 shadow sm:flex w-full h-full">
         {tabTitles.map((title, index) => (
-          <li key={title} className="w-full">
+          <li key={title} className="w-full h-full">
             <button
               type="button"
               onClick={() => onStatusChange(title)}
-              className={`inline-block w-full p-4 ${
+              className={`inline-block w-full h-full p-2 py-4 ${
                 currentStatus === title
                   ? "text-gray-900 bg-gray-200"
                   : "bg-white hover:text-gray-700 hover:bg-gray-50"
@@ -59,5 +59,5 @@ export default function Tabs({ currentStatus, onStatusChange }) {
         ))}
       </ul>
     </>
-  )
+  );
 }

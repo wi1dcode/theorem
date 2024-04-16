@@ -66,7 +66,7 @@ function Login() {
         const response = await resetPasswordRequest(email)
         if (response.message) {
           const { value: code } = await Swal.fire({
-            title: "Entrez le code reçu",
+            title: "Creér le code reçu",
             html: "Code de réinitialisation<br/><small>Le code est valable pendant 10 minutes.</small>",
             input: "text",
             inputPlaceholder: "Code de réinitialisation",
@@ -87,7 +87,7 @@ function Login() {
               const { value: newPasswordInput } = await Swal.fire({
                 title: "Nouveau mot de passe",
                 input: "password",
-                inputPlaceholder: "Entrez votre nouveau mot de passe",
+                inputPlaceholder: "Creér votre nouveau mot de passe",
                 confirmButtonText: "Changer le mot de passe",
                 showCancelButton: true,
                 allowOutsideClick: false,
