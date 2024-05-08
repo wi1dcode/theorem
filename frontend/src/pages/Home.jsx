@@ -45,6 +45,22 @@ function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    const chatWidget = document.querySelector(".chatway--container")
+
+    if (chatWidget) {
+      chatWidget.style.display = "block"
+      console.log("HOME PAGE")
+    }
+    return () => {
+      const chatWidget = document.querySelector(".chatway--container")
+      if (chatWidget) {
+        chatWidget.style.display = "none"
+        console.log("NOT HOME")
+      }
+    }
+  }, [pathname])
+
   return (
     <main className="w-full">
       <Helmet>

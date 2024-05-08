@@ -271,3 +271,13 @@
   background-color: #c8b790;
   color: #ffffff;
 }
+
+/* CHATWAY VISIBILITY */
+
+.chatway--container {
+  display: none;
+}
+
+.show-chatway .chatway--container {
+  display: block;
+}

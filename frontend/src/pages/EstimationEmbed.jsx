@@ -160,6 +160,7 @@ function EstimationEmbed() {
                 showConfirmButton: false,
                 timer: 3000,
               })
+              setIsFormReady(true)
             } else if (places.length > 1) {
               const { value: selectedCity } = await Swal.fire({
                 title: "Sélectionnez votre ville",
