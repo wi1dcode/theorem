@@ -1,10 +1,6 @@
 import React from "react"
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
-import { Link } from "react-router-dom"
 
-import LinkArrow from "../images/svg/LinkArrow"
 
 import history_one from "../images/about_history.jpg"
 import history_two from "../images/history_two.png"
@@ -20,7 +16,6 @@ function History() {
         />
       </Helmet>
 
-      <NavBar />
       <section
         className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"
         data-aos="fade-up"
@@ -74,18 +69,9 @@ function History() {
             </p>
           </div>
         </div>
-        <Link
-          to="/identite"
-          className="flex roboto items-center justify-end mt-10"
-        >
-          Notre identité
-          <div className="flex px-4 shadow-md hover:bg-marron/10 duration-300 py-3 rounded ml-2">
-            <LinkArrow />
-          </div>
-        </Link>
+
       </section>
 
-      <Footer />
     </div>
   )
 }

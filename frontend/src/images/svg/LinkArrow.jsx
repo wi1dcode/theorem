@@ -1,4 +1,12 @@
 export default function LinkArrow({ className, fill, right, down, up }) {
+  const rotation = right
+    ? "rotate(180deg)"
+    : down
+    ? "rotate(90deg)"
+    : up
+    ? "rotate(-90deg)"
+    : "rotate(0deg)"
+
   return (
     <svg
       width="8"
@@ -7,15 +15,7 @@ export default function LinkArrow({ className, fill, right, down, up }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      style={{
-        transform: right
-          ? "rotate(180deg)"
-          : down
-          ? "rotate(90deg)"
-          : up
-          ? "rotate(-90deg)"
-          : "rotate(0deg)",
-      }}
+      style={{ transform: rotation }}
     >
       <path
         fillRule="evenodd"

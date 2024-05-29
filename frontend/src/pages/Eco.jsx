@@ -1,11 +1,16 @@
+import { useEffect } from "react"
 import { Helmet } from "react-helmet"
-import NavBar from "../components/NavBar"
-import { Link } from "react-router-dom"
-import LinkArrow from "../images/svg/LinkArrow"
+
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function Eco() {
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
-    <div className="eco_bg h-screen">
+    <div className="h-screen">
       <Helmet>
         <title>Écologiques | Theorem Services</title>
         <meta
@@ -14,19 +19,13 @@ function Eco() {
         />
       </Helmet>
 
-      <NavBar />
-      <section className="flex max-md:flex-col max-md:gap-y-10 gap-x-10 justify-center items-center mt-20 container mx-auto">
+      <section
+        className="flex max-md:flex-col max-md:gap-y-10 gap-x-10 justify-center items-center mt-20 container mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <h2 className="text-3xl roboto-bold">Notre démarche écologique</h2>
       </section>
-      <Link
-        to="/identite"
-        className="flex roboto items-center justify-start mt-10"
-      >
-        <div className="flex px-4 shadow-md hover:bg-marron/10 duration-300 py-3 rounded ml-2">
-          <LinkArrow right />
-        </div>
-        Notre identité
-      </Link>
     </div>
   )
 }

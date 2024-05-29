@@ -5,7 +5,6 @@ import UserContext from "./services/userContext"
 import Home from "./pages/Home"
 // import Estimation from "./pages/Estimation"
 import Login from "./pages/Login"
-import Identite from "./pages/Identite"
 import Realisations from "./pages/Realisations"
 import Parteneriat from "./pages/Parteneriat"
 
@@ -18,9 +17,7 @@ import ProMain from "./pages/ProPage/ProMain"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
 import Expertises from "./pages/Expertises"
-import Eco from "./pages/Eco"
 import Energetique from "./pages/Energetique"
-import History from "./pages/History"
 import Loading from "./components/Loading"
 import UserDashboard from "./pages/UserDashboard"
 import AdminDashboard from "./pages/AdminDashboard"
@@ -37,14 +34,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Home />} />
-        <Route path="/identite" element={<Identite />} />
         <Route path="/expertises" element={<Expertises />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/partenariat" element={<Parteneriat />} />
-        <Route path="/eco" element={<Eco />} />
         <Route path="/about" element={<About />} />
-        <Route path="/histoire" element={<History />} />
+        {/* <Route path="/eco" element={<Eco />} /> */}
+        {/* <Route path="/histoire" element={<History />} /> */}
+        {/* <Route path="/identite" element={<Identite />} /> */}
         <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/candidate" element={<CandidatePro />} />

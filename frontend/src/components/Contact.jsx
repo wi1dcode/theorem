@@ -30,7 +30,7 @@ function Contact() {
                 </div>
               </div>
               <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap max-md:flex-col max-md:items-center">
-                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 shadow-md bg-white  flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <NavigateSvg />
                   </span>
@@ -45,7 +45,7 @@ function Contact() {
                     </Link>
                   </p>
                 </div>
-                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 shadow-md bg-white  flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <CalendSvg />
                   </span>
@@ -60,7 +60,7 @@ function Contact() {
                     <span className="font-semibold"> </span>
                   </p>
                 </div>
-                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white   flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <ContactMailSvg />
                   </span>
@@ -84,7 +84,7 @@ function Contact() {
                     </button>
                   </a>
                 </div>
-                <div className="w-[45%]  h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="w-[45%]  h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white   flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
                     <ContactPhone />
                   </span>

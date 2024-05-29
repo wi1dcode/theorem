@@ -7,6 +7,7 @@ import { resetPasswordRequest, setNewPassword } from "../api/session"
 import login_bg from "../images/login_image.jpg"
 import NavBar from "../components/NavBar"
 import Swal from "sweetalert2"
+import Footer from "../components/Footer"
 
 function Login() {
   const navigate = useNavigate()
@@ -169,9 +170,9 @@ function Login() {
   return (
     <section className="h-screen roboto">
       <NavBar />
-      <div className="flex flex-col justify-center h-[80vh] bg-center w-full border relative">
+      <div className="flex flex-col justify-center h-[80vh] bg-center w-full relative">
         {!connected && (
-          <div className="flex w-[55%] h-full flex-col justify-center items-center border-2">
+          <div className="flex w-[55%] max-lg:w-full h-full flex-col justify-center items-center">
             <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg">
               <div className="px-6 py-4">
                 <h3 className="mt-3 text-3xl roboto-bold text-center">
@@ -193,7 +194,7 @@ function Login() {
                     <span className="absolute">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                        className="w-6 h-6 mx-3 text-marron/40 dark:text-gray-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -229,7 +230,7 @@ function Login() {
                     <span className="absolute">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 mx-3 text-gray-300"
+                        className="w-6 h-6 mx-3 text-marron/40"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -264,16 +265,8 @@ function Login() {
 
                   <div className="flex items-center justify-between mt-4">
                     <button
-                      type="button"
-                      onClick={handleForgotPassword}
-                      className="text-sm text-gray-600 hover:underline"
-                    >
-                      Mot de passe oublié ?
-                    </button>
-
-                    <button
                       type="submit"
-                      className="tracking-wide rounded-full bg-marron px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
+                      className="tracking-wide rounded-full bg-marron w-full px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
                     >
                       <span className="w-full rounded-full">Se connecter</span>
                     </button>
@@ -281,27 +274,37 @@ function Login() {
                 </form>
               </div>
 
-              <div className="flex items-center justify-center py-4 text-center border-t border-marron">
-                <span className="text-sm text-gray-600">
-                  Pas encore de compte ?
-                </span>
-
-                <Link
-                  to="/estimation"
-                  className="mx-2 text-sm font-bold text-marron hover:underline"
+              <div className="flex flex-col gap-y-2 items-center justify-center py-4 text-center border-t border-marron w-[70%] mx-auto">
+                <button
+                  type="button"
+                  onClick={handleForgotPassword}
+                  className="text-sm text-marron underline"
                 >
-                  Créer un compte
-                </Link>
+                  Mot de passe oublié ?
+                </button>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Pas encore de compte ?
+                  </span>
+
+                  <Link
+                    to="/estimation"
+                    className="mx-2 text-sm text-marron underline"
+                  >
+                    Créer un compte
+                  </Link>
+                </div>
               </div>
             </div>
             <img
               src={login_bg}
               alt="login_background"
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/4 object-cover lg:rounded-l-3xl hidden lg:block"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/2 h-[75vh] object-cover lg:rounded-l-3xl hidden lg:block"
             />
           </div>
         )}
       </div>
+      <Footer />
     </section>
   )
 }

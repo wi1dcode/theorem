@@ -1,11 +1,7 @@
 import React, { useEffect } from "react"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
-import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import LinkArrow from "../images/svg/LinkArrow"
 
 import identite_one from "../images/identite_one.jpg" // Update these paths to your image paths
 import identite_two from "../images/identite_two.jpg"
@@ -24,7 +20,6 @@ function Identite() {
           content="Découvrez Theorem Services, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
         />
       </Helmet>
-      <NavBar />
       <div
         className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"
         data-aos="fade-up"
@@ -104,22 +99,8 @@ function Identite() {
             />
           </div>
         </div>
-        <div className="flex items-center justify-between mt-10">
-          <Link to="/histoire" className="flex roboto items-center">
-            <div className="flex px-4 shadow-md hover:bg-marron/10 duration-300 py-3 rounded mr-2">
-              <LinkArrow right />
-            </div>
-            Notre histoire
-          </Link>
-          <Link to="/eco" className="flex roboto items-center justify-end">
-            Notre démarche écologique
-            <div className="flex px-4 shadow-md hover:bg-marron/10 duration-300 py-3 rounded ml-2">
-              <LinkArrow />
-            </div>
-          </Link>
-        </div>
+
       </div>
-      <Footer />
     </section>
   )
 }

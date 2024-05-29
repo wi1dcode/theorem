@@ -7,7 +7,7 @@ function Footer() {
     <footer className="bg-marron py-8">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
         <div className="flex flex-col md:flex-row justify-between mb-8">
-          <div className="flex flex-col text-sm roboto md:flex-row md:items-center justify-between w-full md:w-auto space-y-8 md:space-y-0 md:space-x-8">
+          <div className="flex flex-col text-sm roboto md:flex-row md:items-center justify-between w-full md:w-full space-y-8 md:space-y-0 md:space-x-8">
             <div className="flex flex-col items-start md:mb-0 pr-4">
               <Link
                 to="/"
@@ -108,7 +108,7 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col w-full md:w-[30%]">
+            {/* <div className="flex flex-col w-full md:w-[30%]">
               <p className="font-semibold tracking-wide text-white mb-2">
                 Notre newsletter
               </p>
@@ -131,7 +131,7 @@ function Footer() {
                 </Link>
                 .
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4">

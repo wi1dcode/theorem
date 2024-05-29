@@ -235,10 +235,6 @@
   background-position: center top, center 6px, center 6px;
 }
 
-.eco_bg {
-  background-image: url("./images/eco.jpg");
-}
-
 /* LOADING COMPONENT  */
 
 .loader {
@@ -358,4 +354,21 @@
 
 .show-chatway .chatway--container {
   display: block;
+}
+
+/* ANIMATION BOUNCE  */
+
+@keyframes slow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.slow-bounce {
+  animation: slow-bounce 3s infinite;
+  display: inline-block;
 }
