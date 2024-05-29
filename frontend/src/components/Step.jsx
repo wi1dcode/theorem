@@ -3,13 +3,8 @@ import { Link } from "react-router-dom"
 export const Step = () => {
   return (
     <div className="px-4 mb-12 pt-16 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-20">
-      <div className="max-w-xl mb-10 md:mx-auto max-sm:text-center sm:text-center lg:max-w-2xl md:mb-12">
-        <div>
-          {/* <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-            Notre super accompagnement
-          </p> */}
-        </div>
-        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto avenir">
+      <div className="max-w-xl mb-10 md:mx-auto text-center lg:max-w-2xl md:mb-12">
+        <h2 className="max-w-lg mb-6 roboto-bold text-3xl leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto avenir">
           <span className="relative inline-block">
             <svg
               viewBox="0 0 52 24"
@@ -33,102 +28,53 @@ export const Step = () => {
                 height="23"
               />
             </svg>
-            <span className="relative ">Comment</span>
+            <span className="relative">Comment</span>
           </span>{" "}
           ça marche ? 🤔
         </h2>
-        <p className="text-base text-gray-700 md:text-lg">
-          Découvrez la simplicité avec Theorem en 3 étapes. Détendez-vous, on
-          vous accompagne dès la prise de contact en ligne
-        </p>
       </div>
-      <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
-        <div className="sm:text-center relative">
-          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
-            1
+      <div className="flex gap-0 max-md:flex-col">
+        <div className="sm:text-center relative py-8 px-4 bg-white rounded-tl- rounded-bl-sm shadow-md flex-grow max-md:text-center">
+          <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
+            <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
+          <h2 className="roboto-bold text-3xl mb-2">1</h2>
+          <h6 className="mb-2 font-semibold leading-5">
             Partagez les détails de votre projet
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
+          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
             Lancez-vous dans votre projet en partageant les détails avec nous
             pour obtenir une estimation gratuite personnalisée.
           </p>
           <Link
             to="/estimation"
-            className="flex justify-center bg-marron/80 items-center rounded-full w-[100px] mx-auto font-semibold text-white"
+            className="inline-block bg-marron text-white font-semibold rounded-full px-6 py-2 mt-4"
           >
             Estimation
           </Link>
-          <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
-            <svg
-            className="w-12 text-marron transform rotate-90 lg:rotate-0"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="2"
-                y1="12"
-                x2="22"
-                y2="12"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="15,5 22,12 15,19 "
-              />
-            </svg>
-          </div>
         </div>
-        <div className="sm:text-center relative">
-          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
-            2
+        <div className="sm:text-center relative py-8 px-4 bg-white flex-grow shadow-inner max-md:text-center">
+          <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
+            <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
+          <h2 className="roboto-bold text-3xl mb-2">2</h2>
+          <h6 className="mb-2 font-semibold leading-5">
             Nous l’estimons gratuitement et sur mesure
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
+          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
             Nous élaborons votre estimation gratuite et personnalisée et vous la
             transmettons rapidement.
           </p>
-          <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
-            <svg
-              className="w-12 text-marron transform rotate-90 lg:rotate-0"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-            >
-              <line
-                fill="none"
-                strokeMiterlimit="10"
-                x1="2"
-                y1="12"
-                x2="22"
-                y2="12"
-              />
-              <polyline
-                fill="none"
-                strokeMiterlimit="10"
-                points="15,5 22,12 15,19 "
-              />
-            </svg>
-          </div>
         </div>
-        <div className="sm:text-center">
-          <div className="flex border-2 border-marron items-center justify-center w-24 h-24 mb-4 text-5xl font-extrabold rounded-full text-marron bg-white sm:mx-auto max-sm:mx-auto">
-            3
+        <div className="sm:text-center relative py-8 px-4 bg-white rounded-tr-sm rounded-br-sm shadow-md flex-grow max-md:text-center">
+          <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
+            <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h6 className="mb-2 font-semibold leading-5 max-sm:text-center">
+          <h2 className="roboto-bold text-3xl mb-2">3</h2>
+          <h6 className="mb-2 font-semibold leading-5">
             De la conception à la réalisation : notre expertise à votre service
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto max-sm:text-center">
+          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
             Nous vous accompagnons tout au long de votre projet, de la
             conception à la réalisation sur le chantier, avec expertise et
             dévouement.

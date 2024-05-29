@@ -2,9 +2,12 @@ import React from "react"
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
-import photo_one from "../images/photo-1.jpeg"
-import photo_two from "../images/photo-2.jpeg"
-import photo_three from "../images/photo-3.jpeg"
+import { Link } from "react-router-dom"
+
+import LinkArrow from "../images/svg/LinkArrow"
+
+import history_one from "../images/about_history.jpg"
+import history_two from "../images/history_two.png"
 
 function History() {
   return (
@@ -24,55 +27,62 @@ function History() {
         data-aos-duration="1000"
       >
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-marron/20">
-              <span className="text-3xl">📜</span>
-            </div>
+          <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                Notre{" "}
-                <span className="inline-block text-marron">histoire...</span>
+              <h2 className="max-w-lg mb-6 roboto-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                Notre <span className="inline-block text-marron">histoire</span>
               </h2>
-              <p className="text-base avenir text-gray-700 md:text-lg mb-1">
-                commence avec une amitié solide et des rêves partagés. En
+              <p className="text-base roboto text-gray-700 md:text-lg mb-1">
+                Elle commence avec une amitié solide et des rêves partagés. En
                 associant nos compétences complémentaires, nous avons donné
-                naissance à notre entreprise. Unis par les mêmes ambitions et
-                valeurs, nous avons tracé le chemin de la réalisation de projets
-                complets en tant qu'entreprise tous corps d'état. Chaque jour,
-                nous mettons notre expertise au service de vos idées,
-                transformant ensemble les défis en réussites. Notre parcours
-                reflète notre dévouement à l'excellence et notre passion pour
-                créer des espaces uniques qui marquent une différence
-                significative. Bienvenue dans l'aventure de THEOREM, où chaque
-                projet est une histoire de collaboration, de passion et de
-                réussite.
+                naissance à notre entreprise.
               </p>
-              <p className="mt-3 avenir text-gray-700 md:text-lg"></p>
+              <p className="text-base roboto text-gray-700 md:text-lg mb-1 pt-6">
+                Unis par les mêmes ambitions et valeurs, nous avons tracé le
+                chemin de la réalisation de projets complets en tant
+                qu'entreprise tous corps d'État. Chaque jour, nous mettons notre
+                expertise au service de vos idées, transformant ensemble les
+                défis en réussites.
+              </p>
             </div>
           </div>
-
-          <div className="flex items-center justify-center -mx-4 lg:pl-8">
-            <div className="flex flex-col items-end px-3">
-              <img
-                className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
-                src={photo_one}
-                alt=""
-              />
-              <img
-                className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
-                src={photo_two}
-                alt=""
-              />
-            </div>
-            <div className="px-3">
-              <img
-                className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
-                src={photo_three}
-                alt=""
-              />
-            </div>
+          <div className="flex items-center justify-center lg:pl-8">
+            <img
+              className="object-cover rounded-3xl w-full lg:h-auto lg:w-auto"
+              src={history_one}
+              alt="Notre histoire"
+            />
           </div>
         </div>
+        <div className="grid gap-10 lg:grid-cols-2 mt-10">
+          <div className="flex items-center justify-center lg:pr-8">
+            <img
+              className="object-cover rounded-r-3xl rounded-b-3xl w-full h-64 lg:h-auto lg:w-auto"
+              src={history_two}
+              alt="Notre histoire"
+            />
+          </div>
+          <div className="flex flex-col justify-end items-end">
+            <p className="text-base roboto text-gray-700 md:text-lg mb-1">
+              Notre parcours reflète notre concentration à l'excellence et notre
+              passion pour créer des espaces uniques qui marquent une différence
+              significative.
+              <br />
+              <br />
+              Bienvenue dans l'aventure de THEOREM, où chaque projet est une
+              histoire de collaboration, de passion et de réussite.
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/identite"
+          className="flex roboto items-center justify-end mt-10"
+        >
+          Notre identité
+          <div className="flex px-4 shadow-md hover:bg-marron/10 duration-300 py-3 rounded ml-2">
+            <LinkArrow />
+          </div>
+        </Link>
       </section>
 
       <Footer />

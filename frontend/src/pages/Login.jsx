@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom"
 import UserContext from "../services/userContext"
 import { login } from "../api/session"
 import { resetPasswordRequest, setNewPassword } from "../api/session"
-import logo from "../images/icons/logo_black.png"
-import login_bg from "../images/login-background.jpg"
+
+import login_bg from "../images/login_image.jpg"
 import NavBar from "../components/NavBar"
 import Swal from "sweetalert2"
 
@@ -167,31 +167,23 @@ function Login() {
   }
 
   return (
-    <section
-      className="h-screen"
-      style={{
-        backgroundImage: `url(${login_bg})`,
-      }}
-    >
+    <section className="h-screen roboto">
       <NavBar />
-      <div className="flex flex-col justify-center h-[80vh] items-center bg-center bg-cover">
+      <div className="flex flex-col justify-center h-[80vh] bg-center w-full border relative">
         {!connected && (
-          <>
-            <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+          <div className="flex w-[55%] h-full flex-col justify-center items-center border-2">
+            <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg">
               <div className="px-6 py-4">
-                <div className="flex justify-center mx-auto">
-                  <img className="w-auto h-20 sm:h-20" src={logo} alt="" />
-                </div>
-
-                <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
-                  Welcome Back
+                <h3 className="mt-3 text-3xl roboto-bold text-center">
+                  S’identifier
                 </h3>
 
-                <p className="mt-1 text-center text-gray-500 dark:text-gray-400">
-                  Veuillez entrer vos identifiants de connexion pour continuer
+                <p className="mt-1 text-center text-gray-500">
+                  Veuillez saisir vos identifiants pour continuez
                 </p>
 
                 <form
+                  className="mt-8"
                   onSubmit={(e) => {
                     e.preventDefault()
                     logIn()
@@ -219,7 +211,7 @@ function Login() {
                       type="email"
                       name="email"
                       maxLength="50"
-                      className={`block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 ${
+                      className={`block w-full py-3 text-gray-700 bg-white border rounded-full px-11 ${
                         redInput && "border-red-400"
                       }`}
                       placeholder="Email address"
@@ -237,7 +229,7 @@ function Login() {
                     <span className="absolute">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                        className="w-6 h-6 mx-3 text-gray-300"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -255,7 +247,7 @@ function Login() {
                       type="password"
                       name="password"
                       maxLength="50"
-                      className={`block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg ${
+                      className={`block w-full px-10 py-3 text-gray-700 bg-white border rounded-full ${
                         redInput && "border-red-400"
                       }`}
                       placeholder="Mot de passe"
@@ -274,35 +266,40 @@ function Login() {
                     <button
                       type="button"
                       onClick={handleForgotPassword}
-                      className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500"
+                      className="text-sm text-gray-600 hover:underline"
                     >
                       Mot de passe oublié ?
                     </button>
 
                     <button
                       type="submit"
-                      className="tracking-wide rounded-lg bg-marron px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
+                      className="tracking-wide rounded-full bg-marron px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
                     >
-                      <span className="w-full"> Se connecter </span>
+                      <span className="w-full rounded-full">Se connecter</span>
                     </button>
                   </div>
                 </form>
               </div>
 
-              <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
-                <span className="text-sm text-gray-600 dark:text-gray-200">
-                  Nouveau client ?{" "}
+              <div className="flex items-center justify-center py-4 text-center border-t border-marron">
+                <span className="text-sm text-gray-600">
+                  Pas encore de compte ?
                 </span>
 
                 <Link
                   to="/estimation"
-                  className="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline"
+                  className="mx-2 text-sm font-bold text-marron hover:underline"
                 >
                   Créer un compte
                 </Link>
               </div>
             </div>
-          </>
+            <img
+              src={login_bg}
+              alt="login_background"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1/4 object-cover lg:rounded-l-3xl hidden lg:block"
+            />
+          </div>
         )}
       </div>
     </section>

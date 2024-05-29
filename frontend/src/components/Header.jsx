@@ -1,34 +1,32 @@
 import React from "react"
-import LogoBlack from "../images/icons/logo_black.png"
-import HeaderBg from "../images/header_bg.jpg"
+import TheoremLogo from "../images/svg/TheoremLogo"
+import HeaderBg from "../images/bg-main.jpg"
 import { Link } from "react-router-dom"
 
 function Header() {
   return (
     <header
-      className={`bg-cover bg-no-repeat w-full h-[400px] max-md:h-[350px] flex flex-col gap-y-4 rounded-xl justify-center items-center`}
+      className={`bg-cover pt-10 bg-no-repeat w-full h-[80vh] flex flex-col gap-y-4 rounded-b-xl justify-center items-center`}
       style={{ backgroundImage: `url(${HeaderBg})` }}
     >
-      <article className="flex backdrop-blur rounded-lg w-full h-full flex-col items-center justify-center gap-y-4 max-md:gap-y-2">
-        <img
-          src={LogoBlack}
-          alt="header_logo"
-          className="w-[250px] animate-fade-down animate-once"
-        />
-        {/* <h1 className="text-5xl vogue text-center">Theorem Services</h1> */}
-        <h1 className="text-center bg-white bg-opacity-40 rounded-lg p-2 shadow text-lg max-md:w-full max-xl:w-[50%] w-1/4 text-noir avenir">
-          Votre rénovation en toute tranquillité! une expérience rapide,
-          simplifiée et sécurisée. Profitez d'un accompagnement personnalisé
-          pour donner vie à vos projets
-        </h1>
-        <Link to="/estimation">
-          <button
-            className="bg-marron shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase avenir"
-            type="button"
-          >
-            Estimation gratuite
-          </button>
-        </Link>
+      <article className="flex w-full h-full flex-col justify-center items-start">
+        <div className="flex flex-col items-start gap-y-8 w-[35%] max-lg:w-[70%] ml-20 max-md:ml-10">
+          <TheoremLogo />
+          <h2 className="roboto-bold text-3xl text-white">Theorem Services</h2>
+          <h1 className="text-start text-white rounded-lg max-md:text-sm text-lg w-full roboto">
+            Votre rénovation en toute tranquillité! une expérience rapide,
+            simplifiée et sécurisée. Profitez d'un accompagnement personnalisé
+            pour donner vie à vos projets
+          </h1>
+          <Link to="/estimation">
+            <button
+              className="bg-beige/50 shadow text-white font-semibold max-md:text-sm rounded-lg p-2 px-8 mt-1.5 roboto"
+              type="button"
+            >
+              Commencer mon projet
+            </button>
+          </Link>
+        </div>
       </article>
     </header>
   )

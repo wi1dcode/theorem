@@ -50,13 +50,11 @@ function Home() {
 
     if (chatWidget) {
       chatWidget.style.display = "block"
-      console.log("HOME PAGE")
     }
     return () => {
       const chatWidget = document.querySelector(".chatway--container")
       if (chatWidget) {
         chatWidget.style.display = "none"
-        console.log("NOT HOME")
       }
     }
   }, [pathname])
@@ -72,7 +70,7 @@ function Home() {
       </Helmet>
       <NavBar />
       <Header />
-      <div id="work" className="w-full mt-2 px-2">
+      <div id="work" className="w-full mt-2">
         <Work />
       </div>
       <div className="w-full mt-2 px-2 mb-2">
