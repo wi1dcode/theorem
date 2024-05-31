@@ -44,10 +44,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/about"
-                    className="text-white hover:text-beige/50"
-                  >
+                  <Link to="/about" className="text-white hover:text-beige/50">
                     Notre histoire
                   </Link>
                 </li>
@@ -56,10 +53,7 @@ function Footer() {
             <div className="flex flex-col">
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    to="/about"
-                    className="text-white hover:text-beige/50"
-                  >
+                  <Link to="/about" className="text-white hover:text-beige/50">
                     Notre identité
                   </Link>
                 </li>
@@ -96,14 +90,6 @@ function Footer() {
                 <li>
                   <Link to="/login" className="text-white hover:text-beige/50">
                     Espace client
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/estimation"
-                    className="text-white hover:text-beige/50"
-                  >
-                    Créer un compte
                   </Link>
                 </li>
               </ul>
