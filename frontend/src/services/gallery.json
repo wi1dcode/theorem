@@ -1,57 +1,75 @@
 [
     {
       "id": 1,
-      "title": "Titre",
+      "title": "First work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_two": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_three": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "images": [],
       "tags": ["50000€ TTC", "60m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [2, 3, 4]
     },
     {
       "id": 2,
-      "title": "Titre",
+      "title": "Second work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+      "img_two": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+      "img_three": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+      "images": [],
       "tags": ["60000€ TTC", "80m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3]
 
     },
     {
       "id": 3,
-      "title": "Titre",
+      "title": "Three work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/Q8Y5ZH6.jpg",
+      "img_two": "https://i.imgur.com/Q8Y5ZH6.jpg",
+      "img_three": "https://i.imgur.com/Q8Y5ZH6.jpg",
+      "images": [],
       "tags": ["70000€ TTC", "90m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3]
     },
     {
       "id": 4,
-      "title": "Titre",
+      "title": "Four work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/dlY3Ylh.jpg",
+      "img_two": "https://i.imgur.com/dlY3Ylh.jpg",
+      "img_three": "https://i.imgur.com/dlY3Ylh.jpg",
+      "images": [],
       "tags": ["80000€ TTC", "100m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3]
     },
     {
       "id": 5,
-      "title": "Titre",
+      "title": "Five work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/7k6Qait.jpg",
+      "img_two": "https://i.imgur.com/7k6Qait.jpg",
+      "img_three": "https://i.imgur.com/7k6Qait.jpg",
+      "images": [],
       "tags": ["90000€ TTC", "120m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3]
     },
     {
       "id": 6,
-      "title": "Titre",
+      "title": "Six work name",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_two": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_three": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "images": ["https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg", "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg", "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"],
       "tags": ["100000€ TTC", "130m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3]
     }
   ]

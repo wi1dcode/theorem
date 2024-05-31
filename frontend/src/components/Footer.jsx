@@ -45,7 +45,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/histoire"
+                    to="/about"
                     className="text-white hover:text-beige/50"
                   >
                     Notre histoire
@@ -57,14 +57,14 @@ function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    to="/identite"
+                    to="/about"
                     className="text-white hover:text-beige/50"
                   >
                     Notre identité
                   </Link>
                 </li>
                 <li>
-                  <Link to="/eco" className="text-white hover:text-beige/50">
+                  <Link to="/about" className="text-white hover:text-beige/50">
                     Démarche écologique
                   </Link>
                 </li>

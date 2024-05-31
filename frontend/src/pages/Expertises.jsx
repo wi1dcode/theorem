@@ -9,6 +9,7 @@ import platrerie from "../images/expertise_platrerie.jpg"
 import plomberie from "../images/expertise_plomberie.jpg"
 import sols from "../images/expertise_sols.jpg"
 import { useNavigate } from "react-router-dom"
+import Footer from "../components/Footer"
 
 const expertises = [
   {
@@ -119,6 +120,7 @@ function Expertises() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

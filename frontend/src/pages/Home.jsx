@@ -70,28 +70,28 @@ function Home() {
       </Helmet>
       <NavBar />
       <Header />
-      <div id="work" className="w-full mt-2">
+      <div id="work" className="w-full mt-2 roboto">
         <Work />
       </div>
-      <div className="w-full mt-2 px-2 mb-2">
+      <div className="w-full mt-2 px-2 mb-2 roboto">
         <Services />
       </div>
       <div
-        className="w-full mt-2 px-2 mb-2"
+        className="w-full mt-2 px-2 mb-2 roboto"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Step />
       </div>
       <div
-        className="w-full mt-24 px-2 mb-2"
+        className="w-full mt-24 px-2 mb-2 roboto"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Reviews />
       </div>
       <div
-        className="w-full mt-2 px-2 mb-2"
+        className="w-full mt-2 px-2 mb-2 roboto"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
@@ -99,7 +99,7 @@ function Home() {
       </div>
       <div
         id="contact"
-        className="w-full mt-2 px-2 mb-2"
+        className="w-full mt-2 px-2 mb-2 roboto"
         data-aos="fade-up"
         data-aos-duration="1000"
       >

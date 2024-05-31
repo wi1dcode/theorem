@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import UserContext from "./services/userContext"
 
 import Home from "./pages/Home"
@@ -28,6 +28,17 @@ import About from "./pages/About"
 
 function App() {
   const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
+
+  useEffect(() => {
+    setTimeout(() => {
+      const chatWidget = document.querySelector(".chatway--container")
+      const pathname = window.location.pathname
+
+      if (chatWidget && pathname !== "/") {
+        chatWidget.style.display = "none"
+      }
+    }, 500)
+  }, [])
 
   return (
     <BrowserRouter>

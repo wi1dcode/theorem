@@ -4,6 +4,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { Link, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import Footer from "../components/Footer"
 
 const gallery = require("../services/gallery.json")
 
@@ -67,6 +68,7 @@ function Realisations() {
           })}
         </div>
       </div>
+      <Footer />
     </section>
   )
 }
