@@ -12,18 +12,17 @@ function Header() {
       <article className="flex w-full h-full flex-col justify-center items-start">
         <div className="flex flex-col items-start gap-y-8 w-[35%] max-lg:w-[70%] ml-20 max-md:ml-10">
           <TheoremLogo />
-          <h2 className="roboto-bold text-3xl text-white">Theorem Services</h2>
+          <h2 className="roboto-bold text-5xl text-white">Theorem</h2>
           <h1 className="text-start text-white rounded-lg max-md:text-sm text-lg w-full roboto">
-            Votre rénovation en toute tranquillité! une expérience rapide,
-            simplifiée et sécurisée. Profitez d'un accompagnement personnalisé
-            pour donner vie à vos projets
+            Conception & réalisation de travaux : Rêvez grand, explorez les
+            possibilités avec Theorem.
           </h1>
-          <Link to="/estimation">
+          <Link to="/realisations">
             <button
               className="bg-beige/50 shadow text-white font-semibold max-md:text-sm rounded-lg p-2 px-8 mt-1.5 roboto"
               type="button"
             >
-              Commencer mon projet
+              Découvrir réalisations
             </button>
           </Link>
         </div>

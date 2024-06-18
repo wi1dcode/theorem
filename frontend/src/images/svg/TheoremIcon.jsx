@@ -1,10 +1,11 @@
-export default function TheoremIcon({ black }) {
+export default function TheoremIcon({ className, black }) {
   return (
     <svg
       width="74"
       height="44"
       viewBox="0 0 74 44"
       fill="none"
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

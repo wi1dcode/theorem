@@ -11,10 +11,10 @@ function Services() {
   const paymentInfo = () => {
     Swal.fire({
       title: "Information sur paiement",
-      text: "Nous comprenons que les chantiers représentent plus que de simples travaux ; ils incarnent des moments de transformation et d’évolution dans votre vie. Soyez assurés que chez Theorem, la gestion de vos fonds est une priorité absolue. Nous mettons en œuvre une pratique de mise en séquestre de fonds rigoureuse et transparente pour assurer la sécurité de votre investissement.   Notre équipe est là pour répondre à toutes vos questions et vous offrir une visibilité totale sur l'utilisation de vos fonds. Votre tranquillité d'esprit est notre engagement.",
+      text: "Chez Theorem, nous comprenons que les travaux représentent des moments importants dans votre vie. Pour sécuriser votre investissement, nous garantissons une gestion rigoureuse et transparente de vos fonds, avec mise en séquestre et visibilité totale.",
       icon: "question",
-      iconColor: "#C8B790",
-      confirmButtonColor: "#C8B790",
+      iconColor: "#575548",
+      confirmButtonColor: "#575548",
     })
   }
 
@@ -22,7 +22,7 @@ function Services() {
     <section className="w-full flex flex-col items-center">
       <div className="relative flex justify-center items-center">
         <h2 className="text-center max-md:text-2xl text-3xl pb-6 pt-5 roboto-bold sm:text-4xl z-10">
-          Prestations de service
+          Services
           {/* <span className="text-2xl ml-2"> 🤝</span> */}
         </h2>
         {/* <span className="bg-sable max-md:w-[280px] w-[200px] h-[15px] block absolute top-9" /> */}
@@ -36,7 +36,8 @@ function Services() {
               Estimation gratuite
             </h3>
             <p className="roboto-light w-[90%] text-center mx-auto">
-              Devis détaillé et transparent, adapté à vos besoins spécifiques
+              Obtenez un devis clair et détaillé, parfaitement adapté à vos
+              besoins.
             </p>
           </div>
         </article>
@@ -48,7 +49,8 @@ function Services() {
               Les meilleurs artisans
             </h3>
             <p className="roboto-light w-[90%] text-center mx-auto">
-              Sélectionnés pour votre projet d’exception
+              Des artisans qualifiés et expérimentés, entièrement dédiés à la
+              réussite de votre projet.
             </p>
           </div>
         </article>
@@ -58,7 +60,8 @@ function Services() {
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-4">Simple et sécurisé</h3>
             <p className="roboto-light w-[90%] text-center mx-auto">
-              Signature électronique et paiements sécurisés
+              Profitez de la signature électronique et de paiements sécurisés
+              pour une tranquillité d'esprit totale.
             </p>
           </div>
           <span className="absolute top-2 right-2" onClick={paymentInfo}>
@@ -73,14 +76,15 @@ function Services() {
               Une équipe d’experts
             </h3>
             <p className="roboto-light w-[90%] text-center mx-auto">
-              Pour un encadrement professionnel et personnalisé
+              Un encadrement professionnel et personnalisé, assuré par une
+              équipe d'experts
             </p>
           </div>
         </article>
       </div>
       <Link to="/estimation">
         <button
-          className="bg-marron shadow text-white font-semibold rounded-lg p-2 px-8 mt-1.5 roboto"
+          className="bg-marron shadow text-white font-semibold rounded-lg p-2 px-8  mt-10 roboto"
           type="button"
         >
           Commencer mon projet

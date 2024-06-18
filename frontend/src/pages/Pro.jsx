@@ -1,15 +1,9 @@
 import { Outlet } from "react-router-dom"
-import NavBarPro from "../components/NavBarPro"
-import { useEffect } from "react"
-
-import AOS from "aos"
-import "aos/dist/aos.css"
+import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
-function Pro() {
-  useEffect(() => {
-    AOS.init()
-  }, [])
+import Footer from "../components/Footer"
 
+function Pro() {
   return (
     <>
       <Helmet>
@@ -20,11 +14,12 @@ function Pro() {
         />
       </Helmet>
       <div className="bg-gray-50 z-50 w-full sticky top-0">
-        <NavBarPro />
+        <NavBar />
       </div>
-      <div data-aos="fade-up" data-aos-duration="1000">
+      <div className="roboto">
         <Outlet />
       </div>
+      <Footer />
     </>
   )
 }

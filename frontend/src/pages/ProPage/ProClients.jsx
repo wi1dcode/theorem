@@ -35,18 +35,16 @@ const data = [
 
 function ProClients() {
   return (
-    <div>
-      <div>
-        <h2 className="font-semibold text-center mt-8 avenir text-3xl">
-          Ils nous font confiance
-        </h2>
-      </div>
-      <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-6">
+    <div className="shadow-lg pb-24">
+      <h2 className="roboto-bold text-4xl text-center mt-8">
+        Ils nous font confiance
+      </h2>
+      <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-10">
         {data.map((clients) => {
           return (
             <div
               key={clients.name}
-              className="flex items-center border shadow-md p-3 rounded"
+              className="flex items-center border shadow-md p-3"
             >
               <img
                 src={clients.image}

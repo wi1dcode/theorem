@@ -51,7 +51,6 @@ function About() {
       </div>
       <History />
       <Identite />
-      <Eco />
       <Footer />
     </section>
   )

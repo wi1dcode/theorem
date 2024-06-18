@@ -14,7 +14,7 @@ function Footer() {
                 aria-label="Go home"
                 className="inline-flex flex-col items-center mb-4"
               >
-                <TheoremIcon className="w-32 text-white" />
+                <TheoremIcon className="w-24 h-24 text-white" />
                 <span className="ml-2 text-white text-xl font-bold">
                   Theorem
                 </span>

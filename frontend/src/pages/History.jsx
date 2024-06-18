@@ -1,7 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-
 import history_one from "../images/about_history.jpg"
 import history_two from "../images/history_two.png"
 
@@ -69,9 +68,7 @@ function History() {
             </p>
           </div>
         </div>
-
       </section>
-
     </div>
   )
 }

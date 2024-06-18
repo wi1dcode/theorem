@@ -83,9 +83,6 @@ function Expertises() {
       <section>
         <div className="text-center mx-auto my-12 roboto">
           <h2 className="text-4xl font-bold">Notre expertise</h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Retrouvez nos différents projets
-          </p>
         </div>
 
         <div className="max-w-screen-xl mx-auto px-4 py-8 roboto">

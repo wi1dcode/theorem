@@ -4,6 +4,7 @@ import { Widget } from "@typeform/embed-react"
 import { useEffect, useState } from "react"
 import { sendResponses } from "../api/client"
 import { Helmet } from "react-helmet"
+import HeaderBg from "../images/bg-main.jpg"
 
 function EstimationEmbed() {
   const navigate = useNavigate()
@@ -118,7 +119,7 @@ function EstimationEmbed() {
           text: "Veuillez entrer votre code postal pour vérifier notre disponibilité de service.",
           input: "text",
           inputLabel: "Ex. : 95123, 92456, 78123...",
-          cancelButtonText: "Retour à l'accueil",
+          cancelButtonText: "Retour",
           showCancelButton: true,
           inputPlaceholder: "Entrez votre code postal",
           confirmButtonText: "Vérifier",
@@ -127,6 +128,9 @@ function EstimationEmbed() {
           allowOutsideClick: false,
           allowEscapeKey: false,
           allowEnterKey: true,
+          backdrop: `
+          url(${HeaderBg}) no-repeat center center / cover
+        `,
           inputValidator: async (value) => {
             if (!value) {
               return "Le code postal est requis"
@@ -170,11 +174,14 @@ function EstimationEmbed() {
                 ),
                 showCancelButton: true,
                 confirmButtonColor: "#C8B790",
-                cancelButtonText: "Retour à l'accueil",
+                cancelButtonText: "Retour",
                 cancelButtonColor: "#D76C66",
                 confirmButtonText: "Sélectionner",
                 allowOutsideClick: false,
                 allowEscapeKey: false,
+                backdrop: `
+                url(${HeaderBg}) no-repeat center center / cover
+              `,
                 inputValidator: (value) => {
                   if (value === "") {
                     return "Veuillez sélectionner une ville"
@@ -194,12 +201,12 @@ function EstimationEmbed() {
                 })
                 setIsFormReady(true)
               } else if (Swal.DismissReason.cancel === "cancel") {
-                window.location.href = "/"
+                window.history.back()
               }
             }
           }
         } else if (Swal.DismissReason.cancel === "cancel") {
-          window.location.href = "/"
+          window.history.back()
         }
       }
     } catch (error) {
@@ -212,7 +219,10 @@ function EstimationEmbed() {
   }, [])
 
   return (
-    <div className="bg-black">
+    <div
+      className="bg-black bg-no-repeat w-full h-full bg-cover"
+      style={{ backgroundImage: `url(${HeaderBg})` }}
+    >
       <Helmet>
         <title>Estimation | Theorem Services</title>
         <meta

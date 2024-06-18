@@ -1,50 +1,26 @@
 [
     {
-        "id": 1,
-        "title": "Conduite de travaux",
-        "description": "Un interlocuteur unique pour vos travaux clé en main (neuf et réhabilitation).",
-        "svg": "TestSvg"
+      "id": 1,
+      "title": "Conduite de travaux",
+      "description": "Un interlocuteur unique pour vos travaux clé en main (neuf et réhabilitation).",
+      "image": "ConduitImage"
     },
     {
-        "id": 2,
-        "title": "Bureau d'etudes",
-        "description": "Space planning afin d’optimiser les espaces et les flux inter-services. Analyse de faisabilité technique et financière du projet.",
-        "svg": "TestSvg"
+      "id": 2,
+      "title": "Bureau d'etudes",
+      "description": "Space planning afin d'optimiser les espaces et les flux inter-services. Analyse de faisabilité technique et financière du projet.",
+      "image": "BureauImage"
     },
     {
-        "id": 3,
-        "title": "Conseils",
-        "description": "Fort de 28 ans d’expériences, nous pouvons être force de proposition sur vos projets : imitation des coûts, pérennité des matériaux mis en œuvre, synthèse des lots, …",
-        "svg": "TestSvg"
+      "id": 3,
+      "title": "Conseils",
+      "description": "Fort de 28 ans d'expériences, nous pouvons être force de proposition sur vos projets : imitation des coûts, pérennité des matériaux mis en œuvre, synthèse des lots, ...",
+      "image": "ConseilsImage"
     },
     {
-        "id": 4,
-        "title": "Accompagnement",
-        "description": "Mairie, instances représentatives du personnel, organisme de contrôle, etc.",
-        "svg": "TestSvg"
-    },
-    {
-        "id": 5,
-        "title": "Accompagnement",
-        "description": "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
-        "svg": "TestSvg"
-    },
-    {
-        "id": 6,
-        "title": "Conseils",
-        "description": "A business big enough that it could be listed on the NASDAQ goes belly up.",
-        "svg": "TestSvg"
-    },
-    {
-        "id": 7,
-        "title": "Bureau d'etudes",
-        "description": "Lookout flogging bilge rat main sheet bilge water nipper fluke to go on account heave down clap of thunder.",
-        "svg": "TestSvg"
-    },
-    {
-        "id": 8,
-        "title": "Conduite de travaux",
-        "description": "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
-        "svg": "TestSvg"
+      "id": 4,
+      "title": "Accompagnement",
+      "description": "Mairie, instances représentatives du personnel, organisme de contrôle, etc.",
+      "image": "AccompagnementImage"
     }
-]
+  ]

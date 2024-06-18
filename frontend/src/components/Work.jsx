@@ -20,13 +20,11 @@ function Work() {
         <div>
           <h2 className="text-center max-md:text-2xl text-4xl pb-2 pt-5 roboto-bold z-10">
             Réalisations
-            {/* <span className="text-2xl ml-2"> 🎬</span> */}
           </h2>
           <p className="roboto-regular mb-6">
             Retrouvez nos différents projets
           </p>
         </div>
-        {/* <span className="bg-sable max-md:w-[280px] w-[350px] h-[15px] block absolute top-9" /> */}
       </div>
       <div className="w-full flex justify-center items-center gap-x-20 max-md:flex-col-reverse max-md:gap-y-6">
         <div className="w-full md:ml-2 max-md:w-[80%]">
@@ -78,16 +76,6 @@ function Work() {
             pagination={true}
             modules={[EffectCoverflow, Pagination, Autoplay]}
             className="mySwiper"
-          > */}
-            {/* <Swiper
-            effect={"cards"}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            grabCursor={true}
-            modules={[EffectCards, Autoplay]}
-            className="mySwiper max-md:w-[80%]"
           > */}
             <SwiperSlide>
               <img

@@ -60,16 +60,12 @@ function Contact() {
                     <span className="font-semibold"> </span>
                   </p>
                 </div>
-                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white   flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">
+                <div className="w-[45%] h-[250px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white flex flex-col items-center justify-center">
+                  <span className="text-5xl mb-2">
                     <ContactMailSvg />
                   </span>
                   <p>
-                    N'hésitez pas à nous contacter par mail pour toute question
-                    ou demande. <br />
-                    <span className="font-semibold">
-                      Nous sommes là pour vous aider !
-                    </span>
+                    Pour nous contacter par e-mail : <br />
                   </p>
                   <a
                     href="mailto:theorem.services@gmail.com"
@@ -84,17 +80,11 @@ function Contact() {
                     </button>
                   </a>
                 </div>
-                <div className="w-[45%]  h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white   flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">
+                <div className="w-[45%]  h-[250px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white flex flex-col items-center justify-center">
+                  <span className="text-5xl mb-2">
                     <ContactPhone />
                   </span>
-                  <p>
-                    Pour toute question, contactez-nous par téléphone
-                    <br />
-                    <span className="font-semibold">
-                      Nous sommes disponibles pour vous assister !
-                    </span>
-                  </p>
+                  <p>Pour nous joindre par téléphone :</p>
                   <a
                     href="tel:0695753702"
                     className="text-marron flex flex-col items-center gap-y-2"

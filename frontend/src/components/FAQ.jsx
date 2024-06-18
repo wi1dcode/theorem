@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import faqBackground from "../images/faq-background.png"
 
 const Item = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,11 +53,17 @@ export default function FAQ() {
           </p>
         </div>
         <div className="space-y-4">
-          <Item title="Quels sont les domaines d'expertise de Theorem ?">
+          <Item title="Qu’est ce que Theorem ?">
             <p>
-              Chez Theorem, notre expertise s'étend à divers domaines,
-              notamment:
+              Theorem est une entreprise de travaux à taille humaine, offrant
+              des services complets de la conception à la réalisation. Nous vous
+              conseillons, prenons en charge la conduite et la réalisation des
+              travaux, et assurons un suivi rigoureux du chantier. Guidés par
+              des valeurs d'éthique et de confiance, nous faisons de la
+              satisfaction de nos clients notre priorité.
             </p>
+          </Item>
+          <Item title="Quels types de rénovation proposez-vous ?">
             <ul className="list-disc pl-14 py-2">
               <li>La gestion de projets et l'agencement, </li>
               <li>L’électricité, </li>
@@ -77,83 +82,42 @@ export default function FAQ() {
                 complètes pour répondre aux besoins variés de nos clients.
               </li>
             </ul>
-            <Link to="/expertises" className="flex justify-end">
-              <button className="bg-marron rounded-lg p-1 px-2 text-white">
-                En savoir plus
+            <p>
+              Nous sommes fiers de proposer des solutions complètes qui
+              répondent aux divers besoins de nos clients
+            </p>
+            <Link to="/realisations" className="flex justify-end">
+              <button className="bg-marron rounded p-1 px-2 text-white">
+                Découvrir nos réalisations
               </button>
             </Link>
           </Item>
-          <Item title="Comment garantissez-vous la qualité de vos services dans chaque domaine d'expertise ?">
+          <Item title="Quelles zones géographiques couvrez-vous ?">
             <p>
-              La qualité de nos services chez Theorem est assurée par une équipe
-              qualifiée, des normes et certifications strictes, une gestion de
-              projet méthodique, la sélection de matériaux de premier ordre, des
-              contrôles de qualité réguliers, des retours clients précieux, une
-              formation continue pour notre équipe, et un engagement envers
-              l'innovation. Chaque étape de nos projets est soigneusement
-              planifiée et exécutée dans le respect des normes les plus élevées
-              de l'industrie, garantissant la satisfaction de nos clients et la
-              durabilité de nos réalisations.
+              Nous intervenons principalement en Île-de-France. Pour vérifier
+              votre éligibilité, il vous suffit de renseigner votre code postal
+              dans notre formulaire en ligne.
             </p>
-          </Item>
-          <Item title="Quelle est la portée géographique des services de Theorem ? ">
-            <p>
-              Les prestations de bornes de recharge et de panneaux solaires,
-              s'étendent à l'échelle nationale, offrant nos solutions innovantes
-              à travers toute la France. L’ensemble des autres services de
-              Theorem dans le secteur tertiaire et résidentiel couvrent, quant à
-              eux, l'ensemble de l'Île-de-France.N'hésitez pas à nous contacter
-              pour discuter de la faisabilité de votre projet, que vous soyez en
-              région parisienne ou dans d'autres régions du pays.
-            </p>
-          </Item>
-          <Item title="Quelles certifications ou normes suivez-vous pour assurer la conformité de vos prestations ?">
-            <p>
-              Chez Theorem, nous nous engageons à garantir la conformité et la
-              qualité de nos prestations en suivant des normes et certifications
-              rigoureuses. Nous accordons une importance particulière aux normes
-              CE (Conformité Européenne) : Nous nous assurons que nos produits
-              et services respectent les directives et les normes de sécurité de
-              l'Union européenne.
-            </p>
-
-            <ul className="list-disc pl-14 py-2">
-              <li>
-                La marque CE apposée sur nos produits indique leur conformité
-                aux exigences essentielles en matière de santé, de sécurité et
-                de protection de l'environnement. NF (Norme Française){" "}
-              </li>
-              <li>
-                Nous privilégions l'utilisation de produits certifiés NF,
-                garantissant une qualité supérieure et une conformité aux normes
-                françaises.
-              </li>
-              <li>
-                La certification NF atteste que nos produits répondent aux
-                critères définis par les normes françaises, contribuant ainsi à
-                la sécurité et à la satisfaction du client.
-              </li>
-            </ul>
-            <Link to="/expertises" className="flex justify-end">
-              <button className="bg-marron rounded-lg p-1 px-2 text-white">
-                En savoir plus
+            <Link to="/estimation" className="flex justify-end mt-2">
+              <button className="bg-marron rounded p-1 px-2 text-white">
+                Commencer mon projet
               </button>
             </Link>
           </Item>
-          <Item title="Comment sont déterminés les coûts de projets de rénovation par Theorem ? ">
+          <Item title="Comment Theorem assure-t-il la maîtrise des coûts et la sécurité des investissements de ses clients ? ">
             <p>
-              Les coûts des projets de rénovation chez Theorem sont évalués de
-              manière transparente et personnalisée en fonction de divers
-              facteurs, tels que la complexité des travaux, les matériaux
-              sélectionnés, la taille du projet et les spécifications du client.
-              Notre équipe d'experts effectue une analyse détaillée pour
-              garantir des estimations justes et compétitives. Nous sommes
-              également ouverts à discuter des options budgétaires avec nos
-              clients afin de trouver des solutions adaptées à leurs besoins. La
-              transparence dans la tarification est au cœur de notre engagement
-              envers la satisfaction client. Pour obtenir une estimation
-              personnalisée pour votre projet de rénovation, n'hésitez pas à
-              nous contacter.
+              Chez Theorem, nous garantissons la maîtrise des coûts et la
+              sécurité des investissements de nos clients grâce à une
+              <span className="roboto-bold">
+                {" "}
+                gestion financière rigoureuse
+              </span>
+              . Les fonds sont sécurisés via une
+              <span className="roboto-bold"> mise en séquestre</span>, offrant
+              une <span className="roboto-bold">visibilité</span> totale sur
+              leur utilisation. Notre équipe est disponible pour répondre à
+              toutes vos questions, assurant ainsi votre{" "}
+              <span className="roboto-bold">tranquillité d'esprit.</span>
             </p>
           </Item>
         </div>
