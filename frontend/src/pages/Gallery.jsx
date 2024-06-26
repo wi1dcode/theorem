@@ -8,7 +8,7 @@ import "aos/dist/aos.css"
 
 const GalleryData = require("../services/gallery.json")
 
-Modal.setAppElement("#root") // Set your app root element for accessibility
+Modal.setAppElement("#root")
 
 function Gallery() {
   const { pathname } = useLocation()
