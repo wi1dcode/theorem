@@ -1,9 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useLocation, useParams } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
+import Modal from "react-modal"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const GalleryData = require("../services/gallery.json")
+
+Modal.setAppElement("#root") // Set your app root element for accessibility
 
 function Gallery() {
   const { pathname } = useLocation()
@@ -15,9 +20,33 @@ function Gallery() {
       galleryItem.suggestion.includes(item.id) && item.id !== galleryItem.id
   )
 
+  const [isOpen, setIsOpen] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+
   useEffect(() => {
+    AOS.init({ duration: 1000 })
     window.scrollTo(0, 0)
   }, [pathname])
+
+  const openModal = (index) => {
+    setActiveIndex(index)
+    setIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % galleryItem.images.length)
+  }
+
+  const handlePrev = () => {
+    setActiveIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + galleryItem.images.length) % galleryItem.images.length
+    )
+  }
 
   return (
     <div>
@@ -37,8 +66,7 @@ function Gallery() {
                 </span>
                 Nous vous accompagnons tout au long de votre projet, de la
                 conception à la réalisation sur le chantier, avec expertise et
-                diligence. Nous vous accompagnons tout au long de votre projet,
-                de la conception.
+                diligence.
               </p>
 
               <div className="flex">
@@ -60,15 +88,30 @@ function Gallery() {
               Commencer mon projet
             </Link>
           </div>
-
-          <div className="flex w-[40%] max-md:w-[90%] h-[50vh]">
+          <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden">
             <img
-              src={galleryItem.img}
-              alt={galleryItem.title}
-              className="rounded-l-3xl rounded-br-3xl object-cover w-full"
+              src={galleryItem.images[activeIndex]}
+              alt={`${galleryItem.title} ${activeIndex + 1}`}
+              className="object-cover min-w-[800px] h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
+              style={{ opacity: 1 }}
+              onClick={() => openModal(activeIndex)}
+              key={activeIndex} // Key to force re-render on change
             />
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
+            >
+              &#10094;
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
+            >
+              &#10095;
+            </button>
           </div>
         </div>
+
         <div>
           <div className="flex items-center text-center justify-center mt-10 px-1 flex-col py-4">
             <h3 className="roboto-medium mb-2 text-xl">
@@ -121,11 +164,13 @@ function Gallery() {
                 className="m-4 transition duration-300 transform hover:scale-105"
               >
                 <Link to={`/realisations/${item.id}`}>
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="rounded-xl w-64 h-48 object-cover cursor-pointer shadow "
-                  />
+                  <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
+                    <img
+                      src={item.images[0]}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover cursor-pointer"
+                    />
+                  </div>
                 </Link>
                 <h3 className="text-xl roboto-medium mt-2">{item.title}</h3>
               </div>
@@ -134,6 +179,41 @@ function Gallery() {
         </div>
       </div>
       <Footer />
+
+      {/* Fullscreen Modal */}
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        contentLabel="Image Viewer"
+        className="fixed mt-10 inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-75"
+      >
+        <button
+          onClick={closeModal}
+          className="absolute top-8 right-5 text-white text-5xl z-50"
+        >
+          &times;
+        </button>
+        <div className="w-full h-full flex justify-center items-center relative">
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-3xl"
+          >
+            &#10094;
+          </button>
+          <img
+            src={galleryItem.images[activeIndex]}
+            alt={`${galleryItem.title} ${activeIndex + 1}`}
+            className="object-cover w-auto h-auto max-h-full max-w-full"
+          />
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-3xl"
+          >
+            &#10095;
+          </button>
+        </div>
+      </Modal>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Header from "../components/Header"
 import Work from "../components/Work"
-import Services from "../components/Services"
 import { Step } from "../components/Step"
 import Faq from "../components/FAQ"
 import Reviews from "../components/Reviews"
@@ -73,9 +72,7 @@ function Home() {
       <div id="work" className="w-full mt-2 roboto">
         <Work />
       </div>
-      <div className="w-full mt-2 px-2 mb-2 roboto">
-        <Services />
-      </div>
+
       <div
         className="w-full mt-2 px-2 mb-2 roboto"
         data-aos="fade-up"

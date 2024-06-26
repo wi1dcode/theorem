@@ -22,7 +22,7 @@ function Header() {
               className="bg-beige/50 shadow text-white font-semibold max-md:text-sm rounded-lg p-2 px-8 mt-1.5 roboto"
               type="button"
             >
-              Découvrir réalisations
+              Découvrir nos projets
             </button>
           </Link>
         </div>

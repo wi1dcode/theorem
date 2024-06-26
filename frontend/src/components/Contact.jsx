@@ -65,7 +65,7 @@ function Contact() {
                     <ContactMailSvg />
                   </span>
                   <p>
-                    Pour nous contacter par e-mail : <br />
+                    Nous écrire : <br />
                   </p>
                   <a
                     href="mailto:theorem.services@gmail.com"
@@ -84,7 +84,7 @@ function Contact() {
                   <span className="text-5xl mb-2">
                     <ContactPhone />
                   </span>
-                  <p>Pour nous joindre par téléphone :</p>
+                  <p>Nous appeler :</p>
                   <a
                     href="tel:0695753702"
                     className="text-marron flex flex-col items-center gap-y-2"

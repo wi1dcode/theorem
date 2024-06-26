@@ -1,5 +1,3 @@
-import LQuoteSvg from "../images/svg/LQuoteSvg"
-import RQuoteSvg from "../images/svg/RQuoteSvg"
 import FiveStarsSvg from "../images/svg/FiveStarsSvg"
 
 export default function Reviews() {
@@ -24,11 +22,9 @@ export default function Reviews() {
     <section className="relative py-12">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="relative max-w-xl sm:text-center md:mx-auto">
-          <LQuoteSvg className="absolute -bottom-4 left-4 w-6 h-6" />
           <h3 className="text-gray-800 text-3xl max-md:text-xl max-md:text-center roboto-bold sm:text-4xl avenir relative z-10">
             Ils nous ont fait confiance
           </h3>
-          <RQuoteSvg className="absolute -top-4 right-4 w-6 h-6" />
         </div>
         <div className="grid gap-8 row-gap-8 lg:grid-cols-2 mt-12">
           {testimonials.map((item, idx) => (

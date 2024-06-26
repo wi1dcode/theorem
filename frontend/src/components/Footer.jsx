@@ -43,31 +43,16 @@ function Footer() {
                     Qui sommes nous ?
                   </Link>
                 </li>
-                <li>
-                  <Link to="/about" className="text-white hover:text-beige/50">
-                    Notre histoire
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="flex flex-col">
               <ul className="space-y-2">
                 <li>
-                  <Link to="/about" className="text-white hover:text-beige/50">
-                    Notre identité
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-white hover:text-beige/50">
-                    Démarche écologique
-                  </Link>
-                </li>
-                <li>
                   <Link
                     to="/partenariat"
                     className="text-white hover:text-beige/50"
                   >
-                    Partenariat
+                    Devenir partenaire
                   </Link>
                 </li>
                 <li>
@@ -84,7 +69,7 @@ function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link to="/pro" className="text-white hover:text-beige/50">
-                    Clients PRO
+                    Espace Pro
                   </Link>
                 </li>
                 <li>

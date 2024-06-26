@@ -9,7 +9,6 @@ import about_bg from "../images/about_bg.jpg"
 
 import History from "./History"
 import Identite from "./Identite"
-import Eco from "./Eco"
 
 import AOS from "aos"
 import "aos/dist/aos.css"

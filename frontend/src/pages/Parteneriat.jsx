@@ -55,6 +55,7 @@ function Pro() {
           <h1 className="text-4xl md:text-4xl font-bold mb-4">
             Devenez nos partenaires
           </h1>
+          <p className="text-2xl opacity-70">#RêveursPragmatiques</p>
         </div>
         <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
           <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
@@ -64,31 +65,18 @@ function Pro() {
       <div className="px-4 py-10 md:px-24 lg:px-8">
         <div className="text-start mb-8">
           <h2 className="text-2xl font-semibold mb-10">
-            Entrepreneur du bâtiment, architecte décorateur, maître d’oeuvre,
-            rejoignez nous :
+            Vous êtes entrepreneur du bâtiment, architecte décorateur ou maître
+            d'œuvre ? Travaillons ensemble !
           </h2>
           <p className="text-lg text-gray-700 mb-10">
-            Tu es entrepreneur(euse) du bâtiment ? Tu prends ton travail à coeur
-            ? Tu es accro à la finition millimétrée ? Alors oui, tu as toute ta
-            place chez Theorem Services. Rejoins nous dès maintenant. On
-            t'attend !
+            Pourquoi choisir Theorem : Accédez à une diversité de projets et à
+            une expertise de pointe pour propulser votre activité vers de
+            nouveaux sommets, en concrétisant des concepts novateurs et en
+            transformant chaque espace en une œuvre d'art vivante.
             <br />
-            Tes supers pouvoirs ?
             <br />
-            • Tu es passionné
-            <br />
-            • Tu as au moins 3 ans d’expérience dans le monde du bâtiment
-            <br />
-            • Tu as les assurances décennales pour tous les corps d'états que tu
-            exerces
-            <br />• Tu as soif de chantiers !
+            Rejoignez-nous, vous êtes …
           </p>
-          <Link
-            to="/candidate"
-            className="inline-block px-10 py-2 bg-marron text-white font-semibold rounded hover:bg-marron/80 transition duration-300"
-          >
-            Postuler
-          </Link>
         </div>
 
         <div className="flex flex-wrap justify-between gap-8">

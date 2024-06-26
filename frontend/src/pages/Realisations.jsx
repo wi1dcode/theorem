@@ -26,13 +26,11 @@ function Realisations() {
       </Helmet>
 
       <NavBar />
-      <div className="mb-16">
-        <h2 className="text-center text-4xl avenir mt-6 mb-4">
-          Nos réalisations
+      <div className="mb-16 roboto">
+        <h2 className="text-center text-4xl roboto-bold mt-6 mb-2">
+          Nos Projets
         </h2>
-        <p className="text-center text-lg text-gray-600 mb-8">
-          Retrouvez nos différents projets
-        </p>
+        <p className="text-center mb-4">Rénovations, conception architecturale</p>
         <div
           className="flex flex-wrap justify-center items-center gap-5 mx-auto max-w-xl  lg:max-w-screen-xl md:px-24 lg:px-8"
           data-aos="fade-up"
@@ -60,7 +58,7 @@ function Realisations() {
                     to={`/realisations/${item.id}`}
                     className="py-2 px-4 bg-marron text-white rounded-full hover:bg-marron/80 transition duration-300"
                   >
-                    En voir plus
+                    En savoir plus
                   </Link>
                 </div>
               </div>

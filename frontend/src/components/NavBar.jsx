@@ -1,39 +1,31 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import UserSvg from "../images/svg/UserSvg"
 import MenuCloseSvg from "../images/svg/MenuCloseSvg"
 import TheoremIcon from "../images/svg/TheoremIcon"
 import MenuSvg from "../images/svg/MenuSvg"
-import LinkArrow from "../images/svg/LinkArrow"
+import ContactPhone from "../images/svg/ContactPhone"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const dropdownRef = useRef(null)
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
   const navigation = [
-    { title: "Réalisations", path: "/realisations" },
-    { title: "Expertises", path: "/expertises" },
-    { title: "En savoir plus", path: "#", isDropdown: true },
+    { title: "Que sommes nous", path: "/about" },
+    { title: "Nos projets", path: "/realisations" },
+    { title: "Nos expertises", path: "/expertises" },
+    { title: "Contacts", path: "/", isContact: true },
     {
-      title: "Estimation gratuite",
+      title: "J’estime mon projet",
       path: "/estimation",
       className: "bg-beige/40",
     },
-    { title: "Contacts", path: "/", isContact: true },
-    { title: "Clients PRO", path: "/pro", target: "_blank" },
+    { title: "Espace Pro", path: "/pro", target: "_blank" },
   ]
-
-  const dropdownNavs = [
-    { title: "Que sommes nous", path: "/about" },
-    { title: "Partenariat", path: "/partenariat" },
-  ]
-
   const toggleMenu = () => setIsOpen(!isOpen)
 
   const handleScroll = () => {
@@ -41,23 +33,13 @@ function NavBar() {
     else setScrolled(false)
   }
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false)
-    }
-  }
-
   useEffect(() => {
     document.addEventListener("scroll", handleScroll)
-    document.addEventListener("mousedown", handleClickOutside)
     AOS.init()
     return () => {
       document.removeEventListener("scroll", handleScroll)
-      document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
-
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen)
 
   const scrollToContact = () => {
     navigate("/")
@@ -73,15 +55,15 @@ function NavBar() {
 
   return (
     <nav
-      className={`w-full roboto z-50 top-0 transition-all duration-300 ${
+      className={`w-full roboto z-50 top-0 px-4 transition-all duration-300 ${
         pathname === "/"
           ? `fixed ${scrolled ? "bg-marron" : "bg-marron/30"}`
           : "sticky bg-marron"
       }`}
     >
-      <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-screen-xl max-lg:text-sm">
+      <div className="flex items-center justify-between mx-0 py-2 w-full max-lg:text-sm">
         <div className="hidden md:flex space-x-6">
-          {navigation.slice(0, 2).map((item, idx) => (
+          {navigation.slice(0, 3).map((item, idx) => (
             <NavLink
               key={idx}
               to={item.path}
@@ -91,57 +73,26 @@ function NavBar() {
               {item.title}
             </NavLink>
           ))}
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={toggleDropdown}
-              className="flex items-center text-white hover:bg-beige/40 p-2 rounded transition-all duration-300"
-            >
-              En savoir plus
-              <LinkArrow
-                className="ml-2"
-                fill="white"
-                up={dropdownOpen}
-                down={!dropdownOpen}
-              />
-            </button>
-            {dropdownOpen && (
-              <div
-                className="fixed top-[60px] left-0 shadow w-full h-[60px] bg-marron z-50 flex items-start justify-start transition-all duration-300"
-                data-aos="flip-up"
-              >
-                <div className="text-center text-white flex justify-between p-2 gap-4">
-                  {dropdownNavs.map((dropdownItem, idx) => (
-                    <NavLink
-                      key={idx}
-                      to={dropdownItem.path}
-                      className="block px-4 py-2 text-xl transition-all duration-300 hover:bg-beige/50 rounded-md"
-                      onClick={() => setDropdownOpen(false)}
-                    >
-                      {dropdownItem.title}
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
         </div>
 
         <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex">
           <TheoremIcon />
         </Link>
 
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6 items-center">
           {navigation.slice(3).map((item, idx) =>
             item.isContact ? (
-              <button
+              <Link
                 key={idx}
                 onClick={scrollToContact}
-                className={`text-white hover:bg-beige/40 p-2 rounded transition-all duration-300 ${
-                  item.className || ""
-                }`}
+                className="text-white hover:bg-beige/40 p-2 rounded transition-all duration-300"
               >
-                {item.title}
-              </button>
+                <ContactPhone
+                  v2
+                  stroke="white"
+                  className="text-white w-8 pt-1 transition-all duration-300"
+                />
+              </Link>
             ) : (
               <NavLink
                 key={idx}
@@ -173,7 +124,7 @@ function NavBar() {
 
       {isOpen && (
         <div className="md:hidden fixed inset-0 z-40">
-          <div className="absolute top-0 left-0 right-0 p-2 px-4 bg-marron z-50 flex items-center justify-between transition-all duration-300">
+          <div className="absolute top-0 left-0 right-0 p-2 bg-marron z-50 flex items-center justify-between transition-all duration-300">
             <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex">
               <TheoremIcon />
             </Link>
@@ -185,29 +136,19 @@ function NavBar() {
             </button>
           </div>
           <div className="absolute top-16 left-0 right-0 z-40 flex flex-col items-center justify-center space-y-4 text-center text-white roboto-bold text-2xl p-2 rounded mt-10">
-            {dropdownNavs.map((item, idx) => (
-              <NavLink
-                key={idx}
-                to={item.path}
-                onClick={toggleMenu}
-                className="drop-shadow-lg p-2 rounded transition-all duration-300 hover:text-beige/50"
-              >
-                {item.title}
-              </NavLink>
-            ))}
             {navigation
               .filter((item) => !item.isDropdown)
               .map((item, idx) =>
                 item.isContact ? (
-                  <button
+                  <Link
                     key={idx}
                     onClick={scrollToContact}
                     className={`drop-shadow-lg p-2 rounded transition-all duration-300 hover:text-beige/50 ${
                       item.className || ""
                     }`}
                   >
-                    {item.title}
-                  </button>
+                    <ContactPhone stroke="white" />
+                  </Link>
                 ) : (
                   <NavLink
                     key={idx}

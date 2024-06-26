@@ -10,10 +10,40 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/effect-cards"
 import "swiper/css/effect-coverflow"
-
-// RESPONSIVE
+import { Link } from "react-router-dom"
 
 function Work() {
+  const slides = [
+    {
+      id: 1,
+      src: "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+    },
+    {
+      id: 2,
+      src: "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+    },
+    {
+      id: 3,
+      src: "https://static.wixstatic.com/media/801f49_bf40f8e2e25a4ab6b21219995105f8af~mv2.jpg",
+    },
+    {
+      id: 4,
+      src: "https://static.wixstatic.com/media/801f49_c46542d7fb9f4b7ebbfbae8a66ae1897~mv2.jpg",
+    },
+    {
+      id: 5,
+      src: "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+    },
+    {
+      id: 6,
+      src: "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+    },
+    {
+      id: 7,
+      src: "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
+    },
+  ]
+
   return (
     <section className="pb-10 shadow-md overflow-hidden">
       <div className="relative flex justify-center items-center">
@@ -77,55 +107,17 @@ function Work() {
             modules={[EffectCoverflow, Pagination, Autoplay]}
             className="mySwiper"
           > */}
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_bf40f8e2e25a4ab6b21219995105f8af~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_c46542d7fb9f4b7ebbfbae8a66ae1897~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg"
-                alt="work"
-                className=""
-              />
-            </SwiperSlide>
+            {slides.map((slide) => (
+              <SwiperSlide key={slide.id}>
+                <Link to={`/realisations/${slide.id}`}>
+                  <img
+                    src={slide.src}
+                    alt={`work-${slide.id}`}
+                    className="object-cover w-full h-full"
+                  />
+                </Link>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

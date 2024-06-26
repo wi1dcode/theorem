@@ -1,6 +1,8 @@
 import React from "react"
 import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 
 import pilotage from "../images/expertise_pilotage.jpg"
 import energetique from "../images/expertise_energetique.jpg"
@@ -8,8 +10,9 @@ import solaire from "../images/expertise_pansolaire.jpg"
 import platrerie from "../images/expertise_platrerie.jpg"
 import plomberie from "../images/expertise_plomberie.jpg"
 import sols from "../images/expertise_sols.jpg"
-import { useNavigate } from "react-router-dom"
 import Footer from "../components/Footer"
+
+const MySwal = withReactContent(Swal)
 
 const expertises = [
   {
@@ -57,17 +60,12 @@ const expertises = [
 ]
 
 function Expertises() {
-  const navigate = useNavigate()
-
-  const scrollToContact = () => {
-    navigate("/")
-    setTimeout(() => {
-      const section = document.getElementById("contact")
-      const yOffset = -230
-      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
-
-      window.scrollTo({ top: y, behavior: "smooth" })
-    }, 100)
+  const showExpertiseInfo = (expertise) => {
+    MySwal.fire({
+      title: expertise.title,
+      text: expertise.description,
+      confirmButtonColor: "#575548",
+    })
   }
 
   return (
@@ -81,36 +79,29 @@ function Expertises() {
       </Helmet>
       <NavBar />
       <section>
-        <div className="text-center mx-auto my-12 roboto">
+        <div className="text-center mx-auto my-4 roboto">
           <h2 className="text-4xl font-bold">Notre expertise</h2>
         </div>
 
-        <div className="max-w-screen-xl mx-auto px-4 py-8 roboto">
+        <div className="max-w-screen-xl mx-auto md:pt-4 md:py-8 roboto">
           <div className="flex flex-wrap justify-center gap-8">
             {expertises.map((expertise, index) => (
               <div
                 key={index}
                 className="flex cursor-pointer text-center flex-col items-center max-w-sm bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                onClick={() => showExpertiseInfo(expertise)}
               >
-                <img
-                  src={expertise.image}
-                  alt={expertise.title}
-                  className={`w-full h-48 object-cover max-lg:rounded-t-xl ${expertise.className}`}
-                />
+                <div className="w-full h-48">
+                  <img
+                    src={expertise.image}
+                    alt={expertise.title}
+                    className={`w-[400px] h-full object-cover ${expertise.className}`}
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">
                     {expertise.title}
                   </h3>
-                  <p className="text-gray-700">{expertise.description}</p>
-                  {expertise.title ===
-                    "Bornes de recharge / Panneaux solaires" && (
-                    <button
-                      className="mt-4 py-2 px-4 bg-marron text-white rounded hover:bg-marron/80 transition duration-300 active:bg-marron/90"
-                      onClick={scrollToContact}
-                    >
-                      Des questions ?
-                    </button>
-                  )}
                 </div>
               </div>
             ))}
