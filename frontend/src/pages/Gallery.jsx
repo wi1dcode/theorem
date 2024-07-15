@@ -52,7 +52,7 @@ function Gallery() {
     <div>
       <NavBar />
       <div className="flex flex-col items-center roboto">
-        <div className="flex items-center gap-x-20 justify-center mt-16 max-md:flex-col max-md:w-full py-6">
+        <div className="flex items-center gap-x-20 justify-center md:mt-16 max-md:flex-col max-md:w-full py-6">
           <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:mt-4 text-center gap-y-6">
             <h2 className="text-4xl max-md:text-2xl roboto-bold">
               {galleryItem.title}
@@ -92,10 +92,10 @@ function Gallery() {
             <img
               src={galleryItem.images[activeIndex]}
               alt={`${galleryItem.title} ${activeIndex + 1}`}
-              className="object-cover min-w-[800px] h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
+              className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
               style={{ opacity: 1 }}
               onClick={() => openModal(activeIndex)}
-              key={activeIndex} // Key to force re-render on change
+              key={activeIndex} 
             />
             <button
               onClick={handlePrev}

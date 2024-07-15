@@ -4,7 +4,7 @@ export default function TheoremLogo({ className }) {
   return (
     <svg
       width="199"
-      height="188"
+      height="270"
       viewBox="57 37 142 144"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
