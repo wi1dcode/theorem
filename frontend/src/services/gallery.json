@@ -12,7 +12,8 @@
     ],
       "tags": ["50000€ TTC", "60m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [2, 3, 4]
+      "suggestion": [2, 3, 4],
+      "category": "Appartement"
     },
     {
       "id": 2,
@@ -27,8 +28,8 @@
         ],
       "tags": ["60000€ TTC", "80m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-
+      "suggestion": [1, 2, 3],
+      "category": "Maison"
     },
     {
       "id": 3,
@@ -43,7 +44,8 @@
         ],
       "tags": ["70000€ TTC", "90m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
+      "suggestion": [1, 2, 3],
+      "category": "Bureaux"
     },
     {
       "id": 4,
@@ -58,7 +60,8 @@
         ],
       "tags": ["80000€ TTC", "100m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
+      "suggestion": [1, 2, 3],
+      "category": "Local commercial"
     },
     {
       "id": 5,
@@ -73,7 +76,8 @@
         ],
       "tags": ["90000€ TTC", "120m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
+      "suggestion": [1, 2, 3],
+      "category": "Maison"
     },
     {
       "id": 6,
@@ -88,7 +92,8 @@
     ],
       "tags": ["100000€ TTC", "130m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
+      "suggestion": [1, 2, 3],
+      "category": "Pro"
     }
   ]
   

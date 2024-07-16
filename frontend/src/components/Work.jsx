@@ -48,12 +48,9 @@ function Work() {
     <section className="pb-10 shadow-md overflow-hidden">
       <div className="relative flex justify-center items-center">
         <div>
-          <h2 className="text-center max-md:text-2xl text-4xl pb-2 pt-5 roboto-bold z-10">
+          <h2 className="text-center max-md:text-2xl text-4xl pb-4 pt-4 roboto-bold z-10">
             Réalisations
           </h2>
-          <p className="roboto-regular mb-6">
-            Retrouvez nos différents projets
-          </p>
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-x-20 max-md:flex-col-reverse max-md:gap-y-6">

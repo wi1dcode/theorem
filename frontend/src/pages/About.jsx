@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
 import Footer from "../components/Footer"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 import LinkArrow from "../images/svg/LinkArrow"
 import about_bg from "../images/about_bg.jpg"
@@ -14,9 +14,12 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 
 function About() {
+  const { pathname } = useLocation()
+
   useEffect(() => {
+    window.scrollTo(0, 0)
     AOS.init()
-  }, [])
+  }, [pathname])
 
   return (
     <section>

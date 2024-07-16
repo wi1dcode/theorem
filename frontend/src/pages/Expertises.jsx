@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
 import Swal from "sweetalert2"
@@ -11,6 +11,7 @@ import platrerie from "../images/expertise_platrerie.jpg"
 import plomberie from "../images/expertise_plomberie.jpg"
 import sols from "../images/expertise_sols.jpg"
 import Footer from "../components/Footer"
+import { useLocation } from "react-router-dom"
 
 const MySwal = withReactContent(Swal)
 
@@ -60,6 +61,12 @@ const expertises = [
 ]
 
 function Expertises() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   const showExpertiseInfo = (expertise) => {
     MySwal.fire({
       title: expertise.title,

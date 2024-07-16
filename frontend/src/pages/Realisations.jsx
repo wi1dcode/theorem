@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -10,10 +10,31 @@ const gallery = require("../services/gallery.json")
 
 function Realisations() {
   const { pathname } = useLocation()
+  const [filteredProjects, setFilteredProjects] = useState(gallery)
+  const [selectedCategory, setSelectedCategory] = useState("Tous les projets")
+
   useEffect(() => {
     window.scrollTo(0, 0)
     AOS.init()
   }, [pathname])
+
+  const categories = [
+    "Tous les projets",
+    "Local commercial",
+    "Appartement",
+    "Maison",
+    "Bureaux",
+    "Pro",
+  ]
+
+  const filterProjects = (category) => {
+    setSelectedCategory(category)
+    if (category === "Tous les projets") {
+      setFilteredProjects(gallery)
+    } else {
+      setFilteredProjects(gallery.filter((item) => item.category === category))
+    }
+  }
 
   return (
     <section>
@@ -30,13 +51,33 @@ function Realisations() {
         <h2 className="text-center text-4xl roboto-bold mt-6 mb-2">
           Nos Projets
         </h2>
-        <p className="text-center mb-4">Rénovations, conception architecturale</p>
+        <p className="text-center mb-4">
+          Maisons, appartements, conceptions architecturales, rénovations
+          partielles ou complètes.
+        </p>
+
+        <div className="flex justify-center max-md:flex-col max-md:items-center max-md:gap-y-2 md:space-x-4 mb-6">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`py-2 px-4 rounded-full max-md:w-[80%] transition duration-300 ${
+                selectedCategory === category
+                  ? "bg-marron text-white"
+                  : "bg-gray-200 text-black"
+              }`}
+              onClick={() => filterProjects(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div
-          className="flex flex-wrap justify-center items-center gap-5 mx-auto max-w-xl  lg:max-w-screen-xl md:px-24 lg:px-8"
+          className="flex flex-wrap justify-center items-center gap-5 mx-auto max-w-xl lg:max-w-screen-xl md:px-24 lg:px-8"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          {gallery.map((item, index) => {
+          {filteredProjects.map((item, index) => {
             return (
               <div
                 key={item.id}

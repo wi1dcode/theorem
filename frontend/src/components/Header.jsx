@@ -6,11 +6,11 @@ import { Link } from "react-router-dom"
 function Header() {
   return (
     <header
-      className={`bg-cover pt-10 bg-no-repeat w-full h-[80vh] flex flex-col gap-y-4 rounded-b-xl justify-center items-center`}
+      className={`bg-cover pt-10 bg-no-repeat w-full h-[80vh] flex flex-col gap-y-4 justify-center items-center`}
       style={{ backgroundImage: `url(${HeaderBg})` }}
     >
       <article className="flex w-full h-full flex-col justify-center items-center">
-        <div className="flex flex-col items-center gap-y-8 w-[50%] max-lg:w-[70%] max-md:ml-10">
+        <div className="flex flex-col items-center gap-y-8 w-[50%] max-lg:w-[70%]">
           <div className="flex items-center w-full flex-col justify-center">
             <TheoremLogo className="w-54" />
             {/* <h2 className="roboto-bold text-5xl text-white">Theorem</h2> */}

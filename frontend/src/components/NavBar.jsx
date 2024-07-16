@@ -15,10 +15,9 @@ function NavBar() {
   const navigate = useNavigate()
 
   const navigation = [
-    { title: "Que sommes nous", path: "/about" },
+    { title: "À propos", path: "/about" },
     { title: "Nos projets", path: "/realisations" },
-    { title: "Nos expertises", path: "/expertises" },
-    { title: "Contacts", path: "/", isContact: true },
+    { title: "Notre Savoir-faire", path: "/expertises" },
     {
       title: "J’estime mon projet",
       path: "/estimation",
@@ -26,6 +25,7 @@ function NavBar() {
     },
     { title: "Espace Pro", path: "/pro", target: "_blank" },
   ]
+
   const toggleMenu = () => setIsOpen(!isOpen)
 
   const handleScroll = () => {
@@ -62,43 +62,60 @@ function NavBar() {
       }`}
     >
       <div className="flex items-center justify-between mx-0 py-2 w-full max-lg:text-sm">
-        <div className="hidden md:flex space-x-6">
-          {navigation.slice(0, 3).map((item, idx) => (
-            <NavLink
-              key={idx}
-              to={item.path}
-              target={item.target}
-              className="text-white hover:bg-beige/40 p-2 rounded transition-all duration-300"
-            >
-              {item.title}
-            </NavLink>
-          ))}
+        <div className="flex items-center space-x-4">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo(0, 0)}
+            className="flex items-center mr-4"
+          >
+            <TheoremIcon />
+            <span className="text-white text-2xl roboto-bold">Theorem</span>
+          </Link>
+
+          <div className="hidden md:flex space-x-6">
+            {navigation.slice(0, 3).map((item, idx) => (
+              <NavLink
+                key={idx}
+                to={item.path}
+                target={item.target}
+                className="text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all duration-300"
+              >
+                {item.title}
+              </NavLink>
+            ))}
+          </div>
         </div>
 
-        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex">
-          <TheoremIcon />
-        </Link>
-
         <div className="hidden md:flex space-x-6 items-center">
+          <div
+            onClick={scrollToContact}
+            className="text-white cursor-pointer hover:bg-beige/40 p-2 rounded transition-all duration-300"
+          >
+            <ContactPhone
+              v2
+              stroke="white"
+              className="text-white w-6 pt-1 transition-all duration-300"
+            />
+          </div>
           {navigation.slice(3).map((item, idx) =>
             item.isContact ? (
-              <Link
+              <div
                 key={idx}
                 onClick={scrollToContact}
-                className="text-white hover:bg-beige/40 p-2 rounded transition-all duration-300"
+                className="text-white cursor-pointer hover:bg-beige/40 p-2 rounded transition-all duration-300"
               >
                 <ContactPhone
                   v2
                   stroke="white"
                   className="text-white w-8 pt-1 transition-all duration-300"
                 />
-              </Link>
+              </div>
             ) : (
               <NavLink
                 key={idx}
                 to={item.path}
                 target={item.target}
-                className={`text-white hover:bg-beige/40 p-2 rounded transition-all duration-300 ${
+                className={`text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all duration-300 ${
                   item.className || ""
                 }`}
               >
@@ -125,8 +142,13 @@ function NavBar() {
       {isOpen && (
         <div className="md:hidden fixed inset-0 z-40">
           <div className="absolute top-0 left-0 right-0 p-2 bg-marron z-50 flex items-center justify-between transition-all duration-300">
-            <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex">
+            <Link
+              to="/"
+              onClick={() => window.scrollTo(0, 0)}
+              className="flex items-center"
+            >
               <TheoremIcon />
+              <span className="text-white text-xl font-bold">Theorem</span>
             </Link>
             <button
               onClick={toggleMenu}
@@ -140,15 +162,15 @@ function NavBar() {
               .filter((item) => !item.isDropdown)
               .map((item, idx) =>
                 item.isContact ? (
-                  <Link
+                  <div
                     key={idx}
                     onClick={scrollToContact}
-                    className={`drop-shadow-lg p-2 rounded transition-all duration-300 hover:text-beige/50 ${
+                    className={`drop-shadow-lg cursor-pointer p-2 rounded transition-all duration-300 hover:text-beige/50 ${
                       item.className || ""
                     }`}
                   >
                     <ContactPhone stroke="white" />
-                  </Link>
+                  </div>
                 ) : (
                   <NavLink
                     key={idx}

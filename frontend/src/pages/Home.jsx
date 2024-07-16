@@ -12,6 +12,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import Stats from "../components/Stats"
 
 function Home() {
   const { pathname } = useLocation()
@@ -69,6 +70,7 @@ function Home() {
       </Helmet>
       <NavBar />
       <Header />
+      <Stats />
       <div id="work" className="w-full mt-2 roboto">
         <Work />
       </div>
