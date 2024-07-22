@@ -55,7 +55,6 @@ function Pro() {
           <h1 className="text-4xl md:text-4xl font-bold mb-4">
             Devenez nos partenaires
           </h1>
-          <p className="text-2xl opacity-70">#RêveursPragmatiques</p>
         </div>
         <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
           <LinkArrow className="h-[35px] w-[35px]" down fill="white" />

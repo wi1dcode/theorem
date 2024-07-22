@@ -1,5 +1,5 @@
-import React from "react"
-import AnalyseSvg from "../images/svg/AnalyseSvg"
+import React from "react";
+import AnalyseSvg from "../images/svg/AnalyseSvg";
 
 const interventionZones = [
   {
@@ -20,7 +20,7 @@ const interventionZones = [
   },
   { name: "Val-de-Marne (94)", svg: AnalyseSvg, hashtag: "#pont" },
   { name: "Val-d'Oise (95)", svg: AnalyseSvg, hashtag: "#lys" },
-]
+];
 
 export default function InterventionZones() {
   return (
@@ -48,5 +48,5 @@ export default function InterventionZones() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
-import Header from "../components/Header"
-import Work from "../components/Work"
-import Faq from "../components/FAQ"
-import Reviews from "../components/Reviews"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Work from "../components/Work";
+import Faq from "../components/FAQ";
+import Reviews from "../components/Reviews";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -24,30 +24,30 @@ function Home() {
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
-      setIsVisible(true)
+      setIsVisible(true);
     } else {
-      setIsVisible(false)
+      setIsVisible(false);
     }
-  }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
-    AOS.init()
-    window.addEventListener("scroll", toggleVisibility)
+    AOS.init();
+    window.addEventListener("scroll", toggleVisibility);
     return () => {
-      window.removeEventListener("scroll", toggleVisibility)
-    }
-  }, [])
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   const openCalendlyPopup = () => {
     setIsCalendlyOpen(true)
@@ -87,7 +87,14 @@ function Home() {
       >
         <CircleSteps />
       </div>
-      <Engagements />
+      <div
+        className="w-full mt-6 px-2 mb-2 helvetica"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <Engagements />
+      </div>
+
       <div
         className="w-full mt-6 px-2 mb-2 helvetica"
         data-aos="fade-up"
@@ -147,7 +154,7 @@ function Home() {
         />
       </div>
     </main>
-  )
+  );
 }
 
-export default Home
+export default Home;
