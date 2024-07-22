@@ -1,9 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
-
+import expertise_bg from "../images/partenaire_bg.jpg"
 import pilotage from "../images/expertise_pilotage.jpg"
 import energetique from "../images/expertise_energetique.jpg"
 import solaire from "../images/expertise_pansolaire.jpg"
@@ -12,68 +10,100 @@ import plomberie from "../images/expertise_plomberie.jpg"
 import sols from "../images/expertise_sols.jpg"
 import Footer from "../components/Footer"
 import { useLocation } from "react-router-dom"
-
-const MySwal = withReactContent(Swal)
+import LinkArrow from "../images/svg/LinkArrow"
 
 const expertises = [
   {
+    id: "pilotage",
     title: "Projet de pilotage / agencement",
     description:
       "THEOREM se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
     image: pilotage,
-    className: "lg:rounded-tl-3xl",
   },
   {
+    id: "solaire",
     title: "Bornes de recharge / Panneaux solaires",
     description:
       "Engagés vers un avenir durable, nous proposons des solutions de bornes de recharge et de panneaux solaires reposant sur des matériaux de pointe. Théorème conjugue innovation et éco-responsabilité pour contribuer à la transition énergétique.",
     image: solaire,
-    className: "",
   },
   {
+    id: "plomberie",
     title: "Plomberie / Chauffagiste / VMC",
     description:
       "Théorème excelle dans la fourniture de solutions de plomberie, de chauffage et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: plomberie,
-    className: "lg:rounded-tr-3xl",
   },
   {
+    id: "platrerie",
     title: "Revêtements muraux / Plâtrerie",
     description:
       "THEOREM se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
     image: platrerie,
-    className: "lg:rounded-bl-3xl",
   },
   {
+    id: "sols",
     title: "Revêtement de sols",
     description:
       "Engagés vers un avenir durable, nous proposons des solutions de bornes de recharge et de panneaux solaires reposant sur des matériaux de pointe. Théorème conjugue innovation et éco-responsabilité pour contribuer à la transition énergétique.",
     image: sols,
-    className: "",
   },
   {
+    id: "energetique",
     title: "Rénovation énergétique",
     description:
-      "Théorème excelle dans la fourniture de solutions de plomberie, de chauffage et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
+      "Théorème excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: energetique,
-    className: "lg:rounded-br-3xl",
   },
 ]
 
 function Expertises() {
   const { pathname } = useLocation()
+  const [activeSection, setActiveSection] = useState("")
+  const [sticky, setSticky] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionOffsets = expertises.map((expertise) => ({
+        id: expertise.id,
+        offset: document.getElementById(expertise.id).offsetTop,
+      }))
+
+      const scrollPosition = window.pageYOffset + window.innerHeight / 2
+
+      const currentSection = sectionOffsets.find(
+        (section, idx) =>
+          scrollPosition >= section.offset &&
+          (idx === sectionOffsets.length - 1 ||
+            scrollPosition < sectionOffsets[idx + 1].offset)
+      )
+
+      if (currentSection && currentSection.id !== activeSection) {
+        setActiveSection(currentSection.id)
+      }
+
+      const navBar = document.getElementById("navBar")
+      const remainingScroll =
+        document.body.scrollHeight - window.pageYOffset - window.innerHeight
+
+      if (window.pageYOffset > navBar.offsetTop) {
+        setSticky(true)
+      } else if (remainingScroll >= 500) {
+        setSticky(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [activeSection])
+
+  const handleSectionClick = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
-
-  const showExpertiseInfo = (expertise) => {
-    MySwal.fire({
-      title: expertise.title,
-      text: expertise.description,
-      confirmButtonColor: "#575548",
-    })
-  }
 
   return (
     <div>
@@ -86,31 +116,55 @@ function Expertises() {
       </Helmet>
       <NavBar />
       <section>
-        <div className="text-center mx-auto my-4 helvetica">
-          <h2 className="text-4xl font-bold">Notre expertise</h2>
+        <div
+          className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center"
+          style={{ backgroundImage: `url(${expertise_bg})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative z-10 text-center text-white p-6 max-w-xl">
+            <h1 className="text-4xl md:text-4xl font-bold mb-4">
+              Nos Expertises
+            </h1>
+          </div>
+          <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
+            <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
+          </div>
         </div>
-
-        <div className="max-w-screen-xl mx-auto md:pt-4 md:py-8 helvetica">
-          <div className="flex flex-wrap justify-center gap-8">
-            {expertises.map((expertise, index) => (
+        <div className="md:w-[80%] max-md:flex-col w-full mx-auto md:pt-4 md:py-8 helvetica flex">
+          <div
+            id="navBar"
+            className={`w-[35%] max-md:w-full p-4 ${
+              sticky ? "fixed top-20" : "sticky top-20"
+            }`}
+            style={sticky ? { width: "25%", backgroundColor: "white" } : {}}
+          >
+            <h3 className="font-bold text-lg mb-4">NOS MÉTIERS</h3>
+            {expertises.map((section, index) => (
               <div
                 key={index}
-                className="flex cursor-pointer text-center flex-col items-center max-w-sm bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                onClick={() => showExpertiseInfo(expertise)}
+                className={`pb-2 mb-2 max-md:w-full border-b-2 cursor-pointer ${
+                  activeSection === section.id ? "font-bold text-black" : ""
+                }`}
+                onClick={() => handleSectionClick(section.id)}
               >
-                <div className="w-full h-48">
-                  <img
-                    src={expertise.image}
-                    alt={expertise.title}
-                    className={`w-[400px] h-full object-cover ${expertise.className}`}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {expertise.title}
-                  </h3>
-                </div>
+                <span className="uppercase">{section.title}</span>
               </div>
+            ))}
+          </div>
+          <div
+            className="w-3/4 p-4 max-md:w-full"
+            style={sticky ? { marginLeft: "32%" } : {}}
+          >
+            {expertises.map((expertise, index) => (
+              <section key={index} id={expertise.id} className="my-8">
+                <h2 className="text-3xl font-bold mb-4">{expertise.title}</h2>
+                <img
+                  src={expertise.image}
+                  alt={expertise.title}
+                  className="w-full h-[500px] object-cover mb-4"
+                />
+                <p className="text-gray-700">{expertise.description}</p>
+              </section>
             ))}
           </div>
         </div>

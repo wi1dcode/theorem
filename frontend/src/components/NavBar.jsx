@@ -70,6 +70,7 @@ function NavBar() {
           >
             <TheoremIcon />
             <span className="text-white text-2xl helvetica-bold">Theorem</span>
+            {/* <TheoremText className="text-white" /> */}
           </Link>
 
           <div className="hidden md:flex space-x-6">

@@ -24,7 +24,7 @@ const interventionZones = [
 
 export default function InterventionZones() {
   return (
-    <section className="py-12 bg-[#babda9] text-white">
+    <section className="py-12 bg-marron/60 text-white">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-center mb-4">

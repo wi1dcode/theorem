@@ -49,7 +49,7 @@ function Work() {
       <div className="relative flex justify-center items-center">
         <div>
           <h2 className="text-center max-md:text-2xl text-4xl pb-4 pt-4 helvetica-bold z-10">
-            Réalisations
+            Nos projets
           </h2>
         </div>
       </div>

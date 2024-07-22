@@ -15,7 +15,7 @@ function Header() {
             <TheoremLogo className="w-36 h-52" />
             {/* <h2 className="helvetica-bold text-5xl text-white">Theorem</h2> */}
             <h1 className="text-center mt-4 mb-4 text-white rounded-lg max-md:text-sm text-4xl w-full helvetica-bold">
-              Concevoir. Façonner. Célébrer
+              Concevoir Créer Célébrer
             </h1>
           </div>
           <Link to="/realisations">
