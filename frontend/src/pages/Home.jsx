@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from "react"
-import Header from "../components/Header"
-import Work from "../components/Work"
-import Faq from "../components/FAQ"
-import Reviews from "../components/Reviews"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Work from "../components/Work";
+import Faq from "../components/FAQ";
+import Reviews from "../components/Reviews";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { useLocation } from "react-router-dom"
-import { Helmet } from "react-helmet"
-import Stats from "../components/Stats"
-import CircleSteps from "../components/CircleSteps"
-import InterventionZones from "../components/InterventionZones"
-import Engagements from "../components/Engagements"
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Stats from "../components/Stats";
+import CircleSteps from "../components/CircleSteps";
+import InterventionZones from "../components/InterventionZones";
+import Engagements from "../components/Engagements";
 
 function Home() {
-  const { pathname } = useLocation()
-  const [isVisible, setIsVisible] = useState(false)
+  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
-      setIsVisible(true)
+      setIsVisible(true);
     } else {
-      setIsVisible(false)
+      setIsVisible(false);
     }
-  }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
-    AOS.init()
-    window.addEventListener("scroll", toggleVisibility)
+    AOS.init();
+    window.addEventListener("scroll", toggleVisibility);
     return () => {
-      window.removeEventListener("scroll", toggleVisibility)
-    }
-  }, [])
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   return (
     <main className="w-full">
@@ -68,7 +68,14 @@ function Home() {
       >
         <CircleSteps />
       </div>
-      <Engagements />
+      <div
+        className="w-full mt-6 px-2 mb-2 helvetica"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <Engagements />
+      </div>
+
       <div
         className="w-full mt-6 px-2 mb-2 helvetica"
         data-aos="fade-up"
@@ -117,7 +124,7 @@ function Home() {
         </button>
       )}
     </main>
-  )
+  );
 }
 
-export default Home
+export default Home;

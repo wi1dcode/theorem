@@ -1,12 +1,12 @@
-import React, { useEffect } from "react"
-import { Helmet } from "react-helmet"
-import AOS from "aos"
-import "aos/dist/aos.css"
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import identite_one from "../images/identite_one.jpg"
-import qualityImageOne from "../images/engagement_one.png"
-import qualityImageTwo from "../images/engagement_two.png"
-import qualityImageThree from "../images/engagement_three.png"
+import identite_one from "../images/identite_one.jpg";
+import qualityImageOne from "../images/engagement_one.png";
+import qualityImageTwo from "../images/engagement_two.png";
+import qualityImageThree from "../images/engagement_three.png";
 
 const qualities = [
   {
@@ -25,15 +25,15 @@ const qualities = [
     image: qualityImageOne,
     title: "Eco-responsabilité",
   },
-]
+];
 
 function Identite() {
   useEffect(() => {
-    AOS.init()
-  }, [])
+    AOS.init();
+  }, []);
 
   return (
-    <section>
+    <section data-aos="fade-up" data-aos-duration="1000">
       <Helmet>
         <title>A propos | Theorem Services</title>
         <meta
@@ -72,7 +72,11 @@ function Identite() {
           </div>
         </div>
       </div>
-      <div className="bg-white pb-12 helvetica w-full">
+      <div
+        className="bg-white pb-12 helvetica w-full"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <div className="max-w-screen-xl mx-auto px-4 w-full">
           <h2 className="text-4xl helvetica-bold text-center mb-8">
             Nos plus belles qualités
@@ -101,7 +105,7 @@ function Identite() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Identite
+export default Identite;
