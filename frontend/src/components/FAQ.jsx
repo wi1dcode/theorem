@@ -53,73 +53,64 @@ export default function FAQ() {
           </p>
         </div>
         <div className="space-y-4">
-          <Item title="Qu’est ce que Theorem ?">
+          <Item title="Theorem est-elle une entreprise de travaux ? ">
             <p>
-              Theorem est une entreprise de travaux à taille humaine, offrant
-              des services complets de la conception à la réalisation. Nous vous
-              conseillons, prenons en charge la conduite et la réalisation des
-              travaux, et assurons un suivi rigoureux du chantier. Guidés par
-              des valeurs d'éthique et de confiance, nous faisons de la
-              satisfaction de nos clients notre priorité.
+              Chez Theorem, nous ne sommes pas simplement une entreprise de
+              travaux. Nous offrons une expérience complète pour concrétiser les
+              projets, qui vous tiennent à 💚 <br /> Nos équipes s'occupent de
+              la conception, de l'exécution et du suivi du chantier, vous
+              libérant ainsi pour que vous puissiez vous concentrer pleinement
+              sur ce qui compte le plus pour vous.
             </p>
           </Item>
-          <Item title="Quels types de rénovation proposez-vous ?">
-            <ul className="list-disc pl-14 py-2">
-              <li>La gestion de projets et l'agencement, </li>
-              <li>L’électricité, </li>
-              <li>Bornes de recharges et Panneaux Solaires</li>
-              <li>La plomberie, le chauffage et la VMC, </li>
-              <li>La pose de revêtements muraux</li>
-              <li>La pose de revêtements de sols</li>
-              <li>
-                L’isolation intérieure et extérieure (ITI / ITE) ainsi que le
-                ravalement
-              </li>
-              <li>La couverture, la maçonnerie</li>
-              <li>
-                Les études de projets (structure, électricité, plomberie, CVC,
-                design d’intérieur) Nous sommes fiers de proposer des solutions
-                complètes pour répondre aux besoins variés de nos clients.
-              </li>
-            </ul>
+          <Item title="Quels sont vos principaux domaines d'expertise ?">
             <p>
-              Nous sommes fiers de proposer des solutions complètes qui
-              répondent aux divers besoins de nos clients
+              Notre savoir-faire couvre plusieurs aspects de votre projet, de la
+              conception à la réalisation des travaux. Voici un aperçu de ce que
+              nous proposons :
             </p>
-            <Link to="/realisations" className="flex justify-end">
+            <ul className="list-disc pl-14 py-2">
+              <li>Pilotage de projet</li>
+              <li>Décoration intérieure</li>
+              <li>Revêtement sol & murs</li>
+              <li>Plomberie</li>
+              <li>Électricité</li>
+            </ul>
+            <Link to="/expertises" className="flex justify-end">
               <button className="bg-marron rounded p-1 px-2 text-white">
-                Découvrir nos réalisations
+                En savoir plus
               </button>
             </Link>
           </Item>
-          <Item title="Quelles zones géographiques couvrez-vous ?">
-            <p>
-              Nous intervenons principalement en Île-de-France. Pour vérifier
-              votre éligibilité, il vous suffit de renseigner votre code postal
-              dans notre formulaire en ligne.
-            </p>
+          <Item title="Quelles sont les étapes initiales pour commencer un projet avec vous ?">
+            <p>Voici les étapes pour commencer votre projet</p>
+            <ul className="list-disc pl-14 py-2">
+              <li>
+                Complétez notre formulaire personnalisé pour nous donner un
+                aperçu de vos besoins et de votre vision.
+              </li>
+              <li>
+                Votre chef de projet reviendra vers vous pour ajuster les
+                détails de votre projet. Vous recevrez alors un devis et une
+                estimation du planning.
+              </li>
+            </ul>
             <Link to="/estimation" className="flex justify-end mt-2">
               <button className="bg-marron rounded p-1 px-2 text-white">
                 Commencer mon projet
               </button>
             </Link>
           </Item>
-          <Item title="Comment Theorem assure-t-il la maîtrise des coûts et la sécurité des investissements de ses clients ? ">
+          <Item title="Comment puis-je suivre l'avancement de mon projet en temps réel ?">
             <p>
-              Chez Theorem, nous garantissons la maîtrise des coûts et la
-              sécurité des investissements de nos clients grâce à une
-              <span className="helvetica-bold">
-                {" "}
-                gestion financière rigoureuse
-              </span>
-              . Les fonds sont sécurisés via une
-              <span className="helvetica-bold"> mise en séquestre</span>,
-              offrant une <span className="helvetica-bold">visibilité</span>{" "}
-              totale sur leur utilisation. Notre équipe est disponible pour
-              répondre à toutes vos questions, assurant ainsi votre{" "}
-              <span className="helvetica-bold">tranquillité d'esprit.</span>
+              C’est facile ! Il vous suffit de vous connecter à votre espace
+              client. Vous y trouverez toutes les mises à jour, des photos des
+              progrès aux prochaines étapes
             </p>
           </Item>
+          {/* <Item title="En quoi le paiement de l’acompte est-il sécurisé ?">
+            <p>...</p>
+          </Item> */}
         </div>
       </div>
     </div>
