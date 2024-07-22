@@ -168,14 +168,14 @@ function Login() {
   }
 
   return (
-    <section className="h-screen roboto">
+    <section className="h-screen helvetica">
       <NavBar />
       <div className="flex flex-col justify-center h-[80vh] bg-center w-full relative">
         {!connected && (
           <div className="flex w-[55%] max-lg:w-full h-full flex-col justify-center items-center">
             <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg">
               <div className="px-6 py-4">
-                <h3 className="mt-3 text-3xl roboto-bold text-center">
+                <h3 className="mt-3 text-3xl helvetica-bold text-center">
                   S’identifier
                 </h3>
 

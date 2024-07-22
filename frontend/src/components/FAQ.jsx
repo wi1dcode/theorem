@@ -45,7 +45,7 @@ export default function FAQ() {
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <h2 className="max-w-lg mb-6 text-3xl roboto-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg mb-6 text-3xl helvetica-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             Foire aux questions
           </h2>
           <p className="text-base text-gray-700 md:text-lg ">
@@ -108,16 +108,16 @@ export default function FAQ() {
             <p>
               Chez Theorem, nous garantissons la maîtrise des coûts et la
               sécurité des investissements de nos clients grâce à une
-              <span className="roboto-bold">
+              <span className="helvetica-bold">
                 {" "}
                 gestion financière rigoureuse
               </span>
               . Les fonds sont sécurisés via une
-              <span className="roboto-bold"> mise en séquestre</span>, offrant
-              une <span className="roboto-bold">visibilité</span> totale sur
-              leur utilisation. Notre équipe est disponible pour répondre à
-              toutes vos questions, assurant ainsi votre{" "}
-              <span className="roboto-bold">tranquillité d'esprit.</span>
+              <span className="helvetica-bold"> mise en séquestre</span>,
+              offrant une <span className="helvetica-bold">visibilité</span>{" "}
+              totale sur leur utilisation. Notre équipe est disponible pour
+              répondre à toutes vos questions, assurant ainsi votre{" "}
+              <span className="helvetica-bold">tranquillité d'esprit.</span>
             </p>
           </Item>
         </div>

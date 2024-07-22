@@ -16,7 +16,7 @@ function Pro() {
       <div className="bg-gray-50 z-50 w-full sticky top-0">
         <NavBar />
       </div>
-      <div className="roboto">
+      <div className="helvetica">
         <Outlet />
       </div>
       <Footer />

@@ -36,7 +36,7 @@ function Pro() {
   ]
 
   return (
-    <section className="bg-white roboto">
+    <section className="bg-white helvetica">
       <Helmet>
         <title>Partenariat avec Theorem Services</title>
         <meta

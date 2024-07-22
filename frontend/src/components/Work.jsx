@@ -48,7 +48,7 @@ function Work() {
     <section className="pb-10 shadow-md overflow-hidden">
       <div className="relative flex justify-center items-center">
         <div>
-          <h2 className="text-center max-md:text-2xl text-4xl pb-4 pt-4 roboto-bold z-10">
+          <h2 className="text-center max-md:text-2xl text-4xl pb-4 pt-4 helvetica-bold z-10">
             Réalisations
           </h2>
         </div>
@@ -57,7 +57,7 @@ function Work() {
         <div className="w-full md:ml-2 max-md:w-[80%]">
           <Swiper
             autoplay={{
-              delay: 2000,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             breakpoints={{

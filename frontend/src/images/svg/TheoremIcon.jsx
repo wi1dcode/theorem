@@ -1,9 +1,15 @@
-export default function TheoremIcon({ className, black }) {
+export default function TheoremIcon({
+  className,
+  black,
+  width,
+  height,
+  viewBox,
+}) {
   return (
     <svg
-      width="74"
-      height="44"
-      viewBox="0 0 74 49"
+      width={width ? width : "74"}
+      height={height ? height : "44"}
+      viewBox={viewBox ? viewBox : "0 0 74 49"}
       fill="none"
       className={className}
       xmlns="http://www.w3.org/2000/svg"

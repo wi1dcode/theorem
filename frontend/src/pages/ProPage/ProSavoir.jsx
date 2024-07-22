@@ -33,7 +33,7 @@ function ProSavoir() {
     <section className="shadow-lg">
       <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12">
         <div className="flex flex-col items-center gap-y-3 md:w-1/2 mx-auto py-6 text-center justify-center">
-          <h2 className="roboto-bold text-4xl">Notre savoir faire</h2>
+          <h2 className="helvetica-bold text-4xl">Notre savoir faire</h2>
         </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {savoirFaire.map((card, index) => (

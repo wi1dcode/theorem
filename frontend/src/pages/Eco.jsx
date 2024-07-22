@@ -24,7 +24,7 @@ function Eco() {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <h2 className="text-3xl roboto-bold">Notre démarche écologique</h2>
+        <h2 className="text-3xl helvetica-bold">Notre démarche écologique</h2>
       </section>
     </div>
   )

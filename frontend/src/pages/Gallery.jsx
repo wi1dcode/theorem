@@ -51,16 +51,16 @@ function Gallery() {
   return (
     <div>
       <NavBar />
-      <div className="flex flex-col items-center roboto">
+      <div className="flex flex-col items-center helvetica">
         <div className="flex items-center gap-x-20 justify-center md:mt-16 max-md:flex-col max-md:w-full py-6">
           <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:mt-4 text-center gap-y-6">
-            <h2 className="text-4xl max-md:text-2xl roboto-bold">
+            <h2 className="text-4xl max-md:text-2xl helvetica-bold">
               {galleryItem.title}
             </h2>
 
             <div className="flex flex-col items-center md:mt-10">
               <p className="mb-6 text-lg max-md:text-sm">
-                <span className="roboto-medium block pb-2">
+                <span className="helvetica-medium block pb-2">
                   De la conception à la réalisation : notre expertise à votre
                   service
                 </span>
@@ -83,7 +83,7 @@ function Gallery() {
 
             <Link
               to="/estimation"
-              className="px-6 py-2 text-lg max-md:mb-4 roboto-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
+              className="px-6 py-2 text-lg max-md:mb-4 helvetica-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
             >
               Commencer mon projet
             </Link>
@@ -95,7 +95,7 @@ function Gallery() {
               className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
               style={{ opacity: 1 }}
               onClick={() => openModal(activeIndex)}
-              key={activeIndex} 
+              key={activeIndex}
             />
             <button
               onClick={handlePrev}
@@ -114,7 +114,7 @@ function Gallery() {
 
         <div>
           <div className="flex items-center text-center justify-center mt-10 px-1 flex-col py-4">
-            <h3 className="roboto-medium mb-2 text-xl">
+            <h3 className="helvetica-medium mb-2 text-xl">
               De la conception à la réalisation : notre expertise à votre
               service
             </h3>
@@ -145,7 +145,7 @@ function Gallery() {
                 <div>
                   <Link
                     to="/estimation"
-                    className="px-6 py-2 text-lg roboto-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
+                    className="px-6 py-2 text-lg helvetica-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
                   >
                     Commencer mon projet
                   </Link>
@@ -172,7 +172,7 @@ function Gallery() {
                     />
                   </div>
                 </Link>
-                <h3 className="text-xl roboto-medium mt-2">{item.title}</h3>
+                <h3 className="text-xl helvetica-medium mt-2">{item.title}</h3>
               </div>
             ))}
           </div>

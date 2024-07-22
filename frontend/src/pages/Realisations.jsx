@@ -47,8 +47,8 @@ function Realisations() {
       </Helmet>
 
       <NavBar />
-      <div className="mb-16 roboto">
-        <h2 className="text-center text-4xl roboto-bold mt-6 mb-2">
+      <div className="mb-16 helvetica">
+        <h2 className="text-center text-4xl helvetica-bold mt-6 mb-2">
           Nos Projets
         </h2>
         <p className="text-center mb-4">
@@ -60,10 +60,10 @@ function Realisations() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`py-2 px-4 rounded-full max-md:w-[80%] transition duration-300 ${
+              className={`py-2 px-4 rounded-full max-md:w-[80%] transition hover:bg-marron hover:text-white border border-marron duration-300 ${
                 selectedCategory === category
-                  ? "bg-marron text-white"
-                  : "bg-gray-200 text-black"
+                  ? "bg-marron border-marron text-white"
+                  : "text-black"
               }`}
               onClick={() => filterProjects(category)}
             >

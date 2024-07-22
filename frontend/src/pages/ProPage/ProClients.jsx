@@ -36,7 +36,7 @@ const data = [
 function ProClients() {
   return (
     <div className="shadow-lg pb-24">
-      <h2 className="roboto-bold text-4xl text-center mt-8">
+      <h2 className="helvetica-bold text-4xl text-center mt-8">
         Ils nous font confiance
       </h2>
       <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-10">

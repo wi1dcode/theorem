@@ -86,11 +86,11 @@ function Expertises() {
       </Helmet>
       <NavBar />
       <section>
-        <div className="text-center mx-auto my-4 roboto">
+        <div className="text-center mx-auto my-4 helvetica">
           <h2 className="text-4xl font-bold">Notre expertise</h2>
         </div>
 
-        <div className="max-w-screen-xl mx-auto md:pt-4 md:py-8 roboto">
+        <div className="max-w-screen-xl mx-auto md:pt-4 md:py-8 helvetica">
           <div className="flex flex-wrap justify-center gap-8">
             {expertises.map((expertise, index) => (
               <div

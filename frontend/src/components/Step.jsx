@@ -4,7 +4,7 @@ export const Step = () => {
   return (
     <div className="px-4 mb-12 pt-10 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="max-w-xl mb-10 md:mx-auto text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6 roboto-bold text-3xl leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto avenir">
+        <h2 className="max-w-lg mb-6 helvetica-bold text-3xl leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto avenir">
           Comment ça marche ?
         </h2>
       </div>
@@ -13,7 +13,7 @@ export const Step = () => {
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
             <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h2 className="roboto-bold text-3xl mb-2">1</h2>
+          <h2 className="helvetica-bold text-3xl mb-2">1</h2>
           <h6 className="mb-2 font-semibold leading-5">
             Partagez votre Projet
           </h6>
@@ -31,7 +31,7 @@ export const Step = () => {
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
             <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h2 className="roboto-bold text-3xl mb-2">2</h2>
+          <h2 className="helvetica-bold text-3xl mb-2">2</h2>
           <h6 className="mb-2 font-semibold leading-5">Devis Personnalisé</h6>
           <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
             Recevez rapidement votre estimation gratuite, conçue sur mesure.
@@ -41,7 +41,7 @@ export const Step = () => {
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
             <div className="w-4 h-4 bg-marron rounded-full"></div>
           </div>
-          <h2 className="roboto-bold text-3xl mb-2">3</h2>
+          <h2 className="helvetica-bold text-3xl mb-2">3</h2>
           <h6 className="mb-2 font-semibold leading-5">Service 360°</h6>
           <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
             C’est parti ! Bénéficiez d'un accompagnement complet, de la

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
 import Header from "../components/Header"
 import Work from "../components/Work"
-import { Step } from "../components/Step"
 import Faq from "../components/FAQ"
 import Reviews from "../components/Reviews"
-import Contact from "../components/Contact"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
 
@@ -13,6 +11,9 @@ import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Stats from "../components/Stats"
+import CircleSteps from "../components/CircleSteps"
+import InterventionZones from "../components/InterventionZones"
+import Engagements from "../components/Engagements"
 
 function Home() {
   const { pathname } = useLocation()
@@ -45,20 +46,6 @@ function Home() {
     }
   }, [])
 
-  useEffect(() => {
-    const chatWidget = document.querySelector(".chatway--container")
-
-    if (chatWidget) {
-      chatWidget.style.display = "block"
-    }
-    return () => {
-      const chatWidget = document.querySelector(".chatway--container")
-      if (chatWidget) {
-        chatWidget.style.display = "none"
-      }
-    }
-  }, [pathname])
-
   return (
     <main className="w-full">
       <Helmet>
@@ -71,38 +58,41 @@ function Home() {
       <NavBar />
       <Header />
       <Stats />
-      <div id="work" className="w-full mt-2 roboto">
+      <div id="work" className="w-full mt-2 helvetica">
         <Work />
       </div>
-
       <div
-        className="w-full mt-2 px-2 mb-2 roboto"
+        className="w-full mt-2 mb-2 px-2 helvetica flex items-center justify-center"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <Step />
+        <CircleSteps />
       </div>
+      <Engagements />
       <div
-        className="w-full mt-24 px-2 mb-2 roboto"
+        className="w-full mt-6 px-2 mb-2 helvetica"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Reviews />
       </div>
       <div
-        className="w-full mt-2 px-2 mb-2 roboto"
+        className="w-full mt-2 px-2 mb-2 helvetica"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Faq />
       </div>
-      <div
+      {/* <div
         id="contact"
-        className="w-full mt-2 px-2 mb-2 roboto"
+        className="w-full mt-2 px-2 mb-2 helvetica"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Contact />
+      </div> */}
+      <div id="contact" className="w-full mt-2 helvetica">
+        <InterventionZones />
       </div>
       <Footer />
       {isVisible && (

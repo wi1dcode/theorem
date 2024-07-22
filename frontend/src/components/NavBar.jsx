@@ -55,7 +55,7 @@ function NavBar() {
 
   return (
     <nav
-      className={`w-full roboto z-50 top-0 px-4 transition-all duration-300 ${
+      className={`w-full helvetica z-50 top-0 px-4 transition-all duration-300 ${
         pathname === "/"
           ? `fixed ${scrolled ? "bg-marron" : "bg-marron/30"}`
           : "sticky bg-marron"
@@ -69,7 +69,7 @@ function NavBar() {
             className="flex items-center mr-4"
           >
             <TheoremIcon />
-            <span className="text-white text-2xl roboto-bold">Theorem</span>
+            <span className="text-white text-2xl helvetica-bold">Theorem</span>
           </Link>
 
           <div className="hidden md:flex space-x-6">
@@ -157,7 +157,7 @@ function NavBar() {
               <MenuCloseSvg />
             </button>
           </div>
-          <div className="absolute top-16 left-0 right-0 z-40 flex flex-col items-center justify-center space-y-4 text-center text-white roboto-bold text-2xl p-2 rounded mt-10">
+          <div className="absolute top-16 left-0 right-0 z-40 flex flex-col items-center justify-center space-y-4 text-center text-white helvetica-bold text-2xl p-2 rounded mt-10">
             {navigation
               .filter((item) => !item.isDropdown)
               .map((item, idx) =>

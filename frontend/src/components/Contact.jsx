@@ -10,7 +10,7 @@ function Contact() {
   return (
     <div>
       <div className="text-center overflow-hidden">
-        <h2 className="text-3xl roboto-bold sm:text-4xl text-gray-900">
+        <h2 className="text-3xl helvetica-bold sm:text-4xl text-gray-900">
           Nous retrouver
         </h2>
       </div>

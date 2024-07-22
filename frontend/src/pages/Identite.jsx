@@ -3,8 +3,29 @@ import { Helmet } from "react-helmet"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
-import identite_one from "../images/identite_one.jpg" // Update these paths to your image paths
-import identite_two from "../images/identite_two.jpg"
+import identite_one from "../images/identite_one.jpg"
+import qualityImageOne from "../images/engagement_one.png"
+import qualityImageTwo from "../images/engagement_two.png"
+import qualityImageThree from "../images/engagement_three.png"
+
+const qualities = [
+  {
+    image: qualityImageOne,
+    title: "Engagement",
+  },
+  {
+    image: qualityImageTwo,
+    title: "Humain",
+  },
+  {
+    image: qualityImageThree,
+    title: "Positivité",
+  },
+  {
+    image: qualityImageOne,
+    title: "Eco-responsabilité",
+  },
+]
 
 function Identite() {
   useEffect(() => {
@@ -35,11 +56,11 @@ function Identite() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 roboto-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 helvetica-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Chez Theorem, <br /> nous transformons chaque projet en un{" "}
                 <span className="inline-block text-marron">carré parfait</span>
               </h2>
-              <p className="text-base roboto text-gray-700 md:text-lg mb-1">
+              <p className="text-base helvetica text-gray-700 md:text-lg mb-1">
                 Theorem est bien plus qu'une simple entreprise; c'est une entité
                 qui incarne l'essence d'une marque engagée et responsable. La
                 mission est de transcender les attentes en offrant des solutions
@@ -50,56 +71,34 @@ function Identite() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-6 my-20">
-          <div className="flex items-center w-full justify-center gap-8 max-md:flex-col">
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Transparent
-            </span>
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Expert
-            </span>
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Habile
-            </span>
-          </div>
-
-          <div className="flex items-center w-full justify-center gap-8 max-md:flex-col">
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Maîtrisée
-            </span>
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Efficacité
-            </span>
-            <span className="flex items-center justify-center w-[30%] max-md:w-full py-4 text-xl roboto bg-gray-200 rounded-full">
-              Respectueuse
-            </span>
-          </div>
-        </div>
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="flex flex-col justify-center">
-            <h5 className="mb-4 text-3xl roboto-bold leading-none font-sans">
-              Notre objectif est de rendre possible{" "}
-              <span className="inline-block text-marron">votre imaginaire</span>
-            </h5>
-            <p className="text-base roboto text-gray-700 md:text-lg mb-1">
-              Ces principes autour desquels se réunissent Theorem permettent
-              d'atteindre l'objectif défini étant donné la satisfaction des
-              clients en matière de rénovation. L'expérience Theorem représente
-              l'engagement envers un avenir meilleur, où l'innovation rencontre
-              l'équité, et où rénovation et travaux riment avec sérénité et
-              quiétude créant ainsi une expérience qui va au-delà des simples
-              modifications d'espaces.
-            </p>
-          </div>
-          <div className="flex items-center justify-center w-full">
-            <img
-              className="object-cover rounded-3xl w-full h-[350px]"
-              src={identite_two}
-              alt="Notre objectif"
-            />
+      </div>
+      <div className="bg-white pb-12 helvetica w-full">
+        <div className="max-w-screen-xl mx-auto px-4 w-full">
+          <h2 className="text-4xl helvetica-bold text-center mb-8">
+            Nos plus belles qualités
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-8 w-full">
+            {qualities.map((quality, idx) => (
+              <div
+                key={idx}
+                className="h-auto flex flex-col items-center justify-start bg-white shadow-md rounded-md overflow-hidden"
+              >
+                <div className="w-full h-48">
+                  <img
+                    src={quality.image}
+                    alt={quality.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="pt-4">
+                  <h3 className="text-xl font-semibold mb-4 text-center">
+                    {quality.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-
       </div>
     </section>
   )
