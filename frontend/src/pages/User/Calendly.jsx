@@ -24,7 +24,7 @@ function Calendly() {
     <div className="w-full max-md:h-screen">
       {isLoading && <Loading />}
       <InlineWidget
-        url="https://calendly.com/unknownmagomed/30min"
+        url="https://calendly.com/magomedunknown/30min"
         pageSettings={pageSettings}
         styles={{ height: "100%" }}
       />

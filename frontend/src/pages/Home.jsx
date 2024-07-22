@@ -10,6 +10,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import { PopupModal } from "react-calendly"
 import Stats from "../components/Stats"
 import CircleSteps from "../components/CircleSteps"
 import InterventionZones from "../components/InterventionZones"
@@ -18,6 +19,8 @@ import Engagements from "../components/Engagements"
 function Home() {
   const { pathname } = useLocation()
   const [isVisible, setIsVisible] = useState(false)
+  const [showRecallButton, setShowRecallButton] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -44,6 +47,22 @@ function Home() {
     return () => {
       window.removeEventListener("scroll", toggleVisibility)
     }
+  }, [])
+
+  const openCalendlyPopup = () => {
+    setIsCalendlyOpen(true)
+  }
+
+  const closeCalendlyPopup = () => {
+    setIsCalendlyOpen(false)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRecallButton(true)
+    }, 60000) // 60,000 ms = 1 minute
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -83,14 +102,6 @@ function Home() {
       >
         <Faq />
       </div>
-      {/* <div
-        id="contact"
-        className="w-full mt-2 px-2 mb-2 helvetica"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        <Contact />
-      </div> */}
       <div id="contact" className="w-full mt-2 helvetica">
         <InterventionZones />
       </div>
@@ -116,6 +127,25 @@ function Home() {
           </svg>
         </button>
       )}
+      {showRecallButton && (
+        <button
+          onClick={openCalendlyPopup}
+          className="fixed left-5 bottom-5 text-white p-2 bg-marron rounded-lg z-10 border-white border"
+        >
+          📞 Etre rappelé des que possible
+        </button>
+      )}
+      <div className="w-full h-full">
+        <PopupModal
+          url="https://calendly.com/magomedunknown/test"
+          onModalClose={closeCalendlyPopup}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById("root")}
+          text="Etre rappelé des que possible"
+          textColor="#ffffff"
+          color="#00a2ff"
+        />
+      </div>
     </main>
   )
 }
