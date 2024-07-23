@@ -13,7 +13,7 @@ export default function Stats() {
             Projets réalisés par nos équipes.
           </p>
         </div>
-        <div className="text-center flex-1 sm:border-r-2 border-gray-300 py-4">
+        <div className="text-center flex-1 sm:border-r-2 border-gray-300 py-4 px-6 max-md:border-y">
           <h6 className="text-3xl font-bold lg:text-4xl text-white soleil-bold">
             <CountUp start={0} end={95} duration={5} suffix="%" />
           </h6>
