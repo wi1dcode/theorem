@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom"
-import NavBar from "../components/NavBar"
-import { Helmet } from "react-helmet"
-import Footer from "../components/Footer"
+import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 function Pro() {
   return (
@@ -16,12 +16,12 @@ function Pro() {
       <div className="bg-gray-50 z-50 w-full sticky top-0">
         <NavBar />
       </div>
-      <div className="helvetica">
+      <div className="soleil">
         <Outlet />
       </div>
       <Footer />
     </>
-  )
+  );
 }
 
-export default Pro
+export default Pro;

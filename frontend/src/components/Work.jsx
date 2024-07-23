@@ -1,16 +1,16 @@
-import React from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Mousewheel, Keyboard } from "swiper/modules"
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Mousewheel, Keyboard } from "swiper/modules";
 // import { EffectCoverflow, Pagination } from "swiper/modules"
 // import { EffectCards } from "swiper/modules"
 // import Iphones from "../images/iphones.png"
 
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "swiper/css/effect-cards"
-import "swiper/css/effect-coverflow"
-import { Link } from "react-router-dom"
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-cards";
+import "swiper/css/effect-coverflow";
+import { Link } from "react-router-dom";
 
 function Work() {
   const slides = [
@@ -42,15 +42,16 @@ function Work() {
       id: 7,
       src: "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
     },
-  ]
+  ];
 
   return (
     <section className="pb-10 shadow-md overflow-hidden">
       <div className="relative flex justify-center items-center">
-        <div>
-          <h2 className="text-center max-md:text-2xl text-4xl pb-4 pt-4 helvetica-bold z-10">
+        <div className="pb-8">
+          <h2 className="text-center max-md:text-2xl text-4xl pt-4 soleil z-10">
             Nos projets
           </h2>
+          <p className="text-center pt-2 american">Commencez à rêver...</p>
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-x-20 max-md:flex-col-reverse max-md:gap-y-6">
@@ -119,7 +120,7 @@ function Work() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Work
+export default Work;

@@ -118,7 +118,7 @@ function EstimationEmbed() {
           title: "Entrez votre code postal",
           text: "Veuillez entrer votre code postal pour vérifier notre disponibilité de service.",
           input: "text",
-          inputLabel: "Ex. : 95123, 92456, 78123...",
+          inputLabel: "Ex. : 95120, 92600, 78800...",
           cancelButtonText: "Retour",
           showCancelButton: true,
           inputPlaceholder: "Entrez votre code postal",
@@ -158,7 +158,7 @@ function EstimationEmbed() {
             if (places.length === 1) {
               setCity(places[0]["place name"])
               Swal.fire({
-                title: "Parfait!",
+                title: "Parfait !",
                 text: `Vous avez choisi ${places[0]["place name"]}.`,
                 icon: "success",
                 showConfirmButton: false,

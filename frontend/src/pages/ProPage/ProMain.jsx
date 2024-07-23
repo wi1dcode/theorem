@@ -1,17 +1,17 @@
-import React from "react"
-import CountUp from "react-countup"
+import React from "react";
+import CountUp from "react-countup";
 
-import HeaderBg from "../../images/pro-bg.jpg"
-import WelcomeImage from "../../images/welcome_pro.jpg"
-import ChantierImage from "../../images/pro_chantiers.jpg"
-import ChiffresImage from "../../images/pro_chiffres.jpg"
+import HeaderBg from "../../images/pro-bg.jpg";
+import WelcomeImage from "../../images/welcome_pro.jpg";
+import ChantierImage from "../../images/pro_chantiers.jpg";
+import ChiffresImage from "../../images/pro_chiffres.jpg";
 
-import ProSavoir from "./ProSavoir.jsx"
-import ProClients from "./ProClients.jsx"
-import ProContact from "./ProContact.jsx"
-import LinkArrow from "../../images/svg/LinkArrow.jsx"
-import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
-import { Link } from "react-router-dom"
+import ProSavoir from "./ProSavoir.jsx";
+import ProClients from "./ProClients.jsx";
+import ProContact from "./ProContact.jsx";
+import LinkArrow from "../../images/svg/LinkArrow.jsx";
+import TheoremLogo from "../../images/svg/TheoremLogo.jsx";
+import { Link } from "react-router-dom";
 
 function Pro() {
   return (
@@ -21,9 +21,9 @@ function Pro() {
         style={{ backgroundImage: `url(${HeaderBg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative flex flex-col gap-y-4 helvetica items-center z-10 text-center text-white p-6 max-w-xl">
+        <div className="relative flex flex-col gap-y-4 soleil items-center z-10 text-center text-white p-6 max-w-xl">
           <TheoremLogo className="w-24 h-24" />
-          <h2 className="helvetica-bold text-2xl text-white">Theorem</h2>
+          <h2 className="soleil-bold text-2xl text-white">Theorem</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Espace professionnel
           </h1>
@@ -36,10 +36,10 @@ function Pro() {
         <section className="flex flex-col justify-center items-center mt-10 mx-auto px-4 lg:px-8 shadow-lg mb-10">
           <div className="w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 py-6 mb-10">
             <div className="md:w-1/2">
-              <h2 className="text-3xl helvetica-bold mb-4">
+              <h2 className="text-3xl soleil-bold mb-4">
                 Bienvenue dans l'Espace Professionnel de THEOREM.
               </h2>
-              <p className="text-base text-gray-800 md:text-lg helvetica leading-relaxed">
+              <p className="text-base text-gray-800 md:text-lg soleil leading-relaxed">
                 Chez THEOREM, nous comprenons l'importance d'une collaboration
                 efficace pour mener à bien vos projets professionnels. Dans cet
                 espace dédié aux professionnels, nous mettons à votre
@@ -192,7 +192,7 @@ function Pro() {
         <ProContact />
       </div>
     </div>
-  )
+  );
 }
 
-export default Pro
+export default Pro;

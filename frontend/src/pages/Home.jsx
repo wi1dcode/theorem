@@ -6,21 +6,21 @@ import Reviews from "../components/Reviews";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { useLocation } from "react-router-dom"
-import { Helmet } from "react-helmet"
-import { PopupModal } from "react-calendly"
-import Stats from "../components/Stats"
-import CircleSteps from "../components/CircleSteps"
-import InterventionZones from "../components/InterventionZones"
-import Engagements from "../components/Engagements"
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { PopupModal } from "react-calendly";
+import Stats from "../components/Stats";
+import CircleSteps from "../components/CircleSteps";
+import InterventionZones from "../components/InterventionZones";
+import Engagements from "../components/Engagements";
 
 function Home() {
-  const { pathname } = useLocation()
-  const [isVisible, setIsVisible] = useState(false)
-  const [showRecallButton, setShowRecallButton] = useState(false)
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
+  const [showRecallButton, setShowRecallButton] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -50,20 +50,20 @@ function Home() {
   }, []);
 
   const openCalendlyPopup = () => {
-    setIsCalendlyOpen(true)
-  }
+    setIsCalendlyOpen(true);
+  };
 
   const closeCalendlyPopup = () => {
-    setIsCalendlyOpen(false)
-  }
+    setIsCalendlyOpen(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowRecallButton(true)
-    }, 60000) // 60,000 ms = 1 minute
+      setShowRecallButton(true);
+    }, 60000); // 60,000 ms = 1 minute
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="w-full">
@@ -77,18 +77,18 @@ function Home() {
       <NavBar />
       <Header />
       <Stats />
-      <div id="work" className="w-full mt-2 helvetica">
+      <div id="work" className="w-full mt-6 soleil">
         <Work />
       </div>
       <div
-        className="w-full mt-2 mb-2 px-2 helvetica flex items-center justify-center"
+        className="w-full mt-2 mb-2 px-2 soleil flex items-center justify-center"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <CircleSteps />
       </div>
       <div
-        className="w-full mt-6 px-2 mb-2 helvetica"
+        className="w-full mt-6 px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
@@ -96,20 +96,20 @@ function Home() {
       </div>
 
       <div
-        className="w-full mt-6 px-2 mb-2 helvetica"
+        className="w-full mt-6 px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Reviews />
       </div>
       <div
-        className="w-full mt-2 px-2 mb-2 helvetica"
+        className="w-full mt-2 px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Faq />
       </div>
-      <div id="contact" className="w-full mt-2 helvetica">
+      <div id="contact" className="w-full mt-2 soleil">
         <InterventionZones />
       </div>
       <Footer />
@@ -137,18 +137,18 @@ function Home() {
       {showRecallButton && (
         <button
           onClick={openCalendlyPopup}
-          className="fixed left-5 bottom-5 text-white p-2 bg-marron rounded-lg z-10 border-white border"
+          className="fixed left-5 soleil bottom-5 text-marron p-2 bg-white rounded-lg z-10 border-marron border"
         >
-          📞 Etre rappelé des que possible
+          📞 Être rappelé dès que possible
         </button>
       )}
-      <div className="w-full h-full">
+      <div className="w-full h-full soleil">
         <PopupModal
           url="https://calendly.com/magomedunknown/test"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}
-          text="Etre rappelé des que possible"
+          text="Être rappelé dès que possible"
           textColor="#ffffff"
           color="#00a2ff"
         />

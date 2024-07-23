@@ -1,16 +1,16 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
-import NavigateSvg from "../images/svg/NavigateSvg"
-import CalendSvg from "../images/svg/CalendSvg"
-import ContactMailSvg from "../images/svg/ContactMailSvg"
-import ContactPhone from "../images/svg/ContactPhone"
+import NavigateSvg from "../images/svg/NavigateSvg";
+import CalendSvg from "../images/svg/CalendSvg";
+import ContactMailSvg from "../images/svg/ContactMailSvg";
+import ContactPhone from "../images/svg/ContactPhone";
 
 function Contact() {
   return (
     <div>
       <div className="text-center overflow-hidden">
-        <h2 className="text-3xl helvetica-bold sm:text-4xl text-gray-900">
+        <h2 className="text-3xl soleil-bold sm:text-4xl text-gray-900">
           Nous retrouver
         </h2>
       </div>
@@ -104,7 +104,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

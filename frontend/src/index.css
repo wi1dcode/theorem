@@ -4,10 +4,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+/* VOGUE  */
+
 @font-face {
   font-family: "Vogue";
   src: local("Vogue"), url("./fonts/Vogue.ttf") format("truetype");
 }
+
+/* AVENIR */
+
 @font-face {
   font-family: "Avenir-Light";
   src: local("Avenir-Light"), url("./fonts/Avenir-Light.ttf") format("truetype");
@@ -27,6 +32,9 @@
   src: local("Avenir-Next-Condensed-Bold"),
     url("./fonts/Avenir-Next-Condensed-Bold.ttf") format("truetype");
 }
+
+/* MAVES  */
+
 @font-face {
   font-family: "Maves-Regular";
   src: local("Maves-Regular"),
@@ -36,6 +44,48 @@
   font-family: "Metropolis-Medium";
   src: local("Metropolis-Medium"),
     url("./fonts/Metropolis-Medium.otf") format("truetype");
+}
+
+/* SOLEIL  */
+
+@font-face {
+  font-family: "SoleilBold";
+  src: local("SoleilBold"), url("./fonts/SoleilBold.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilBook";
+  src: local("SoleilBook"), url("./fonts/SoleilBook.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilRegular";
+  src: local("SoleilRegular"),
+    url("./fonts/SoleilRegular.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilLight";
+  src: local("SoleilLight"), url("./fonts/SoleilLight.otf") format("truetype");
+}
+@font-face {
+  font-family: "American Typewriter Regular";
+  src: local("American Typewriter Regular"),
+    url("./fonts/American Typewriter Regular.ttf") format("truetype");
+}
+
+.american {
+  font-family: "American Typewriter Regular";
+}
+
+.soleil {
+  font-family: "SoleilRegular";
+}
+.soleil-bold {
+  font-family: "SoleilBold";
+}
+.soleil-book {
+  font-family: "SoleilBook";
+}
+.soleil-light {
+  font-family: "SoleilLight";
 }
 
 .vogue {
@@ -465,7 +515,7 @@
     min-width: 80%;
   }
   .step:first-of-type {
-    margin-left: 0; 
+    margin-left: 0;
   }
 }
 

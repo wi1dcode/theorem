@@ -1,39 +1,39 @@
-import React from "react"
-import LittleCard from "../../components/LittleCard"
-import savoirFaire from "../../services/savoirFaire.json"
+import React from "react";
+import LittleCard from "../../components/LittleCard";
+import savoirFaire from "../../services/savoirFaire.json";
 
-import ConduitImage from "../../images/pro_conduit.jpg"
-import BureauImage from "../../images/pro_bureau.jpg"
-import ConseilsImage from "../../images/pro_conseils.jpg"
-import AccompagnementImage from "../../images/pro_accompagnement.jpg"
-import { useNavigate } from "react-router-dom"
+import ConduitImage from "../../images/pro_conduit.jpg";
+import BureauImage from "../../images/pro_bureau.jpg";
+import ConseilsImage from "../../images/pro_conseils.jpg";
+import AccompagnementImage from "../../images/pro_accompagnement.jpg";
+import { useNavigate } from "react-router-dom";
 
 const images = {
   ConduitImage,
   BureauImage,
   ConseilsImage,
   AccompagnementImage,
-}
+};
 
 function ProSavoir() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const scrollToContact = () => {
-    navigate("/")
+    navigate("/");
     setTimeout(() => {
-      const section = document.getElementById("contact")
-      const yOffset = -230
-      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+      const section = document.getElementById("contact");
+      const yOffset = -230;
+      const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
 
-      window.scrollTo({ top: y, behavior: "smooth" })
-    }, 100)
-  }
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 100);
+  };
 
   return (
     <section className="shadow-lg">
       <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-12">
         <div className="flex flex-col items-center gap-y-3 md:w-1/2 mx-auto py-6 text-center justify-center">
-          <h2 className="helvetica-bold text-4xl">Notre savoir faire</h2>
+          <h2 className="soleil-bold text-4xl">Notre savoir faire</h2>
         </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {savoirFaire.map((card, index) => (
@@ -49,7 +49,7 @@ function ProSavoir() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default ProSavoir
+export default ProSavoir;

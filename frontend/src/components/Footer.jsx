@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import TheoremIcon from "../images/svg/TheoremIcon"
+import React from "react";
+import { Link } from "react-router-dom";
+import TheoremIcon from "../images/svg/TheoremIcon";
 
 function Footer() {
   return (
-    <footer className="bg-marron py-8">
+    <footer className="bg-marron py-8 soleil">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
         <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-start">
@@ -13,37 +13,61 @@ function Footer() {
               aria-label="Go home"
               className="flex flex-col items-center mb-4"
             >
-              <TheoremIcon className="w-24 h-24 text-white" viewBox="10 0 50 50" />
-              <span className="ml-2 text-white text-xl font-bold">Theorem</span>
+              <TheoremIcon
+                className="w-24 h-24 text-white"
+                viewBox="10 0 50 50"
+              />
+              <span className="ml-2 text-white text-xl soleil-bold">
+                Theorem
+              </span>
             </Link>
           </div>
-          <div className="flex flex-col text-white">
-            <p className="font-bold">Nous contacter</p>
-            <p>contact@theorem-concept.fr</p>
-            <p>06 95 75 37 02</p>
+          <div className="flex flex-col text-white border-r pr-4">
+            <p>Nous contacter</p>
+            <a className="american" href="mailto:theorem.services@gmail.com">
+              theorem.services@gmail.com
+            </a>
+            <a className="american" href="tel:+33695753702">
+              06 95 75 37 02
+            </a>
           </div>
-          <div className="flex flex-col text-white">
-            <p className="font-bold mb-2">Nous suivre</p>
-            <Link to="/" className="hover:text-beige/50">
+          <div className="flex flex-col  text-white border-r pr-4">
+            <p className="soleil-bold mb-2">Nous suivre</p>
+            <Link
+              to="https://www.instagram.com/theorem_concept/"
+              target="_blank"
+              className="hover:text-beige/50 american"
+            >
               Instagram
             </Link>
-            <Link to="/" className="hover:text-beige/50">
+            <Link
+              to="https://www.facebook.com/"
+              target="_blank"
+              className="hover:text-beige/50 american"
+            >
               Facebook
             </Link>
-            <Link to="/" className="hover:text-beige/50">
+            <Link
+              to="https://www.linkedin.com/company/theoremconcept/"
+              className="hover:text-beige/50 american"
+              target="_blank"
+            >
               LinkedIn
             </Link>
           </div>
-          <div className="flex flex-col text-white">
-            <p className="font-bold mb-2">Nous rendre visite</p>
-            <p>27 rue stalingrad, 95120, Ermont</p>
-            <p className="font-bold mt-2">Horaires d'ouverture</p>
-            <p>Du lundi au samedi de 10h à 18h</p>
+          <div className="flex flex-col text-white border-r pr-4">
+            <p className="soleil-bold mb-2">Nous rendre visite</p>
+            <p className="american">27 rue stalingrad, 95120, Ermont</p>
+            <p className="soleil-bold mt-2">Horaires d'ouverture</p>
+            <p className="american">Du lundi au samedi de 10h à 18h</p>
           </div>
           <div className="flex flex-col text-white">
-            <p className="font-bold mb-2">Ressources</p>
-            <Link to="/" className="hover:text-beige/50">
+            <p className="soleil-bold mb-2">Plus d'informations</p>
+            <Link to="/" className="hover:text-beige/50 american">
               Plaquette de présentation
+            </Link>
+            <Link to="/partenariat" className="hover:text-beige/50 american">
+              Devenir partenaire
             </Link>
           </div>
         </div>
@@ -65,7 +89,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

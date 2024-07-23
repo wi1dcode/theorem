@@ -8,11 +8,12 @@ module.exports = {
       sable: "#DDD9CE",
       nuage: "#F4F0E7",
       blanc: "#FFFFFF",
-      marron: "#575548",
+      marron: "#353D2B",
       beige: "#E2DED5",
       vert: "#053A36",
+      vert_light: "#6F7460",
     },
     extend: {},
   },
   plugins: [require("flowbite/plugin"), require("tailwindcss-animated")],
-}
+};

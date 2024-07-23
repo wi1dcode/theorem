@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react";
 
 const steps = [
   {
@@ -24,69 +24,69 @@ const steps = [
       "Clap de fin ! Il est l'heure de découvrir le résultat... Nous organisons un rendez-vous pour valider la conformité du projet. Mais ce n’est pas la fin de notre aventure ensemble. Rejoignez notre communauté sur nos réseaux sociaux, et restez informé en avant-première de nos événements exclusifs, des conseils déco, et bien plus encore !",
     ],
   },
-]
+];
 
 const CircleSteps = () => {
-  const [activeStep, setActiveStep] = useState(1)
-  const stepsRef = useRef(null)
+  const [activeStep, setActiveStep] = useState(1);
+  const stepsRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!stepsRef.current) return
-      const scrollPositionY = window.scrollY + window.innerHeight / 2
+      if (!stepsRef.current) return;
+      const scrollPositionY = window.scrollY + window.innerHeight / 2;
 
-      let newActiveStep = activeStep
+      let newActiveStep = activeStep;
 
       steps.forEach((step) => {
-        const stepElement = document.getElementById(`step-${step.number}`)
-        if (!stepElement) return
+        const stepElement = document.getElementById(`step-${step.number}`);
+        if (!stepElement) return;
 
-        const rect = stepElement.getBoundingClientRect()
-        const elementMiddle = rect.top + window.scrollY + rect.height / 2
+        const rect = stepElement.getBoundingClientRect();
+        const elementMiddle = rect.top + window.scrollY + rect.height / 2;
 
         if (
           elementMiddle >= window.scrollY &&
           elementMiddle <= scrollPositionY
         ) {
-          newActiveStep = step.number
+          newActiveStep = step.number;
         }
-      })
+      });
 
-      setActiveStep(newActiveStep)
-    }
+      setActiveStep(newActiveStep);
+    };
 
     const handleTextScroll = () => {
-      if (window.innerWidth > 1050) return
-      const lists = document.querySelector(".lists")
-      const children = lists.querySelectorAll(".step")
-      const scrollPositionX = lists.scrollLeft + lists.clientWidth / 2
+      if (window.innerWidth > 1050) return;
+      const lists = document.querySelector(".lists");
+      const children = lists.querySelectorAll(".step");
+      const scrollPositionX = lists.scrollLeft + lists.clientWidth / 2;
 
-      let newActiveStep = activeStep
+      let newActiveStep = activeStep;
 
       children.forEach((stepElement) => {
-        const rect = stepElement.getBoundingClientRect()
-        const elementMiddle = rect.left + lists.scrollLeft + rect.width / 2
+        const rect = stepElement.getBoundingClientRect();
+        const elementMiddle = rect.left + lists.scrollLeft + rect.width / 2;
 
         if (
           elementMiddle >= lists.scrollLeft &&
           elementMiddle <= scrollPositionX
         ) {
-          newActiveStep = parseInt(stepElement.id.split("-")[1])
+          newActiveStep = parseInt(stepElement.id.split("-")[1]);
         }
-      })
+      });
 
-      setActiveStep(newActiveStep)
-    }
+      setActiveStep(newActiveStep);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    const lists = document.querySelector(".lists")
-    lists.addEventListener("scroll", handleTextScroll)
+    window.addEventListener("scroll", handleScroll);
+    const lists = document.querySelector(".lists");
+    lists.addEventListener("scroll", handleTextScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      lists.removeEventListener("scroll", handleTextScroll)
-    }
-  }, [activeStep])
+      window.removeEventListener("scroll", handleScroll);
+      lists.removeEventListener("scroll", handleTextScroll);
+    };
+  }, [activeStep]);
 
   // const generateSmallCircles = () => {
   //   const smallCircles = []
@@ -132,6 +132,7 @@ const CircleSteps = () => {
               {step.number}
             </div>
           ))}
+          <span className="soleil uppercase">Notre process</span>
         </div>
         <div className="md:space-y-10 px-5 md:px-10 md:w-3/5 lists">
           {steps.map((step) => (
@@ -142,10 +143,10 @@ const CircleSteps = () => {
                 activeStep === step.number ? "opacity-100" : "opacity-50"
               }`}
             >
-              <h3 className="text-2xl max-md:text-sm font-bold mb-2">
+              <h3 className="text-2xl max-md:text-sm soleil-bold mb-2">
                 {step.number}. {step.title}
               </h3>
-              <ul className="list-disc ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
+              <ul className="list-disc american ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
                   <li key={idx} className="text-lg max-md:text-sm">
                     {desc}
@@ -157,7 +158,7 @@ const CircleSteps = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CircleSteps
+export default CircleSteps;

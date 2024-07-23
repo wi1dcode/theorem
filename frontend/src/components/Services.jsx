@@ -1,11 +1,11 @@
-import SvgInfo from "../images/svg/SvgInfo"
-import SvgCard from "../images/svg/SvgCard"
-import StarSvg from "../images/svg/StarSvg"
-import ExpertSvg from "../images/svg/ExpertSvg"
-import RepeatSvg from "../images/svg/RepeatSvg"
+import SvgInfo from "../images/svg/SvgInfo";
+import SvgCard from "../images/svg/SvgCard";
+import StarSvg from "../images/svg/StarSvg";
+import ExpertSvg from "../images/svg/ExpertSvg";
+import RepeatSvg from "../images/svg/RepeatSvg";
 
-import Swal from "sweetalert2"
-import { Link } from "react-router-dom"
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 function Services() {
   const paymentInfo = () => {
@@ -15,13 +15,13 @@ function Services() {
       icon: "question",
       iconColor: "#575548",
       confirmButtonColor: "#575548",
-    })
-  }
+    });
+  };
 
   return (
     <section className="w-full flex flex-col items-center">
       <div className="relative flex justify-center items-center">
-        <h2 className="text-center max-md:text-2xl text-3xl pb-6 pt-5 helvetica-bold sm:text-4xl z-10">
+        <h2 className="text-center max-md:text-2xl text-3xl pb-6 pt-5 soleil-bold sm:text-4xl z-10">
           Services
           {/* <span className="text-2xl ml-2"> 🤝</span> */}
         </h2>
@@ -35,7 +35,7 @@ function Services() {
             <h3 className="uppercase font-semibold mb-4">
               Estimation gratuite
             </h3>
-            <p className="helvetica-light w-[90%] text-center mx-auto">
+            <p className="soleil-light w-[90%] text-center mx-auto">
               Obtenez un devis clair et détaillé, parfaitement adapté à vos
               besoins.
             </p>
@@ -48,7 +48,7 @@ function Services() {
             <h3 className="uppercase font-semibold mb-4">
               Les meilleurs artisans
             </h3>
-            <p className="helvetica-light w-[90%] text-center mx-auto">
+            <p className="soleil-light w-[90%] text-center mx-auto">
               Des artisans qualifiés et expérimentés, entièrement dédiés à la
               réussite de votre projet.
             </p>
@@ -59,7 +59,7 @@ function Services() {
           <SvgCard />
           <div className="text-center px-3">
             <h3 className="uppercase font-semibold mb-4">Simple et sécurisé</h3>
-            <p className="helvetica-light w-[90%] text-center mx-auto">
+            <p className="soleil-light w-[90%] text-center mx-auto">
               Profitez de la signature électronique et de paiements sécurisés
               pour une tranquillité d'esprit totale.
             </p>
@@ -75,7 +75,7 @@ function Services() {
             <h3 className="uppercase font-semibold mb-4">
               Une équipe d’experts
             </h3>
-            <p className="helvetica-light w-[90%] text-center mx-auto">
+            <p className="soleil-light w-[90%] text-center mx-auto">
               Un encadrement professionnel et personnalisé, assuré par une
               équipe d'experts
             </p>
@@ -84,14 +84,14 @@ function Services() {
       </div>
       <Link to="/estimation">
         <button
-          className="bg-marron shadow text-white font-semibold rounded-lg p-2 px-8  mt-10 helvetica"
+          className="bg-marron shadow text-white font-semibold rounded-lg p-2 px-8  mt-10 soleil"
           type="button"
         >
           Commencer mon projet
         </button>
       </Link>
     </section>
-  )
+  );
 }
 
-export default Services
+export default Services;

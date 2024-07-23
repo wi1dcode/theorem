@@ -19,7 +19,7 @@ function NavBar() {
     { title: "Nos projets", path: "/realisations" },
     { title: "Notre Savoir-faire", path: "/expertises" },
     {
-      title: "J’estime mon projet",
+      title: "J’estime mes travaux",
       path: "/estimation",
       className: "bg-beige/40",
     },
@@ -45,7 +45,7 @@ function NavBar() {
     navigate("/")
     setTimeout(() => {
       const section = document.getElementById("contact")
-      const yOffset = -230
+      const yOffset = -150
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset
 
       window.scrollTo({ top: y, behavior: "smooth" })
@@ -55,7 +55,8 @@ function NavBar() {
 
   return (
     <nav
-      className={`w-full helvetica z-50 top-0 px-4 transition-all duration-300 ${
+      className={`w-full soleil
+         z-50 top-0 px-4 transition-all duration-300 ${
         pathname === "/"
           ? `fixed ${scrolled ? "bg-marron" : "bg-marron/30"}`
           : "sticky bg-marron"
@@ -69,17 +70,17 @@ function NavBar() {
             className="flex items-center mr-4"
           >
             <TheoremIcon />
-            <span className="text-white text-2xl helvetica-bold">Theorem</span>
+            <span className="text-white text-2xl pt-2 soleil-bold">Theorem</span>
             {/* <TheoremText className="text-white" /> */}
           </Link>
 
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden pt-1 md:flex space-x-6">
             {navigation.slice(0, 3).map((item, idx) => (
               <NavLink
                 key={idx}
                 to={item.path}
                 target={item.target}
-                className="text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all duration-300"
+                className="text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all soleil duration-300"
               >
                 {item.title}
               </NavLink>
@@ -158,7 +159,7 @@ function NavBar() {
               <MenuCloseSvg />
             </button>
           </div>
-          <div className="absolute top-16 left-0 right-0 z-40 flex flex-col items-center justify-center space-y-4 text-center text-white helvetica-bold text-2xl p-2 rounded mt-10">
+          <div className="absolute top-16 left-0 right-0 z-40 flex flex-col items-center justify-center space-y-4 text-center text-white soleil-bold text-2xl p-2 rounded mt-10">
             {navigation
               .filter((item) => !item.isDropdown)
               .map((item, idx) =>

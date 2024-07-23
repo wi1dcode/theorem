@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const data = [
   {
@@ -31,12 +31,12 @@ const data = [
     image:
       "https://static.wixstatic.com/media/801f49_5a832f8417c64815b0622593b692ef38~mv2.png/v1/fill/w_231,h_201,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logos-fournisseur-total-energies.png",
   },
-]
+];
 
 function ProClients() {
   return (
     <div className="shadow-lg pb-24">
-      <h2 className="helvetica-bold text-4xl text-center mt-8">
+      <h2 className="soleil-bold text-4xl text-center mt-8">
         Ils nous font confiance
       </h2>
       <div className="w-[80%] mx-auto flex items-center justify-center flex-wrap gap-4 mt-10">
@@ -52,11 +52,11 @@ function ProClients() {
                 className="w-[150px] h-[150px]"
               />
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
-export default ProClients
+export default ProClients;

@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import identite_one from "../images/identite_one.jpg";
-import qualityImageOne from "../images/engagement_one.png";
+import qualityImageOne from "../images/engagement_two.png";
 import qualityImageTwo from "../images/engagement_two.png";
 import qualityImageThree from "../images/engagement_three.png";
 
@@ -56,11 +56,11 @@ function Identite() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 helvetica-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Chez Theorem, <br /> nous transformons chaque projet en un{" "}
                 <span className="inline-block text-marron">carré parfait</span>
               </h2>
-              <p className="text-base helvetica text-gray-700 md:text-lg mb-1">
+              <p className="text-base soleil text-gray-700 md:text-lg mb-1">
                 Theorem est bien plus qu'une simple entreprise; c'est une entité
                 qui incarne l'essence d'une marque engagée et responsable. La
                 mission est de transcender les attentes en offrant des solutions
@@ -73,12 +73,12 @@ function Identite() {
         </div>
       </div>
       <div
-        className="bg-white pb-12 helvetica w-full"
+        className="bg-white pb-12 soleil w-full"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <div className="max-w-screen-xl mx-auto px-4 w-full">
-          <h2 className="text-4xl helvetica-bold text-center mb-8">
+        <div className="mx-auto px-4 w-full">
+          <h2 className="text-4xl soleil-bold text-center mb-8">
             Nos plus belles qualités
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-8 w-full">

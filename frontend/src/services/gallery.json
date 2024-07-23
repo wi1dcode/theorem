@@ -1,23 +1,24 @@
 [
     {
       "id": 1,
-      "title": "First work name",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
-      "img_two": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
-      "img_three": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "title": "Projet Râpée",
+      "under_title": "Maintenance de l’extrême",
+      "description": "Pour l'immeuble Central Seine, nous avons entrepris un projet complexe de maintenance des éléments de façade, en collaboration avec des cordistes. Ce projet a été mené dans le respect des normes strictes applicables aux immeubles de grande hauteur (IGH). ",
+      "img": "https://cdn2.iguzzini.com/getmedia/06489936-79f1-46ae-b975-2304ccbcdd18/Seine-Central_1?width=1500&height=1001",
+      "img_two": "https://cdn6.iguzzini.com/getmedia/dd192fdb-7b1b-4814-87b7-db435e081f24/Seine-Central_2?width=1500&height=1001",
+      "img_three": "https://cdn1.iguzzini.com/getmedia/5a661a7d-77de-4b2d-9dfb-40c207ff059b/Seine-Central_3?width=1500&height=1001",
       "images": [
-        "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
-        "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg"
+        "https://cdn1.iguzzini.com/getmedia/5a661a7d-77de-4b2d-9dfb-40c207ff059b/Seine-Central_3?width=1500&height=1001",
+        "https://i.imgur.com/3H68ev3.png"
     ],
-      "tags": ["60m²", "Paris"],
-      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "tags": ["Paris (12)"],
+      "full_desc": "Pour l'immeuble Central Seine, nous avons entrepris un projet complexe de maintenance des éléments de façade, en collaboration avec des cordistes. Ce projet a été mené dans le respect des normes strictes applicables aux immeubles de grande hauteur (IGH).  Voici l'ensemble des travaux réalisés : Vérification des luminaires en façade : accroches et connexions électriques à 30 mètres du sol. Contrôle et tests des systèmes électriques : tableaux électriques et programmation DMX des luminaires. Installation de luminaires dans les ascenseurs.",
       "suggestion": [2, 3, 4],
-      "category": "Appartement"
+      "category": "Local commercial"
     },
     {
       "id": 2,
-      "title": "Second work name",
+      "title": "Projet Jaurès",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
       "img_two": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
@@ -26,14 +27,14 @@
             "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
             "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
         ],
-      "tags": ["80m²", "Paris"],
+      "tags": ["1800m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3],
-      "category": "Maison"
+      "category": "Local commercial"
     },
     {
       "id": 3,
-      "title": "Three work name",
+      "title": "Projet Faubourg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/Q8Y5ZH6.jpg",
       "img_two": "https://i.imgur.com/Q8Y5ZH6.jpg",
@@ -42,14 +43,14 @@
             "https://i.imgur.com/Q8Y5ZH6.jpg",
             "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
         ],
-      "tags": ["90m²", "Paris"],
+      "tags": ["1800m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3],
-      "category": "Bureaux"
+      "category": "Local commercial"
     },
     {
       "id": 4,
-      "title": "Four work name",
+      "title": "Projet Stalingrad",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/dlY3Ylh.jpg",
       "img_two": "https://i.imgur.com/dlY3Ylh.jpg",
@@ -58,14 +59,14 @@
             "https://i.imgur.com/dlY3Ylh.jpg",
             "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
         ],
-      "tags": ["100m²", "Paris"],
+      "tags": ["82m²", "Paris"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3],
       "category": "Local commercial"
     },
     {
       "id": 5,
-      "title": "Five work name",
+      "title": "Projet Juppiter",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://i.imgur.com/7k6Qait.jpg",
       "img_two": "https://i.imgur.com/7k6Qait.jpg",
@@ -74,14 +75,14 @@
             "https://i.imgur.com/7k6Qait.jpg",
             "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg"
         ],
-      "tags": ["120m²", "Paris"],
+      "tags": ["85m²", "Ermont"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3],
-      "category": "Maison"
+      "category": "Appartement/Maison"
     },
     {
       "id": 6,
-      "title": "Six work name",
+      "title": "Projet Ophélie",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
       "img_two": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
@@ -90,10 +91,26 @@
         "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg", 
         "https://i.imgur.com/dlY3Ylh.jpg"
     ],
-      "tags": ["130m²", "Paris"],
+      "tags": ["65m²", "Ermont"],
       "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
       "suggestion": [1, 2, 3],
-      "category": "Pro"
+      "category": "Appartement/Maison"
+    },
+    {
+      "id": 7,
+      "title": "Projet Morena",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_two": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "img_three": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
+      "images": [
+        "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg", 
+        "https://i.imgur.com/dlY3Ylh.jpg"
+    ],
+      "tags": ["65m²", "Epinay-sur-Seine"],
+      "full_desc": "Ceci est une description complète du travail effectué Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
+      "suggestion": [1, 2, 3],
+      "category": "Appartement/Maison"
     }
   ]
   

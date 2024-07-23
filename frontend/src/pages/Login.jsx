@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import UserContext from "../services/userContext"
-import { login } from "../api/session"
-import { resetPasswordRequest, setNewPassword } from "../api/session"
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import UserContext from "../services/userContext";
+import { login } from "../api/session";
+import { resetPasswordRequest, setNewPassword } from "../api/session";
 
-import login_bg from "../images/login_image.jpg"
-import NavBar from "../components/NavBar"
-import Swal from "sweetalert2"
-import Footer from "../components/Footer"
+import login_bg from "../images/login_image.jpg";
+import NavBar from "../components/NavBar";
+import Swal from "sweetalert2";
+import Footer from "../components/Footer";
 
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const userLogin = useRef({
     email: false,
     password: false,
-  })
+  });
   const { isAdmin, isPro, connected, setConnected, setToken } =
-    useContext(UserContext)
-  const [redInput, setRedInput] = useState(false)
+    useContext(UserContext);
+  const [redInput, setRedInput] = useState(false);
 
   useEffect(() => {
     if (connected) {
@@ -25,26 +25,26 @@ function Login() {
         ? "/dashboard"
         : isPro
         ? "/pro-account"
-        : "/account"
-      navigate(redirectPath)
+        : "/account";
+      navigate(redirectPath);
     }
-  }, [connected, isAdmin, isPro, navigate])
+  }, [connected, isAdmin, isPro, navigate]);
 
   const logIn = async () => {
     try {
-      const res = await login(userLogin.current)
-      localStorage.setItem("token", res.token)
-      setToken(res.token)
-      setConnected(true)
+      const res = await login(userLogin.current);
+      localStorage.setItem("token", res.token);
+      setToken(res.token);
+      setConnected(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setRedInput(true)
+        setRedInput(true);
         setTimeout(() => {
-          setRedInput(false)
-        }, 3000)
+          setRedInput(false);
+        }, 3000);
       }
     }
-  }
+  };
 
   const handleForgotPassword = async () => {
     const { value: email } = await Swal.fire({
@@ -60,11 +60,11 @@ function Login() {
       cancelButtonColor: "#D76C66",
       showCancelButton: true,
       cancelButtonText: "Annuler",
-    })
+    });
 
     if (email) {
       try {
-        const response = await resetPasswordRequest(email)
+        const response = await resetPasswordRequest(email);
         if (response.message) {
           const { value: code } = await Swal.fire({
             title: "Creér le code reçu",
@@ -79,10 +79,10 @@ function Login() {
             iconColor: "#C8B790",
             cancelButtonColor: "#D76C66",
             cancelButtonText: "Annuler",
-          })
+          });
 
           if (code) {
-            let newPassword
+            let newPassword;
 
             do {
               const { value: newPasswordInput } = await Swal.fire({
@@ -99,19 +99,19 @@ function Login() {
                 cancelButtonText: "Annuler",
                 inputValidator: (value) => {
                   if (value.length < 5 || value.length > 16) {
-                    return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères"
+                    return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères";
                   }
-                  return null
+                  return null;
                 },
-              })
+              });
 
               if (newPasswordInput) {
-                newPassword = newPasswordInput
+                newPassword = newPasswordInput;
               }
-            } while (!newPassword)
+            } while (!newPassword);
 
             if (newPassword) {
-              await setNewPassword(email, code, newPassword)
+              await setNewPassword(email, code, newPassword);
               Swal.fire({
                 title: "Mot de passe changé",
                 text: "Mot de passe changé avec succès",
@@ -119,7 +119,7 @@ function Login() {
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-              })
+              });
             }
           }
         }
@@ -132,7 +132,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          })
+          });
         } else if (error.response && error.response.status === 404) {
           Swal.fire({
             title: "Utilisateur pas trouvé",
@@ -141,7 +141,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          })
+          });
         } else if (error.response && error.response.status === 403) {
           Swal.fire({
             title: "Code expiré!",
@@ -150,7 +150,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          })
+          });
         } else if (error.response && error.response.status === 400) {
           Swal.fire({
             title: "Code invalid!",
@@ -159,35 +159,35 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          })
+          });
         } else {
-          Swal.fire("Erreur", error.message, "error")
+          Swal.fire("Erreur", error.message, "error");
         }
       }
     }
-  }
+  };
 
   return (
-    <section className="h-screen helvetica">
+    <section className="h-screen soleil">
       <NavBar />
       <div className="flex flex-col justify-center h-[80vh] bg-center w-full relative">
         {!connected && (
           <div className="flex w-[55%] max-lg:w-full h-full flex-col justify-center items-center">
             <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg">
               <div className="px-6 py-4">
-                <h3 className="mt-3 text-3xl helvetica-bold text-center">
+                <h3 className="mt-3 text-3xl soleil-bold text-center">
                   S’identifier
                 </h3>
 
                 <p className="mt-1 text-center text-gray-500">
-                  Veuillez saisir vos identifiants pour continuez
+                  Veuillez saisir vos identifiants pour continuer
                 </p>
 
                 <form
                   className="mt-8"
                   onSubmit={(e) => {
-                    e.preventDefault()
-                    logIn()
+                    e.preventDefault();
+                    logIn();
                   }}
                 >
                   <div className="relative flex items-center mt-2.5">
@@ -215,12 +215,12 @@ function Login() {
                       className={`block w-full py-3 text-gray-700 bg-white border rounded-full px-11 ${
                         redInput && "border-red-400"
                       }`}
-                      placeholder="Email address"
+                      placeholder="Adresse e-mail"
                       onChange={(e) => {
                         userLogin.current = {
                           ...userLogin.current,
                           email: e.target.value,
-                        }
+                        };
                       }}
                       autoComplete="email"
                       required
@@ -256,7 +256,7 @@ function Login() {
                         userLogin.current = {
                           ...userLogin.current,
                           password: e.target.value,
-                        }
+                        };
                       }}
                       autoComplete="current-password"
                       required
@@ -306,7 +306,7 @@ function Login() {
       </div>
       <Footer />
     </section>
-  )
+  );
 }
 
-export default Login
+export default Login;

@@ -12,7 +12,7 @@ export default function Reviews() {
       name: "Lucie P.",
       title: "Paris, France",
       quote:
-        "Nous sommes ravis du résultat, soigné et conforme à notre projet. L'entreprise en charge des travaux est au top ! Les échanges avec hemea ont été réguliers, toujours agréables et constructifs. On recommande très vivement !!",
+        "Nous sommes ravis du résultat, soigné et conforme à notre projet. L'entreprise en charge des travaux est au top ! Les échanges avec Theorem ont été réguliers, toujours agréables et constructifs. On recommande très vivement !!",
       stars: 5,
       backgroundImage: ReviewsBgImage,
     },
@@ -44,7 +44,7 @@ export default function Reviews() {
 
   return (
     <>
-      <h3 className="text-center max-md:text-2xl text-4xl pb-6 pt-4 helvetica-bold z-10">
+      <h3 className="text-center max-md:text-2xl text-4xl pb-6 pt-4 soleil z-10">
         Nos clients parlent de nous
       </h3>
       <section
@@ -54,7 +54,7 @@ export default function Reviews() {
           height: "600px",
         }}
       >
-        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8 flex justify-end w-full">
+        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8 flex justify-end w-full soleil">
           <div className="mt-14 flex justify-end items-center">
             <div className="max-w-lg bg-white p-8 shadow-lg mx-4 relative">
               <div className="flex items-center justify-between mb-4">
@@ -72,7 +72,7 @@ export default function Reviews() {
               <h3 className="text-xl font-bold mb-2 ">
                 {testimonials[currentIndex].name}
               </h3>
-              <p className="text-gray-800  mb-4">
+              <p className="text-gray-800 american mb-4">
                 {testimonials[currentIndex].quote}
               </p>
 

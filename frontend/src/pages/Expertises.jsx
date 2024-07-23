@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react"
-import NavBar from "../components/NavBar"
-import { Helmet } from "react-helmet"
-import expertise_bg from "../images/partenaire_bg.jpg"
-import pilotage from "../images/expertise_pilotage.jpg"
-import energetique from "../images/expertise_energetique.jpg"
-import solaire from "../images/expertise_pansolaire.jpg"
-import platrerie from "../images/expertise_platrerie.jpg"
-import plomberie from "../images/expertise_plomberie.jpg"
-import sols from "../images/expertise_sols.jpg"
-import Footer from "../components/Footer"
-import { useLocation } from "react-router-dom"
-import LinkArrow from "../images/svg/LinkArrow"
+import React, { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+import { Helmet } from "react-helmet";
+import expertise_bg from "../images/partenaire_bg.jpg";
+import pilotage from "../images/expertise_pilotage.jpg";
+import energetique from "../images/expertise_energetique.jpg";
+import solaire from "../images/expertise_pansolaire.jpg";
+import platrerie from "../images/expertise_platrerie.jpg";
+import plomberie from "../images/expertise_plomberie.jpg";
+import sols from "../images/expertise_sols.jpg";
+import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
+import LinkArrow from "../images/svg/LinkArrow";
 
 const expertises = [
   {
     id: "pilotage",
     title: "Projet de pilotage / agencement",
     description:
-      "THEOREM se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
+      "Theorem se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
     image: pilotage,
   },
   {
@@ -31,14 +31,14 @@ const expertises = [
     id: "plomberie",
     title: "Plomberie / Chauffagiste / VMC",
     description:
-      "Théorème excelle dans la fourniture de solutions de plomberie, de chauffage et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
+      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: plomberie,
   },
   {
     id: "platrerie",
     title: "Revêtements muraux / Plâtrerie",
     description:
-      "THEOREM se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
+      "Theorem se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
     image: platrerie,
   },
   {
@@ -52,58 +52,56 @@ const expertises = [
     id: "energetique",
     title: "Rénovation énergétique",
     description:
-      "Théorème excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
+      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: energetique,
   },
-]
+];
 
 function Expertises() {
-  const { pathname } = useLocation()
-  const [activeSection, setActiveSection] = useState("")
-  const [sticky, setSticky] = useState(false)
+  const { pathname } = useLocation();
+  const [activeSection, setActiveSection] = useState("");
+  const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const sectionOffsets = expertises.map((expertise) => ({
         id: expertise.id,
         offset: document.getElementById(expertise.id).offsetTop,
-      }))
+      }));
 
-      const scrollPosition = window.pageYOffset + window.innerHeight / 2
+      const scrollPosition = window.pageYOffset + window.innerHeight / 2;
 
       const currentSection = sectionOffsets.find(
         (section, idx) =>
           scrollPosition >= section.offset &&
           (idx === sectionOffsets.length - 1 ||
             scrollPosition < sectionOffsets[idx + 1].offset)
-      )
+      );
 
       if (currentSection && currentSection.id !== activeSection) {
-        setActiveSection(currentSection.id)
+        setActiveSection(currentSection.id);
       }
 
-      const navBar = document.getElementById("navBar")
-      const remainingScroll =
-        document.body.scrollHeight - window.pageYOffset - window.innerHeight
+      const navBar = document.getElementById("navBar");
 
       if (window.pageYOffset > navBar.offsetTop) {
-        setSticky(true)
-      } else if (remainingScroll >= 500) {
-        setSticky(false)
+        setSticky(true);
+      } else {
+        setSticky(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [activeSection])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
 
   const handleSectionClick = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-  }
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div>
@@ -115,7 +113,7 @@ function Expertises() {
         />
       </Helmet>
       <NavBar />
-      <section>
+      <section className="soleil">
         <div
           className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center"
           style={{ backgroundImage: `url(${expertise_bg})` }}
@@ -130,7 +128,7 @@ function Expertises() {
             <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
           </div>
         </div>
-        <div className="md:w-[80%] max-md:flex-col w-full mx-auto md:pt-4 md:py-8 helvetica flex">
+        <div className="md:w-[80%] max-md:flex-col w-full mx-auto md:pt-4 md:py-8 soleil flex">
           <div
             id="navBar"
             className={`w-[35%] max-md:w-full p-4 ${
@@ -157,13 +155,15 @@ function Expertises() {
           >
             {expertises.map((expertise, index) => (
               <section key={index} id={expertise.id} className="my-8">
-                <h2 className="text-3xl font-bold mb-4">{expertise.title}</h2>
+                <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
+                <p className="text-gray-700 american pb-4">
+                  {expertise.description}
+                </p>
                 <img
                   src={expertise.image}
                   alt={expertise.title}
                   className="w-full h-[500px] object-cover mb-4"
                 />
-                <p className="text-gray-700">{expertise.description}</p>
               </section>
             ))}
           </div>
@@ -171,7 +171,7 @@ function Expertises() {
       </section>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default Expertises
+export default Expertises;

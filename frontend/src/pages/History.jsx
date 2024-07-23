@@ -1,8 +1,8 @@
-import React from "react"
-import { Helmet } from "react-helmet"
+import React from "react";
+import { Helmet } from "react-helmet";
 
-import history_one from "../images/about_history.jpg"
-import history_two from "../images/history_two.png"
+import history_one from "../images/about_history.jpg";
+import history_two from "../images/history_two.png";
 
 function History() {
   return (
@@ -23,15 +23,15 @@ function History() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 helvetica-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Notre <span className="inline-block text-marron">histoire</span>
               </h2>
-              <p className="text-base helvetica text-gray-700 md:text-lg mb-1">
+              <p className="text-base soleil text-gray-700 md:text-lg mb-1">
                 Elle commence avec une amitié solide et des rêves partagés. En
                 associant nos compétences complémentaires, nous avons donné
                 naissance à notre entreprise.
               </p>
-              <p className="text-base helvetica text-gray-700 md:text-lg mb-1 pt-6">
+              <p className="text-base soleil text-gray-700 md:text-lg mb-1 pt-6">
                 Unis par les mêmes ambitions et valeurs, nous avons tracé le
                 chemin de la réalisation de projets complets en tant
                 qu'entreprise tous corps d'État. Chaque jour, nous mettons notre
@@ -57,7 +57,7 @@ function History() {
             />
           </div>
           <div className="flex flex-col justify-end items-end">
-            <p className="text-base helvetica text-gray-700 md:text-lg mb-1">
+            <p className="text-base soleil text-gray-700 md:text-lg mb-1">
               Notre parcours reflète notre concentration à l'excellence et notre
               passion pour créer des espaces uniques qui marquent une différence
               significative.
@@ -70,7 +70,7 @@ function History() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default History
+export default History;

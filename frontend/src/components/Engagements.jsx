@@ -1,5 +1,5 @@
 import React from "react"
-import EngImageOne from "../images/engagement_one.png"
+import EngImageOne from "../images/engagement_two.png"
 import EngImageTwo from "../images/engagement_two.png"
 import EngImageThree from "../images/engagement_three.png"
 
@@ -26,9 +26,9 @@ const engagements = [
 
 export default function Engagements() {
   return (
-    <section className="py-12 bg-white helvetica">
+    <section className="py-12 bg-white soleil">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <h2 className="text-4xl helvetica-bold text-center mb-8">
+        <h2 className="text-4xl soleil text-center mb-8">
           Nos engagements
         </h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
@@ -37,7 +37,7 @@ export default function Engagements() {
               key={idx}
               className="max-w-sm max-md:h-auto h-[400px] flex flex-col items-center justify-start bg-white shadow-md rounded-md overflow-hidden"
             >
-              <div className="w-[400px] h-48">
+              <div className="w-[450px] h-48">
                 <img
                   src={engagement.image}
                   alt={engagement.title}
@@ -45,10 +45,10 @@ export default function Engagements() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-center">
+                <h3 className="text-xl soleil-book mb-4 text-center">
                   {engagement.title}
                 </h3>
-                <p className="text-gray-700 text-center">
+                <p className="text-gray-700 text-center american">
                   {engagement.description}
                 </p>
               </div>

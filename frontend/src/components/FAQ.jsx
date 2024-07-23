@@ -42,10 +42,10 @@ const Item = ({ title, children }) => {
 
 export default function FAQ() {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 soleil">
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <h2 className="max-w-lg mb-6 text-3xl helvetica-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg mb-6 text-3xl soleil leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             Foire aux questions
           </h2>
           <p className="text-base text-gray-700 md:text-lg ">
@@ -54,7 +54,7 @@ export default function FAQ() {
         </div>
         <div className="space-y-4">
           <Item title="Theorem est-elle une entreprise de travaux ? ">
-            <p>
+            <p className="american">
               Chez Theorem, nous ne sommes pas simplement une entreprise de
               travaux. Nous offrons une expérience complète pour concrétiser les
               projets, qui vous tiennent à 💚 <br /> Nos équipes s'occupent de
@@ -64,12 +64,12 @@ export default function FAQ() {
             </p>
           </Item>
           <Item title="Quels sont vos principaux domaines d'expertise ?">
-            <p>
+            <p className="american">
               Notre savoir-faire couvre plusieurs aspects de votre projet, de la
               conception à la réalisation des travaux. Voici un aperçu de ce que
               nous proposons :
             </p>
-            <ul className="list-disc pl-14 py-2">
+            <ul className="list-disc pl-14 py-2 american">
               <li>Pilotage de projet</li>
               <li>Décoration intérieure</li>
               <li>Revêtement sol & murs</li>
@@ -83,8 +83,8 @@ export default function FAQ() {
             </Link>
           </Item>
           <Item title="Quelles sont les étapes initiales pour commencer un projet avec vous ?">
-            <p>Voici les étapes pour commencer votre projet</p>
-            <ul className="list-disc pl-14 py-2">
+            <p className="american">Voici les étapes pour commencer votre projet</p>
+            <ul className="list-disc pl-14 py-2 american">
               <li>
                 Complétez notre formulaire personnalisé pour nous donner un
                 aperçu de vos besoins et de votre vision.
@@ -102,7 +102,7 @@ export default function FAQ() {
             </Link>
           </Item>
           <Item title="Comment puis-je suivre l'avancement de mon projet en temps réel ?">
-            <p>
+            <p className="american">
               C’est facile ! Il vous suffit de vous connecter à votre espace
               client. Vous y trouverez toutes les mises à jour, des photos des
               progrès aux prochaines étapes

@@ -1,13 +1,13 @@
-import { useEffect } from "react"
-import { Helmet } from "react-helmet"
+import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
-import AOS from "aos"
-import "aos/dist/aos.css"
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Eco() {
   useEffect(() => {
-    AOS.init()
-  }, [])
+    AOS.init();
+  }, []);
 
   return (
     <div className="h-screen">
@@ -24,10 +24,10 @@ function Eco() {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <h2 className="text-3xl helvetica-bold">Notre démarche écologique</h2>
+        <h2 className="text-3xl soleil-bold">Notre démarche écologique</h2>
       </section>
     </div>
-  )
+  );
 }
 
-export default Eco
+export default Eco;

@@ -1,21 +1,27 @@
-import React, { useEffect } from "react"
-import NavBar from "../components/NavBar"
-import { Helmet } from "react-helmet"
-import { Link } from "react-router-dom"
-import AOS from "aos"
-import "aos/dist/aos.css"
+import React, { useEffect } from "react";
+import NavBar from "../components/NavBar";
+import { Helmet } from "react-helmet";
+import { Link, useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import partenaire_bg from "../images/partenaire_bg.jpg"
-import entrepreneut_image from "../images/entrepreneur.jpg"
-import architecte_image from "../images/architecte.jpg"
-import maitredouvre_image from "../images/maitredouvre.jpg"
-import LinkArrow from "../images/svg/LinkArrow"
-import Footer from "../components/Footer"
+import partenaire_bg from "../images/partenaire_bg.jpg";
+import entrepreneut_image from "../images/entrepreneur.jpg";
+import architecte_image from "../images/architecte.jpg";
+import maitredouvre_image from "../images/maitredouvre.jpg";
+import LinkArrow from "../images/svg/LinkArrow";
+import Footer from "../components/Footer";
 
 function Pro() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    AOS.init()
-  }, [])
+    AOS.init();
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const cardData = [
     {
@@ -33,10 +39,10 @@ function Pro() {
       title: "Maître d'oeuvre",
       link: "/candidate",
     },
-  ]
+  ];
 
   return (
-    <section className="bg-white helvetica">
+    <section className="bg-white soleil">
       <Helmet>
         <title>Partenariat avec Theorem Services</title>
         <meta
@@ -68,7 +74,7 @@ function Pro() {
             d'œuvre ? Travaillons ensemble !
           </h2>
           <p className="text-lg text-gray-700 mb-10">
-            Pourquoi choisir Theorem : Accédez à une diversité de projets et à
+            Pourquoi choisir Theorem : accédez à une diversité de projets et à
             une expertise de pointe pour propulser votre activité vers de
             nouveaux sommets, en concrétisant des concepts novateurs et en
             transformant chaque espace en une œuvre d'art vivante.
@@ -104,7 +110,7 @@ function Pro() {
       </div>
       <Footer />
     </section>
-  )
+  );
 }
 
-export default Pro
+export default Pro;

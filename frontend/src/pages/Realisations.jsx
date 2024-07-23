@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from "react"
-import NavBar from "../components/NavBar"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { Link, useLocation } from "react-router-dom"
-import { Helmet } from "react-helmet"
-import Footer from "../components/Footer"
+import React, { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
-const gallery = require("../services/gallery.json")
+const gallery = require("../services/gallery.json");
 
 function Realisations() {
-  const { pathname } = useLocation()
-  const [filteredProjects, setFilteredProjects] = useState(gallery)
-  const [selectedCategory, setSelectedCategory] = useState("Tous les projets")
+  const { pathname } = useLocation();
+  const [filteredProjects, setFilteredProjects] = useState(gallery);
+  const [selectedCategory, setSelectedCategory] = useState("Tous les projets");
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    AOS.init()
-  }, [pathname])
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, [pathname]);
 
   const categories = [
     "Tous les projets",
+    "Appartement/Maison",
     "Local commercial",
-    "Appartement",
-    "Maison",
     "Bureaux",
-    "Pro",
-  ]
+  ];
 
   const filterProjects = (category) => {
-    setSelectedCategory(category)
+    setSelectedCategory(category);
     if (category === "Tous les projets") {
-      setFilteredProjects(gallery)
+      setFilteredProjects(gallery);
     } else {
-      setFilteredProjects(gallery.filter((item) => item.category === category))
+      setFilteredProjects(gallery.filter((item) => item.category === category));
     }
-  }
+  };
 
   return (
     <section>
@@ -47,10 +45,8 @@ function Realisations() {
       </Helmet>
 
       <NavBar />
-      <div className="mb-16 helvetica">
-        <h2 className="text-center text-4xl helvetica-bold mt-6 mb-2">
-          Nos Projets
-        </h2>
+      <div className="mb-16 soleil">
+        <h2 className="text-center text-4xl soleil mt-6 mb-2">Nos Projets</h2>
         <p className="text-center mb-4">
           Maisons, appartements, conceptions architecturales, rénovations
           partielles ou complètes.
@@ -93,7 +89,7 @@ function Realisations() {
                     {item.title}
                   </h3>
                   <p className="text-white text-center mb-4">
-                    {item.description}
+                    {item.under_title}
                   </p>
                   <Link
                     to={`/realisations/${item.id}`}
@@ -103,13 +99,13 @@ function Realisations() {
                   </Link>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
       <Footer />
     </section>
-  )
+  );
 }
 
-export default Realisations
+export default Realisations;
