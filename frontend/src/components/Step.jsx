@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export const Step = () => {
   return (
@@ -11,7 +11,7 @@ export const Step = () => {
       <div className="flex gap-0 max-md:flex-col">
         <div className="sm:text-center relative py-8 px-4 bg-white rounded-tl- rounded-bl-sm shadow-md flex-grow max-md:text-center">
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
-            <div className="w-4 h-4 bg-marron rounded-full"></div>
+            <div className="w-4 h-4 bg-vert_principal rounded-full"></div>
           </div>
           <h2 className="soleil-bold text-3xl mb-2">1</h2>
           <h6 className="mb-2 font-semibold leading-5">
@@ -22,14 +22,14 @@ export const Step = () => {
           </p>
           <Link
             to="/estimation"
-            className="inline-block bg-marron text-white font-semibold rounded-lg px-6 py-2 mt-4"
+            className="inline-block bg-vert_principal text-white font-semibold rounded-lg px-6 py-2 mt-4"
           >
             Obtenir mon estimation
           </Link>
         </div>
         <div className="sm:text-center relative py-8 px-4 bg-white flex-grow shadow-inner max-md:text-center">
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
-            <div className="w-4 h-4 bg-marron rounded-full"></div>
+            <div className="w-4 h-4 bg-vert_principal rounded-full"></div>
           </div>
           <h2 className="soleil-bold text-3xl mb-2">2</h2>
           <h6 className="mb-2 font-semibold leading-5">Devis Personnalisé</h6>
@@ -39,7 +39,7 @@ export const Step = () => {
         </div>
         <div className="sm:text-center relative py-8 px-4 bg-white rounded-tr-sm rounded-br-sm shadow-md flex-grow max-md:text-center">
           <div className="flex items-center justify-center w-8 h-8 mb-4 text-2xl font-extrabold rounded-full bg-gray-200 mx-auto">
-            <div className="w-4 h-4 bg-marron rounded-full"></div>
+            <div className="w-4 h-4 bg-vert_principal rounded-full"></div>
           </div>
           <h2 className="soleil-bold text-3xl mb-2">3</h2>
           <h6 className="mb-2 font-semibold leading-5">Service 360°</h6>
@@ -51,5 +51,5 @@ export const Step = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

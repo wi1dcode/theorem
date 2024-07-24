@@ -77,13 +77,15 @@ export default function FAQ() {
               <li>Électricité</li>
             </ul>
             <Link to="/expertises" className="flex justify-end">
-              <button className="bg-marron rounded p-1 px-2 text-white">
+              <button className="bg-vert_principal rounded p-1 px-2 text-white">
                 En savoir plus
               </button>
             </Link>
           </Item>
           <Item title="Quelles sont les étapes initiales pour commencer un projet avec vous ?">
-            <p className="american">Voici les étapes pour commencer votre projet</p>
+            <p className="american">
+              Voici les étapes pour commencer votre projet
+            </p>
             <ul className="list-disc pl-14 py-2 american">
               <li>
                 Complétez notre formulaire personnalisé pour nous donner un
@@ -96,7 +98,7 @@ export default function FAQ() {
               </li>
             </ul>
             <Link to="/estimation" className="flex justify-end mt-2">
-              <button className="bg-marron rounded p-1 px-2 text-white">
+              <button className="bg-vert_principal rounded p-1 px-2 text-white">
                 Commencer mon projet
               </button>
             </Link>

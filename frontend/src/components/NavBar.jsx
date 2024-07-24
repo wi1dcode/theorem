@@ -57,10 +57,12 @@ function NavBar() {
     <nav
       className={`w-full soleil
          z-50 top-0 px-4 transition-all duration-300 ${
-        pathname === "/"
-          ? `fixed ${scrolled ? "bg-marron" : "bg-marron/30"}`
-          : "sticky bg-marron"
-      }`}
+           pathname === "/"
+             ? `fixed ${
+                 scrolled ? "bg-vert_principal" : "bg-vert_principal/30"
+               }`
+             : "sticky bg-vert_principal"
+         }`}
     >
       <div className="flex items-center justify-between mx-0 py-2 w-full max-lg:text-sm">
         <div className="flex items-center space-x-4">
@@ -70,7 +72,9 @@ function NavBar() {
             className="flex items-center mr-4"
           >
             <TheoremIcon />
-            <span className="text-white text-2xl pt-2 soleil-bold">Theorem</span>
+            <span className="text-white text-2xl pt-2 soleil-bold">
+              Theorem
+            </span>
             {/* <TheoremText className="text-white" /> */}
           </Link>
 
@@ -143,7 +147,7 @@ function NavBar() {
 
       {isOpen && (
         <div className="md:hidden fixed inset-0 z-40">
-          <div className="absolute top-0 left-0 right-0 p-2 bg-marron z-50 flex items-center justify-between transition-all duration-300">
+          <div className="absolute top-0 left-0 right-0 p-2 bg-vert_principal z-50 flex items-center justify-between transition-all duration-300">
             <Link
               to="/"
               onClick={() => window.scrollTo(0, 0)}

@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 
-import NavigateSvg from "../images/svg/NavigateSvg";
-import CalendSvg from "../images/svg/CalendSvg";
-import ContactMailSvg from "../images/svg/ContactMailSvg";
-import ContactPhone from "../images/svg/ContactPhone";
+import NavigateSvg from "../images/svg/NavigateSvg"
+import CalendSvg from "../images/svg/CalendSvg"
+import ContactMailSvg from "../images/svg/ContactMailSvg"
+import ContactPhone from "../images/svg/ContactPhone"
 
 function Contact() {
   return (
@@ -69,12 +69,12 @@ function Contact() {
                   </p>
                   <a
                     href="mailto:theorem.services@gmail.com"
-                    className="text-marron flex flex-col items-center gap-y-2"
+                    className="text-vert_principal flex flex-col items-center gap-y-2"
                   >
                     theorem.services@gmail.com
                     <button
                       type="button"
-                      className="py-2 px-6 w-[200px] text-white font-semibold bg-marron rounded-lg overflow-hidden"
+                      className="py-2 px-6 w-[200px] text-white font-semibold bg-vert_principal rounded-lg overflow-hidden"
                     >
                       Ecrire
                     </button>
@@ -87,12 +87,12 @@ function Contact() {
                   <p>Nous appeler :</p>
                   <a
                     href="tel:0695753702"
-                    className="text-marron flex flex-col items-center gap-y-2"
+                    className="text-vert_principal flex flex-col items-center gap-y-2"
                   >
                     06.95.75.37.02
                     <button
                       type="button"
-                      className="py-2 px-4 w-[200px] text-white font-semibold bg-marron rounded-lg overflow-hidden"
+                      className="py-2 px-4 w-[200px] text-white font-semibold bg-vert_principal rounded-lg overflow-hidden"
                     >
                       Appelez
                     </button>
@@ -104,7 +104,7 @@ function Contact() {
         </section>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

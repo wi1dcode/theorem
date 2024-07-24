@@ -110,7 +110,7 @@ function NavBarPro() {
                   <Link
                     onClick={item.onClick}
                     to={item.path}
-                    className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:text-white hover:bg-marron md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
+                    className="block avenir md:text-xl py-2 pl-3 pr-4 text-gray-900 rounded hover:text-white hover:bg-vert_principal md:border-0 md:hover:shadow-lg md:p-2 md:rounded-lg md:duration-150 md:ease-in-out"
                   >
                     {item.title}
                   </Link>

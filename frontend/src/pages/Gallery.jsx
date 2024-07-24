@@ -1,52 +1,52 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import Modal from "react-modal";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState, useEffect } from "react"
+import { Link, useLocation, useParams } from "react-router-dom"
+import NavBar from "../components/NavBar"
+import Footer from "../components/Footer"
+import Modal from "react-modal"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
-const GalleryData = require("../services/gallery.json");
+const GalleryData = require("../services/gallery.json")
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root")
 
 function Gallery() {
-  const { pathname } = useLocation();
-  const params = useParams();
-  const { id } = params;
-  const galleryItem = GalleryData.find((item) => item.id === parseInt(id));
+  const { pathname } = useLocation()
+  const params = useParams()
+  const { id } = params
+  const galleryItem = GalleryData.find((item) => item.id === parseInt(id))
   const similarWorks = GalleryData.filter(
     (item) =>
       galleryItem.suggestion.includes(item.id) && item.id !== galleryItem.id
-  );
+  )
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    AOS.init({ duration: 1000 })
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   const openModal = (index) => {
-    setActiveIndex(index);
-    setIsOpen(true);
-  };
+    setActiveIndex(index)
+    setIsOpen(true)
+  }
 
   const closeModal = () => {
-    setIsOpen(false);
-  };
+    setIsOpen(false)
+  }
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % galleryItem.images.length);
-  };
+    setActiveIndex((prevIndex) => (prevIndex + 1) % galleryItem.images.length)
+  }
 
   const handlePrev = () => {
     setActiveIndex(
       (prevIndex) =>
         (prevIndex - 1 + galleryItem.images.length) % galleryItem.images.length
-    );
-  };
+    )
+  }
 
   return (
     <div>
@@ -60,11 +60,7 @@ function Gallery() {
 
             <div className="flex flex-col items-center">
               <p className="mb-6 text-lg max-md:text-sm">
-                Pour l'immeuble Central Seine, nous avons entrepris un projet
-                complexe de maintenance des éléments de façade, en collaboration
-                avec des cordistes. Ce projet a été mené dans le respect des
-                normes strictes applicables aux immeubles de grande hauteur
-                (IGH).
+                {galleryItem.description}
               </p>
 
               <div className="flex">
@@ -81,14 +77,14 @@ function Gallery() {
 
             <Link
               to="/estimation"
-              className="px-6 py-2 text-lg max-md:mb-4 soleil-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
+              className="px-6 py-2 text-lg max-md:mb-4 soleil-medium bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300"
             >
               Commencer mon projet
             </Link>
           </div>
           <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden">
             <img
-              src={galleryItem.images[activeIndex]}
+              src={galleryItem.images[activeIndex].src}
               alt={`${galleryItem.title} ${activeIndex + 1}`}
               className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
               style={{ opacity: 1 }}
@@ -135,15 +131,11 @@ function Gallery() {
                 className="rounded-r-3xl rounded-bl-3xl object-cover w-full h-[200px] mb-4"
               />
               <div className="flex flex-col justify-between h-[48%]">
-                <h3 className="text-2xl font-bold mb-4">
-                  De la conception à la réalisation : notre expertise à votre
-                  service
-                </h3>
-                <p className="text-lg mb-6">{galleryItem.description}</p>
+                <p className="text-lg mb-6">{galleryItem.under_image}</p>
                 <div>
                   <Link
                     to="/estimation"
-                    className="px-6 py-2 text-lg soleil-medium bg-marron text-white rounded hover:bg-marron/80 transition duration-300"
+                    className="px-6 py-2 text-lg soleil-medium bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300"
                   >
                     Commencer mon projet
                   </Link>
@@ -164,7 +156,7 @@ function Gallery() {
                 <Link to={`/realisations/${item.id}`}>
                   <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
                     <img
-                      src={item.images[0]}
+                      src={item.images[0].src}
                       alt={item.title}
                       className="absolute inset-0 w-full h-full object-cover cursor-pointer"
                     />
@@ -200,11 +192,13 @@ function Gallery() {
             &#10094;
           </button>
           <img
-            src={galleryItem.images[activeIndex]}
+            src={galleryItem.images[activeIndex].src}
             alt={`${galleryItem.title} ${activeIndex + 1}`}
             className="object-cover w-auto h-auto max-h-full max-w-full"
           />
-          {/* <p className="text-white absolute bottom-5">Photographie : Didier Boy De La Tour</p> */}
+          <p className="text-white absolute bottom-5">
+            {galleryItem.images[activeIndex].credit}
+          </p>
           <button
             onClick={handleNext}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-3xl"
@@ -214,7 +208,7 @@ function Gallery() {
         </div>
       </Modal>
     </div>
-  );
+  )
 }
 
-export default Gallery;
+export default Gallery

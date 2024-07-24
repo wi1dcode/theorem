@@ -1,11 +1,11 @@
-import SvgInfo from "../images/svg/SvgInfo";
-import SvgCard from "../images/svg/SvgCard";
-import StarSvg from "../images/svg/StarSvg";
-import ExpertSvg from "../images/svg/ExpertSvg";
-import RepeatSvg from "../images/svg/RepeatSvg";
+import SvgInfo from "../images/svg/SvgInfo"
+import SvgCard from "../images/svg/SvgCard"
+import StarSvg from "../images/svg/StarSvg"
+import ExpertSvg from "../images/svg/ExpertSvg"
+import RepeatSvg from "../images/svg/RepeatSvg"
 
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2"
+import { Link } from "react-router-dom"
 
 function Services() {
   const paymentInfo = () => {
@@ -15,8 +15,8 @@ function Services() {
       icon: "question",
       iconColor: "#575548",
       confirmButtonColor: "#575548",
-    });
-  };
+    })
+  }
 
   return (
     <section className="w-full flex flex-col items-center">
@@ -84,14 +84,14 @@ function Services() {
       </div>
       <Link to="/estimation">
         <button
-          className="bg-marron shadow text-white font-semibold rounded-lg p-2 px-8  mt-10 soleil"
+          className="bg-vert_principal shadow text-white font-semibold rounded-lg p-2 px-8  mt-10 soleil"
           type="button"
         >
           Commencer mon projet
         </button>
       </Link>
     </section>
-  );
+  )
 }
 
-export default Services;
+export default Services

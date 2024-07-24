@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
-import NavBar from "../components/NavBar";
-import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react"
+import NavBar from "../components/NavBar"
+import { Helmet } from "react-helmet"
+import Footer from "../components/Footer"
+import { Link, useLocation } from "react-router-dom"
 
-import LinkArrow from "../images/svg/LinkArrow";
-import about_bg from "../images/about_bg.jpg";
+import LinkArrow from "../images/svg/LinkArrow"
+import about_bg from "../images/about_bg.jpg"
 
-import History from "./History";
-import Identite from "./Identite";
+import History from "./History"
+import Identite from "./Identite"
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function About() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    AOS.init();
-  }, [pathname]);
+    window.scrollTo(0, 0)
+    AOS.init()
+  }, [pathname])
 
   return (
     <section>
@@ -42,7 +42,7 @@ function About() {
           </h1>
           <Link
             to="/realisations"
-            className="inline-block mt-4 px-6 py-3 bg-vert_light text-white font-semibold rounded hover:bg-marron/80 transition duration-300"
+            className="inline-block mt-4 px-6 py-3 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
           >
             Nos projets
           </Link>
@@ -55,7 +55,7 @@ function About() {
       <Identite />
       <Footer />
     </section>
-  );
+  )
 }
 
-export default About;
+export default About

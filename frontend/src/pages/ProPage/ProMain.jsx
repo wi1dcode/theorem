@@ -1,17 +1,17 @@
-import React from "react";
-import CountUp from "react-countup";
+import React from "react"
+import CountUp from "react-countup"
 
-import HeaderBg from "../../images/pro-bg.jpg";
-import WelcomeImage from "../../images/welcome_pro.jpg";
-import ChantierImage from "../../images/pro_chantiers.jpg";
-import ChiffresImage from "../../images/pro_chiffres.jpg";
+import HeaderBg from "../../images/pro-bg.jpg"
+import WelcomeImage from "../../images/welcome_pro.jpg"
+import ChantierImage from "../../images/pro_chantiers.jpg"
+import ChiffresImage from "../../images/pro_chiffres.jpg"
 
-import ProSavoir from "./ProSavoir.jsx";
-import ProClients from "./ProClients.jsx";
-import ProContact from "./ProContact.jsx";
-import LinkArrow from "../../images/svg/LinkArrow.jsx";
-import TheoremLogo from "../../images/svg/TheoremLogo.jsx";
-import { Link } from "react-router-dom";
+import ProSavoir from "./ProSavoir.jsx"
+import ProClients from "./ProClients.jsx"
+import ProContact from "./ProContact.jsx"
+import LinkArrow from "../../images/svg/LinkArrow.jsx"
+import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
+import { Link } from "react-router-dom"
 
 function Pro() {
   return (
@@ -116,7 +116,7 @@ function Pro() {
           <div className="text-center px-4 max-md:mb-10">
             <Link
               to="/expertises"
-              className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-marron focus:shadow-outline focus:outline-none"
+              className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-vert_principal focus:shadow-outline focus:outline-none"
             >
               En voir plus
             </Link>
@@ -149,7 +149,7 @@ function Pro() {
               </div>
               <Link
                 to="/realisations"
-                className="inline-flex mt-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-marron focus:shadow-outline focus:outline-none"
+                className="inline-flex mt-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-vert_principal focus:shadow-outline focus:outline-none"
               >
                 Nos réalisations
               </Link>
@@ -174,7 +174,7 @@ function Pro() {
               </div>
               <Link
                 to="/realisations"
-                className="inline-flex mt-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-marron focus:shadow-outline focus:outline-none"
+                className="inline-flex mt-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-vert_principal focus:shadow-outline focus:outline-none"
               >
                 Nos réalisations
               </Link>
@@ -192,7 +192,7 @@ function Pro() {
         <ProContact />
       </div>
     </div>
-  );
+  )
 }
 
-export default Pro;
+export default Pro

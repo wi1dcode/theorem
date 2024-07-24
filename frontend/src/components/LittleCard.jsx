@@ -21,7 +21,7 @@ export default function LittleCard({
         <p className="text-sm leading-5 text-gray-900">{description}</p>
         {index === 3 && (
           <button
-            className="mt-4 py-2 px-4 bg-marron text-white rounded hover:bg-marron/80 transition duration-300 active:bg-marron/90"
+            className="mt-4 py-2 px-4 bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300 active:bg-vert_principal/90"
             onClick={scrollToContact}
           >
             Des questions ?

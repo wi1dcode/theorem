@@ -40,7 +40,7 @@ function Logging() {
         <button
           key="prev"
           onClick={() => setPage(page - 1)}
-          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+          className="bg-vert_principal rounded-lg px-4 py-2 text-white font-semibold"
         >
           Prev
         </button>
@@ -52,8 +52,8 @@ function Logging() {
         <button
           key={i}
           onClick={() => setPage(i)}
-          className={`bg-marron rounded-lg px-4 py-2 text-white font-semibold ${
-            i === page ? "bg-marron/50" : ""
+          className={`bg-vert_principal rounded-lg px-4 py-2 text-white font-semibold ${
+            i === page ? "bg-vert_principal/50" : ""
           }`}
         >
           {i}
@@ -66,7 +66,7 @@ function Logging() {
         <button
           key="next"
           onClick={() => setPage(page + 1)}
-          className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+          className="bg-vert_principal rounded-lg px-4 py-2 text-white font-semibold"
         >
           Next
         </button>
@@ -179,7 +179,7 @@ function Logging() {
           />
           <button
             onClick={handleSearch}
-            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold"
+            className="bg-vert_principal rounded-lg px-4 py-2 text-white font-semibold"
           >
             Chercher
           </button>
@@ -187,14 +187,14 @@ function Logging() {
         <div>
           <button
             onClick={handleDownloadLogs}
-            className="bg-marron rounded-lg px-4 py-2 text-white font-semibold max-md:mt-4"
+            className="bg-vert_principal rounded-lg px-4 py-2 text-white font-semibold max-md:mt-4"
           >
             Télécharger
           </button>
         </div>
       </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-marron/30">
+        <thead className="text-xs text-gray-700 uppercase bg-vert_principal/30">
           <tr>
             <th scope="col" className="px-6 py-3">
               Date
@@ -217,7 +217,7 @@ function Logging() {
           {logs.map((log) => (
             <tr
               key={log?._id}
-              className="bg-nuage/50 border-b border-marron/30"
+              className="bg-nuage/50 border-b border-vert_principal/30"
             >
               <td className="px-6 py-4">
                 {new Date(log?.createdAt).toLocaleString()}

@@ -3,7 +3,7 @@ import CountUp from "react-countup"
 
 export default function Stats() {
   return (
-    <div className="px-4 py-12 max-md:p-2 bg-marron w-full soleil">
+    <div className="px-4 py-12 max-md:p-2 bg-vert_principal w-full soleil">
       <div className="flex flex-col sm:flex-row justify-around max-md:justify-center items-center w-full max-w-screen-xl mx-auto">
         <div className="text-center flex-1 sm:border-r-2 border-gray-300 py-4">
           <h6 className="text-3xl font-bold lg:text-4xl text-white soleil-bold">

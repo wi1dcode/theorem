@@ -6,7 +6,7 @@ export default function EyeSvg() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6 text-marron"
+      className="w-6 h-6 text-vert_principal"
     >
       <path
         strokeLinecap="round"

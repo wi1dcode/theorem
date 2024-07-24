@@ -216,7 +216,7 @@ export default function Questions({
                     <p>Type: {savedData?.type}</p>
                     <button
                       onClick={() => editItem("type")}
-                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                      className="bg-vert_principal rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit
                     </button>
@@ -225,7 +225,7 @@ export default function Questions({
                     <p>Search: {savedData?.search}</p>
                     <button
                       onClick={() => editItem("search")}
-                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                      className="bg-vert_principal rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit
                     </button>
@@ -234,7 +234,7 @@ export default function Questions({
                     <p>Sizes: {savedData?.sizes}</p>
                     <button
                       onClick={() => editItem("sizes")}
-                      className="bg-marron rounded-lg px-2 text-white text-lg font-semibold"
+                      className="bg-vert_principal rounded-lg px-2 text-white text-lg font-semibold"
                     >
                       Edit
                     </button>

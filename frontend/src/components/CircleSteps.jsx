@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react"
 
 const steps = [
   {
@@ -24,69 +24,69 @@ const steps = [
       "Clap de fin ! Il est l'heure de découvrir le résultat... Nous organisons un rendez-vous pour valider la conformité du projet. Mais ce n’est pas la fin de notre aventure ensemble. Rejoignez notre communauté sur nos réseaux sociaux, et restez informé en avant-première de nos événements exclusifs, des conseils déco, et bien plus encore !",
     ],
   },
-];
+]
 
 const CircleSteps = () => {
-  const [activeStep, setActiveStep] = useState(1);
-  const stepsRef = useRef(null);
+  const [activeStep, setActiveStep] = useState(1)
+  const stepsRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!stepsRef.current) return;
-      const scrollPositionY = window.scrollY + window.innerHeight / 2;
+      if (!stepsRef.current) return
+      const scrollPositionY = window.scrollY + window.innerHeight / 2
 
-      let newActiveStep = activeStep;
+      let newActiveStep = activeStep
 
       steps.forEach((step) => {
-        const stepElement = document.getElementById(`step-${step.number}`);
-        if (!stepElement) return;
+        const stepElement = document.getElementById(`step-${step.number}`)
+        if (!stepElement) return
 
-        const rect = stepElement.getBoundingClientRect();
-        const elementMiddle = rect.top + window.scrollY + rect.height / 2;
+        const rect = stepElement.getBoundingClientRect()
+        const elementMiddle = rect.top + window.scrollY + rect.height / 2
 
         if (
           elementMiddle >= window.scrollY &&
           elementMiddle <= scrollPositionY
         ) {
-          newActiveStep = step.number;
+          newActiveStep = step.number
         }
-      });
+      })
 
-      setActiveStep(newActiveStep);
-    };
+      setActiveStep(newActiveStep)
+    }
 
     const handleTextScroll = () => {
-      if (window.innerWidth > 1050) return;
-      const lists = document.querySelector(".lists");
-      const children = lists.querySelectorAll(".step");
-      const scrollPositionX = lists.scrollLeft + lists.clientWidth / 2;
+      if (window.innerWidth > 1050) return
+      const lists = document.querySelector(".lists")
+      const children = lists.querySelectorAll(".step")
+      const scrollPositionX = lists.scrollLeft + lists.clientWidth / 2
 
-      let newActiveStep = activeStep;
+      let newActiveStep = activeStep
 
       children.forEach((stepElement) => {
-        const rect = stepElement.getBoundingClientRect();
-        const elementMiddle = rect.left + lists.scrollLeft + rect.width / 2;
+        const rect = stepElement.getBoundingClientRect()
+        const elementMiddle = rect.left + lists.scrollLeft + rect.width / 2
 
         if (
           elementMiddle >= lists.scrollLeft &&
           elementMiddle <= scrollPositionX
         ) {
-          newActiveStep = parseInt(stepElement.id.split("-")[1]);
+          newActiveStep = parseInt(stepElement.id.split("-")[1])
         }
-      });
+      })
 
-      setActiveStep(newActiveStep);
-    };
+      setActiveStep(newActiveStep)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    const lists = document.querySelector(".lists");
-    lists.addEventListener("scroll", handleTextScroll);
+    window.addEventListener("scroll", handleScroll)
+    const lists = document.querySelector(".lists")
+    lists.addEventListener("scroll", handleTextScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      lists.removeEventListener("scroll", handleTextScroll);
-    };
-  }, [activeStep]);
+      window.removeEventListener("scroll", handleScroll)
+      lists.removeEventListener("scroll", handleTextScroll)
+    }
+  }, [activeStep])
 
   // const generateSmallCircles = () => {
   //   const smallCircles = []
@@ -110,7 +110,7 @@ const CircleSteps = () => {
       <div className="flex relative items-start justify-center space-x-20 main-block">
         <div
           ref={stepsRef}
-          className="mt-64 w-64 h-64 flex-shrink-0 flex justify-center items-center border-2 border-marron/50 rounded-full sticky top-1/2 transform -translate-y-1/2 circle-block"
+          className="mt-64 w-64 h-64 flex-shrink-0 flex justify-center items-center border-2 border-vert_principal/50 rounded-full sticky top-1/2 transform -translate-y-1/2 circle-block"
           style={{ marginRight: "40px" }}
         >
           {steps.map((step) => (
@@ -118,8 +118,8 @@ const CircleSteps = () => {
               key={step.number}
               className={`absolute w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all duration-300 ${
                 activeStep === step.number
-                  ? "bg-marron text-white font-bold border-marron"
-                  : "bg-white border-marron/50 text-transparent"
+                  ? "bg-vert_principal text-white font-bold border-vert_principal"
+                  : "bg-white border-vert_principal/50 text-transparent"
               }`}
               style={{
                 transform: `rotate(${
@@ -158,7 +158,7 @@ const CircleSteps = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CircleSteps;
+export default CircleSteps

@@ -270,7 +270,7 @@ function Estimation() {
   }
 
   return (
-    <div className="bg-marron">
+    <div className="bg-vert_principal">
       <ScrollToTopOnMount />
       <SectionsContainer {...options}>
         {data.map((item, i) => {

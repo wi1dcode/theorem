@@ -66,7 +66,7 @@ export default function Reviews() {
                   stars={testimonials[currentIndex].stars}
                 />
               </div>
-              <h3 className="text-xl font-bold pb-2 mb-4 text-center border-b text-marron">
+              <h3 className="text-xl font-bold pb-2 mb-4 text-center border-b text-vert_principal">
                 {testimonials[currentIndex].project}
               </h3>
               <h3 className="text-xl font-bold mb-2 ">

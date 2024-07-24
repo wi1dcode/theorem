@@ -396,7 +396,7 @@
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #575548 #ffffff;
+  scrollbar-color: #353d2b #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
@@ -409,20 +409,20 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #575548;
+  background-color: #353D2B;
   border-radius: 10px;
   border: 4px solid #ffffff;
 }
 
 /* selection text */
 ::selection {
-  background-color: #575548;
+  background-color: #353D2B;
   color: #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
 ::-webkit-selection {
-  background-color: #575548;
+  background-color: #353D2B;
   color: #ffffff;
 }
 

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useEffect } from "react"
+import { Helmet } from "react-helmet"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
-import identite_one from "../images/identite_one.jpg";
-import qualityImageOne from "../images/engagement_two.png";
-import qualityImageTwo from "../images/engagement_two.png";
-import qualityImageThree from "../images/engagement_three.png";
+import identite_one from "../images/identite_one.jpg"
+import qualityImageOne from "../images/engagement_two.png"
+import qualityImageTwo from "../images/engagement_two.png"
+import qualityImageThree from "../images/engagement_three.png"
 
 const qualities = [
   {
@@ -25,12 +25,12 @@ const qualities = [
     image: qualityImageOne,
     title: "Eco-responsabilité",
   },
-];
+]
 
 function Identite() {
   useEffect(() => {
-    AOS.init();
-  }, []);
+    AOS.init()
+  }, [])
 
   return (
     <section data-aos="fade-up" data-aos-duration="1000">
@@ -58,7 +58,9 @@ function Identite() {
             <div className="max-w-xl mb-6">
               <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Chez Theorem, <br /> nous transformons chaque projet en un{" "}
-                <span className="inline-block text-marron">carré parfait</span>
+                <span className="inline-block text-vert_principal">
+                  carré parfait
+                </span>
               </h2>
               <p className="text-base soleil text-gray-700 md:text-lg mb-1">
                 Theorem est bien plus qu'une simple entreprise; c'est une entité
@@ -105,7 +107,7 @@ function Identite() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Identite;
+export default Identite

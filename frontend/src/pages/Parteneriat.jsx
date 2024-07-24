@@ -1,27 +1,27 @@
-import React, { useEffect } from "react";
-import NavBar from "../components/NavBar";
-import { Helmet } from "react-helmet";
-import { Link, useLocation } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useEffect } from "react"
+import NavBar from "../components/NavBar"
+import { Helmet } from "react-helmet"
+import { Link, useLocation } from "react-router-dom"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
-import partenaire_bg from "../images/partenaire_bg.jpg";
-import entrepreneut_image from "../images/entrepreneur.jpg";
-import architecte_image from "../images/architecte.jpg";
-import maitredouvre_image from "../images/maitredouvre.jpg";
-import LinkArrow from "../images/svg/LinkArrow";
-import Footer from "../components/Footer";
+import partenaire_bg from "../images/partenaire_bg.jpg"
+import entrepreneut_image from "../images/entrepreneur.jpg"
+import architecte_image from "../images/architecte.jpg"
+import maitredouvre_image from "../images/maitredouvre.jpg"
+import LinkArrow from "../images/svg/LinkArrow"
+import Footer from "../components/Footer"
 
 function Pro() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    AOS.init();
-  }, []);
+    AOS.init()
+  }, [])
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   const cardData = [
     {
@@ -39,7 +39,7 @@ function Pro() {
       title: "Maître d'oeuvre",
       link: "/candidate",
     },
-  ];
+  ]
 
   return (
     <section className="bg-white soleil">
@@ -99,7 +99,7 @@ function Pro() {
                 <h3 className="text-xl font-semibold mb-8">{card.title}</h3>
                 <Link
                   to={card.link}
-                  className="mt-4 px-10 py-3 bg-marron text-white font-semibold rounded hover:bg-marron/80 transition duration-300"
+                  className="mt-4 px-10 py-3 bg-vert_principal text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
                 >
                   Postuler
                 </Link>
@@ -110,7 +110,7 @@ function Pro() {
       </div>
       <Footer />
     </section>
-  );
+  )
 }
 
-export default Pro;
+export default Pro

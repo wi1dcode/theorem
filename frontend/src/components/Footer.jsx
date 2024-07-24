@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import TheoremIcon from "../images/svg/TheoremIcon";
+import React from "react"
+import { Link } from "react-router-dom"
+import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
   return (
-    <footer className="bg-marron py-8 soleil">
+    <footer className="bg-vert_principal py-8 soleil">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
         <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-start">
@@ -22,53 +22,61 @@ function Footer() {
               </span>
             </Link>
           </div>
-          <div className="flex flex-col text-white border-r pr-4">
-            <p>Nous contacter</p>
-            <a className="american" href="mailto:theorem.services@gmail.com">
-              theorem.services@gmail.com
-            </a>
-            <a className="american" href="tel:+33695753702">
-              06 95 75 37 02
-            </a>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p>Nous contacter</p>
+              <a className="american" href="mailto:theorem.services@gmail.com">
+                theorem.services@gmail.com
+              </a>
+              <a className="american" href="tel:+33695753702">
+                06 95 75 37 02
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col  text-white border-r pr-4">
-            <p className="soleil-bold mb-2">Nous suivre</p>
-            <Link
-              to="https://www.instagram.com/theorem_concept/"
-              target="_blank"
-              className="hover:text-beige/50 american"
-            >
-              Instagram
-            </Link>
-            <Link
-              to="https://www.facebook.com/"
-              target="_blank"
-              className="hover:text-beige/50 american"
-            >
-              Facebook
-            </Link>
-            <Link
-              to="https://www.linkedin.com/company/theoremconcept/"
-              className="hover:text-beige/50 american"
-              target="_blank"
-            >
-              LinkedIn
-            </Link>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Nous suivre</p>
+              <Link
+                to="https://www.instagram.com/theorem_concept/"
+                target="_blank"
+                className="hover:text-beige/50 american"
+              >
+                Instagram
+              </Link>
+              <Link
+                to="https://www.facebook.com/"
+                target="_blank"
+                className="hover:text-beige/50 american"
+              >
+                Facebook
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/theoremconcept/"
+                className="hover:text-beige/50 american"
+                target="_blank"
+              >
+                LinkedIn
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col text-white border-r pr-4">
-            <p className="soleil-bold mb-2">Nous rendre visite</p>
-            <p className="american">27 rue stalingrad, 95120, Ermont</p>
-            <p className="soleil-bold mt-2">Horaires d'ouverture</p>
-            <p className="american">Du lundi au samedi de 10h à 18h</p>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Nous rendre visite</p>
+              <p className="american">27 rue stalingrad, 95120, Ermont</p>
+              <p className="soleil-bold mt-2">Horaires d'ouverture</p>
+              <p className="american">Du lundi au samedi de 10h à 18h</p>
+            </div>
           </div>
-          <div className="flex flex-col text-white">
-            <p className="soleil-bold mb-2">Plus d'informations</p>
-            <Link to="/" className="hover:text-beige/50 american">
-              Plaquette de présentation
-            </Link>
-            <Link to="/partenariat" className="hover:text-beige/50 american">
-              Devenir partenaire
-            </Link>
+          <div className="flex flex-grow justify-center max-md:justify-start">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Plus d'informations</p>
+              <Link to="/" className="hover:text-beige/50 american">
+                Plaquette de présentation
+              </Link>
+              <Link to="/partenariat" className="hover:text-beige/50 american">
+                Devenir partenaire
+              </Link>
+            </div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0">
@@ -89,7 +97,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import UserContext from "../services/userContext";
-import { login } from "../api/session";
-import { resetPasswordRequest, setNewPassword } from "../api/session";
+import React, { useContext, useEffect, useRef, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import UserContext from "../services/userContext"
+import { login } from "../api/session"
+import { resetPasswordRequest, setNewPassword } from "../api/session"
 
-import login_bg from "../images/login_image.jpg";
-import NavBar from "../components/NavBar";
-import Swal from "sweetalert2";
-import Footer from "../components/Footer";
+import login_bg from "../images/login_image.jpg"
+import NavBar from "../components/NavBar"
+import Swal from "sweetalert2"
+import Footer from "../components/Footer"
 
 function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const userLogin = useRef({
     email: false,
     password: false,
-  });
+  })
   const { isAdmin, isPro, connected, setConnected, setToken } =
-    useContext(UserContext);
-  const [redInput, setRedInput] = useState(false);
+    useContext(UserContext)
+  const [redInput, setRedInput] = useState(false)
 
   useEffect(() => {
     if (connected) {
@@ -25,26 +25,26 @@ function Login() {
         ? "/dashboard"
         : isPro
         ? "/pro-account"
-        : "/account";
-      navigate(redirectPath);
+        : "/account"
+      navigate(redirectPath)
     }
-  }, [connected, isAdmin, isPro, navigate]);
+  }, [connected, isAdmin, isPro, navigate])
 
   const logIn = async () => {
     try {
-      const res = await login(userLogin.current);
-      localStorage.setItem("token", res.token);
-      setToken(res.token);
-      setConnected(true);
+      const res = await login(userLogin.current)
+      localStorage.setItem("token", res.token)
+      setToken(res.token)
+      setConnected(true)
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setRedInput(true);
+        setRedInput(true)
         setTimeout(() => {
-          setRedInput(false);
-        }, 3000);
+          setRedInput(false)
+        }, 3000)
       }
     }
-  };
+  }
 
   const handleForgotPassword = async () => {
     const { value: email } = await Swal.fire({
@@ -60,11 +60,11 @@ function Login() {
       cancelButtonColor: "#D76C66",
       showCancelButton: true,
       cancelButtonText: "Annuler",
-    });
+    })
 
     if (email) {
       try {
-        const response = await resetPasswordRequest(email);
+        const response = await resetPasswordRequest(email)
         if (response.message) {
           const { value: code } = await Swal.fire({
             title: "Creér le code reçu",
@@ -79,10 +79,10 @@ function Login() {
             iconColor: "#C8B790",
             cancelButtonColor: "#D76C66",
             cancelButtonText: "Annuler",
-          });
+          })
 
           if (code) {
-            let newPassword;
+            let newPassword
 
             do {
               const { value: newPasswordInput } = await Swal.fire({
@@ -99,19 +99,19 @@ function Login() {
                 cancelButtonText: "Annuler",
                 inputValidator: (value) => {
                   if (value.length < 5 || value.length > 16) {
-                    return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères";
+                    return "La longueur du mot de passe doit être comprise entre 5 et 16 caractères"
                   }
-                  return null;
+                  return null
                 },
-              });
+              })
 
               if (newPasswordInput) {
-                newPassword = newPasswordInput;
+                newPassword = newPasswordInput
               }
-            } while (!newPassword);
+            } while (!newPassword)
 
             if (newPassword) {
-              await setNewPassword(email, code, newPassword);
+              await setNewPassword(email, code, newPassword)
               Swal.fire({
                 title: "Mot de passe changé",
                 text: "Mot de passe changé avec succès",
@@ -119,7 +119,7 @@ function Login() {
                 showConfirmButton: false,
                 timer: 2000,
                 timerProgressBar: true,
-              });
+              })
             }
           }
         }
@@ -132,7 +132,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          });
+          })
         } else if (error.response && error.response.status === 404) {
           Swal.fire({
             title: "Utilisateur pas trouvé",
@@ -141,7 +141,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          });
+          })
         } else if (error.response && error.response.status === 403) {
           Swal.fire({
             title: "Code expiré!",
@@ -150,7 +150,7 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          });
+          })
         } else if (error.response && error.response.status === 400) {
           Swal.fire({
             title: "Code invalid!",
@@ -159,13 +159,13 @@ function Login() {
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar: true,
-          });
+          })
         } else {
-          Swal.fire("Erreur", error.message, "error");
+          Swal.fire("Erreur", error.message, "error")
         }
       }
     }
-  };
+  }
 
   return (
     <section className="h-screen soleil">
@@ -186,15 +186,15 @@ function Login() {
                 <form
                   className="mt-8"
                   onSubmit={(e) => {
-                    e.preventDefault();
-                    logIn();
+                    e.preventDefault()
+                    logIn()
                   }}
                 >
                   <div className="relative flex items-center mt-2.5">
                     <span className="absolute">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 mx-3 text-marron/40 dark:text-gray-500"
+                        className="w-6 h-6 mx-3 text-vert_principal/40 dark:text-gray-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -220,7 +220,7 @@ function Login() {
                         userLogin.current = {
                           ...userLogin.current,
                           email: e.target.value,
-                        };
+                        }
                       }}
                       autoComplete="email"
                       required
@@ -230,7 +230,7 @@ function Login() {
                     <span className="absolute">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 mx-3 text-marron/40"
+                        className="w-6 h-6 mx-3 text-vert_principal/40"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -256,7 +256,7 @@ function Login() {
                         userLogin.current = {
                           ...userLogin.current,
                           password: e.target.value,
-                        };
+                        }
                       }}
                       autoComplete="current-password"
                       required
@@ -266,7 +266,7 @@ function Login() {
                   <div className="flex items-center justify-between mt-4">
                     <button
                       type="submit"
-                      className="tracking-wide rounded-full bg-marron w-full px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
+                      className="tracking-wide rounded-full bg-vert_principal w-full px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-vert_principal/80"
                     >
                       <span className="w-full rounded-full">Se connecter</span>
                     </button>
@@ -274,11 +274,11 @@ function Login() {
                 </form>
               </div>
 
-              <div className="flex flex-col gap-y-2 items-center justify-center py-4 text-center border-t border-marron w-[70%] mx-auto">
+              <div className="flex flex-col gap-y-2 items-center justify-center py-4 text-center border-t border-vert_principal w-[70%] mx-auto">
                 <button
                   type="button"
                   onClick={handleForgotPassword}
-                  className="text-sm text-marron underline"
+                  className="text-sm text-vert_principal underline"
                 >
                   Mot de passe oublié ?
                 </button>
@@ -289,7 +289,7 @@ function Login() {
 
                   <Link
                     to="/estimation"
-                    className="mx-2 text-sm text-marron underline"
+                    className="mx-2 text-sm text-vert_principal underline"
                   >
                     Créer un compte
                   </Link>
@@ -306,7 +306,7 @@ function Login() {
       </div>
       <Footer />
     </section>
-  );
+  )
 }
 
-export default Login;
+export default Login

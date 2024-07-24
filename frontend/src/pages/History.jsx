@@ -1,8 +1,8 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import React from "react"
+import { Helmet } from "react-helmet"
 
-import history_one from "../images/about_history.jpg";
-import history_two from "../images/history_two.png";
+import history_one from "../images/about_history.jpg"
+import history_two from "../images/history_two.png"
 
 function History() {
   return (
@@ -24,7 +24,10 @@ function History() {
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
               <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                Notre <span className="inline-block text-marron">histoire</span>
+                Notre{" "}
+                <span className="inline-block text-vert_principal">
+                  histoire
+                </span>
               </h2>
               <p className="text-base soleil text-gray-700 md:text-lg mb-1">
                 Elle commence avec une amitié solide et des rêves partagés. En
@@ -70,7 +73,7 @@ function History() {
         </div>
       </section>
     </div>
-  );
+  )
 }
 
-export default History;
+export default History

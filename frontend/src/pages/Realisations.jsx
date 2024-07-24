@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
+import React, { useEffect, useState } from "react"
+import NavBar from "../components/NavBar"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { Link, useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet"
+import Footer from "../components/Footer"
 
-const gallery = require("../services/gallery.json");
+const gallery = require("../services/gallery.json")
 
 function Realisations() {
-  const { pathname } = useLocation();
-  const [filteredProjects, setFilteredProjects] = useState(gallery);
-  const [selectedCategory, setSelectedCategory] = useState("Tous les projets");
+  const { pathname } = useLocation()
+  const [filteredProjects, setFilteredProjects] = useState(gallery)
+  const [selectedCategory, setSelectedCategory] = useState("Tous les projets")
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    AOS.init();
-  }, [pathname]);
+    window.scrollTo(0, 0)
+    AOS.init()
+  }, [pathname])
 
   const categories = [
     "Tous les projets",
     "Appartement/Maison",
     "Local commercial",
     "Bureaux",
-  ];
+  ]
 
   const filterProjects = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category)
     if (category === "Tous les projets") {
-      setFilteredProjects(gallery);
+      setFilteredProjects(gallery)
     } else {
-      setFilteredProjects(gallery.filter((item) => item.category === category));
+      setFilteredProjects(gallery.filter((item) => item.category === category))
     }
-  };
+  }
 
   return (
     <section>
@@ -56,9 +56,9 @@ function Realisations() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`py-2 px-4 rounded-full max-md:w-[80%] transition hover:bg-marron hover:text-white border border-marron duration-300 ${
+              className={`py-2 px-4 rounded-full max-md:w-[80%] transition hover:bg-vert_principal hover:text-white border border-vert_principal duration-300 ${
                 selectedCategory === category
-                  ? "bg-marron border-marron text-white"
+                  ? "bg-vert_principal border-vert_principal text-white"
                   : "text-black"
               }`}
               onClick={() => filterProjects(category)}
@@ -93,19 +93,19 @@ function Realisations() {
                   </p>
                   <Link
                     to={`/realisations/${item.id}`}
-                    className="py-2 px-4 bg-marron text-white rounded-full hover:bg-marron/80 transition duration-300"
+                    className="py-2 px-4 bg-vert_principal text-white rounded-full hover:bg-vert_principal/80 transition duration-300"
                   >
                     En savoir plus
                   </Link>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
       <Footer />
     </section>
-  );
+  )
 }
 
-export default Realisations;
+export default Realisations
