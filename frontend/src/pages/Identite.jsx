@@ -4,26 +4,27 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 
 import identite_one from "../images/identite_one.jpg"
-import qualityImageOne from "../images/engagement_two.png"
-import qualityImageTwo from "../images/engagement_two.png"
-import qualityImageThree from "../images/engagement_three.png"
+import qualityImageOne from "../images/coeur_ouvrage.jpg"
+import qualityImageTwo from "../images/ethique.jpg"
+import qualityImageThree from "../images/innovation.jpg"
+import qualityImageFour from "../images/demarche_eco.jpg"
 
 const qualities = [
   {
     image: qualityImageOne,
-    title: "Engagement",
+    title: "Notre cœur à l’ouvrage",
   },
   {
     image: qualityImageTwo,
-    title: "Humain",
+    title: "Nos pratiques éthiques",
   },
   {
     image: qualityImageThree,
-    title: "Positivité",
+    title: "Notre goût pour l’innovation",
   },
   {
-    image: qualityImageOne,
-    title: "Eco-responsabilité",
+    image: qualityImageFour,
+    title: "Nos meilleures actions",
   },
 ]
 
@@ -80,8 +81,8 @@ function Identite() {
         data-aos-duration="1000"
       >
         <div className="mx-auto px-4 w-full">
-          <h2 className="text-4xl soleil-bold text-center mb-8">
-            Nos plus belles qualités
+          <h2 className="text-4xl soleil-book text-center mb-8">
+            Nos meilleurs atouts
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-8 w-full">
             {qualities.map((quality, idx) => (
@@ -97,7 +98,7 @@ function Identite() {
                   />
                 </div>
                 <div className="pt-4">
-                  <h3 className="text-xl font-semibold mb-4 text-center">
+                  <h3 className="text-xl font-semibold mb-4 text-center px-4">
                     {quality.title}
                   </h3>
                 </div>

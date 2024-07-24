@@ -6,7 +6,60 @@ import Modal from "react-modal"
 import AOS from "aos"
 import "aos/dist/aos.css"
 
-const GalleryData = require("../services/gallery.json")
+// Rapee
+import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
+import RapeeCordiste from "../images/projects/rapee/rapee_cordiste.jpg"
+import RapeeCordisteTwo from "../images/projects/rapee/rapee_cordiste_2.jpg"
+import RapeeCordisteThree from "../images/projects/rapee/rapee_cordiste_3.jpg"
+import RapeeVue from "../images/projects/rapee/rapee_vue.jpg"
+import RapeeVueTwo from "../images/projects/rapee/rapee_vue_2.jpg"
+import RapeeVueThree from "../images/projects/rapee/rapee_vue_3.jpg"
+// Fabourg
+import FabourgOne from "../images/projects/fabourg/fabourg_one.jpg"
+import FabourgTwo from "../images/projects/fabourg/fabourg_two.jpg"
+import FabourgThree from "../images/projects/fabourg/fabourg_three.jpg"
+import FabourgFour from "../images/projects/fabourg/fabourg_four.jpg"
+// Jaures
+import JauresMain from "../images/projects/jaures/jaures_main.jpg"
+// Ophelie
+import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
+import OphelieChambre from "../images/projects/ophelie/ophelie_chambre.jpg"
+import OphelieCuisine from "../images/projects/ophelie/ophelie_cuisine.jpg"
+import OphelieSalonTwo from "../images/projects/ophelie/ophelie_salon_2.jpg"
+import OphelieSalonThree from "../images/projects/ophelie/ophelie_salon_3.jpg"
+import OphelieSalon from "../images/projects/ophelie/ophelie_salon.jpg"
+import OphelieSdbTwo from "../images/projects/ophelie/ophelie_sdb_2.jpg"
+import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
+import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
+// Coming soon
+import ComingSoon from "../images/projects/coming_soon.jpg"
+
+const galleryData = require("../services/gallery.json")
+
+const imageMap = {
+  "main_rapee.jpg": RapeeMain,
+  "rapee_cordiste.jpg": RapeeCordiste,
+  "rapee_cordiste_2.jpg": RapeeCordisteTwo,
+  "rapee_cordiste_3.jpg": RapeeCordisteThree,
+  "rapee_vue.jpg": RapeeVue,
+  "rapee_vue_2.jpg": RapeeVueTwo,
+  "rapee_vue_3.jpg": RapeeVueThree,
+  "fabourg_one.jpg": FabourgOne,
+  "fabourg_two.jpg": FabourgTwo,
+  "fabourg_three.jpg": FabourgThree,
+  "fabourg_four.jpg": FabourgFour,
+  "jaures_main.jpg": JauresMain,
+  "ophelie_chambre_2.jpg": OphelieChambreTwo,
+  "ophelie_chambre.jpg": OphelieChambre,
+  "ophelie_cuisine.jpg": OphelieCuisine,
+  "ophelie_salon_2.jpg": OphelieSalonTwo,
+  "ophelie_salon_3.jpg": OphelieSalonThree,
+  "ophelie_salon.jpg": OphelieSalon,
+  "ophelie_sdb_2.jpg": OphelieSdbTwo,
+  "ophelie_sdb.jpg": OphelieSdb,
+  "ophelie_wc.jpg": OphelieWc,
+  "coming_soon.jpg": ComingSoon,
+}
 
 Modal.setAppElement("#root")
 
@@ -14,8 +67,8 @@ function Gallery() {
   const { pathname } = useLocation()
   const params = useParams()
   const { id } = params
-  const galleryItem = GalleryData.find((item) => item.id === parseInt(id))
-  const similarWorks = GalleryData.filter(
+  const galleryItem = galleryData.find((item) => item.id === parseInt(id))
+  const similarWorks = galleryData.filter(
     (item) =>
       galleryItem.suggestion.includes(item.id) && item.id !== galleryItem.id
   )
@@ -84,7 +137,7 @@ function Gallery() {
           </div>
           <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden">
             <img
-              src={galleryItem.images[activeIndex].src}
+              src={imageMap[galleryItem.images[activeIndex].src]}
               alt={`${galleryItem.title} ${activeIndex + 1}`}
               className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
               style={{ opacity: 1 }}
@@ -108,39 +161,36 @@ function Gallery() {
 
         <div>
           <div className="flex items-center text-center justify-center mt-10 px-1 flex-col py-4">
-            <h3 className="soleil-medium mb-2 text-xl">
-              De la conception à la réalisation : notre expertise à votre
-              service
+            <h3 className="soleil-book mb-2 text-xl">
+              Voici l'ensemble des travaux réalisés :
             </h3>
             <p className="w-[70%] max-md:w-[90%] text-lg">
               {galleryItem.full_desc}
             </p>
+
+            {galleryItem.id === 8 && (
+              <Link
+                to="/about"
+                className="inline-block mt-4 px-6 py-3 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
+              >
+                A propos
+              </Link>
+            )}
           </div>
           <div className="flex items-start gap-x-20 justify-center mt-10 max-md:flex-col pt-4 pb-8 shadow-lg rounded-lg max-md:px-6">
             <div className="flex flex-col w-[40%] max-md:w-full max-md:mb-4 h-[50vh]">
               <img
-                src={galleryItem.img_two}
+                src={imageMap[galleryItem.img_two]}
                 alt={galleryItem.title}
                 className="rounded-l-3xl rounded-br-3xl object-cover w-full h-full"
               />
             </div>
             <div className="flex flex-col justify-between items-start w-[40%] max-md:w-full max-md:mt-4">
               <img
-                src={galleryItem.img_three}
+                src={imageMap[galleryItem.img_three]}
                 alt={galleryItem.title}
-                className="rounded-r-3xl rounded-bl-3xl object-cover w-full h-[200px] mb-4"
+                className="rounded-r-3xl rounded-bl-3xl object-cover w-full h-[50vh] mb-4"
               />
-              <div className="flex flex-col justify-between h-[48%]">
-                <p className="text-lg mb-6">{galleryItem.under_image}</p>
-                <div>
-                  <Link
-                    to="/estimation"
-                    className="px-6 py-2 text-lg soleil-medium bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300"
-                  >
-                    Commencer mon projet
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -156,7 +206,7 @@ function Gallery() {
                 <Link to={`/realisations/${item.id}`}>
                   <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
                     <img
-                      src={item.images[0].src}
+                      src={imageMap[item.images[0].src]}
                       alt={item.title}
                       className="absolute inset-0 w-full h-full object-cover cursor-pointer"
                     />
@@ -192,7 +242,7 @@ function Gallery() {
             &#10094;
           </button>
           <img
-            src={galleryItem.images[activeIndex].src}
+            src={imageMap[galleryItem.images[activeIndex].src]}
             alt={`${galleryItem.title} ${activeIndex + 1}`}
             className="object-cover w-auto h-auto max-h-full max-w-full"
           />

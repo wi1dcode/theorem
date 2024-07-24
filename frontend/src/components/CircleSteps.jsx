@@ -1,27 +1,29 @@
 import React, { useState, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 
 const steps = [
   {
     number: 1,
     title: "Concevoir",
     description: [
-      "Vous avez un projet en tête ? Dites-nous tout en remplissant notre formulaire personnalisé.",
-      "Vous échangez avec votre chef de projet par téléphone ou lors d’une visite pour discuter de vos besoins et co concevoir votre projet. Ensemble, nous fusionnons vos inspirations avec notre expertise pour concevoir un projet à votre image. Nous vous conseillons et fournissons votre devis ainsi qu'une estimation du planning.",
+      "Vous avez un projet en tête ? Dites-nous tout.",
+      "Votre chef de projet Theorem Concept vous rappel pour discuter de vos besoins et de votre vision. ",
     ],
   },
   {
     number: 2,
     title: "Créer",
     description: [
-      "C’est le moment de rêver en couleurs et en formes ! Votre architecte d'intérieur Theorem vous guide pour optimiser et personnaliser votre espace.",
-      "Et ensuite ? Laissez-nous faire et profitez de cette aventure incroyable où vos aspirations les plus grandes se réalisent. Nous supervisons toutes les opérations, assurons le contrôle et le suivi du chantier pour transformer votre intérieur en un espace qui vous ressemble parfaitement.",
+      "C’est le moment de rêver en couleurs et en formes ! Votre architecte d'intérieur vous guide pour optimiser et personnaliser vos espaces de vie.",
+      "Et ensuite ? Laissez-nous faire et profitez de cette aventure incroyable où vos aspirations les plus grandes se réalisent.",
     ],
   },
   {
     number: 3,
     title: "Célébrer",
     description: [
-      "Clap de fin ! Il est l'heure de découvrir le résultat... Nous organisons un rendez-vous pour valider la conformité du projet. Mais ce n’est pas la fin de notre aventure ensemble. Rejoignez notre communauté sur nos réseaux sociaux, et restez informé en avant-première de nos événements exclusifs, des conseils déco, et bien plus encore !",
+      "Clap de fin ! Il est l'heure de découvrir le résultat.",
+      "Ce n’est pas la fin de notre aventure, rejoignez notre communauté sur les réseaux sociaux",
     ],
   },
 ]
@@ -148,10 +150,20 @@ const CircleSteps = () => {
               </h3>
               <ul className="list-disc american ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
-                  <li key={idx} className="text-lg max-md:text-sm">
+                  <p key={idx} className="text-lg max-md:text-sm">
                     {desc}
-                  </li>
+                  </p>
                 ))}
+                {step.number == 1 && (
+                  <Link to="/estimation">
+                    <button
+                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil"
+                      type="button"
+                    >
+                      Je remplis mon formulaire
+                    </button>
+                  </Link>
+                )}
               </ul>
             </div>
           ))}

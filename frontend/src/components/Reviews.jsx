@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import FiveStarsSvg from "../images/svg/FiveStarsSvg"
-import ReviewsBgImage from "../images/reviews_background.jpg"
-import ReviewsBgImageTwo from "../images/about_bg.jpg"
+import ReviewsBgImage from "../images/nos_clients_parlent_de_nous_1.jpg"
+import ReviewsBgImageTwo from "../images/nos_clients_parlent_de_nous_2.jpg"
 import LinkArrow from "../images/svg/LinkArrow.jsx"
 
 export default function Reviews() {

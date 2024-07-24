@@ -32,7 +32,7 @@ function About() {
       </Helmet>
       <NavBar />
       <div
-        className="relative flex items-center justify-center h-[70vh] bg-cover bg-center"
+        className="relative soleil flex items-center justify-center h-[70vh] bg-cover bg-center"
         style={{ backgroundImage: `url(${about_bg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -42,9 +42,9 @@ function About() {
           </h1>
           <Link
             to="/realisations"
-            className="inline-block mt-4 px-6 py-3 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
+            className="inline-block mt-4 px-6 py-2 pb-1 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
           >
-            Nos projets
+            Découvrir nos projets
           </Link>
         </div>
         <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">

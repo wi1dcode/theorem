@@ -1,7 +1,7 @@
 import React from "react"
-import EngImageOne from "../images/engagement_two.png"
-import EngImageTwo from "../images/engagement_two.png"
-import EngImageThree from "../images/engagement_three.png"
+import EngImageOne from "../images/roulons_vert.jpg"
+import EngImageTwo from "../images/bureau_eco_friendly.jpg"
+import EngImageThree from "../images/theorem_gagnant.jpg"
 
 const engagements = [
   {
@@ -18,9 +18,9 @@ const engagements = [
   },
   {
     image: EngImageThree,
-    title: "Le Theorem Gagnant pour la Jeunesse",
+    title: "Le Theorem Gagnant",
     description:
-      "Etenim si attendere diligenter, existimare vere de omni hac causa volueritis, sic constituetis, iudices.",
+      "Coming soon...",
   },
 ]
 
@@ -28,9 +28,7 @@ export default function Engagements() {
   return (
     <section className="py-12 bg-white soleil">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <h2 className="text-4xl soleil text-center mb-8">
-          Nos engagements
-        </h2>
+        <h2 className="text-4xl soleil text-center mb-8">Nos engagements</h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
           {engagements.map((engagement, idx) => (
             <div

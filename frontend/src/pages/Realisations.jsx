@@ -6,6 +6,12 @@ import { Link, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Footer from "../components/Footer"
 
+import ComingSoon from "../images/projects/coming_soon.jpg"
+import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
+import FabourgOne from "../images/projects/fabourg/fabourg_one.jpg"
+import JauresMain from "../images/projects/jaures/jaures_main.jpg"
+import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
+
 const gallery = require("../services/gallery.json")
 
 function Realisations() {
@@ -24,6 +30,14 @@ function Realisations() {
     "Local commercial",
     "Bureaux",
   ]
+
+  const imageMap = {
+    "main_rapee.jpg": RapeeMain,
+    "fabourg_one.jpg": FabourgOne,
+    "jaures_main.jpg": JauresMain,
+    "ophelie_chambre_2.jpg": OphelieChambreTwo,
+    "coming_soon.jpg": ComingSoon,
+  }
 
   const filterProjects = (category) => {
     setSelectedCategory(category)
@@ -81,7 +95,7 @@ function Realisations() {
               >
                 <img
                   className="w-full h-full object-cover rounded-xl"
-                  src={item.img}
+                  src={imageMap[item.img]}
                   alt={item.title}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 hover:backdrop-blur-md transition duration-300 rounded-xl p-4">
