@@ -24,10 +24,10 @@ function About() {
   return (
     <section>
       <Helmet>
-        <title>Qui sommes nous ? | Theorem Services</title>
+        <title>Qui sommes nous ? | Theorem Concept</title>
         <meta
           name="description"
-          content="Découvrez Theorem Services, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
+          content="Découvrez Theorem Concept, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
         />
       </Helmet>
       <NavBar />

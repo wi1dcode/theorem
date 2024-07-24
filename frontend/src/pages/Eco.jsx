@@ -12,10 +12,10 @@ function Eco() {
   return (
     <div className="h-screen">
       <Helmet>
-        <title>Écologiques | Theorem Services</title>
+        <title>Écologiques | Theorem Concept</title>
         <meta
           name="description"
-          content="Découvrez nos démarches écologiques chez Theorem Services. Engagés dans la préservation de l'environnement, nous adoptons des pratiques durables dans tous nos projets de rénovation."
+          content="Découvrez nos démarches écologiques chez Theorem Concept. Engagés dans la préservation de l'environnement, nous adoptons des pratiques durables dans tous nos projets de rénovation."
         />
       </Helmet>
 

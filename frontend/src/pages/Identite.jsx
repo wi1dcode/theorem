@@ -35,10 +35,10 @@ function Identite() {
   return (
     <section data-aos="fade-up" data-aos-duration="1000">
       <Helmet>
-        <title>A propos | Theorem Services</title>
+        <title>A propos | Theorem Concept</title>
         <meta
           name="description"
-          content="Découvrez Theorem Services, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
+          content="Découvrez Theorem Concept, votre partenaire expert en rénovation. Notre engagement envers la qualité et l'innovation fait de nous le choix idéal pour vos projets de rénovation."
         />
       </Helmet>
       <div

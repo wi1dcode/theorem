@@ -8,10 +8,10 @@ function History() {
   return (
     <div>
       <Helmet>
-        <title>Histoire | Theorem Services</title>
+        <title>Histoire | Theorem Concept</title>
         <meta
           name="description"
-          content="Plongez dans l'histoire de Theorem Services. Découvrez notre parcours, nos valeurs et comment nous transformons chaque projet de rénovation en une réussite exceptionnelle."
+          content="Plongez dans l'histoire de Theorem Concept. Découvrez notre parcours, nos valeurs et comment nous transformons chaque projet de rénovation en une réussite exceptionnelle."
         />
       </Helmet>
 

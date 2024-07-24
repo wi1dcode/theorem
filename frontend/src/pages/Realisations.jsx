@@ -37,10 +37,10 @@ function Realisations() {
   return (
     <section>
       <Helmet>
-        <title>Nos Réalisations | Theorem Services</title>
+        <title>Nos Réalisations | Theorem Concept</title>
         <meta
           name="description"
-          content="Découvrez nos réalisations et projets chez Theorem Services. Chaque projet est un témoignage de notre engagement envers la qualité et la satisfaction client."
+          content="Découvrez nos réalisations et projets chez Theorem Concept. Chaque projet est un témoignage de notre engagement envers la qualité et la satisfaction client."
         />
       </Helmet>
 

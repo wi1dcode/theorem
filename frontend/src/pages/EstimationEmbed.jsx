@@ -224,10 +224,10 @@ function EstimationEmbed() {
       style={{ backgroundImage: `url(${HeaderBg})` }}
     >
       <Helmet>
-        <title>Estimation | Theorem Services</title>
+        <title>Estimation | Theorem Concept</title>
         <meta
           name="description"
-          content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Services. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
+          content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Concept. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
         />
       </Helmet>
       {isFormReady && (

@@ -68,10 +68,10 @@ function Home() {
   return (
     <main className="w-full">
       <Helmet>
-        <title>Theorem Services | Rénovation</title>
+        <title>Theorem Concept | Rénovation</title>
         <meta
           name="description"
-          content="Bienvenue sur Theorem Services. Découvrez nos services de rénovation immobilière et nos solutions personnalisées pour tous vos projets."
+          content="Bienvenue sur Theorem Concept. Découvrez nos services de rénovation immobilière et nos solutions personnalisées pour tous vos projets."
         />
       </Helmet>
       <NavBar />

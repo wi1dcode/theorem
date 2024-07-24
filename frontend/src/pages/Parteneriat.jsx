@@ -44,10 +44,10 @@ function Pro() {
   return (
     <section className="bg-white soleil">
       <Helmet>
-        <title>Partenariat avec Theorem Services</title>
+        <title>Partenariat avec Theorem Concept</title>
         <meta
           name="description"
-          content="Rejoignez le réseau de partenaires de Theorem Services. Ensemble, nous pouvons réaliser des projets de rénovation exceptionnels et développer des relations professionnelles durables."
+          content="Rejoignez le réseau de partenaires de Theorem Concept. Ensemble, nous pouvons réaliser des projets de rénovation exceptionnels et développer des relations professionnelles durables."
         />
       </Helmet>
 

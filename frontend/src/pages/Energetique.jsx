@@ -5,10 +5,10 @@ function Energetique() {
   return (
     <div>
       <Helmet>
-        <title>Rénovation Énergétique | Theorem Services</title>
+        <title>Rénovation Énergétique | Theorem Concept</title>
         <meta
           name="description"
-          content="Optez pour une rénovation énergétique avec Theorem Services. Nos solutions innovantes contribuent à l'amélioration de l'efficacité énergétique de vos espaces de vie."
+          content="Optez pour une rénovation énergétique avec Theorem Concept. Nos solutions innovantes contribuent à l'amélioration de l'efficacité énergétique de vos espaces de vie."
         />
       </Helmet>
       <div className="eco_bg h-screen">

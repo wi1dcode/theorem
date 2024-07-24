@@ -16,7 +16,7 @@ class MailService {
     this.mailGenerator = new Mailgen({
       theme: "default",
       product: {
-        name: "Theorem Services",
+        name: "Theorem Concept",
         link: process.env.CLIENT_URL,
       },
     })
