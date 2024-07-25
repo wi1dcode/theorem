@@ -112,8 +112,7 @@ const CircleSteps = () => {
       <div className="flex relative items-start justify-center space-x-20 main-block">
         <div
           ref={stepsRef}
-          className="mt-64 w-64 h-64 flex-shrink-0 flex justify-center items-center border-2 border-vert_principal/50 rounded-full sticky top-1/2 transform -translate-y-1/2 circle-block"
-          style={{ marginRight: "40px" }}
+          className="mt-64 max-md:mt-48 md:mr-[48px] w-64 h-64 flex-shrink-0 flex justify-center items-center border-2 border-vert_principal/50 rounded-full sticky top-1/2 transform -translate-y-1/2 circle-block"
         >
           {steps.map((step) => (
             <div
@@ -154,7 +153,7 @@ const CircleSteps = () => {
                     {desc}
                   </p>
                 ))}
-                {step.number == 1 && (
+                {step.number === 1 && (
                   <Link to="/estimation">
                     <button
                       className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil"

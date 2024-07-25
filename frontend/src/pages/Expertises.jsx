@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-import { Helmet } from "react-helmet";
-import expertise_bg from "../images/partenaire_bg.jpg";
-import pilotage from "../images/expertise_pilotage.jpg";
-import energetique from "../images/expertise_energetique.jpg";
-import solaire from "../images/expertise_pansolaire.jpg";
-import platrerie from "../images/expertise_platrerie.jpg";
-import plomberie from "../images/expertise_plomberie.jpg";
-import sols from "../images/expertise_sols.jpg";
-import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
-import LinkArrow from "../images/svg/LinkArrow";
+import React, { useEffect, useRef, useState } from "react"
+import NavBar from "../components/NavBar"
+import { Helmet } from "react-helmet"
+import expertise_bg from "../images/partenaire_bg.jpg"
+import pilotage from "../images/expertise_pilotage.jpg"
+import energetique from "../images/expertise_energetique.jpg"
+import solaire from "../images/expertise_pansolaire.jpg"
+import platrerie from "../images/expertise_platrerie.jpg"
+import plomberie from "../images/expertise_plomberie.jpg"
+import sols from "../images/expertise_sols.jpg"
+import Footer from "../components/Footer"
+import { useLocation } from "react-router-dom"
+import LinkArrow from "../images/svg/LinkArrow"
 
 const expertises = [
   {
@@ -31,7 +31,7 @@ const expertises = [
     id: "plomberie",
     title: "Plomberie / Chauffagiste / VMC",
     description:
-      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage et de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
+      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: plomberie,
   },
   {
@@ -55,53 +55,66 @@ const expertises = [
       "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
     image: energetique,
   },
-];
+]
 
 function Expertises() {
-  const { pathname } = useLocation();
-  const [activeSection, setActiveSection] = useState("");
-  const [sticky, setSticky] = useState(false);
+  const { pathname } = useLocation()
+  const [activeSection, setActiveSection] = useState("")
+  const [sticky, setSticky] = useState(false)
+  const navBarRef = useRef(null)
+  const headerRef = useRef(null)
+  const contentRef = useRef(null)
+  const navBarHeight = 80
 
   useEffect(() => {
     const handleScroll = () => {
       const sectionOffsets = expertises.map((expertise) => ({
         id: expertise.id,
         offset: document.getElementById(expertise.id).offsetTop,
-      }));
+      }))
 
-      const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+      const scrollPosition = window.pageYOffset + window.innerHeight / 2
 
       const currentSection = sectionOffsets.find(
         (section, idx) =>
           scrollPosition >= section.offset &&
           (idx === sectionOffsets.length - 1 ||
             scrollPosition < sectionOffsets[idx + 1].offset)
-      );
+      )
 
       if (currentSection && currentSection.id !== activeSection) {
-        setActiveSection(currentSection.id);
+        setActiveSection(currentSection.id)
       }
 
-      const navBar = document.getElementById("navBar");
+      const navBar = navBarRef.current
+      const header = headerRef.current
 
-      if (window.pageYOffset > navBar.offsetTop) {
-        setSticky(true);
+      if (window.pageYOffset > header.offsetTop + header.offsetHeight) {
+        setSticky(true)
+        if (window.innerWidth <= 768) {
+          contentRef.current.style.marginTop = `${navBarHeight}px`
+        }
       } else {
-        setSticky(false);
+        setSticky(false)
+        if (window.innerWidth <= 768) {
+          contentRef.current.style.marginTop = "0px"
+        }
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [activeSection])
 
   const handleSectionClick = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-  };
+    const element = document.getElementById(id)
+    const offsetTop = element.offsetTop - navBarHeight
+    window.scrollTo({ top: offsetTop, behavior: "smooth" })
+  }
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return (
     <div>
@@ -115,6 +128,7 @@ function Expertises() {
       <NavBar />
       <section className="soleil">
         <div
+          ref={headerRef}
           className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center"
           style={{ backgroundImage: `url(${expertise_bg})` }}
         >
@@ -128,19 +142,27 @@ function Expertises() {
             <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
           </div>
         </div>
-        <div className="md:w-[80%] max-md:flex-col w-full mx-auto md:pt-4 md:py-8 soleil flex">
+        <div
+          ref={contentRef}
+          className="md:w-[80%] max-md:flex-col w-full mx-auto md:pt-4 md:py-8 soleil flex"
+        >
           <div
+            ref={navBarRef}
             id="navBar"
-            className={`w-[35%] max-md:w-full p-4 ${
-              sticky ? "fixed top-20" : "sticky top-20"
+            className={`w-[35%] max-md:hidden max-md:w-full p-4 ${
+              sticky
+                ? "fixed top-16 max-md:hidden max-md:top-0 max-md:bg-white max-md:z-50"
+                : "relative"
             }`}
             style={sticky ? { width: "25%", backgroundColor: "white" } : {}}
           >
-            <h3 className="font-bold text-lg mb-4">NOS MÉTIERS</h3>
+            <h3 className="font-bold max-md:w-full text-lg mb-4 max-md:hidden">
+              NOS MÉTIERS
+            </h3>
             {expertises.map((section, index) => (
               <div
                 key={index}
-                className={`pb-2 mb-2 max-md:w-full border-b-2 cursor-pointer ${
+                className={`pb-2 mb-2 max-md:w-full max-md:p-2 border-b-2 cursor-pointer ${
                   activeSection === section.id ? "font-bold text-black" : ""
                 }`}
                 onClick={() => handleSectionClick(section.id)}
@@ -150,11 +172,12 @@ function Expertises() {
             ))}
           </div>
           <div
-            className="w-3/4 p-4 max-md:w-full"
-            style={sticky ? { marginLeft: "32%" } : {}}
+            className={`w-3/4 p-4 max-md:w-full max-md:ml-0 ${
+              sticky && "md:ml-[32%]"
+            }`}
           >
             {expertises.map((expertise, index) => (
-              <section key={index} id={expertise.id} className="my-8">
+              <section key={index} id={expertise.id} className="my-2">
                 <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
                 <p className="text-gray-700 american pb-4">
                   {expertise.description}
@@ -171,7 +194,7 @@ function Expertises() {
       </section>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default Expertises;
+export default Expertises

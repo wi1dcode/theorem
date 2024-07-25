@@ -498,8 +498,8 @@
     align-items: center;
   }
   .lists {
-    padding-left: 15px; /* Уменьшаем padding слева */
-    padding-right: 15px; /* Уменьшаем padding справа */
+    padding-left: 0px;
+    padding-right: 80px;
     align-items: flex-start;
     display: flex;
     flex-direction: row;
