@@ -44,7 +44,7 @@ function Footer() {
                 Instagram
               </Link>
               <Link
-                to="https://www.facebook.com/"
+                to="https://www.facebook.com/profile.php?id=61561426542985"
                 target="_blank"
                 className="hover:text-beige/50 american"
               >
@@ -84,14 +84,14 @@ function Footer() {
             © 2024. Tous droits réservés.
           </p>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-xs">
-            <Link to="/" className="text-white hover:text-beige/50">
+            <Link to="/politique" className="text-white hover:text-beige/50">
               Politique de confidentialité
             </Link>
-            <Link to="/" className="text-white hover:text-beige/50">
+            <Link
+              to="/mentions-legales"
+              className="text-white hover:text-beige/50"
+            >
               Mentions légales
-            </Link>
-            <Link to="/" className="text-white hover:text-beige/50">
-              Gestion des cookies
             </Link>
           </div>
         </div>
@@ -101,6 +101,3 @@ function Footer() {
 }
 
 export default Footer
-
-
-

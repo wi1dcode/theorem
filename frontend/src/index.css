@@ -297,19 +297,19 @@
 .paper {
   margin: 2em auto;
   background: #fff;
-  box-shadow: 4px 4px 0 #c8b790;
+  box-shadow: 4px 4px 0 #353d2b;
   background-image: linear-gradient(
       90deg,
       #fff 12px,
       0,
-      #c8b790 15px,
+      #353d2b 15px,
       0,
       #eee9dd 20px,
       0,
       #fff 100%
     ),
     radial-gradient(circle closest-side, rgba(255, 255, 255, 0) 88%, #fff 100%),
-    radial-gradient(circle at 22px 8px, #eee9dd 40%, #c8b790 40%, #c8b790 100%);
+    radial-gradient(circle at 22px 8px, #eee9dd 40%, #353d2b 40%, #353d2b 100%);
   background-size: 32px 8px, 32px 16px, 32px 16px;
   background-repeat: space no-repeat;
   background-position: center top, center 6px, center 6px;
@@ -333,7 +333,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #c8b790;
+  background-color: #353d2b;
   background-image: radial-gradient(
       circle 8px at 18px 18px,
       #f9fafb 100%,
@@ -361,7 +361,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #c8b790;
+  background-color: #353d2b;
   background-image: radial-gradient(
       circle 5px at 12px 12px,
       #f9fafb 100%,
@@ -409,20 +409,20 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #353D2B;
+  background-color: #353d2b;
   border-radius: 10px;
   border: 4px solid #ffffff;
 }
 
 /* selection text */
 ::selection {
-  background-color: #353D2B;
+  background-color: #353d2b;
   color: #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
 ::-webkit-selection {
-  background-color: #353D2B;
+  background-color: #353d2b;
   color: #ffffff;
 }
 

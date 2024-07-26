@@ -6,7 +6,7 @@ function Menu() {
 
   return (
     <section className="text-center">
-      <div className="text-3xl font-bold mt-2">
+      <div className="text-3xl font-bold">
         Bonjour, {user?.profile?.firstname}
       </div>
       <div className="mt-6 text-xl w-[70%] mx-auto">

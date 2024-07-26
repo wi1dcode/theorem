@@ -25,7 +25,7 @@ export default function AdminMenu({ onClick }) {
           />
         </svg>
 
-        <span className="mx-2 text-sm font-semibold">Dashboard</span>
+        <span className="mx-2 text-sm font-semibold">Tableau de bord</span>
       </Link>
 
       <Link
@@ -48,7 +48,7 @@ export default function AdminMenu({ onClick }) {
           />
         </svg>
 
-        <span className="mx-2 text-sm font-semibold">Projects</span>
+        <span className="mx-2 text-sm font-semibold">Projets</span>
       </Link>
 
       <Link
@@ -71,7 +71,7 @@ export default function AdminMenu({ onClick }) {
           />
         </svg>
 
-        <span className="mx-2 text-sm font-semibold">Information</span>
+        <span className="mx-2 text-sm font-semibold">Informations</span>
       </Link>
 
       <Link

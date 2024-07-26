@@ -2,58 +2,33 @@ import React, { useEffect, useRef, useState } from "react"
 import NavBar from "../components/NavBar"
 import { Helmet } from "react-helmet"
 import expertise_bg from "../images/partenaire_bg.jpg"
-import pilotage from "../images/expertise_pilotage.jpg"
-import energetique from "../images/expertise_energetique.jpg"
-import solaire from "../images/expertise_pansolaire.jpg"
-import platrerie from "../images/expertise_platrerie.jpg"
-import plomberie from "../images/expertise_plomberie.jpg"
-import sols from "../images/expertise_sols.jpg"
+import archiImage from "../images/savoir_faire_archi.jpg"
+import techImage from "../images/savoir_faire_tech.jpg"
+import ecoImage from "../images/savoir_faire_eco.jpg"
 import Footer from "../components/Footer"
 import { useLocation } from "react-router-dom"
 import LinkArrow from "../images/svg/LinkArrow"
 
 const expertises = [
   {
-    id: "pilotage",
-    title: "Projet de pilotage / agencement",
+    id: "architecturale",
+    title: "Conception Architecturale",
     description:
-      "Theorem se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
-    image: pilotage,
+      "Nous commençons par comprendre votre vision unique. En écoutant attentivement vos besoins et attentes,  nous créons des designs architecturaux qui vous ressemblent. Chaque projet est une opportunité de transformer vos idées en plans concrets et élégants.",
+    image: archiImage,
   },
   {
-    id: "solaire",
-    title: "Bornes de recharge / Panneaux solaires",
+    id: "technique",
+    title: "Réalisation Technique",
     description:
-      "Engagés vers un avenir durable, nous proposons des solutions de bornes de recharge et de panneaux solaires reposant sur des matériaux de pointe. Théorème conjugue innovation et éco-responsabilité pour contribuer à la transition énergétique.",
-    image: solaire,
-  },
-  {
-    id: "plomberie",
-    title: "Plomberie / Chauffagiste / VMC",
-    description:
-      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
-    image: plomberie,
-  },
-  {
-    id: "platrerie",
-    title: "Revêtements muraux / Plâtrerie",
-    description:
-      "Theorem se distingue dans la gestion globale des projets, assurant une coordination efficace de toutes les phases, de la conception à la réalisation. Notre approche méticuleuse garantit une exécution fluide et réussie de chaque étape.",
-    image: platrerie,
-  },
-  {
-    id: "sols",
-    title: "Revêtement de sols",
-    description:
-      "Engagés vers un avenir durable, nous proposons des solutions de bornes de recharge et de panneaux solaires reposant sur des matériaux de pointe. Théorème conjugue innovation et éco-responsabilité pour contribuer à la transition énergétique.",
-    image: sols,
+      "C'est le moment de passer à l'action. Notre équipe prend en charge toute la réalisation technique, du revêtement des sols à l’électricité, en passant par la ecoImage. Nous nous engageons à offrir un travail de qualité, dans le respect des délais et du budget.",
+    image: techImage,
   },
   {
     id: "energetique",
-    title: "Rénovation énergétique",
-    description:
-      "Theorem excelle dans la fourniture de solutions de plomberie, de chauffage и de VMC alliant performance et durabilité. Notre méthode rigoureuse assure des installations fiables et de qualité, en utilisant des matériaux performants pour une meilleure longévité. Nos installations respectent rigoureusement les normes les plus strictes pour garantir un confort optimal.",
-    image: energetique,
+    title: "Rénovation Énergétique",
+    description: "Coming soon...",
+    image: ecoImage,
   },
 ]
 
@@ -179,13 +154,13 @@ function Expertises() {
             {expertises.map((expertise, index) => (
               <section key={index} id={expertise.id} className="my-2">
                 <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
-                <p className="text-gray-700 american pb-4">
+                <p className="text-gray-700 md:w-2/3 american pb-4">
                   {expertise.description}
                 </p>
                 <img
                   src={expertise.image}
                   alt={expertise.title}
-                  className="w-full h-[500px] object-cover mb-4"
+                  className="md:w-2/3 w-full h-auto max-h-[600px] object-cover mb-14"
                 />
               </section>
             ))}

@@ -25,6 +25,8 @@ import Activation from "./pages/Activation"
 import CandidatePro from "./pages/CandidatePro"
 import ProDashboard from "./pages/ProDashboard"
 import About from "./pages/About"
+import Legales from "./pages/Legales"
+import Politique from "./pages/Politique"
 
 function App() {
   const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
@@ -44,6 +46,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="mentions-legales" element={<Legales />} />
+        <Route path="politique" element={<Politique />} />
         <Route path="/services" element={<Home />} />
         <Route path="/expertises" element={<Expertises />} />
         <Route path="/realisations" element={<Realisations />} />

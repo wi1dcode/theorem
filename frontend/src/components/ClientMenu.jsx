@@ -92,7 +92,7 @@ export default function ClientMenu({ onClick }) {
             />
           </svg>
 
-          <span className="mx-2 text-sm font-semibold">Information</span>
+          <span className="mx-2 text-sm font-semibold">Informations</span>
         </Link>
       )}
 
