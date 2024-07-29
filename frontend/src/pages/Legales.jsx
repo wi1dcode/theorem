@@ -27,17 +27,18 @@ function Legales() {
           <br />
           Téléphone : 06 95 75 37 02
           <br />
-          Le directeur de la publication du site web "theorem-concept.fr" est...
+          Le directeur de la publication du site web "theorem-concept.fr" est
+          Mohamed Hamdoune.
           <br />
           Le site theorem-concept.fr est hébergé par IONOS, dont le siège social
-          est situé au 7 place de la Gare - 57200 Sarreguemines - France.
+          est situé au 7 place de la Gare - 57200 Sarreguemines - France
         </p>
         <h2 className="text-2xl soleil-book mt-8 mb-4">Informations légales</h2>
         <p className="soleil-light">
           Theorem Concept est une SAS, immatriculée au Registre du Commerce et
-          des Sociétés de Paris sous le numéro ...
+          des Sociétés de Paris sous le numéro 913627048
           <br />
-          Numéro de TVA intracommunautaire : ...
+          Numéro de TVA intracommunautaire : FR74913627048
         </p>
         <h2 className="text-2xl soleil-book mt-8 mb-4">
           Propriété intellectuelle
