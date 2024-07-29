@@ -29,7 +29,7 @@ function CookieConsent() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 md:right-0 p-4 z-50 w-1/4 max-md:w-full">
+    <div className="fixed bottom-0 md:right-0 p-4 z-50 w-1/4 max-md:w-full soleil">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <div className="bg-white rounded-lg border-vert border p-6 mx-auto">
           <div className="w-16 mx-auto relative -mt-10 mb-3">
@@ -39,7 +39,7 @@ function CookieConsent() {
               alt="Cookie Icon SVG"
             />
           </div>
-          <span className="block leading-normal text-gray-800 text-md mb-3">
+          <span className="block leading-normal text-gray-800 text-md mb-3 soleil">
             Ce site utilise des cookies pour vous garantir la meilleure
             expérience sur notre site web.
           </span>
@@ -53,7 +53,7 @@ function CookieConsent() {
             <div className="w-1/2">
               <button
                 onClick={handleAccept}
-                className="py-2 px-4 bg-vert hover:bg-vert/90 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+                className="py-2 px-4 bg-vert hover:bg-vert/90 text-white w-full transition ease-in duration-200 text-center text-base font-book shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
               >
                 Accepter
               </button>
