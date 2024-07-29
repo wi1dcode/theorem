@@ -21,7 +21,7 @@ const expertises = [
     id: "technique",
     title: "Réalisation Technique",
     description:
-      "C'est le moment de passer à l'action. Notre équipe prend en charge toute la réalisation technique, du revêtement des sols à l’électricité, en passant par la ecoImage. Nous nous engageons à offrir un travail de qualité, dans le respect des délais et du budget.",
+      "C'est le moment de passer à l'action. Notre équipe prend en charge toute la réalisation technique, du revêtement des sols à l’électricité, en passant par la plomberie. Nous nous engageons à offrir un travail de qualité, dans le respect des délais et du budget.",
     image: techImage,
   },
   {
@@ -61,7 +61,6 @@ function Expertises() {
         setActiveSection(currentSection.id)
       }
 
-      const navBar = navBarRef.current
       const header = headerRef.current
 
       if (window.pageYOffset > header.offsetTop + header.offsetHeight) {

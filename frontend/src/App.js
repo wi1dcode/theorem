@@ -27,6 +27,7 @@ import ProDashboard from "./pages/ProDashboard"
 import About from "./pages/About"
 import Legales from "./pages/Legales"
 import Politique from "./pages/Politique"
+import CookieConsent from "./components/CookieConsent"
 
 function App() {
   const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
@@ -107,6 +108,7 @@ function App() {
           <Route path="contact" element={<ProContact />} />
         </Route>
       </Routes>
+      <CookieConsent />
     </BrowserRouter>
   )
 }

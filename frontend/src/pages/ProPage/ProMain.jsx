@@ -84,6 +84,9 @@ function Pro() {
                   notre expertise au service de vos idées, transformant ensemble
                   les défis en réussites.
                 </p>
+                <button className="mt-4 pb-1 py-2 px-4 bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300 active:bg-vert_principal/90">
+                  Des questions ?
+                </button>
               </div>
             </div>
             <div className="flex items-center justify-center lg:pl-8">
