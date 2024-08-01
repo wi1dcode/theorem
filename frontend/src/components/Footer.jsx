@@ -4,7 +4,7 @@ import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
   const location = useLocation()
-  const isPartenariatPage = location.pathname === "/partenariat"
+  const isProPage = location.pathname === "/pro"
 
   return (
     <footer className="bg-vert_principal py-8 soleil">
@@ -73,16 +73,14 @@ function Footer() {
           <div className="flex flex-grow justify-center max-md:justify-start">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Plus d'informations</p>
-              <Link to="/" className="hover:text-beige/50 american">
-                Plaquette de présentation
-              </Link>
               <Link
-                to={isPartenariatPage ? "/" : "/partenariat"}
+                to={isProPage ? "/" : "pro"}
                 className="hover:text-beige/50 american"
               >
-                {isPartenariatPage
-                  ? "Espace particuliers"
-                  : "Devenir partenaire"}
+                Plaquette de présentation
+              </Link>
+              <Link to="/partenariat" className="hover:text-beige/50 american">
+                Devenir partenaire
               </Link>
             </div>
           </div>
