@@ -1,8 +1,11 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
+  const location = useLocation()
+  const isPartenariatPage = location.pathname === "/partenariat"
+
   return (
     <footer className="bg-vert_principal py-8 soleil">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
@@ -17,14 +20,14 @@ function Footer() {
                 className="w-24 h-24 text-white"
                 viewBox="10 0 50 50"
               />
-              <span className="ml-2 text-white text-xl soleil-bold">
-                Theorem
+              <span className="ml-2 text-white text-md text-center soleil-bold">
+                Theorem Concept
               </span>
             </Link>
           </div>
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
-              <p>Nous contacter</p>
+              <p className="soleil-bold mb-2">Nous contacter</p>
               <a className="american" href="mailto:theorem.services@gmail.com">
                 theorem.services@gmail.com
               </a>
@@ -62,7 +65,7 @@ function Footer() {
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Nous rendre visite</p>
-              <p className="american">27 rue stalingrad, 95120, Ermont</p>
+              <p className="american">27 rue Stalingrad, 95120, Ermont</p>
               <p className="soleil-bold mt-2">Horaires d'ouverture</p>
               <p className="american">Du lundi au samedi de 10h à 18h</p>
             </div>
@@ -73,8 +76,13 @@ function Footer() {
               <Link to="/" className="hover:text-beige/50 american">
                 Plaquette de présentation
               </Link>
-              <Link to="/partenariat" className="hover:text-beige/50 american">
-                Devenir partenaire
+              <Link
+                to={isPartenariatPage ? "/" : "/partenariat"}
+                className="hover:text-beige/50 american"
+              >
+                {isPartenariatPage
+                  ? "Espace particuliers"
+                  : "Devenir partenaire"}
               </Link>
             </div>
           </div>

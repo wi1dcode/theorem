@@ -6,8 +6,22 @@ import ProClients from "./ProClients.jsx"
 import LinkArrow from "../../images/svg/LinkArrow.jsx"
 import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
 import Work from "../../components/Work.jsx"
+import { useNavigate } from "react-router-dom"
 
 function Pro() {
+  const navigate = useNavigate()
+
+  const scrollToContact = () => {
+    navigate("/")
+    setTimeout(() => {
+      const section = document.getElementById("contact")
+      const yOffset = -230
+      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+
+      window.scrollTo({ top: y, behavior: "smooth" })
+    }, 100)
+  }
+
   return (
     <div id="main">
       <div
@@ -84,7 +98,10 @@ function Pro() {
                   notre expertise au service de vos idées, transformant ensemble
                   les défis en réussites.
                 </p>
-                <button className="mt-4 pb-1 py-2 px-4 bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300 active:bg-vert_principal/90">
+                <button
+                  className="mt-4 pb-1 py-2 px-4 bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300 active:bg-vert_principal/90"
+                  onClick={scrollToContact}
+                >
                   Des questions ?
                 </button>
               </div>

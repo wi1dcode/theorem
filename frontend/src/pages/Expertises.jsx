@@ -12,22 +12,37 @@ import LinkArrow from "../images/svg/LinkArrow"
 const expertises = [
   {
     id: "architecturale",
-    title: "Conception Architecturale",
+    title: "Prestations Architecturales",
     description:
       "Nous commençons par comprendre votre vision unique. En écoutant attentivement vos besoins et attentes,  nous créons des designs architecturaux qui vous ressemblent. Chaque projet est une opportunité de transformer vos idées en plans concrets et élégants.",
+    list: [
+      "Conseil Personnalisé: Nous discutons de vos idées pour définir un projet sur mesure.",
+      "Conception Architecturale: Création de plans détaillés alliant esthétisme et fonctionnalité.",
+      "Plans de Conception: Élaboration de plans précis pour une réalisation sans faille.",
+    ],
     image: archiImage,
   },
   {
     id: "technique",
-    title: "Réalisation Technique",
+    title: "Prestations Techniques",
     description:
       "C'est le moment de passer à l'action. Notre équipe prend en charge toute la réalisation technique, du revêtement des sols à l’électricité, en passant par la plomberie. Nous nous engageons à offrir un travail de qualité, dans le respect des délais et du budget.",
+    list: [
+      "Revêtement de Sols: Pose de carrelages, parquets, et autres matériaux.",
+      "Revêtement Mural: Application de peintures, papiers peints, et autres finitions.",
+      "Plâtrerie: Installation et finition des cloisons et plafonds en plâtre.",
+      "Électricité: Mise en place des installations électriques complètes.",
+      "Plomberie: Installation et réparation des systèmes de plomberie.",
+      "Chauffagiste: Installation et maintenance des systèmes de chauffage.",
+      "VMC (Ventilation Mécanique Contrôlée): Installation des systèmes de ventilation pour un confort optimal.",
+    ],
     image: techImage,
   },
   {
     id: "energetique",
     title: "Rénovation Énergétique",
     description: "Coming soon...",
+    list: [],
     image: ecoImage,
   },
 ]
@@ -93,10 +108,10 @@ function Expertises() {
   return (
     <div>
       <Helmet>
-        <title>Nos Expertises | Theorem Concept</title>
+        <title>Notre Savoir-Faire | Theorem Concept</title>
         <meta
           name="description"
-          content="Explorez nos domaines d'expertises chez Theorem Concept. Notre équipe apporte des solutions complètes et personnalisées pour tous vos projets de construction et de rénovation."
+          content="Découvrez notre savoir-faire chez Theorem Concept. De la conception architecturale à la réalisation technique, nous vous accompagnons à chaque étape de votre projet."
         />
       </Helmet>
       <NavBar />
@@ -109,8 +124,14 @@ function Expertises() {
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative z-10 text-center text-white p-6 max-w-xl">
             <h1 className="text-4xl md:text-4xl font-bold mb-4">
-              Nos Expertises
+              Notre Savoir-Faire : Conception & Réalisation de travaux
             </h1>
+            <p>
+              Chez Theorem Concept, chaque projet est unique. Nous vous
+              accompagnons de la conception à la réalisation, pour transformer
+              vos idées en une belle réalité. Découvrez comment nous pouvons
+              vous aider à chaque étape.
+            </p>
           </div>
           <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
             <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
@@ -156,6 +177,15 @@ function Expertises() {
                 <p className="text-gray-700 md:w-2/3 american pb-4">
                   {expertise.description}
                 </p>
+                {expertise.list.length > 0 && (
+                  <ul className="list-disc list-inside mb-6">
+                    {expertise.list.map((item, idx) => (
+                      <li key={idx} className="text-gray-700 pb-2">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <img
                   src={expertise.image}
                   alt={expertise.title}
