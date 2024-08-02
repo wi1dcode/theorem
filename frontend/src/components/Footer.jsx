@@ -90,7 +90,11 @@ function Footer() {
             © 2024. Tous droits réservés.
           </p>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-xs">
-            <Link to="/politique" className="text-white hover:text-beige/50">
+            <Link
+              to="/politique.pdf"
+              target="_blank"
+              className="text-white hover:text-beige/50"
+            >
               Politique de confidentialité
             </Link>
             <Link

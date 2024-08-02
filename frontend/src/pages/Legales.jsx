@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Helmet } from "react-helmet"
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
+import { useLocation } from "react-router-dom"
 
 function Legales() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <div>
       <Helmet>
