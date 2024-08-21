@@ -11,6 +11,7 @@ import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
 import FabourgOne from "../images/projects/fabourg/fabourg_one.jpg"
 import JauresMain from "../images/projects/jaures/jaures_main.jpg"
 import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
+import JuppiterProjet from "../images/projects/juppiter/projet-juppiter.jpg"
 
 const gallery = require("../services/gallery.json")
 
@@ -36,6 +37,7 @@ function Realisations() {
     "fabourg_one.jpg": FabourgOne,
     "jaures_main.jpg": JauresMain,
     "ophelie_chambre_2.jpg": OphelieChambreTwo,
+    "projet-juppiter.jpg": JuppiterProjet,
     "coming_soon.jpg": ComingSoon,
   }
 
@@ -70,7 +72,7 @@ function Realisations() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`py-2 px-4 rounded-full max-md:w-[80%] transition hover:bg-vert_principal hover:text-white border border-vert_principal duration-300 ${
+              className={`py-2 px-4 pb-1 rounded-full max-md:w-[80%] transition hover:bg-vert_principal hover:text-white border border-vert_principal duration-300 ${
                 selectedCategory === category
                   ? "bg-vert_principal border-vert_principal text-white"
                   : "text-black"
@@ -89,30 +91,32 @@ function Realisations() {
         >
           {filteredProjects.map((item, index) => {
             return (
-              <div
-                key={item.id}
-                className="relative cursor-pointer w-[380px] h-[400px] max-md:w-[80%] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
-              >
-                <img
-                  className="w-full h-full object-cover rounded-xl"
-                  src={imageMap[item.img]}
-                  alt={item.title}
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 hover:backdrop-blur-md transition duration-300 rounded-xl p-4">
-                  <h3 className="text-white text-xl font-bold mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-white text-center mb-4">
-                    {item.under_title}
-                  </p>
-                  <Link
-                    to={`/realisations/${item.id}`}
-                    className="py-2 px-4 bg-vert_principal text-white rounded-full hover:bg-vert_principal/80 transition duration-300"
-                  >
-                    En savoir plus
-                  </Link>
+              <Link to={`/realisations/${item.id}`}>
+                <div
+                  key={item.id}
+                  className="relative cursor-pointer w-[380px] h-[400px] max-md:w-[80%] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
+                >
+                  <img
+                    className="w-full h-full object-cover rounded-xl"
+                    src={imageMap[item.img]}
+                    alt={item.title}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 hover:backdrop-blur-md transition duration-300 rounded-xl p-4">
+                    <h3 className="text-white text-xl font-bold mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-white text-center mb-4">
+                      {item.under_title}
+                    </p>
+                    <Link
+                      to={`/realisations/${item.id}`}
+                      className="py-2 px-4 pb-1 bg-vert_principal text-white rounded-full hover:bg-vert_principal/80 transition duration-300"
+                    >
+                      En savoir plus
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

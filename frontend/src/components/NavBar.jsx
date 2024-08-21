@@ -121,7 +121,7 @@ function NavBar() {
                 key={idx}
                 to={item.path}
                 target={item.target}
-                className={`text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all duration-300 ${
+                className={`text-white pb-1 hover:bg-beige/40 p-2 rounded-lg transition-all duration-300 ${
                   item.className || ""
                 }`}
               >

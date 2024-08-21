@@ -1,23 +1,24 @@
-import React from "react";
-import AnalyseSvg from "../images/svg/AnalyseSvg";
+import React from "react"
+import ContactPhone from "../images/svg/ContactPhone"
+import NavigateSvg from "../images/svg/NavigateSvg"
 
 const interventionZones = [
   {
     name: "Paris (75)",
-    svg: AnalyseSvg,
+    svg: NavigateSvg,
   },
   {
     name: "Les Yvelines (78)",
-    svg: AnalyseSvg,
+    svg: NavigateSvg,
   },
-  { name: "Hauts-de-Seine (92)", svg: AnalyseSvg, hashtag: "#ladefense" },
+  { name: "Hauts-de-Seine (92)", svg: NavigateSvg, hashtag: "#ladefense" },
   {
     name: "Seine-Saint-Denis (93)",
-    svg: AnalyseSvg,
+    svg: NavigateSvg,
   },
-  { name: "Val-de-Marne (94)", svg: AnalyseSvg, hashtag: "#pont" },
-  { name: "Val-d'Oise (95)", svg: AnalyseSvg, hashtag: "#lys" },
-];
+  { name: "Val-de-Marne (94)", svg: NavigateSvg, hashtag: "#pont" },
+  { name: "Val-d'Oise (95)", svg: NavigateSvg, hashtag: "#lys" },
+]
 
 export default function InterventionZones() {
   return (
@@ -28,9 +29,13 @@ export default function InterventionZones() {
             Nos principales zones d’interventions
           </h2>
           <h3 className="text-md md:w-1/2 text-center mx-auto american">
-            Vous ne trouvez pas votre département ? Pas de panique !
-            Envoyez-nous un message et on se fera un plaisir de voir comment on
-            peut vous aider.
+            Vous ne trouvez pas votre département ? Pas de panique ! <br />
+            Appelez-nous pour en discuter :
+            <a className="american inline-block pl-2" href="tel:+33695753702">
+              <span className="flex justify-center pt-2">
+                <ContactPhone className="w-6 h-6" stroke="white" v2 />
+              </span>
+            </a>
           </h3>
         </div>
         <div className="flex flex-wrap justify-center items-center">
@@ -39,12 +44,12 @@ export default function InterventionZones() {
               key={idx}
               className="w-full sm:w-1/2 lg:w-1/3 p-4 flex flex-col items-center"
             >
-              <zone.svg className="mb-4" />
+              <zone.svg PathStroke="white" />
               <h3 className="mt-4 text-xl font-semibold">{zone.name}</h3>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

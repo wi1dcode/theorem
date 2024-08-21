@@ -38,11 +38,11 @@ function About() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center text-white p-6 max-w-xl">
           <h1 className="text-4xl max-md:text-2xl md:text-4xl font-bold mb-4">
-            Une équipe unie pour vous accompagner dans vos projets
+            Une aventure humaine ancrée dans des principes forts
           </h1>
           <Link
             to="/realisations"
-            className="inline-block mt-4 px-6 py-2 pb-1 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
+            className="inline-block mt-4 px-6 py-2 pb-1 bg-vert_light text-white font-semibold rounded-lg hover:bg-vert_principal/80 transition duration-300"
           >
             Découvrir nos projets
           </Link>

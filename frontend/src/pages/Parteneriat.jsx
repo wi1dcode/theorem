@@ -53,7 +53,7 @@ function Pro() {
 
       <NavBar />
       <div
-        className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center"
+        className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center soleil"
         style={{ backgroundImage: `url(${partenaire_bg})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -73,7 +73,7 @@ function Pro() {
             Vous êtes entrepreneur du bâtiment, architecte décorateur ou maître
             d'œuvre ? Travaillons ensemble !
           </h2>
-          <p className="text-lg text-gray-700 mb-10">
+          <p className="text-lg text-gray-700 mb-10 american">
             Pourquoi choisir Theorem : accédez à une diversité de projets et à
             une expertise de pointe pour propulser votre activité vers de
             nouveaux sommets, en concrétisant des concepts novateurs et en
@@ -99,7 +99,7 @@ function Pro() {
                 <h3 className="text-xl font-semibold mb-8">{card.title}</h3>
                 <Link
                   to={card.link}
-                  className="mt-4 px-10 py-3 bg-vert_principal text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
+                  className="bg-vert_light rounded-lg p-2 px-10 pt-3 text-white hover:bg-vert_principal/80 transition duration-300"
                 >
                   Postuler
                 </Link>

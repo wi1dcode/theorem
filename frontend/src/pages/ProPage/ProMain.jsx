@@ -99,7 +99,7 @@ function Pro() {
                   les défis en réussites.
                 </p>
                 <button
-                  className="mt-4 pb-1 py-2 px-4 bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300 active:bg-vert_principal/90"
+                  className="bg-vert_light rounded-lg mt-4 p-1 px-3 pt-2 text-white hover:bg-vert_principal/80 transition duration-300"
                   onClick={scrollToContact}
                 >
                   Des questions ?

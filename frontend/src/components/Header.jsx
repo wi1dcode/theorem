@@ -1,7 +1,7 @@
-import React from "react";
-import TheoremLogo from "../images/svg/TheoremLogo";
-import HeaderBg from "../images/bg-main.jpg";
-import { Link } from "react-router-dom";
+import React from "react"
+import TheoremLogo from "../images/svg/TheoremLogo"
+import HeaderBg from "../images/bg-main.jpg"
+import { Link } from "react-router-dom"
 
 function Header() {
   return (
@@ -23,7 +23,7 @@ function Header() {
           </div>
           <Link to="/realisations">
             <button
-              className="bg-vert_light shadow text-white text-2xl max-md:text-sm rounded-lg p-2 pt-3 px-8 soleil"
+              className="bg-vert_light shadow text-white text-2xl max-md:text-sm rounded-lg p-2 pt-3 px-8 soleil hover:bg-vert_principal/80 transition duration-300"
               type="button"
             >
               Découvrir nos projets
@@ -32,7 +32,7 @@ function Header() {
         </div>
       </article>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

@@ -8,6 +8,7 @@ import qualityImageOne from "../images/coeur_ouvrage.jpg"
 import qualityImageTwo from "../images/ethique.jpg"
 import qualityImageThree from "../images/innovation.jpg"
 import qualityImageFour from "../images/demarche_eco.jpg"
+import { Link } from "react-router-dom"
 
 const qualities = [
   {
@@ -43,7 +44,7 @@ function Identite() {
         />
       </Helmet>
       <div
-        className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16"
+        className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
@@ -57,21 +58,21 @@ function Identite() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                Chez Theorem, <br /> nous transformons chaque projet en un{" "}
-                <span className="inline-block text-vert_principal">
-                  carré parfait
-                </span>
+              <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl soleil-book tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+                Moralité ?
               </h2>
-              <p className="text-base soleil text-gray-700 md:text-lg mb-1">
-                Theorem est bien plus qu'une simple entreprise; c'est une entité
-                qui incarne l'essence d'une marque engagée et responsable. La
-                mission est de transcender les attentes en offrant des solutions
-                de rénovation innovantes et pérennes. Guidé par des valeurs de
-                confiance et d'engagement envers l'avenir, Theorem rassemble une
-                équipe dynamique, curieuse, à l'écoute et réactive.
+              <p className="text-base american text-gray-700 md:text-lg mb-1">
+                Parfois, il suffit de tourner une page pour découvrir la
+                meilleure version de vous-même. Explorez notre univers à travers
+                nos projets et suivez notre aventure sur les réseaux sociaux.
+                Êtes-vous prêt pour votre nouveau chapitre ?
               </p>
             </div>
+            <Link to="/estimation" className="flex justify-start mt-2">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal/80 transition duration-300">
+                Commencer mon projet
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -108,7 +108,14 @@ const CircleSteps = () => {
   // }
 
   return (
-    <div className="flex justify-center main-block md:py-10">
+    <div className="flex flex-col justify-center main-block md:py-10">
+      <div className="relative flex justify-center items-center">
+        <div className="pb-10">
+          <h2 className="text-center max-md:text-2xl text-4xl soleil z-10">
+            Notre Theorem
+          </h2>
+        </div>
+      </div>
       <div className="flex relative items-start justify-center space-x-20 main-block">
         <div
           ref={stepsRef}
@@ -133,7 +140,7 @@ const CircleSteps = () => {
               {step.number}
             </div>
           ))}
-          <span className="soleil uppercase">Notre process</span>
+          <span className="soleil uppercase">les 3C</span>
         </div>
         <div className="md:space-y-10 px-5 md:px-10 md:w-3/5 lists">
           {steps.map((step) => (
@@ -156,7 +163,7 @@ const CircleSteps = () => {
                 {step.number === 1 && (
                   <Link to="/estimation">
                     <button
-                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil"
+                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil hover:bg-vert_principal/80 transition duration-300"
                       type="button"
                     >
                       Je remplis mon formulaire

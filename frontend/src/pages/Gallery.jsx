@@ -31,6 +31,8 @@ import OphelieSalon from "../images/projects/ophelie/ophelie_salon.jpg"
 import OphelieSdbTwo from "../images/projects/ophelie/ophelie_sdb_2.jpg"
 import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
 import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
+// Juppiter
+import ProjetJuppiter from "../images/projects/juppiter/projet-juppiter.jpg"
 // Coming soon
 import ComingSoon from "../images/projects/coming_soon.jpg"
 
@@ -58,6 +60,7 @@ const imageMap = {
   "ophelie_sdb_2.jpg": OphelieSdbTwo,
   "ophelie_sdb.jpg": OphelieSdb,
   "ophelie_wc.jpg": OphelieWc,
+  "projet-juppiter.jpg": ProjetJuppiter,
   "coming_soon.jpg": ComingSoon,
 }
 
@@ -130,7 +133,7 @@ function Gallery() {
 
             <Link
               to="/estimation"
-              className="px-6 py-2 text-lg max-md:mb-4 soleil-medium bg-vert_principal text-white rounded hover:bg-vert_principal/80 transition duration-300"
+              className="px-6 py-2 text-lg pt-3 max-md:mb-4 soleil-medium bg-vert_principal text-white rounded-lg hover:bg-vert_principal/80 transition duration-300"
             >
               Commencer mon projet
             </Link>

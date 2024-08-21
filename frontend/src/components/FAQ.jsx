@@ -77,7 +77,7 @@ export default function FAQ() {
               <li>Électricité</li>
             </ul>
             <Link to="/expertises" className="flex justify-end">
-              <button className="bg-vert_principal rounded p-1 px-2 text-white">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal/80 transition duration-300">
                 En savoir plus
               </button>
             </Link>
@@ -98,7 +98,7 @@ export default function FAQ() {
               </li>
             </ul>
             <Link to="/estimation" className="flex justify-end mt-2">
-              <button className="bg-vert_principal rounded p-1 px-2 text-white">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal/80 transition duration-300">
                 Commencer mon projet
               </button>
             </Link>
@@ -111,7 +111,7 @@ export default function FAQ() {
             </p>
           </Item>
           {/* <Item title="En quoi le paiement de l’acompte est-il sécurisé ?">
-            <p>...</p>
+            <p>...</p> 
           </Item> */}
         </div>
       </div>
