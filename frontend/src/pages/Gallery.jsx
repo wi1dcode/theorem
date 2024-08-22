@@ -108,41 +108,32 @@ function Gallery() {
     <div>
       <NavBar />
       <div className="flex flex-col items-center soleil">
-        <div className="flex items-center gap-x-20 justify-center md:mt-16 max-md:flex-col max-md:w-full py-6">
+        {/* First Block  */}
+        <div className="flex items-center gap-x-20 justify-center md:mt-8 max-md:flex-col max-md:w-full py-6">
           <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:mt-4 text-center gap-y-6">
             <h2 className="text-4xl max-md:text-2xl soleil-bold">
               {galleryItem.title}
             </h2>
-
-            <div className="flex flex-col items-center">
-              <p className="mb-6 text-lg max-md:text-sm">
-                {galleryItem.description}
-              </p>
-
-              <div className="flex">
-                {galleryItem.tags.map((tag, index) => (
-                  <div
-                    key={index}
-                    className="flex shadow-[inset_0_4px_10.5px_rgba(0,0,0,0.14)] rounded-md px-5 py-2 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >
-                    {tag}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Link
-              to="/estimation"
-              className="px-6 py-2 text-lg pt-3 max-md:mb-4 soleil-medium bg-vert_principal text-white rounded-lg hover:bg-vert_principal/80 transition duration-300"
-            >
-              Commencer mon projet
-            </Link>
+            <p className="mb-6 text-xl max-md:text-sm">
+              {galleryItem.description}
+            </p>
           </div>
-          <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden">
+          <div className="w-[40%] max-md:w-full">
+            <img
+              src={imageMap[galleryItem.img_two]}
+              alt={galleryItem.title}
+              className="rounded-xl object-cover w-full h-[50vh]"
+            />
+          </div>
+        </div>
+
+        {/* Second Block  */}
+        <div className="flex items-center justify-center mt-10 gap-x-20 max-md:flex-col py-4">
+          <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden rounded-xl">
             <img
               src={imageMap[galleryItem.images[activeIndex].src]}
               alt={`${galleryItem.title} ${activeIndex + 1}`}
-              className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-l-3xl rounded-br-3xl transition-opacity duration-500 ease-in-out"
+              className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-xl transition-opacity duration-500 ease-in-out"
               style={{ opacity: 1 }}
               onClick={() => openModal(activeIndex)}
               key={activeIndex}
@@ -160,41 +151,44 @@ function Gallery() {
               &#10095;
             </button>
           </div>
+
+          <div className="flex flex-col items-start w-[40%] max-md:w-full max-md:mt-4">
+            <p className="text-xl max-md:text-sm">{galleryItem.full_desc}</p>
+          </div>
         </div>
 
-        <div>
-          <div className="flex items-center text-center justify-center mt-10 px-1 flex-col py-4">
-            <h3 className="soleil-book mb-2 text-xl">
-              Voici l'ensemble des travaux réalisés :
-            </h3>
-            <p className="w-[70%] max-md:w-[90%] text-lg">
-              {galleryItem.full_desc}
-            </p>
-
-            {galleryItem.id === 8 && (
-              <Link
-                to="/about"
-                className="inline-block mt-4 px-6 py-3 bg-vert_light text-white font-semibold rounded hover:bg-vert_principal/80 transition duration-300"
-              >
-                A propos
-              </Link>
-            )}
+        {/* Third Block  */}
+        <div className="flex items-center justify-center mt-10 gap-x-20 max-md:flex-col py-4 w-full">
+          <div className="flex flex-row items-start w-[40%] max-md:w-full max-md:mt-4 text-lg">
+            <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[40vh] flex flex-col items-center justify-around">
+              <div className="mb-2 w-full border-b">
+                <p className="font-bold">Localisation</p>
+                <p>{galleryItem.tags[0] || "-"}</p>
+              </div>
+              <div className="mb-2 w-full border-b">
+                <p className="font-bold">Superficie</p>
+                <p>{galleryItem.tags[1] || "-"}</p>
+              </div>
+              <div className="mb-2 w-full border-b">
+                <p className="font-bold">Prix</p>
+                <p>{galleryItem.tags[2] || "-"}</p>
+              </div>
+              <div className="flex items-center justify-center w-full">
+                <Link
+                  to="/estimation"
+                  className="px-6 py-2 pt-3 mt-6 max-md:mb-4 soleil-medium bg-vert_principal text-white rounded-lg hover:bg-vert_principal/80 transition duration-300"
+                >
+                  Démarrer votre projet
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex items-start gap-x-20 justify-center mt-10 max-md:flex-col pt-4 pb-8 shadow-lg rounded-lg max-md:px-6">
-            <div className="flex flex-col w-[40%] max-md:w-full max-md:mb-4 h-[50vh]">
-              <img
-                src={imageMap[galleryItem.img_two]}
-                alt={galleryItem.title}
-                className="rounded-l-3xl rounded-br-3xl object-cover w-full h-full"
-              />
-            </div>
-            <div className="flex flex-col justify-between items-start w-[40%] max-md:w-full max-md:mt-4">
-              <img
-                src={imageMap[galleryItem.img_three]}
-                alt={galleryItem.title}
-                className="rounded-r-3xl rounded-bl-3xl object-cover w-full h-[50vh] mb-4"
-              />
-            </div>
+          <div className="w-[40%] max-md:w-full">
+            <img
+              src={imageMap[galleryItem.img_three]}
+              alt={galleryItem.title}
+              className="rounded-xl object-cover w-full h-[40vh]"
+            />
           </div>
         </div>
 

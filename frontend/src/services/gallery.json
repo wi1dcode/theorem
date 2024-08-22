@@ -45,7 +45,7 @@
         "credit": "Theorem"
       }
     ],
-    "tags": ["1800m²", "Argenteuil"],
+    "tags": ["Argenteuil", "1800m²" ],
     "suggestion": [1, 2, 3],
     "category": "Local commercial"
   },
@@ -68,7 +68,7 @@
         "credit": "Theorem"
       }
     ],
-    "tags": ["1800m²", "Paris 8e"],
+    "tags": ["Paris 8e", "1800m²"],
     "suggestion": [1, 2, 3],
     "category": "Local commercial"
   },
@@ -87,7 +87,7 @@
         "credit": "Theorem"
       }
     ],
-    "tags": ["85m²", "Ermont"],
+    "tags": ["Ermont", "85m²"],
     "suggestion": [1, 2, 3],
     "category": "Appartement/Maison"
   },
@@ -138,7 +138,7 @@
         "credit": "Photographie :"
       }
     ],
-    "tags": ["60m²", "Ermont"],
+    "tags": ["Ermont", "60m²"],
     "suggestion": [1, 2, 3],
     "category": "Appartement/Maison"
   },
@@ -157,7 +157,7 @@
         "credit": "Theorem"
       }
     ],
-    "tags": ["85m²", "Ermont"],
+    "tags": ["Ermont", "85m²"],
     "suggestion": [1, 2, 3],
     "category": "Local commercial"
   }
