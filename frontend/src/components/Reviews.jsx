@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import FiveStarsSvg from "../images/svg/FiveStarsSvg"
 import ReviewsBgImage from "../images/nos_clients_parlent_de_nous_1.jpg"
-import ReviewsBgImageTwo from "../images/nos_clients_parlent_de_nous_2.jpg"
+// import ReviewsBgImageTwo from "../images/nos_clients_parlent_de_nous_2.jpg"
 import LinkArrow from "../images/svg/LinkArrow.jsx"
 
 export default function Reviews() {
@@ -16,16 +16,16 @@ export default function Reviews() {
       stars: 5,
       backgroundImage: ReviewsBgImage,
     },
-    {
-      avatar: "https://randomuser.me/api/portraits/men/86.jpg",
-      project: "Projet 2",
-      name: "Xavier R.",
-      title: "Paris, France",
-      quote:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-      stars: 4,
-      backgroundImage: ReviewsBgImageTwo,
-    },
+    // {
+    //   avatar: "https://randomuser.me/api/portraits/men/86.jpg",
+    //   project: "Projet 2",
+    //   name: "Xavier R.",
+    //   title: "Paris, France",
+    //   quote:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    //   stars: 4,
+    //   backgroundImage: ReviewsBgImageTwo,
+    // },
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
