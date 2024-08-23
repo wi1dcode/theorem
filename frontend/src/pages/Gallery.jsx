@@ -107,9 +107,9 @@ function Gallery() {
   return (
     <div>
       <NavBar />
-      <div className="flex flex-col items-center soleil">
+      <div className="flex flex-col items-center soleil max-md:p-2">
         {/* First Block  */}
-        <div className="flex items-center gap-x-20 justify-center md:mt-8 max-md:flex-col max-md:w-full py-6">
+        <div className="flex items-center gap-x-20 justify-center md:mt-8 max-md:flex-col max-md:w-full md:py-6">
           <div className="flex flex-col items-center text-3xl w-[40%] max-md:w-full max-md:mt-4 text-center gap-y-6">
             <h2 className="text-4xl max-md:text-2xl soleil-bold">
               {galleryItem.title}
@@ -128,8 +128,8 @@ function Gallery() {
         </div>
 
         {/* Second Block  */}
-        <div className="flex items-center justify-center mt-10 gap-x-20 max-md:flex-col py-4">
-          <div className="relative flex w-[40%] max-md:w-[90%] h-[50vh] overflow-hidden rounded-xl">
+        <div className="flex items-center justify-center md:mt-10 gap-x-20 max-md:gap-y-6 py-4 max-md:flex-col-reverse">
+          <div className="relative flex w-[40%] max-md:w-full h-[50vh] overflow-hidden rounded-xl">
             <img
               src={imageMap[galleryItem.images[activeIndex].src]}
               alt={`${galleryItem.title} ${activeIndex + 1}`}
@@ -158,9 +158,9 @@ function Gallery() {
         </div>
 
         {/* Third Block  */}
-        <div className="flex items-center justify-center mt-10 gap-x-20 max-md:flex-col py-4 w-full">
+        <div className="flex items-center justify-center md:mt-10 gap-x-20 max-md:gap-y-2 max-md:flex-col py-4 w-full max-md:border-b-2 max-md:pb-10">
           <div className="flex flex-row items-start w-[40%] max-md:w-full max-md:mt-4 text-lg">
-            <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[40vh] flex flex-col items-center justify-around">
+            <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[40vh] max-md:w-full flex flex-col items-center justify-around">
               <div className="mb-2 w-full border-b">
                 <p className="font-bold">Localisation</p>
                 <p>{galleryItem.tags[0] || "-"}</p>
@@ -176,7 +176,7 @@ function Gallery() {
               <div className="flex items-center justify-center w-full">
                 <Link
                   to="/estimation"
-                  className="px-6 py-2 pt-3 mt-6 max-md:mb-4 soleil-medium bg-vert_principal text-white rounded-lg hover:bg-vert_principal/80 transition duration-300"
+                  className="px-6 py-2 pt-3 mt-6 max-md:mb-4 soleil-medium bg-vert_light text-white rounded-lg hover:bg-vert_principal transition duration-300"
                 >
                   Démarrer votre projet
                 </Link>

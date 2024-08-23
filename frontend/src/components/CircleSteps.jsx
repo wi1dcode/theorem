@@ -163,7 +163,7 @@ const CircleSteps = () => {
                 {step.number === 1 && (
                   <Link to="/estimation">
                     <button
-                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil hover:bg-vert_principal/80 transition duration-300"
+                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil hover:bg-vert_principal transition duration-300"
                       type="button"
                     >
                       Je remplis mon formulaire

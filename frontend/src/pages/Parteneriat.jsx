@@ -99,7 +99,7 @@ function Pro() {
                 <h3 className="text-xl font-semibold mb-8">{card.title}</h3>
                 <Link
                   to={card.link}
-                  className="bg-vert_light rounded-lg p-2 px-10 pt-3 text-white hover:bg-vert_principal/80 transition duration-300"
+                  className="bg-vert_light rounded-lg p-2 px-10 pt-3 text-white hover:bg-vert_principal transition duration-300"
                 >
                   Postuler
                 </Link>

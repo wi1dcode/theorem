@@ -94,7 +94,7 @@ function Realisations() {
               <Link to={`/realisations/${item.id}`}>
                 <div
                   key={item.id}
-                  className="relative cursor-pointer w-[380px] h-[400px] max-md:w-[80%] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
+                  className="relative cursor-pointer max-md:w-[350px] w-[380px] h-[400px] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
                 >
                   <img
                     className="w-full h-full object-cover rounded-xl"
@@ -110,7 +110,7 @@ function Realisations() {
                     </p>
                     <Link
                       to={`/realisations/${item.id}`}
-                      className="py-2 px-4 pb-1 bg-vert_principal text-white rounded-full hover:bg-vert_principal/80 transition duration-300"
+                      className="py-2 px-4 pb-1 bg-vert_principal text-white rounded-full hover:bg-vert_principal transition duration-300"
                     >
                       En savoir plus
                     </Link>

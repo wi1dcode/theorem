@@ -212,7 +212,7 @@ function Login() {
                       type="email"
                       name="email"
                       maxLength="50"
-                      className={`block w-full py-3 text-gray-700 bg-white border rounded-full px-11 ${
+                      className={`block w-full pb-2 py-3 text-gray-700 bg-white border rounded-full px-11 ${
                         redInput && "border-red-400"
                       }`}
                       placeholder="Adresse e-mail"
@@ -248,7 +248,7 @@ function Login() {
                       type="password"
                       name="password"
                       maxLength="50"
-                      className={`block w-full px-10 py-3 text-gray-700 bg-white border rounded-full ${
+                      className={`block w-full pb-2 px-10 py-3 text-gray-700 bg-white border rounded-full ${
                         redInput && "border-red-400"
                       }`}
                       placeholder="Mot de passe"
@@ -266,7 +266,7 @@ function Login() {
                   <div className="flex items-center justify-between mt-4">
                     <button
                       type="submit"
-                      className="tracking-wide rounded-full bg-vert_principal w-full px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-vert_principal/80"
+                      className="tracking-wide rounded-full bg-vert_light pb-1 w-full px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-vert_principal"
                     >
                       <span className="w-full rounded-full">Se connecter</span>
                     </button>

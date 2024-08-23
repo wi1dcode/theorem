@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import LinkArrow from "../../images/svg/LinkArrow"
 
 const data = [
@@ -106,8 +106,22 @@ const data = [
 
 function ProClients() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [clientsPerPage, setClientsPerPage] = useState(6)
 
-  const clientsPerPage = 6
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setClientsPerPage(4)
+      } else {
+        setClientsPerPage(6)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    handleResize()
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const totalPages = Math.ceil(data.length / clientsPerPage)
 
@@ -130,18 +144,18 @@ function ProClients() {
 
   return (
     <div className="pb-24">
-      <h2 className="soleil-book text-4xl text-center mt-8">
+      <h2 className="soleil-book text-4xl text-center mt-8 max-md:p-2">
         Ils nous font confiance
       </h2>
       <div className="flex justify-center items-center mt-10">
         <button onClick={handlePrev} className="text-gray-500 p-2 mr-4">
           <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
         </button>
-        <div className="w-[80%] flex items-center justify-center flex-wrap gap-4">
+        <div className="w-[80%] flex items-center justify-center flex-wrap md:gap-4">
           {currentClients.map((client) => (
             <div
               key={client.id}
-              className="flex items-center border-2 p-3 w-[30%] h-[150px]"
+              className="flex items-center md:border-2 max-md:border p-3 w-[30%] max-md:w-1/2 h-[150px]"
             >
               <img
                 src={client.image}

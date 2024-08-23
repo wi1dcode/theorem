@@ -69,7 +69,7 @@ function Identite() {
               </p>
             </div>
             <Link to="/estimation" className="flex justify-start mt-2">
-              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal/80 transition duration-300">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300">
                 Commencer mon projet
               </button>
             </Link>
