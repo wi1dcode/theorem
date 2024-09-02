@@ -73,7 +73,7 @@ function NavBar() {
           >
             <TheoremIcon />
             <span className="text-white text-2xl pt-2 soleil-bold">
-              Theorem Concept
+              Theorem
             </span>
             {/* <TheoremText className="text-white" /> */}
           </Link>

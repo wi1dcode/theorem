@@ -1,26 +1,13 @@
 import React from "react"
 import HeaderBg from "../../images/pro-bg.jpg"
 import WelcomeImage from "../../images/welcome_pro.jpg"
-import ProCentralAchatImage from "../../images/pro_centrale_achat.jpg"
 import ProClients from "./ProClients.jsx"
 import LinkArrow from "../../images/svg/LinkArrow.jsx"
 import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
 import Work from "../../components/Work.jsx"
-import { useNavigate } from "react-router-dom"
+import ServicesCarousel from "../../components/ServicesCarousel"
 
 function Pro() {
-  const navigate = useNavigate()
-
-  const scrollToContact = () => {
-    navigate("/")
-    setTimeout(() => {
-      const section = document.getElementById("contact")
-      const yOffset = -230
-      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
-
-      window.scrollTo({ top: y, behavior: "smooth" })
-    }, 100)
-  }
 
   return (
     <div id="main">
@@ -73,52 +60,18 @@ function Pro() {
             </div>
           </div>
         </section>
-        <section className="w-full mb-16">
+        <section className="w-full mb-10">
           <Work />
         </section>
-        <section className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mb-10 flex flex-col items-center">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div className="flex flex-col justify-center">
-              <div className="max-w-xl mb-6">
-                <h2 className="max-w-lg mb-6 soleil-book text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                  Notre{" "}
-                  <span className="inline-block text-vert_principal">
-                    histoire
-                  </span>
-                </h2>
-                <p className="text-base soleil text-gray-700 md:text-lg mb-1">
-                  Elle commence avec une amitié solide et des rêves partagés. En
-                  associant nos compétences complémentaires, nous avons donné
-                  naissance à notre entreprise.
-                </p>
-                <p className="text-base soleil text-gray-700 md:text-lg mb-1 pt-6">
-                  Unis par les mêmes ambitions et valeurs, nous avons tracé le
-                  chemin de la réalisation de projets complets en tant
-                  qu'entreprise tous corps d'État. Chaque jour, nous mettons
-                  notre expertise au service de vos idées, transformant ensemble
-                  les défis en réussites.
-                </p>
-                <button
-                  className="bg-vert_light rounded-lg mt-4 p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
-                  onClick={scrollToContact}
-                >
-                  Des questions ?
-                </button>
-              </div>
-            </div>
-            <div className="flex items-center justify-center lg:pl-8">
-              <img
-                className="object-cover rounded-lg w-full lg:h-auto lg:w-auto"
-                src={ProCentralAchatImage}
-                alt="Notre histoire"
-              />
-            </div>
-          </div>
+        <section className="w-full mb-16 shadow-md pb-2">
+          <h2 className="text-center max-md:text-2xl text-4xl pt-4 soleil z-10">
+            Nos services
+          </h2>
+          <ServicesCarousel />
         </section>
-      </div>
-
-      <div className="my-16 mb-0" id="clients">
-        <ProClients />
+        <div className="my-16 mb-0" id="clients">
+          <ProClients />
+        </div>
       </div>
     </div>
   )
