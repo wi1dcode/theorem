@@ -7,7 +7,7 @@ const steps = [
     title: "Concevoir",
     description: [
       "Vous avez un projet en tête ? Dites-nous tout.",
-      "Votre chef de projet Theorem Concept vous rappel pour discuter de vos besoins et de votre vision. ",
+      "Votre chef de projet Theorem Concept vous rappelle  pour discuter de vos besoins et de votre vision. ",
     ],
   },
   {

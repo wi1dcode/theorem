@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react"
-import LinkArrow from "../../images/svg/LinkArrow"
+import React from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation, Pagination } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
 const data = [
   {
@@ -99,73 +103,60 @@ const data = [
 ]
 
 function ProClients() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [clientsPerPage, setClientsPerPage] = useState(6)
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setClientsPerPage(4)
-      } else {
-        setClientsPerPage(6)
-      }
-    }
-
-    window.addEventListener("resize", handleResize)
-    handleResize()
-
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const totalPages = Math.ceil(data.length / clientsPerPage)
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === totalPages - 1 ? 0 : prevIndex + 1
-    )
-  }
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalPages - 1 : prevIndex - 1
-    )
-  }
-
-  const currentClients = data.slice(
-    currentIndex * clientsPerPage,
-    currentIndex * clientsPerPage + clientsPerPage
-  )
-
   return (
     <div className="pb-24">
       <h2 className="soleil-book text-4xl text-center mt-8 max-md:p-2">
         Ils nous font confiance
       </h2>
-      <div className="flex justify-center items-center mt-10">
-        <button onClick={handlePrev} className="text-gray-500 p-2 mr-4">
-          <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
-        </button>
-        <div className="w-[80%] flex items-center justify-center flex-wrap md:gap-4">
-          {currentClients.map((client) => (
-            <div
-              key={client.id}
-              className="flex items-center md:border-2 max-md:border p-3 w-[30%] max-md:w-1/2 h-[150px]"
-            >
-              <img
-                src={client.image}
-                alt={client.name}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+      <div className="flex justify-center items-center mt-10 w-full">
+        <div className="w-full max-w-screen-lg">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            navigation
+            pagination={{ clickable: true }}
+            modules={[Navigation, Pagination]}
+            className="mySwiper swiper-custom-padding"
+          >
+            {data.map(
+              (_, i) =>
+                i % 6 === 0 && (
+                  <SwiperSlide key={i}>
+                    <div className="p-14">
+                      <div className="grid grid-cols-3 gap-6">
+                        {data.slice(i, i + 3).map((client) => (
+                          <div
+                            key={client.id}
+                            className="flex items-center justify-center border-2 p-3 h-[150px] max-w-full"
+                          >
+                            <img
+                              src={client.image}
+                              alt={client.name}
+                              className="object-contain max-w-full max-h-full"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="grid grid-cols-3 gap-6 mt-4">
+                        {data.slice(i + 3, i + 6).map((client) => (
+                          <div
+                            key={client.id}
+                            className="flex items-center justify-center border-2 p-3 h-[150px] max-w-full"
+                          >
+                            <img
+                              src={client.image}
+                              alt={client.name}
+                              className="object-contain max-w-full max-h-full"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+            )}
+          </Swiper>
         </div>
-        <button onClick={handleNext} className="text-gray-500 p-2 ml-4">
-          <LinkArrow
-            className="h-[50px] w-[50px]"
-            style={{ transform: "rotate(180deg)" }}
-            fill="gray"
-          />
-        </button>
       </div>
     </div>
   )
