@@ -153,6 +153,9 @@ function Gallery() {
           </div>
 
           <div className="flex flex-col items-start w-[40%] max-md:w-full max-md:mt-4">
+            <h3 className="soleil-bold text-center pb-4 mx-auto text-2xl">
+              Coup d'œil sur le projet
+            </h3>
             <p className="text-xl max-md:text-sm">{galleryItem.full_desc}</p>
           </div>
         </div>
@@ -162,6 +165,10 @@ function Gallery() {
           <div className="flex flex-row items-start w-[40%] max-md:w-full max-md:mt-4 text-lg">
             <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[40vh] max-md:w-full flex flex-col items-center justify-around">
               <div className="mb-2 w-full border-b">
+                <p className="font-bold">Catégorie</p>
+                <p>{galleryItem.category || "-"}</p>
+              </div>
+              <div className="mb-2 w-full border-b">
                 <p className="font-bold">Localisation</p>
                 <p>{galleryItem.tags[0] || "-"}</p>
               </div>
@@ -170,8 +177,8 @@ function Gallery() {
                 <p>{galleryItem.tags[1] || "-"}</p>
               </div>
               <div className="mb-2 w-full border-b">
-                <p className="font-bold">Prix</p>
-                <p>{galleryItem.tags[2] || "-"}</p>
+                <p className="font-bold">Travaux réalisés</p>
+                <p>{galleryItem.work || "-"}</p>
               </div>
               <div className="flex items-center justify-center w-full">
                 <Link

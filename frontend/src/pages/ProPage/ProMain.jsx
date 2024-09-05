@@ -8,7 +8,6 @@ import Work from "../../components/Work.jsx"
 import ServicesCarousel from "../../components/ServicesCarousel"
 
 function Pro() {
-
   return (
     <div id="main">
       <div
@@ -29,26 +28,22 @@ function Pro() {
       </div>
       <div className="mt-6 shadow-md pb-2">
         <section className="flex flex-col justify-center items-center mt-10 mx-auto px-4 lg:px-8 shadow-md mb-10">
-          <div className="w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 py-6 mb-10">
+          <div className="w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 mb-10">
             <div className="md:w-1/2">
               <h2 className="text-3xl soleil-book mb-4">
-                Bienvenue dans l'Espace Professionnel de THEOREM.
+                Bienvenue dans l’Espace Pro
               </h2>
               <p className="text-base text-gray-800 md:text-lg soleil leading-relaxed">
-                Chez THEOREM, nous comprenons l'importance d'une collaboration
-                efficace pour mener à bien vos projets professionnels. Dans cet
-                espace dédié aux professionnels, nous mettons à votre
-                disposition l'ensemble de nos compétences techniques et
-                relationnelles ; que vous soyez engagés dans la conception, la
-                réalisation ou la gestion de travaux, notre équipe expérimentée
-                est prête à relever tous les défis pour concrétiser vos
-                ambitions.
+                Chez Theorem, on sait que la clé de vos projets, c’est une
+                collaboration solide. Dans cette plateforme dédiée aux
+                professionnels, nous mettons à votre disposition l'ensemble de
+                nos compétences techniques et relationnelles ; que vous soyez
+                engagés dans la conception, la réalisation ou la gestion de
+                travaux.
                 <br />
                 <br />
-                Explorez l'Espace Professionnel de THEOREM pour découvrir
-                comment nous pouvons être le partenaire stratégique dont vous
-                avez besoin. Merci de choisir la qualité, la confiance et
-                l'excellence pour mener à bien vos projets professionnels.
+                Explorez votre espace dédié, pour découvrir comment nous pouvons
+                être le partenaire stratégique dont vous avez besoin.
               </p>
             </div>
             <div className="md:w-1/2 lg:w-[30%]">

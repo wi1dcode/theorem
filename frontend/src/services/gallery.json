@@ -28,13 +28,14 @@
     ],
     "tags": ["Paris 12e"],
     "suggestion": [2, 3, 4],
-    "category": "Local commercial"
+    "category": "Local commercial",
+    "work": "Maintenance & Électricité."
   },
   {
     "id": 2,
     "title": "Projet Jaurès",
     "under_title": "Connexion Totale",
-    "description": "Nous avons été chargés d'effectuer des travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia sur un espace de 1800m², avec un souci constant de qualité et de conformité.",
+    "description": "Nous avons été chargés d'effectuer des travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia de plusieurs salles de sport, d’une surface moyenne de 1800 m², avec un souci constant de qualité et de conformité.",
     "full_desc": "Nous avons réalisé l’alimentation électrique complète du commerce, en adaptant les prises et les éclairages aux besoins spécifiques. Une infrastructure internet robuste a été installée pour garantir une connectivité fiable partout dans l’établissement. Un système de sonorisation a été intégré pour assurer une diffusion uniforme de la musique. Nous avons également alimenté les machines de fitness, installé des blocs de secours pour les évacuations d'urgence, et utilisé des chemins de câbles pour une installation discrète et esthétique.",
     "img": "jaures_main.jpg",
     "img_two": "jaures_main.jpg",
@@ -47,7 +48,8 @@
     ],
     "tags": ["Argenteuil", "1800m²" ],
     "suggestion": [1, 2, 3],
-    "category": "Local commercial"
+    "category": "Local commercial",
+    "work": "Électricité & VDI"
   },
   {
     "id": 3,
@@ -70,11 +72,12 @@
     ],
     "tags": ["Paris 8e", "1800m²"],
     "suggestion": [1, 2, 3],
-    "category": "Local commercial"
+    "category": "Local commercial",
+    "work": "Électricité"
   },
   {
     "id": 4,
-    "title": "Projet Juppiter",
+    "title": "Projet St Flaive",
     "under_title": "Eau la la!",
     "description": "Bienvenue à Ermont, en région parisienne. Depuis quelque temps ce charmant couple s’est installé dans cet appartement de 85m² doté d’une spacieuse terrasse. Suite à un dégât des eaux, ils ont décidé de profiter des travaux pour rénover plusieurs pièces telles que les chambres, les sanitaires et l’entrée.",
     "full_desc": "Nos équipes ont orchestré la rénovation, en installant un magnifique parquet semi-massif, contrecollé dans l’ensemble de l’appartement, des tomettes pour l’entrée, et en embellissant les murs des sanitaires avec un magnifique zellige. Des retouches de peinture ont été réalisées pour illuminer chaque espace de cet appartement. Aujourd’hui, ils redécouvrent leur cocon familial sous un nouveau jour, prêts à en profiter pleinement avec leur enfant. Nous espérons que cette rénovation apportera confort et bonheur à cette famille pour les années à venir.",
@@ -89,11 +92,12 @@
     ],
     "tags": ["Ermont", "85m²"],
     "suggestion": [1, 2, 3],
-    "category": "Appartement/Maison"
+    "category": "Appartement/Maison",
+    "work": "Revêtements Sols & Muraux."
   },
   {
     "id": 5,
-    "title": "Projet Ophélie",
+    "title": "Projet Stalingrad",
     "under_title": "Premier Cocon",
     "description": "Bienvenue chez Ophélie, dans son nouveau havre de paix en banlieue parisienne. C’est cet appartement de 60m² qui a fait battre le cœur de notre chère cliente. Il ne restait plus qu’à le façonner à son image. Nos équipes ont entièrement rénové le bien pour le rendre à la fois fonctionnel et épuré",
     "full_desc": "Nos équipes ont métamorphosé cet appartement en alliant fonctionnalité et simplicité. Nous avons rénové les sols avec un carrelage moderne et repensé la salle de bain, en transformant l’installation existante en une baignoire spacieuse et en intégrant des niches sur mesure pour optimiser parfaitement l’espace. Dans la chambre, une tête de lit en placo sur mesure, équipée de LEDs, apporte du cachet à la pièce. Et ce n’est que le début des améliorations apportées pour rendre ce lieu encore plus accueillant et fonctionnel. De nombreuses prises électriques et luminaires ont également été installées dans tout l’appartement.",
@@ -140,11 +144,12 @@
     ],
     "tags": ["Ermont", "60m²"],
     "suggestion": [1, 2, 3],
-    "category": "Appartement/Maison"
+    "category": "Appartement/Maison",
+    "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie ; Éléments sur mesure."
   },
   {
     "id": 6,
-    "title": "L’espace Theorem Concept",
+    "title": "L’agence Theorem",
     "under_title": "Un nouveau chapitre",
     "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont, en banlieue parisienne. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer votre projet.",
     "full_desc": "Commençons par cette grande entrée avec un comptoir sur mesure pour vous accueillir. L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle, réduisant ainsi notre consommation énergétique quotidienne. Côté démolition, nos équipes ont déposé des cloisons pour créer deux grandes pièces avec des baies vitrées. L'une est dédiée à nos bureaux, entièrement insonorisés pour garantir la confidentialité de nos clients. Pour réchauffer les tons lumineux des murs immaculés, nous avons utilisé les peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, n'oublions pas notre Coffee Corner, un espace convivial où nous pouvons travailler ensemble sur vos projets autour d’un bon café. Fun fact : Bien que modeste, notre équipe parle plus de six langues !",
@@ -159,6 +164,7 @@
     ],
     "tags": ["Ermont", "85m²"],
     "suggestion": [1, 2, 3],
-    "category": "Local commercial"
+    "category": "Local commercial",
+    "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie."
   }
 ]

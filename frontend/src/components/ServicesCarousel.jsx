@@ -7,19 +7,19 @@ import Plomberie from "../images/plomberie-pro.jpg"
 const servicesData = [
   {
     id: 1,
-    title: "Contractant général",
+    title: "Contractant Général",
     description:
-      "Theorem simplifie la gestion de votre projet avec un interlocuteur unique et une solution clé en main couvrant toute la réalisation.",
+      "Theorem simplifie la gestion de votre projet avec un <strong>interlocuteur unique</strong> et une <strong>solution clé en main</strong> couvrant toute la réalisation.",
     fullDescription:
-      "Nous commençons par une étude de faisabilité et une phase de design thinking pour créer une solution adaptée à vos besoins. Nous élaborons les plans, préparons le DCE, et coordonnons la sélection des prestataires. Enfin, nous supervisons l’exécution des travaux avec une grande minutie pour garantir le respect des délais et du budget.",
+      "Nous commençons par une étude de faisabilité et une phase de <strong>design thinking</strong> pour créer une solution adaptée à vos besoins. Nous élaborons les plans, préparons le DCE, et coordonnons la sélection des prestataires. Enfin, nous supervisons l’exécution des travaux avec une grande minutie pour <strong>garantir</strong> le respect des délais et du budget.",
     image: Contractant,
   },
   {
     id: 2,
-    title: "Électricité",
-    description: "Certifié Qualifelec / IRVE",
+    title: "Électricité - Certifié Qualifelec / IRVE",
+    description: "",
     fullDescription:
-      "NOS SERVICES\n\n• Intervention / Petits et grands chantiers.\n• Prestations : Basse et haute tension jusqu’à 20 kV.\n• SSI, contrôle d’accès, domotique, VDI, bornes de recharge, panneaux solaires, GTB.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "NOS SERVICES\n• Intervention / Petits et grands chantiers.\n• Prestations : Basse et haute tension jusqu’à 20 kV.\n• SSI, contrôle d’accès, domotique, VDI, bornes de recharge, panneaux solaires, GTB.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
     image: Electricite,
   },
   {
@@ -27,7 +27,7 @@ const servicesData = [
     title: "Plomberie / CVC / VMC",
     description: "",
     fullDescription:
-      "NOS SERVICES\n\n• Des solutions de plomberie, climatisation et VMC alliant performance et durabilité.\n• Une méthode rigoureuse assure des installations fiables, conformes aux normes les plus strictes pour un confort optimal.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "NOS SERVICES\n• Des solutions de plomberie, climatisation et VMC alliant performance et durabilité.\n• Une méthode rigoureuse assure des installations fiables, conformes aux normes les plus strictes pour un confort optimal.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
     image: Plomberie,
   },
 ]
@@ -61,16 +61,24 @@ function ServicesCarousel() {
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-screen-xl mx-auto">
         <div className="md:w-1/2 text-left">
           <h2 className="text-3xl font-bold">{currentService.title}</h2>
-          <div className="mt-4 text-lg" style={{ height: "72px" }}>
-            {currentService.description}
-          </div>
+          <div
+            className="mt-4 text-lg"
+            style={{ height: currentIndex.id === 1 ? "72px" : "auto" }}
+            dangerouslySetInnerHTML={{ __html: currentService.description }}
+          />
           <div
             className="mt-4 text-base whitespace-pre-wrap"
-            style={{ height: "180px", overflow: "hidden" }}
-          >
-            {currentService.fullDescription}
-          </div>
+            style={{
+              height: currentIndex.id === 1 ? "180px" : "auto",
+              overflow: "hidden",
+              marginTop: currentIndex.id !== 2 && "10px",
+              whiteSpace: "pre-line",
+              lineHeight: "1.6",
+            }}
+            dangerouslySetInnerHTML={{ __html: currentService.fullDescription }}
+          />
         </div>
+
         <div className="md:w-1/2 h-[400px]">
           <img
             src={currentService.image}

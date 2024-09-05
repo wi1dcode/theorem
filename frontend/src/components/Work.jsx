@@ -45,10 +45,13 @@ function Work() {
   return (
     <section className="pb-10 shadow-md overflow-hidden">
       <div className="relative flex justify-center items-center">
-        <div className="pb-8">
+        <div className="pb-4">
           <h2 className="text-center max-md:text-2xl text-4xl pt-4 soleil z-10">
             Nos projets
           </h2>
+          <p className="mt-2 courier-prime-regular text-xl">
+            Découvrir nos réalisations
+          </p>
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-x-20 max-md:flex-col-reverse max-md:gap-y-6">

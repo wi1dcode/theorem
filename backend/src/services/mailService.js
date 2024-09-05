@@ -16,7 +16,7 @@ class MailService {
     this.mailGenerator = new Mailgen({
       theme: "default",
       product: {
-        name: "Theorem Concept",
+        name: "Theorem",
         link: process.env.CLIENT_URL,
       },
     })
@@ -31,18 +31,17 @@ class MailService {
             greeting: `Bonjour ${name}`,
             signature: false,
             intro:
-              "Nous vous confirmons la création de votre compte sur notre service. Veuillez activer votre compte.",
+              "Bienvenue parmi nous ! Votre compte a été créé avec succès.",
             action: {
               instructions:
-                "Pour activer votre compte, veuillez cliquer sur le lien ci-dessous :",
+                "Votre compte a été créé avec succès. Pour l’activer, il vous suffit de cliquer sur le lien ci-dessous : ",
               button: {
                 color: "#22BC66",
                 text: "Activer mon compte",
                 link: link,
               },
             },
-            outro:
-              "Si vous avez des questions, n'hésitez pas à nous contacter.",
+            outro: "Cordialement, votre équipe Theorem",
           },
         }
         break
@@ -51,9 +50,9 @@ class MailService {
           body: {
             greeting: `Bonjour`,
             signature: false,
-            intro: `Voici votre code de réinitialisation de mot de passe: <strong>${code}</strong>`,
+            intro: `Vous avez oublié votre mot de passe ? Pas de panique, ça arrive. Cliquez sur le lien ci-dessous pour en créer un nouveau : <strong>${code}</strong>`,
             outro:
-              "Ce code est valide pour 10 minutes. Si vous n'avez pas demandé cette réinitialisation, veuillez ignorer cet email.",
+              "Ce code est valide pour 10 minutes.Si vous n'avez pas fait cette demande, ignorez ce message. À bientôt, votre équipe Theorem.",
           },
         }
         break
@@ -128,7 +127,7 @@ class MailService {
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,
       to,
-      subject: `Mise à jour du statut de votre projet - ${status}`,
+      subject: `🎉 Mise à jour du statut de votre projet - ${status}`,
       html: emailBody,
     })
   }

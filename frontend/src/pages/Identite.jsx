@@ -13,19 +13,19 @@ import { Link } from "react-router-dom"
 const qualities = [
   {
     image: qualityImageOne,
-    title: "Notre cœur à l’ouvrage",
+    title: "Le coeur à l’ouvrage",
   },
   {
     image: qualityImageTwo,
-    title: "Nos pratiques éthiques",
+    title: "Des pratiques éthiques",
   },
   {
     image: qualityImageThree,
-    title: "Notre goût pour l’innovation",
+    title: "Nos petits gestes pour la planète",
   },
   {
     image: qualityImageFour,
-    title: "Nos meilleures actions",
+    title: "L’esprit créatif",
   },
 ]
 
@@ -61,7 +61,7 @@ function Identite() {
               <h2 className="max-w-lg mb-6 soleil-bold font-sans text-3xl soleil-book tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Moralité ?
               </h2>
-              <p className="text-base american text-gray-700 md:text-lg mb-1">
+              <p className="text-base courier-prime-regular text-gray-700 md:text-lg mb-1">
                 Parfois, il suffit de tourner une page pour découvrir la
                 meilleure version de vous-même. Explorez notre univers à travers
                 nos projets et suivez notre aventure sur les réseaux sociaux.
@@ -82,9 +82,12 @@ function Identite() {
         data-aos-duration="1000"
       >
         <div className="mx-auto px-4 w-full">
-          <h2 className="text-4xl soleil-book text-center mb-8">
-            Nos meilleurs atouts
+          <h2 className="text-4xl soleil-book text-center ">
+            Les reflets de notre histoire
           </h2>
+          <p className="text-center mb-8 mt-2 courier-prime-regular">
+            Chaque facette de notre histoire éclaire notre présent
+          </p>
           <div className="flex flex-wrap justify-center items-center gap-8 w-full">
             {qualities.map((quality, idx) => (
               <div

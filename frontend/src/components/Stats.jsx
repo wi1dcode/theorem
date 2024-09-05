@@ -21,12 +21,12 @@ export default function Stats() {
             De nos clients viennent sur recommandation.
           </p>
         </div>
-        <div className="text-center flex-1 py-4">
+        <div className="text-center flex-1">
           <h6 className="text-3xl font-bold lg:text-4xl text-white soleil-bold">
-            <CountUp start={2000} end={2022} duration={5} separator="" />
+            <CountUp start={0} end={100} duration={5} suffix="%" />
           </h6>
           <p className="text-sm font-medium tracking-wide text-gray-100 lg:text-lg mt-2">
-            Date de création.
+            Engagés éco-responsables.
           </p>
         </div>
       </div>

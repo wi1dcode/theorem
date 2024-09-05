@@ -72,7 +72,7 @@ export default function Reviews() {
               <h3 className="text-xl font-bold mb-2 ">
                 {testimonials[currentIndex].name}
               </h3>
-              <p className="text-gray-800 american mb-4">
+              <p className="text-gray-800 courier-prime-regular mb-4">
                 {testimonials[currentIndex].quote}
               </p>
 

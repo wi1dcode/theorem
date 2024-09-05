@@ -18,7 +18,7 @@ function Header() {
               Concevoir. Créer. Célébrer.
             </h1>
             <p className="text-white text-center text-2xl soleil-light">
-              Une approche simple et agile pour construire votre projet de vie.
+              Une approche simple et agile pour construire vos projets.
             </p>
           </div>
           <Link to="/realisations">

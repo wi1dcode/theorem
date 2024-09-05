@@ -88,7 +88,7 @@ function Home() {
         <CircleSteps />
       </div>
       <div
-        className="w-full mt-6 px-2 mb-2 soleil"
+        className="w-full px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >

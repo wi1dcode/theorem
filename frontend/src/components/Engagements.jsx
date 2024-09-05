@@ -6,21 +6,20 @@ import EngImageThree from "../images/theorem_gagnant.jpg"
 const engagements = [
   {
     image: EngImageOne,
-    title: "Roulons Vert l'Avenir !",
+    title: "Une empreinte + verte",
     description:
-      "Nos équipes privilégient les trajets en trottinette électrique pour",
+      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé CO². Soit x vol(s) Paris - Tlemcen.",
   },
   {
     image: EngImageTwo,
     title: "Un Espace de Travail Eco-Friendly",
     description:
-      "Nous croyons que c’est ensemble que nous pouvons faire la différence et c’est par nos bureaux que nous commençons en sensibilisant nos équipes, réduisant nos déchets et notre consommation d’énergie.",
+      "C’est ensemble que nous faisons la différence et nous commençons par nos bureaux, en sensibilisant nos équipes, réduisant nos déchets, et modérons notre consommation d’énergie.",
   },
   {
     image: EngImageThree,
     title: "Le Theorem Gagnant",
-    description:
-      "Coming soon...",
+    description: "Restez branchés !",
   },
 ]
 
@@ -28,7 +27,11 @@ export default function Engagements() {
   return (
     <section className="py-12 bg-white soleil">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <h2 className="text-4xl soleil text-center mb-8">Nos engagements</h2>
+        <h2 className="text-4xl soleil text-center">Le Fil conducteur</h2>
+        <p className="courier-prime-regular mt-2 mb-6 text-center">
+          Ces actions sont au cœur de ce que nous faisons. <br /> Elles nous
+          inspirent, nous motivent et donnent le ton à notre quotidien.
+        </p>
         <div className="flex flex-wrap justify-center items-center gap-8">
           {engagements.map((engagement, idx) => (
             <div
@@ -46,7 +49,7 @@ export default function Engagements() {
                 <h3 className="text-xl soleil-book mb-4 text-center">
                   {engagement.title}
                 </h3>
-                <p className="text-gray-700 text-center american">
+                <p className="text-gray-700 text-center soleil overflow-hidden">
                   {engagement.description}
                 </p>
               </div>

@@ -12,36 +12,24 @@ import LinkArrow from "../images/svg/LinkArrow"
 const expertises = [
   {
     id: "architecturale",
-    title: "Prestations Architecturales",
+    title: "Conception",
     description:
-      "Nous commençons par comprendre votre vision unique. En écoutant attentivement vos besoins et attentes,  nous créons des designs architecturaux qui vous ressemblent. Chaque projet est une opportunité de transformer vos idées en plans concrets et élégants.",
-    list: [
-      "Conseil Personnalisé: Nous discutons de vos idées pour définir un projet sur mesure.",
-      "Conception Architecturale: Création de plans détaillés alliant esthétisme et fonctionnalité.",
-      "Plans de Conception: Élaboration de plans précis pour une réalisation sans faille.",
-    ],
+      "Le cœur du projet réside dans une <strong>écoute attentive</strong> de vos besoins. Nous commençons par un échange approfondi pour élaborer un cahier des charges détaillé, couvrant tous les aspects techniques et architecturaux. Nous réalisons des <strong>études approfondies</strong>, concevons des plans détaillés et des visuels 3D pour une <strong>vision claire</strong> de votre projet. De l’étude initiale à la gestion de projet, nous assurons un processus fluide et transparent, pour vous offrir des solutions qui répondent parfaitement à vos attentes.",
+    list: [],
     image: archiImage,
   },
   {
     id: "technique",
-    title: "Prestations Techniques",
+    title: "Réalisations Techniques",
     description:
-      "C'est le moment de passer à l'action. Notre équipe prend en charge toute la réalisation technique, du revêtement des sols à l’électricité, en passant par la plomberie. Nous nous engageons à offrir un travail de qualité, dans le respect des délais et du budget.",
-    list: [
-      "Revêtement de Sols: Pose de carrelages, parquets, et autres matériaux.",
-      "Revêtement Mural: Application de peintures, papiers peints, et autres finitions.",
-      "Plâtrerie: Installation et finition des cloisons et plafonds en plâtre.",
-      "Électricité: Mise en place des installations électriques complètes.",
-      "Plomberie: Installation et réparation des systèmes de plomberie.",
-      "Chauffagiste: Installation et maintenance des systèmes de chauffage.",
-      "VMC (Ventilation Mécanique Contrôlée): Installation des systèmes de ventilation pour un confort optimal.",
-    ],
+      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation</strong> complète, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni au même endroit pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
+    list: [],
     image: techImage,
   },
   {
     id: "energetique",
     title: "Rénovation Énergétique",
-    description: "Coming soon...",
+    description: "Restez branchés !",
     list: [],
     image: ecoImage,
   },
@@ -122,16 +110,10 @@ function Expertises() {
           style={{ backgroundImage: `url(${expertise_bg})` }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 text-center text-white p-6 max-w-xl">
-            <h1 className="text-4xl md:text-4xl font-bold mb-4">
-              Notre Savoir-Faire : Conception & Réalisation de travaux
+          <div className="relative z-10 text-center text-white p-6 max-w-xl md:w-full">
+            <h1 className="text-4xl md:w-[600px] md:text-4xl font-bold mb-4">
+              Conception & Réalisation de travaux
             </h1>
-            <p>
-              Chez Theorem Concept, chaque projet est unique. Nous vous
-              accompagnons de la conception à la réalisation, pour transformer
-              vos idées en une belle réalité. Découvrez comment nous pouvons
-              vous aider à chaque étape.
-            </p>
           </div>
           <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
             <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
@@ -174,9 +156,10 @@ function Expertises() {
             {expertises.map((expertise, index) => (
               <section key={index} id={expertise.id} className="my-2">
                 <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
-                <p className="text-gray-700 md:w-2/3 american pb-4">
-                  {expertise.description}
-                </p>
+                <p
+                  className="text-gray-700 md:w-2/3 soleil pb-6"
+                  dangerouslySetInnerHTML={{ __html: expertise.description }}
+                />
                 {expertise.list.length > 0 && (
                   <ul className="list-disc list-inside mb-6">
                     {expertise.list.map((item, idx) => (
@@ -189,7 +172,7 @@ function Expertises() {
                 <img
                   src={expertise.image}
                   alt={expertise.title}
-                  className="md:w-2/3 w-full h-auto max-h-[600px] object-cover mb-14"
+                  className="md:w-2/3 w-full h-auto max-h-[600px] object-cover mb-14 rounded"
                 />
               </section>
             ))}

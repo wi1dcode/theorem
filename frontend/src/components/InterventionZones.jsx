@@ -28,10 +28,13 @@ export default function InterventionZones() {
           <h2 className="text-3xl font-bold text-center mb-4">
             Nos principales zones d’interventions
           </h2>
-          <h3 className="text-md md:w-1/2 text-center mx-auto american">
+          <h3 className="text-md md:w-1/2 text-center mx-auto courier-prime-regular">
             Vous ne trouvez pas votre département ? Pas de panique ! <br />
             Appelez-nous pour en discuter :
-            <a className="american inline-block pl-2" href="tel:+33695753702">
+            <a
+              className="courier-prime-regular inline-block pl-2"
+              href="tel:+33695753702"
+            >
               <span className="flex justify-center pt-2">
                 <ContactPhone className="w-6 h-6" stroke="white" v2 />
               </span>

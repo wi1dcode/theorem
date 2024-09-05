@@ -29,18 +29,24 @@ function History() {
                   histoire
                 </span>
               </h2>
-              <p className="text-base text-gray-700 md:text-lg mb-1 american">
+              <p className="text-base text-gray-700 md:text-lg mb-1 courier-prime-regular">
                 Avez-vous déjà eu envie de faire les choses différemment ? Nous,
                 oui. En travaillant pour les grands groupes du bâtiment, il nous
                 manquait quelque chose, et ce déclic est devenu notre point de
-                départ pour créer un écosystème meilleur. C’est ainsi qu’est née
-                Theorem Concept.
+                départ pour créer un{" "}
+                <span className="courier-prime-bold">meilleur écosystème.</span>{" "}
+                C’est ainsi qu’est née Theorem Concept.
               </p>
-              <p className="text-base text-gray-700 md:text-lg mb-1 pt-6 american">
+              <p className="text-base text-gray-700 md:text-lg mb-1 pt-6 courier-prime-regular">
                 Nous ne sommes pas simplement une entreprise de travaux, mais
-                une véritable aventure humaine. Chaque projet est animé par
-                notre passion, notre confiance réciproque et notre engagement
-                envers des pratiques éthiques et écologiques.
+                une véritable{" "}
+                <span className="courier-prime-bold">aventure humaine.</span>{" "}
+                Chaque projet est animé par notre{" "}
+                <span className="courier-prime-bold">passion,</span> notre{" "}
+                <span className="courier-prime-bold">confiance</span> réciproque
+                et notre engagement envers des pratiques{" "}
+                <span className="courier-prime-bold">éthiques</span> et{" "}
+                <span className="courier-prime-bold">écologiques.</span>
               </p>
             </div>
           </div>
@@ -61,10 +67,11 @@ function History() {
             />
           </div>
           <div className="flex flex-col justify-end items-end">
-            <p className="text-base american text-gray-700 md:text-lg mb-7">
+            <p className="text-base courier-prime-regular text-gray-700 md:text-lg mb-7">
               Notre équipe est une véritable mosaïque de talents, chacun
-              apportant son expertise pour offrir un service complet sous un
-              même toit. Notre histoire est en constante évolution, et chaque
+              apportant son expertise pour offrir un{" "}
+              <span className="courier-prime-bold">service complet</span> sous
+              un même toit. Notre histoire est en constante évolution, et chaque
               succès nous confirme que nous avons pris le bon tournant.
             </p>
           </div>

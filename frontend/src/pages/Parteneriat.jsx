@@ -73,7 +73,7 @@ function Pro() {
             Vous êtes entrepreneur du bâtiment, architecte décorateur ou maître
             d'œuvre ? Travaillons ensemble !
           </h2>
-          <p className="text-lg text-gray-700 mb-10 american">
+          <p className="text-lg text-gray-700 mb-10 courier-prime-regular">
             Pourquoi choisir Theorem : accédez à une diversité de projets et à
             une expertise de pointe pour propulser votre activité vers de
             nouveaux sommets, en concrétisant des concepts novateurs et en

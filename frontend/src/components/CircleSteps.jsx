@@ -1,34 +1,33 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const steps = [
   {
     number: 1,
     title: "Concevoir",
     description: [
-      "Vous avez un projet en tête ? Dites-nous tout.",
-      "Votre chef de projet Theorem Concept vous rappelle  pour discuter de vos besoins et de votre vision. ",
+      "Tout commence par une idée. Puis, nous prenons le relai pour la transformer en un projet solide. Nous analysons vos besoins et vos envies pour créer une solution sur mesure, parfaitement adaptée à vos attentes",
     ],
   },
   {
     number: 2,
     title: "Créer",
     description: [
-      "C’est le moment de rêver en couleurs et en formes ! Votre architecte d'intérieur vous guide pour optimiser et personnaliser vos espaces de vie.",
-      "Et ensuite ? Laissez-nous faire et profitez de cette aventure incroyable où vos aspirations les plus grandes se réalisent.",
+      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse, une expérience prouvée et une renommée bien établie, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution impeccable, fidèle à votre vision.",
     ],
   },
   {
     number: 3,
     title: "Célébrer",
     description: [
-      "Clap de fin ! Il est l'heure de découvrir le résultat.",
-      "Ce n’est pas la fin de notre aventure, rejoignez notre communauté sur les réseaux sociaux",
+      "Clap de fin ! Le moment est venu de découvrir le résultat. Nous célébrons vos projets, où chaque aspect – qualité, délais et budget – a été parfaitement maîtrisé.",
+      "Poursuivez l'aventure avec nous en rejoignant notre communauté sur les réseaux sociaux.",
     ],
   },
 ]
 
 const CircleSteps = () => {
+  const navigate = useNavigate()
   const [activeStep, setActiveStep] = useState(1)
   const stepsRef = useRef(null)
 
@@ -107,6 +106,17 @@ const CircleSteps = () => {
   //   return smallCircles
   // }
 
+  const scrollToContact = () => {
+    navigate("/")
+    setTimeout(() => {
+      const section = document.getElementById("contact")
+      const yOffset = -150
+      const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+
+      window.scrollTo({ top: y, behavior: "smooth" })
+    }, 100)
+  }
+
   return (
     <div className="flex flex-col justify-center main-block md:py-10">
       <div className="relative flex justify-center items-center">
@@ -140,7 +150,7 @@ const CircleSteps = () => {
               {step.number}
             </div>
           ))}
-          <span className="soleil uppercase">les 3C</span>
+          <span className="soleil uppercase">Notre Process</span>
         </div>
         <div className="md:space-y-10 px-5 md:px-10 md:w-3/5 lists">
           {steps.map((step) => (
@@ -154,7 +164,7 @@ const CircleSteps = () => {
               <h3 className="text-2xl max-md:text-sm soleil-bold mb-2">
                 {step.number}. {step.title}
               </h3>
-              <ul className="list-disc american ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
+              <ul className="list-disc courier-prime-regular ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
                   <p key={idx} className="text-lg max-md:text-sm">
                     {desc}
@@ -166,9 +176,20 @@ const CircleSteps = () => {
                       className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil hover:bg-vert_principal transition duration-300"
                       type="button"
                     >
-                      Je remplis mon formulaire
+                      Dites-nous tout
                     </button>
                   </Link>
+                )}
+                {step.number === 3 && (
+                  <span>
+                    <button
+                      className="bg-vert_light shadow text-white text-sm max-md:text-sm rounded-lg p-1 pt-2 mt-3 px-4 soleil hover:bg-vert_principal transition duration-300"
+                      type="button"
+                      onClick={scrollToContact}
+                    >
+                      Nous suivre
+                    </button>
+                  </span>
                 )}
               </ul>
             </div>
