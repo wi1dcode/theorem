@@ -14,7 +14,7 @@ const engagements = [
     image: EngImageTwo,
     title: "Un Espace de Travail Eco-Friendly",
     description:
-      "C’est ensemble que nous faisons la différence et nous commençons par nos bureaux, en sensibilisant nos équipes, réduisant nos déchets, et modérons notre consommation d’énergie.",
+      "C’est ensemble que nous faisons la différence et nous commençons par nos bureaux, en sensibilisant nos équipes, réduisant nos déchets, et modérant notre consommation d’énergie.",
   },
   {
     image: EngImageThree,

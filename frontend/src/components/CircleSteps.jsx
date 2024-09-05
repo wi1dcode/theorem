@@ -6,7 +6,7 @@ const steps = [
     number: 1,
     title: "Concevoir",
     description: [
-      "Tout commence par une idée. Puis, nous prenons le relai pour la transformer en un projet solide. Nous analysons vos besoins et vos envies pour créer une solution sur mesure, parfaitement adaptée à vos attentes",
+      "Tout commence par une idée. Puis, nous prenons le relais pour la transformer en un projet solide. Nous analysons vos besoins et vos envies pour créer une solution sur mesure, parfaitement adaptée à vos attentes.",
     ],
   },
   {
@@ -164,7 +164,7 @@ const CircleSteps = () => {
               <h3 className="text-2xl max-md:text-sm soleil-bold mb-2">
                 {step.number}. {step.title}
               </h3>
-              <ul className="list-disc courier-prime-regular ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
+              <ul className="list-disc soleil ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
                   <p key={idx} className="text-lg max-md:text-sm">
                     {desc}

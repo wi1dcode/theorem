@@ -25,13 +25,10 @@ function Footer() {
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Nous contacter</p>
-              <a
-                className="courier-prime-regular"
-                href="mailto:contact@theorem-concept.fr"
-              >
+              <a className="soleil" href="mailto:contact@theorem-concept.fr">
                 contact@theorem-concept.fr
               </a>
-              <a className="courier-prime-regular" href="tel:+33695753702">
+              <a className="soleil" href="tel:+33695753702">
                 06 95 75 37 02
               </a>
             </div>
@@ -42,20 +39,20 @@ function Footer() {
               <Link
                 to="https://www.instagram.com/theorem_concept/"
                 target="_blank"
-                className="hover:text-beige/50 courier-prime-regular"
+                className="hover:text-beige/50 soleil"
               >
                 Instagram
               </Link>
               <Link
                 to="https://www.facebook.com/profile.php?id=61561426542985"
                 target="_blank"
-                className="hover:text-beige/50 courier-prime-regular"
+                className="hover:text-beige/50 soleil"
               >
                 Facebook
               </Link>
               <Link
                 to="https://www.linkedin.com/company/theoremconcept/"
-                className="hover:text-beige/50 courier-prime-regular"
+                className="hover:text-beige/50 soleil"
                 target="_blank"
               >
                 LinkedIn
@@ -65,13 +62,9 @@ function Footer() {
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Nous rendre visite</p>
-              <p className="courier-prime-regular">
-                27 rue Stalingrad, 95120, Ermont
-              </p>
+              <p className="soleil">27 rue Stalingrad, 95120, Ermont</p>
               <p className="soleil-bold mt-2">Horaires d'ouverture</p>
-              <p className="courier-prime-regular">
-                Du lundi au samedi de 10h à 18h
-              </p>
+              <p className="soleil">Du lundi au samedi de 10h à 18h</p>
             </div>
           </div>
           <div className="flex flex-grow justify-center max-md:justify-start">
@@ -80,14 +73,11 @@ function Footer() {
               <Link
                 to="/plaquetteprocg.pdf"
                 target="_blank"
-                className="hover:text-beige/50 courier-prime-regular"
+                className="hover:text-beige/50 soleil"
               >
                 Plaquette de présentation
               </Link>
-              <Link
-                to="/partenariat"
-                className="hover:text-beige/50 courier-prime-regular"
-              >
+              <Link to="/partenariat" className="hover:text-beige/50 soleil">
                 Devenir partenaire
               </Link>
             </div>
