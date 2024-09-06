@@ -59,7 +59,7 @@ function Pro() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center text-white p-6 max-w-xl">
           <h1 className="text-4xl md:text-4xl font-bold mb-4">
-            Devenez nos partenaires
+            Devenir partenaire
           </h1>
         </div>
         <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
@@ -73,7 +73,7 @@ function Pro() {
             Vous êtes entrepreneur du bâtiment, architecte décorateur ou maître
             d'œuvre ? Travaillons ensemble !
           </h2>
-          <p className="text-lg text-gray-700 mb-10 courier-prime-regular">
+          <p className="text-lg text-gray-700 mb-10 soleil">
             Pourquoi choisir Theorem : accédez à une diversité de projets et à
             une expertise de pointe pour propulser votre activité vers de
             nouveaux sommets, en concrétisant des concepts novateurs et en

@@ -63,7 +63,7 @@ function Realisations() {
       <NavBar />
       <div className="mb-16 soleil">
         <h2 className="text-center text-4xl soleil mt-6 mb-2">Nos Projets</h2>
-        <p className="text-center mb-4">
+        <p className="text-center mb-4 courier-prime-regular">
           Maisons, appartements, conceptions architecturales, rénovations
           partielles ou complètes.
         </p>
