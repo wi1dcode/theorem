@@ -21,6 +21,13 @@ import FabourgThree from "../images/projects/fabourg/fabourg_three.jpg"
 import FabourgFour from "../images/projects/fabourg/fabourg_four.jpg"
 // Jaures
 import JauresMain from "../images/projects/jaures/jaures_main.jpg"
+import ProjetJaures1 from "../images/projects/jaures/projet_jaures_1.jpg"
+import ProjetJaures2 from "../images/projects/jaures/projet_jaures_2.jpg"
+import ProjetJaures3 from "../images/projects/jaures/projet_jaures_3.jpg"
+import ProjetJaures4 from "../images/projects/jaures/projet_jaures_4.jpg"
+import ProjetJaures5 from "../images/projects/jaures/projet_jaures_5.jpg"
+import ProjetJaures6 from "../images/projects/jaures/projet_jaures_6.jpg"
+import ProjetJaures7 from "../images/projects/jaures/projet_jaures_7.jpg"
 // Ophelie
 import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
 import OphelieChambre from "../images/projects/ophelie/ophelie_chambre.jpg"
@@ -51,6 +58,13 @@ const imageMap = {
   "fabourg_three.jpg": FabourgThree,
   "fabourg_four.jpg": FabourgFour,
   "jaures_main.jpg": JauresMain,
+  "projet_jaures_1.jpg": ProjetJaures1,
+  "projet_jaures_2.jpg": ProjetJaures2,
+  "projet_jaures_3.jpg": ProjetJaures3,
+  "projet_jaures_4.jpg": ProjetJaures4,
+  "projet_jaures_5.jpg": ProjetJaures5,
+  "projet_jaures_6.jpg": ProjetJaures6,
+  "projet_jaures_7.jpg": ProjetJaures7,
   "ophelie_chambre_2.jpg": OphelieChambreTwo,
   "ophelie_chambre.jpg": OphelieChambre,
   "ophelie_cuisine.jpg": OphelieCuisine,

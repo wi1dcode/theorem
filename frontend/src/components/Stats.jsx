@@ -21,7 +21,7 @@ export default function Stats() {
             De nos clients viennent sur recommandation.
           </p>
         </div>
-        <div className="text-center flex-1">
+        <div className="text-center flex-1 max-md:pt-4">
           <h6 className="text-3xl font-bold lg:text-4xl text-white soleil-bold">
             <CountUp start={0} end={100} duration={5} suffix="%" />
           </h6>

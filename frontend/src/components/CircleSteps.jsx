@@ -110,7 +110,7 @@ const CircleSteps = () => {
     navigate("/")
     setTimeout(() => {
       const section = document.getElementById("contact")
-      const yOffset = -150
+      const yOffset = 1000
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset
 
       window.scrollTo({ top: y, behavior: "smooth" })

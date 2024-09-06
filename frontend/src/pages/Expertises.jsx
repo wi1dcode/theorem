@@ -172,7 +172,7 @@ function Expertises() {
                 <img
                   src={expertise.image}
                   alt={expertise.title}
-                  className="md:w-2/3 w-full h-auto max-h-[600px] object-cover mb-14 rounded"
+                  className="md:w-2/3 w-full h-[500px] object-cover mb-14 rounded"
                 />
               </section>
             ))}

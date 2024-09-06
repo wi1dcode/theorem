@@ -35,7 +35,7 @@ function History() {
                 manquait quelque chose, et ce déclic est devenu notre point de
                 départ pour créer un{" "}
                 <span className="courier-prime-bold">meilleur écosystème.</span>{" "}
-                C’est ainsi qu’est née Theorem Concept.
+                C’est ainsi qu’est née Theorem.
               </p>
               <p className="text-base text-gray-700 md:text-lg mb-1 pt-6 courier-prime-regular">
                 Nous ne sommes pas simplement une entreprise de travaux, mais

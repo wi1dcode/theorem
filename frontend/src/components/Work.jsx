@@ -50,7 +50,7 @@ function Work() {
             Nos projets
           </h2>
           <p className="mt-2 courier-prime-regular text-xl">
-            Découvrir nos réalisations
+            Découvrez nos réalisations
           </p>
         </div>
       </div>

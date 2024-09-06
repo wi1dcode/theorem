@@ -8,7 +8,7 @@ const engagements = [
     image: EngImageOne,
     title: "Une empreinte + verte",
     description:
-      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé CO². Soit x vol(s) Paris - Tlemcen.",
+      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé CO². Soit x vol(s) Paris - Londres.",
   },
   {
     image: EngImageTwo,

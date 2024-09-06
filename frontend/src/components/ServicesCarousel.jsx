@@ -16,18 +16,18 @@ const servicesData = [
   },
   {
     id: 2,
-    title: "Électricité - Certifié Qualifelec / IRVE",
+    title: "Électricité - Certifié Qualifelec / IRVE*",
     description: "",
     fullDescription:
-      "NOS SERVICES\n• Intervention / Petits et grands chantiers.\n• Prestations : Basse et haute tension jusqu’à 20 kV.\n• SSI, contrôle d’accès, domotique, VDI, bornes de recharge, panneaux solaires, GTB.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "NOS SERVICES\n• Intervention / Petits et grands chantiers.\n• Prestations : Basse et haute tension jusqu’à 20 kV.\n• SSI, contrôle d’accès, domotique, VDI, bornes de recharge, panneaux solaires, GTB.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.\n\n*Lorsque nous agissons en tant que contractant général, nous pouvons sous-traiter ce corps d’état.",
     image: Electricite,
   },
   {
     id: 3,
-    title: "Plomberie / CVC / VMC",
+    title: "Plomberie / CVC / VMC*",
     description: "",
     fullDescription:
-      "NOS SERVICES\n• Des solutions de plomberie, climatisation et VMC alliant performance et durabilité.\n• Une méthode rigoureuse assure des installations fiables, conformes aux normes les plus strictes pour un confort optimal.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "NOS SERVICES\n• Des solutions de plomberie, climatisation et VMC alliant performance et durabilité.\n• Une méthode rigoureuse assure des installations fiables, conformes aux normes les plus strictes pour un confort optimal.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.\n\n*Lorsque nous agissons en tant que contractant général, nous pouvons sous-traiter ce corps d’état.",
     image: Plomberie,
   },
 ]
@@ -50,7 +50,7 @@ function ServicesCarousel() {
   const currentService = servicesData[currentIndex]
 
   return (
-    <div className="relative py-12 flex justify-center items-center">
+    <div className="relative py-12 flex justify-center items-center max-md:p-4">
       <button
         onClick={handlePrev}
         className="text-gray-500 p-2 absolute left-0 transform -translate-y-1/2 top-1/2"

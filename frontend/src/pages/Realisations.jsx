@@ -10,7 +10,7 @@ import ComingSoon from "../images/projects/coming_soon.jpg"
 import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
 import FabourgOne from "../images/projects/fabourg/fabourg_one.jpg"
 import JauresMain from "../images/projects/jaures/jaures_main.jpg"
-import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
+import OphelieChambreTwo from "../images/projects/ophelie/ophelie_salon_2.jpg"
 import JuppiterProjet from "../images/projects/juppiter/projet-juppiter.jpg"
 
 const gallery = require("../services/gallery.json")
@@ -36,7 +36,7 @@ function Realisations() {
     "main_rapee.jpg": RapeeMain,
     "fabourg_one.jpg": FabourgOne,
     "jaures_main.jpg": JauresMain,
-    "ophelie_chambre_2.jpg": OphelieChambreTwo,
+    "ophelie_salon_2.jpg": OphelieChambreTwo,
     "projet-juppiter.jpg": JuppiterProjet,
     "coming_soon.jpg": ComingSoon,
   }

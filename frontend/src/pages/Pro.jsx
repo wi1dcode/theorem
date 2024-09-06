@@ -10,7 +10,7 @@ function Pro() {
         <title>Espace Professionnel | Theorem Concept</title>
         <meta
           name="description"
-          content="Bienvenue dans l'Espace Professionnel de Theorem Concept. Découvrez comment nos compétences et notre expertise peuvent contribuer au succès de vos projets professionnels."
+          content="Bienvenue dans l'Espace Professionnel de Theorem. Découvrez comment nos compétences et notre expertise peuvent contribuer au succès de vos projets professionnels."
         />
       </Helmet>
       <div className="bg-gray-50 z-50 w-full sticky top-0">

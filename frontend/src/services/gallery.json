@@ -35,16 +35,37 @@
     "id": 2,
     "title": "Projet Jaurès",
     "under_title": "Connexion Totale",
-    "description": "Nous avons été chargés d'effectuer des travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia de plusieurs salles de sport, d’une surface moyenne de 1800 m², avec un souci constant de qualité et de conformité.",
+    "description": "Nous avons été chargés d'effectuer les travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia de plusieurs salles de sport, d’une surface moyenne de 1800 m², avec un souci constant de qualité et de conformité.",
+    "full_desc": "Nous avons réalisé l’alimentation électrique complète du commerce, en adaptant les prises et les éclairages aux besoins spécifiques. Une infrastructure internet robuste a été installée pour garantir une connectivité fiable partout dans l’établissement. Un système de sonorisation a été intégré pour assurer une diffusion uniforme de la musique. Nous avons également alimenté les machines de fitness, installé des blocs de secours pour les évacuations d'urgence, et utilisé des chemins de câbles pour une installation discrète et esthétique.",
     "img": "jaures_main.jpg",
-    "img_two": "jaures_main.jpg",
-    "img_three": "jaures_main.jpg",
+    "img_two": "projet_jaures_2.jpg",
+    "img_three": "projet_jaures_6.jpg",
     "images": [
-      {
-        "src": "jaures_main.jpg",
-        "credit": "Theorem"
-      }
-    ],
+          {
+            "src": "jaures_main.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_1.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_3.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_4.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_5.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_7.jpg",
+            "credit": "Theorem"
+          }
+        ],
     "tags": ["Argenteuil", "1800m²" ],
     "suggestion": [1, 2, 3],
     "category": "Local commercial",
@@ -100,14 +121,10 @@
     "under_title": "Premier Cocon",
     "description": "Bienvenue chez Ophélie, dans son nouveau havre de paix en banlieue parisienne. C’est cet appartement de 60m² qui a fait battre le cœur de notre chère cliente. Il ne restait plus qu’à le façonner à son image. Nos équipes ont entièrement rénové le bien pour le rendre à la fois fonctionnel et épuré",
     "full_desc": "Nos équipes ont métamorphosé cet appartement en alliant fonctionnalité et simplicité. Nous avons rénové les sols avec un carrelage moderne et repensé la salle de bain, en transformant l’installation existante en une baignoire spacieuse et en intégrant des niches sur mesure pour optimiser parfaitement l’espace. Dans la chambre, une tête de lit en placo sur mesure, équipée de LEDs, apporte du cachet à la pièce. Et ce n’est que le début des améliorations apportées pour rendre ce lieu encore plus accueillant et fonctionnel. De nombreuses prises électriques et luminaires ont également été installées dans tout l’appartement.",
-    "img": "ophelie_chambre_2.jpg",
-    "img_two": "ophelie_chambre.jpg",
+    "img": "ophelie_salon_2.jpg",
+    "img_two": "ophelie_salon_2.jpg",
     "img_three": "ophelie_salon.jpg",
     "images": [
-      {
-        "src": "ophelie_chambre.jpg",
-        "credit": "Theorem"
-      },
       {
         "src": "ophelie_chambre_2.jpg",
         "credit": "Photographie :"
@@ -118,10 +135,6 @@
       },
       {
         "src": "ophelie_salon.jpg",
-        "credit": "Photographie :"
-      },
-      {
-        "src": "ophelie_salon_2.jpg",
         "credit": "Photographie :"
       },
       {

@@ -56,12 +56,12 @@ export default function FAQ() {
         <div className="space-y-4">
           <Item title="1. Theorem est-elle une entreprise de travaux ? ">
             <p className="soleil">
-              Chez Theorem, nous ne sommes pas simplement une entreprise de
-              travaux. Nous offrons une expérience complète pour concrétiser les
-              projets, qui vous tiennent à <HeartSvg /> <br /> Nos équipes
-              s'occupent de la conception, de l'exécution et du suivi du
-              chantier, vous libérant ainsi pour que vous puissiez vous
-              concentrer pleinement sur ce qui compte le plus pour vous.
+              Nous ne sommes pas simplement une entreprise de travaux. Nous
+              offrons une expérience complète pour concrétiser les projets, qui
+              vous tiennent à <HeartSvg /> <br /> Nos équipes s'occupent de la
+              conception, de l'exécution et du suivi du chantier, vous libérant
+              ainsi pour que vous puissiez vous concentrer pleinement sur ce qui
+              compte le plus pour vous.
             </p>
           </Item>
           <Item title="2. Quels sont vos principaux domaines d'expertise ?">

@@ -20,11 +20,11 @@ const qualities = [
     title: "Des pratiques éthiques",
   },
   {
-    image: qualityImageThree,
+    image: qualityImageFour,
     title: "Nos petits gestes pour la planète",
   },
   {
-    image: qualityImageFour,
+    image: qualityImageThree,
     title: "L’esprit créatif",
   },
 ]
@@ -65,7 +65,10 @@ function Identite() {
                 Parfois, il suffit de tourner une page pour découvrir la
                 meilleure version de vous-même. Explorez notre univers à travers
                 nos projets et suivez notre aventure sur les réseaux sociaux.
-                Êtes-vous prêt pour votre nouveau chapitre ?
+                <span className="block mt-2">
+                  {" "}
+                  Êtes-vous prêt pour votre nouveau chapitre ?
+                </span>
               </p>
             </div>
             <Link to="/estimation" className="flex justify-start mt-2">
@@ -98,7 +101,7 @@ function Identite() {
                   <img
                     src={quality.image}
                     alt={quality.title}
-                    className="w-full h-full object-cover"
+                    className="w-[350px] h-full object-cover"
                   />
                 </div>
                 <div className="pt-4">
