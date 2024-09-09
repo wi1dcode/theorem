@@ -5,7 +5,7 @@ import Faq from "../components/FAQ"
 import Reviews from "../components/Reviews"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
-
+import XSvg from "../images/svg/XSvg"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
@@ -55,6 +55,10 @@ function Home() {
 
   const closeCalendlyPopup = () => {
     setIsCalendlyOpen(false)
+  }
+
+  const closeRecallPopup = () => {
+    setShowRecallButton(false)
   }
 
   useEffect(() => {
@@ -135,16 +139,24 @@ function Home() {
         </button>
       )}
       {showRecallButton && (
-        <button
-          onClick={openCalendlyPopup}
-          className="fixed left-5 soleil bottom-5 text-vert_principal p-2 bg-white rounded-lg z-10 border-vert_principal border"
-        >
-          📞 Être rappelé dès que possible
-        </button>
+        <div>
+          <button
+            onClick={openCalendlyPopup}
+            className="fixed left-5 soleil bottom-5 text-vert_principal p-2 bg-white rounded-lg z-10 border-vert_principal border"
+          >
+            📞 Être rappelé dès que possible
+          </button>
+          <button
+            className="w-6 h-6 fixed left-[280px] text-white text-2xl bottom-14"
+            onClick={closeRecallPopup}
+          >
+            <XSvg />
+          </button>
+        </div>
       )}
       <div className="w-full h-full soleil">
         <PopupModal
-          url="https://calendly.com/magomedunknown/test"
+          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}

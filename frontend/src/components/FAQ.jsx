@@ -72,7 +72,11 @@ export default function FAQ() {
             </p>
             <ul className="list-disc pl-14 py-2 soleil">
               <li>Pilotage de projet</li>
-              <li>Décoration intérieure</li>
+              <li>Conception</li>
+              <li>Électricité</li>
+              <li>Plomberie / Climatisation</li>
+              <li>Revêtements Sols</li>
+              <li>Revêtements Muraux</li>
               <li>
                 Rénovation et réhabilitation de vos espaces intérieurs et
                 extérieurs

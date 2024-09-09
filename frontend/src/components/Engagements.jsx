@@ -8,7 +8,7 @@ const engagements = [
     image: EngImageOne,
     title: "Une empreinte + verte",
     description:
-      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé CO². Soit x vol(s) Paris - Londres.",
+      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé 337kg CO². Soit un vol Paris - Rome.",
   },
   {
     image: EngImageTwo,
@@ -49,9 +49,15 @@ export default function Engagements() {
                 <h3 className="text-xl soleil-book mb-4 text-center">
                   {engagement.title}
                 </h3>
-                <p className="text-gray-700 text-center soleil overflow-hidden">
-                  {engagement.description}
-                </p>
+
+                <p
+                  className="text-gray-700 text-center soleil overflow-hidden"
+                  style={{
+                    whiteSpace: "pre-line",
+                    lineHeight: "1.6",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: engagement.description }}
+                />
               </div>
             </div>
           ))}

@@ -170,7 +170,19 @@ function Gallery() {
             <h3 className="soleil-bold text-center pb-4 mx-auto text-2xl">
               Coup d'œil sur le projet
             </h3>
-            <p className="text-xl max-md:text-sm">{galleryItem.full_desc}</p>
+            <p
+              className="text-xl max-md:text-sm"
+              style={{
+                whiteSpace: "pre-line",
+                lineHeight: "1.6",
+              }}
+              dangerouslySetInnerHTML={{
+                __html: galleryItem.full_desc.replace(
+                  "className='text-vert_light soleil-book'",
+                  "class='text-vert_light soleil-book'"
+                ),
+              }}
+            />
           </div>
         </div>
 

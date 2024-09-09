@@ -14,15 +14,7 @@
         "credit": "Photographie : Didier Boy De La Tour"
       },
       {
-        "src": "rapee_vue_2.jpg",
-        "credit": "Theorem"
-      },
-      {
         "src": "rapee_vue.jpg",
-        "credit": "Theorem"
-      },
-      {
-        "src": "rapee_cordiste.jpg",
         "credit": "Theorem"
       }
     ],
@@ -42,19 +34,11 @@
     "img_three": "projet_jaures_6.jpg",
     "images": [
           {
-            "src": "jaures_main.jpg",
-            "credit": "Theorem"
-          },
-          {
             "src": "projet_jaures_1.jpg",
             "credit": "Theorem"
           },
           {
             "src": "projet_jaures_3.jpg",
-            "credit": "Theorem"
-          },
-          {
-            "src": "projet_jaures_4.jpg",
             "credit": "Theorem"
           },
           {
@@ -66,7 +50,7 @@
             "credit": "Theorem"
           }
         ],
-    "tags": ["Argenteuil", "1800m²" ],
+    "tags": ["Argenteuil, Romainville et Sartrouville", "1800m²" ],
     "suggestion": [1, 2, 3],
     "category": "Local commercial",
     "work": "Électricité & VDI"
@@ -99,7 +83,7 @@
     "id": 4,
     "title": "Projet St Flaive",
     "under_title": "Eau la la!",
-    "description": "Bienvenue à Ermont, en région parisienne. Depuis quelque temps ce charmant couple s’est installé dans cet appartement de 85m² doté d’une spacieuse terrasse. Suite à un dégât des eaux, ils ont décidé de profiter des travaux pour rénover plusieurs pièces telles que les chambres, les sanitaires et l’entrée.",
+    "description": "Depuis quelque temps ce charmant couple a posé ses valises dans cet appartement de 85m2. Suite à un dégât des eaux, ils ont décidé de profiter des travaux pour rénover plusieurs pièces telles que les chambres, les sanitaires et l’entrée.",
     "full_desc": "Nos équipes ont orchestré la rénovation, en installant un magnifique parquet semi-massif, contrecollé dans l’ensemble de l’appartement, des tomettes pour l’entrée, et en embellissant les murs des sanitaires avec un magnifique zellige. Des retouches de peinture ont été réalisées pour illuminer chaque espace de cet appartement. Aujourd’hui, ils redécouvrent leur cocon familial sous un nouveau jour, prêts à en profiter pleinement avec leur enfant. Nous espérons que cette rénovation apportera confort et bonheur à cette famille pour les années à venir.",
     "img": "projet-juppiter.jpg",
     "img_two": "projet-juppiter.jpg",
@@ -142,10 +126,6 @@
         "credit": "Photographie :"
       },
       {
-        "src": "ophelie_sdb.jpg",
-        "credit": "Photographie :"
-      },
-      {
         "src": "ophelie_sdb_2.jpg",
         "credit": "Photographie :"
       },
@@ -163,8 +143,8 @@
     "id": 6,
     "title": "L’agence Theorem",
     "under_title": "Un nouveau chapitre",
-    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont, en banlieue parisienne. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer votre projet.",
-    "full_desc": "Commençons par cette grande entrée avec un comptoir sur mesure pour vous accueillir. L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle, réduisant ainsi notre consommation énergétique quotidienne. Côté démolition, nos équipes ont déposé des cloisons pour créer deux grandes pièces avec des baies vitrées. L'une est dédiée à nos bureaux, entièrement insonorisés pour garantir la confidentialité de nos clients. Pour réchauffer les tons lumineux des murs immaculés, nous avons utilisé les peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, n'oublions pas notre Coffee Corner, un espace convivial où nous pouvons travailler ensemble sur vos projets autour d’un bon café. Fun fact : Bien que modeste, notre équipe parle plus de six langues !",
+    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer votre projet.",
+    "full_desc": "Commençons par cette grande entrée avec un comptoir sur mesure pour vous accueillir. L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle, réduisant ainsi notre consommation énergétique quotidienne. Côté démolition, nos équipes ont déposé des cloisons pour créer deux grandes pièces avec des baies vitrées. L'une est dédiée à nos bureaux, entièrement insonorisés pour garantir la confidentialité des projets de nos clients. Pour réchauffer les tons lumineux des murs immaculés, nous avons utilisé les peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, n'oublions pas notre Corner Coffee , un espace convivial où nous pouvons travailler ensemble sur vos projets autour d’un bon café.\n <span className='text-vert_light soleil-book'>Fun fact : Bien que modeste, notre équipe parle plus de six langues !</span>",
     "img": "coming_soon.jpg",
     "img_two": "coming_soon.jpg",
     "img_three": "coming_soon.jpg",

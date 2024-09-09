@@ -20,8 +20,8 @@ const steps = [
     number: 3,
     title: "Célébrer",
     description: [
-      "Clap de fin ! Le moment est venu de découvrir le résultat. Nous célébrons vos projets, où chaque aspect – qualité, délais et budget – a été parfaitement maîtrisé.",
-      "Poursuivez l'aventure avec nous en rejoignant notre communauté sur les réseaux sociaux.",
+      "Clap de fin ! Découvrez le résultat de votre projet, où chaque aspect – qualité, délais et budget – a été parfaitement maîtrisé.",
+      "Continuez l'aventure avec nous en rejoignant notre communauté sur les réseaux sociaux !",
     ],
   },
 ]
