@@ -147,7 +147,7 @@ function Home() {
             📞 Être rappelé dès que possible
           </button>
           <button
-            className="w-6 h-6 fixed left-[280px] text-white text-2xl bottom-14"
+            className="w-7 h-7 fixed flex items-center left-[280px] text-white text-2xl bottom-14 z-10 rounded-full bg-vert_principal"
             onClick={closeRecallPopup}
           >
             <XSvg />

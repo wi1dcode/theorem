@@ -18,7 +18,7 @@ const servicesData = [
     title: "Électricité - Certifié Qualifelec / IRVE",
     description: "",
     fullDescription:
-      "NOS SERVICES\n• Intervention / Petits et grands chantiers.\n• Prestations : Basse et haute tension jusqu’à 20 kV.\n• SSI, contrôle d’accès, domotique, VDI, bornes de recharge, panneaux solaires, GTB.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "Nous réalisons des chantiers de toutes tailles, avec des services en <strong>basse et haute tension</strong> (jusqu’à 20 kV). Nos interventions couvrent la sécurité incendie, le contrôle d’accès, la domotique, les réseaux VDI, les bornes de recharge, les panneaux solaires et la gestion technique du bâtiment. Nous opérons dans les bureaux, locaux commerciaux, résidentiels et industriels.",
     image: Electricite,
   },
   {
@@ -26,7 +26,7 @@ const servicesData = [
     title: "Plomberie / CVC / VMC",
     description: "",
     fullDescription:
-      "NOS SERVICES\n• Des solutions de plomberie, climatisation et VMC alliant performance et durabilité.\n• Une méthode rigoureuse assure des installations fiables, conformes aux normes les plus strictes pour un confort optimal.\n• Secteurs : bureaux, locaux commerciaux, résidentiel et industriel.",
+      "Nous offrons des solutions en plomberie, climatisation et VMC, alliant <strong>performance</strong> et <strong>durabilité</strong>. Grâce à une méthode rigoureuse, nos installations sont <strong>fiables</strong> et respectent les <strong>normes</strong> les plus strictes, garantissant un confort optimal. Nous intervenons dans les bureaux, locaux commerciaux, résidentiels et industriels.",
     image: Plomberie,
   },
 ]

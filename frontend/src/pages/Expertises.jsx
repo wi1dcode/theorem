@@ -157,7 +157,7 @@ function Expertises() {
               <section key={index} id={expertise.id} className="my-2">
                 <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
                 <p
-                  className="text-gray-700 md:w-2/3 soleil pb-6"
+                  className="text-gray-700 md:w-2/3 soleil pb-6 whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: expertise.description }}
                 />
                 {expertise.list.length > 0 && (

@@ -93,8 +93,8 @@ export default function FAQ() {
               <li>
                 Et si ça commençait par une{" "}
                 <span className="soleil-bold">rencontre</span> ? Chez Theorem,
-                chaque projet est important à nos yeux. On vous invite à passer
-                en agence pour{" "}
+                chaque projet est important à nos yeux. Nous vous invitons à
+                passer en agence pour{" "}
                 <span className="soleil-bold">discuter de votre idée</span> et
                 clarifier vos besoins. Ensemble, on concevra une{" "}
                 <span className="soleil-bold"> solution sur mesure.</span>
