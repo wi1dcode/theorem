@@ -86,11 +86,19 @@
     "description": "Depuis quelque temps ce charmant couple a posé ses valises dans cet appartement de 85m2. Suite à un dégât des eaux, ils ont décidé de profiter des travaux pour rénover plusieurs pièces telles que les chambres, les sanitaires et l’entrée.",
     "full_desc": "Nos équipes ont orchestré la rénovation, en installant un magnifique parquet semi-massif, contrecollé dans l’ensemble de l’appartement, des tomettes pour l’entrée, et en embellissant les murs des sanitaires avec un magnifique zellige. Des retouches de peinture ont été réalisées pour illuminer chaque espace de cet appartement. Aujourd’hui, ils redécouvrent leur cocon familial sous un nouveau jour, prêts à en profiter pleinement avec leur enfant. Nous espérons que cette rénovation apportera confort et bonheur à cette famille pour les années à venir.",
     "img": "projet-juppiter.jpg",
-    "img_two": "projet-juppiter.jpg",
-    "img_three": "projet-juppiter.jpg",
+    "img_two": "projet-juppiter-4.jpg",
+    "img_three": "projet-juppiter-4.jpg",
     "images": [
       {
         "src": "projet-juppiter.jpg",
+        "credit": "Theorem"
+      },
+      {
+        "src": "projet-juppiter-2.jpg",
+        "credit": "Theorem"
+      },
+      {
+        "src": "projet-juppiter-3.jpg",
         "credit": "Theorem"
       }
     ],
@@ -143,8 +151,8 @@
     "id": 6,
     "title": "L’agence Theorem",
     "under_title": "Un nouveau chapitre",
-    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer votre projet.",
-    "full_desc": "Commençons par cette grande entrée avec un comptoir sur mesure pour vous accueillir. L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle, réduisant ainsi notre consommation énergétique quotidienne. Côté démolition, nos équipes ont déposé des cloisons pour créer deux grandes pièces avec des baies vitrées. L'une est dédiée à nos bureaux, entièrement insonorisés pour garantir la confidentialité des projets de nos clients. Pour réchauffer les tons lumineux des murs immaculés, nous avons utilisé les peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, n'oublions pas notre Corner Coffee , un espace convivial où nous pouvons travailler ensemble sur vos projets autour d’un bon café.\n <span className='text-vert_light soleil-book'>Fun fact : Bien que modeste, notre équipe parle plus de six langues !</span>",
+    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer vos projets.\n <span className='text-vert_light soleil-book'>Fun fact : Notre équipe parle plus de 4 langues !</span>",
+    "full_desc": "L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle. Côté démolition, nous avons déposé des cloisons pour agrandir les volumes et aménager des bureaux insonorisés, assurant la confidentialité des projets de nos clients. Nous avons opté pour des peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, notre Corner Coffee est un espace convivial, idéal pour échanger autour d’un bon café.",
     "img": "coming_soon.jpg",
     "img_two": "coming_soon.jpg",
     "img_three": "coming_soon.jpg",

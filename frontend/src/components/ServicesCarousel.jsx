@@ -49,54 +49,79 @@ function ServicesCarousel() {
   const currentService = servicesData[currentIndex]
 
   return (
-    <div className="relative py-12 flex justify-center items-center max-md:p-4">
-      <button
-        onClick={handlePrev}
-        className="text-gray-500 p-2 absolute left-0 transform -translate-y-1/2 top-1/2"
-      >
-        <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
-      </button>
+    <div>
+      <div className="relative py-12 flex justify-center items-center max-md:hidden">
+        <button
+          onClick={handlePrev}
+          className="text-gray-500 p-2 absolute left-0 transform -translate-y-1/2 top-1/2"
+        >
+          <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
+        </button>
 
-      <div className="flex flex-col md:flex-row items-center gap-10 max-w-screen-xl mx-auto">
-        <div className="md:w-1/2 text-left">
-          <h2 className="text-3xl font-bold">{currentService.title}</h2>
-          <div
-            className="mt-4 text-lg"
-            style={{ height: currentIndex.id === 1 ? "72px" : "auto" }}
-            dangerouslySetInnerHTML={{ __html: currentService.description }}
-          />
-          <div
-            className="mt-4 text-base whitespace-pre-wrap"
-            style={{
-              height: currentIndex.id === 1 ? "180px" : "auto",
-              overflow: "hidden",
-              marginTop: currentIndex.id !== 2 && "10px",
-              whiteSpace: "pre-line",
-              lineHeight: "1.6",
-            }}
-            dangerouslySetInnerHTML={{ __html: currentService.fullDescription }}
-          />
+        <div className="flex flex-col md:flex-row items-center gap-10 max-w-screen-xl mx-auto">
+          <div className="md:w-1/2 text-left">
+            <h2 className="text-3xl font-bold">{currentService.title}</h2>
+            <div
+              className="mt-4 text-lg"
+              style={{ height: currentIndex.id === 1 ? "72px" : "auto" }}
+              dangerouslySetInnerHTML={{ __html: currentService.description }}
+            />
+            <div
+              className="mt-4 text-base whitespace-pre-wrap"
+              style={{
+                height: currentIndex.id === 1 ? "180px" : "auto",
+                overflow: "hidden",
+                marginTop: currentIndex.id !== 2 && "10px",
+                whiteSpace: "pre-line",
+                lineHeight: "1.6",
+              }}
+              dangerouslySetInnerHTML={{
+                __html: currentService.fullDescription,
+              }}
+            />
+          </div>
+
+          <div className="md:w-1/2 h-[400px]">
+            <img
+              src={currentService.image}
+              alt={currentService.title}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
         </div>
 
-        <div className="md:w-1/2 h-[400px]">
-          <img
-            src={currentService.image}
-            alt={currentService.title}
-            className="w-full h-full object-cover rounded-lg"
+        <button
+          onClick={handleNext}
+          className="text-gray-500 p-2 absolute right-0 transform -translate-y-1/2 top-1/2"
+        >
+          <LinkArrow
+            className="h-[50px] w-[50px]"
+            style={{ transform: "rotate(180deg)" }}
+            fill="gray"
           />
-        </div>
+        </button>
       </div>
 
-      <button
-        onClick={handleNext}
-        className="text-gray-500 p-2 absolute right-0 transform -translate-y-1/2 top-1/2"
-      >
-        <LinkArrow
-          className="h-[50px] w-[50px]"
-          style={{ transform: "rotate(180deg)" }}
-          fill="gray"
-        />
-      </button>
+      <div className="md:hidden flex flex-col gap-10 p-4">
+        {servicesData.map((service) => (
+          <div key={service.id} className="flex flex-col items-center">
+            <div className="text-left w-full">
+              <h2 className="text-2xl font-bold">{service.title}</h2>
+              <div
+                className="mt-2 text-base whitespace-pre-wrap"
+                dangerouslySetInnerHTML={{ __html: service.fullDescription }}
+              />
+            </div>
+            <div className="w-full h-auto mt-4">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-auto object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

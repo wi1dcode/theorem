@@ -40,6 +40,9 @@ import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
 import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
 // Juppiter
 import ProjetJuppiter from "../images/projects/juppiter/projet-juppiter.jpg"
+import ProjetJuppiterTwo from "../images/projects/juppiter/projet-juppiter-2.jpg"
+import ProjetJuppiterThree from "../images/projects/juppiter/projet-juppiter-3.jpg"
+import ProjetJuppiterFour from "../images/projects/juppiter/projet-juppiter-4.jpg"
 // Coming soon
 import ComingSoon from "../images/projects/coming_soon.jpg"
 
@@ -75,6 +78,9 @@ const imageMap = {
   "ophelie_sdb.jpg": OphelieSdb,
   "ophelie_wc.jpg": OphelieWc,
   "projet-juppiter.jpg": ProjetJuppiter,
+  "projet-juppiter-2.jpg": ProjetJuppiterTwo,
+  "projet-juppiter-3.jpg": ProjetJuppiterThree,
+  "projet-juppiter-4.jpg": ProjetJuppiterFour,
   "coming_soon.jpg": ComingSoon,
 }
 
@@ -128,9 +134,19 @@ function Gallery() {
             <h2 className="text-4xl max-md:text-2xl soleil-bold">
               {galleryItem.title}
             </h2>
-            <p className="mb-6 text-xl max-md:text-sm">
-              {galleryItem.description}
-            </p>
+            <p
+              className="mb-6 text-xl max-md:text-sm"
+              style={{
+                whiteSpace: "pre-line",
+                lineHeight: "1.6",
+              }}
+              dangerouslySetInnerHTML={{
+                __html: galleryItem.description.replace(
+                  "className='text-vert_light soleil-book'",
+                  "class='text-vert_light soleil-book'"
+                ),
+              }}
+            />
           </div>
           <div className="w-[40%] max-md:w-full">
             <img
@@ -188,8 +204,8 @@ function Gallery() {
 
         {/* Third Block  */}
         <div className="flex items-center justify-center md:mt-10 gap-x-20 max-md:gap-y-2 max-md:flex-col py-4 w-full max-md:border-b-2 max-md:pb-10">
-          <div className="flex flex-row items-start w-[40%] max-md:w-full max-md:mt-4 text-lg">
-            <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[40vh] max-md:w-full flex flex-col items-center justify-around">
+          <div className="flex flex-row items-start w-[45%] max-md:w-full max-md:mt-4 text-lg">
+            <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[45vh] max-md:w-full flex flex-col items-center justify-around">
               <div className="mb-2 w-full border-b">
                 <p className="font-bold">Catégorie</p>
                 <p>{galleryItem.category || "-"}</p>
@@ -216,11 +232,11 @@ function Gallery() {
               </div>
             </div>
           </div>
-          <div className="w-[40%] max-md:w-full">
+          <div className="w-[45%] max-md:w-full">
             <img
               src={imageMap[galleryItem.img_three]}
               alt={galleryItem.title}
-              className="rounded-xl object-cover w-full h-[40vh]"
+              className="rounded-xl object-cover w-full h-[45vh]"
             />
           </div>
         </div>
