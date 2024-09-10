@@ -1,144 +1,72 @@
 import React from "react"
-import logo from "../../images/icons/logo_black.png"
-import CountUp from "react-countup"
-
-import ProSavoir from "./ProSavoir.jsx"
+import HeaderBg from "../../images/pro-bg.jpg"
+import WelcomeImage from "../../images/welcome_pro.jpg"
 import ProClients from "./ProClients.jsx"
-import ProContact from "./ProContact.jsx"
+import LinkArrow from "../../images/svg/LinkArrow.jsx"
+import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
+import Work from "../../components/Work.jsx"
+import ServicesCarousel from "../../components/ServicesCarousel"
 
 function Pro() {
   return (
-    <div className="mt-6" id="main">
-      <div>
-        <div className="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-20">
-          <img src={logo} alt="logo" className="pb-6 w-[500px] mx-auto" />
-          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-            {/* <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-              Theorem Services c'est:
-            </h2> */}
-            <p className="text-base text-gray-700 md:text-lg">
-              <span className="font-semibold">
-                Bienvenue dans l'Espace Professionnel de THEOREM.
-              </span>
-              <br />
-              <br />
-              Chez THEOREM, nous comprenons l'importance d'une collaboration
-              efficace pour mener à bien vos projets professionnels. Dans cet
-              espace dédié aux professionnels, nous mettons à votre disposition
-              l'ensemble de nos compétences techniques et relationnelles ; que
-              vous soyez engagés dans la conception, la réalisation ou la
-              gestion de travaux, notre équipe expérimentée est prête à relever
-              tous les défis pour concrétiser vos ambitions.
-              <br />
-              <br />
-              Explorez l'Espace Professionnel de THEOREM pour découvrir comment
-              nous pouvons être le partenaire stratégique dont vous avez besoin.
-              Merci de choisir la qualité, la confiance et l'excellence pour
-              mener à bien vos projets professionnels.
-            </p>
-          </div>
-          <div className="grid gap-8 row-gap-5 mb-8 md:row-gap-8 lg:grid-cols-4 sm:grid-cols-2">
-            <div className="duration-300 transform bg-white border-l-4 border-marron hover:-translate-y-2">
-              <div className="h-full p-5 border border-l-0 rounded-r shadow-sm">
-                <h6 className="mb-2 font-semibold leading-5">
-                  The doctor said
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Sportacus andrew weatherall goose Refined gentlemen super
-                  mario des lynam alpha trion zap rowsdower.
-                </p>
-              </div>
-            </div>
-            <div className="duration-300 transform bg-white border-l-4 border-marron hover:-translate-y-2">
-              <div className="h-full p-5 border border-l-0 rounded-r shadow-sm">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Skate ipsum dolor
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.
-                </p>
-              </div>
-            </div>
-            <div className="duration-300 transform bg-white border-l-4 border-marron hover:-translate-y-2">
-              <div className="h-full p-5 border border-l-0 rounded-r shadow-sm">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Baseball ipsum dolor
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Bro ipsum dolor sit amet gaper backside single track, manny
-                  Bike epic clipless. Schraeder drop gondy.
-                </p>
-              </div>
-            </div>
-            <div className="duration-300 transform bg-white border-l-4 border-marron hover:-translate-y-2">
-              <div className="h-full p-5 border border-l-0 rounded-r shadow-sm">
-                <h6 className="mb-2 font-semibold leading-5">They urge you</h6>
-                <p className="text-sm text-gray-900">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                  quaerat, at illo cumque culpa laudantium!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="text-center">
-            <a
-              href="/"
-              className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-marron focus:shadow-outline focus:outline-none"
-            >
-              Learn more
-            </a>
-          </div>
+    <div id="main">
+      <div
+        className="relative flex flex-col items-center justify-center h-[70vh] bg-cover bg-center"
+        style={{ backgroundImage: `url(${HeaderBg})` }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative flex flex-col gap-y-4 soleil items-center z-10 text-center text-white p-6 max-w-xl">
+          <TheoremLogo className="w-24 h-24" />
+          <h2 className="soleil-book text-2xl text-white">Theorem</h2>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Espace professionnel
+          </h1>
         </div>
-        <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-              The quick, brown fox jumps over a lazy dog
-            </h2>
-            <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </p>
-          </div>
-          <div className="relative w-full p-px mx-auto mb-4 overflow-hidden transition-shadow duration-300 border rounded lg:mb-8 lg:max-w-4xl group hover:shadow-xl">
-            <div className="relative flex flex-col items-center justify-around h-full py-10 duration-300 bg-white rounded-sm transition-color sm:items-stretch sm:flex-row">
-              <div className="px-12 py-2 text-center">
-                <h6 className="text-4xl font-bold text-deep-purple-accent-400 sm:text-5xl">
-                  <CountUp start={0} end={100} duration={5} separator="," />
-                </h6>
-                <p className="text-center md:text-base font-semibold">
-                  chantiers par an
-                </p>
-                <p className="text-center mt-2 md:text-base">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Aliquid voluptatibus ipsam ipsa. Deserunt, tenetur id?
-                </p>
-              </div>
-              <div className="w-56 h-1 transition duration-300 transform bg-gray-300 rounded-full group-hover:bg-deep-purple-accent-400 group-hover:scale-110 sm:h-auto sm:w-1" />
-              <div className="px-12 py-2 text-center">
-                <h6 className="text-4xl font-bold text-deep-purple-accent-400 sm:text-5xl">
-                  <CountUp start={0} end={11} duration={5} suffix="M€" />
-                </h6>
-                <p className="text-center md:text-base font-semibold">
-                  de chiffre d’affaires
-                </p>
-                <p className="text-center mt-2 md:text-base">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Aliquid voluptatibus ipsam ipsa. Deserunt, tenetur id?
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="absolute bottom-5 flex justify-center items-center w-[40px] h-[40px] mx-auto rounded-full slow-bounce">
+          <LinkArrow className="h-[35px] w-[35px]" down fill="white" />
         </div>
       </div>
-      <div className="mb-12" id="savoir">
-        <ProSavoir />
-      </div>
-      <div className="mb-6" id="clients">
-        <ProClients />
-      </div>
-      <div className="mt-6" id="contact">
-        <ProContact />
+      <div className="mt-6 shadow-md pb-2">
+        <section className="flex flex-col justify-center items-center mt-10 mx-auto px-4 lg:px-8 shadow-md mb-10">
+          <div className="w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 mb-10">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl soleil-book mb-4">
+                Bienvenue dans l’Espace Pro
+              </h2>
+              <p className="text-base text-gray-800 md:text-lg soleil leading-relaxed">
+                Chez Theorem, on sait que la clé de vos projets, c’est une
+                collaboration solide. Dans cette plateforme dédiée aux
+                professionnels, nous mettons à votre disposition l'ensemble de
+                nos compétences techniques et relationnelles ; que vous soyez
+                engagés dans la conception, la réalisation ou la gestion de
+                travaux.
+                <br />
+                <br />
+                Explorez votre espace dédié, pour découvrir comment nous pouvons
+                être le partenaire stratégique dont vous avez besoin.
+              </p>
+            </div>
+            <div className="md:w-1/2 lg:w-[30%]">
+              <img
+                src={WelcomeImage}
+                alt="About"
+                className="w-full h-auto rounded-lg object-cover"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="w-full mb-10">
+          <Work />
+        </section>
+        <section className="w-full mb-16 shadow-md pb-2">
+          <h2 className="text-center max-md:text-2xl text-4xl pt-4 soleil z-10">
+            Nos services
+          </h2>
+          <ServicesCarousel />
+        </section>
+        <div className="my-16 mb-0" id="clients">
+          <ProClients />
+        </div>
       </div>
     </div>
   )

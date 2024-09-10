@@ -4,6 +4,7 @@ import { Widget } from "@typeform/embed-react"
 import { useEffect, useState } from "react"
 import { sendResponses } from "../api/client"
 import { Helmet } from "react-helmet"
+import HeaderBg from "../images/bg-main.jpg"
 
 function EstimationEmbed() {
   const navigate = useNavigate()
@@ -117,8 +118,8 @@ function EstimationEmbed() {
           title: "Entrez votre code postal",
           text: "Veuillez entrer votre code postal pour vérifier notre disponibilité de service.",
           input: "text",
-          inputLabel: "Ex. : 95123, 92456, 78123...",
-          cancelButtonText: "Retour à l'accueil",
+          inputLabel: "Ex. : 95120, 92600, 78800...",
+          cancelButtonText: "Retour",
           showCancelButton: true,
           inputPlaceholder: "Entrez votre code postal",
           confirmButtonText: "Vérifier",
@@ -127,6 +128,9 @@ function EstimationEmbed() {
           allowOutsideClick: false,
           allowEscapeKey: false,
           allowEnterKey: true,
+          backdrop: `
+          url(${HeaderBg}) no-repeat center center / cover
+        `,
           inputValidator: async (value) => {
             if (!value) {
               return "Le code postal est requis"
@@ -154,7 +158,7 @@ function EstimationEmbed() {
             if (places.length === 1) {
               setCity(places[0]["place name"])
               Swal.fire({
-                title: "Parfait!",
+                title: "Parfait !",
                 text: `Vous avez choisi ${places[0]["place name"]}.`,
                 icon: "success",
                 showConfirmButton: false,
@@ -170,11 +174,14 @@ function EstimationEmbed() {
                 ),
                 showCancelButton: true,
                 confirmButtonColor: "#C8B790",
-                cancelButtonText: "Retour à l'accueil",
+                cancelButtonText: "Retour",
                 cancelButtonColor: "#D76C66",
                 confirmButtonText: "Sélectionner",
                 allowOutsideClick: false,
                 allowEscapeKey: false,
+                backdrop: `
+                url(${HeaderBg}) no-repeat center center / cover
+              `,
                 inputValidator: (value) => {
                   if (value === "") {
                     return "Veuillez sélectionner une ville"
@@ -194,12 +201,12 @@ function EstimationEmbed() {
                 })
                 setIsFormReady(true)
               } else if (Swal.DismissReason.cancel === "cancel") {
-                window.location.href = "/"
+                window.history.back()
               }
             }
           }
         } else if (Swal.DismissReason.cancel === "cancel") {
-          window.location.href = "/"
+          window.history.back()
         }
       }
     } catch (error) {
@@ -212,12 +219,15 @@ function EstimationEmbed() {
   }, [])
 
   return (
-    <div className="bg-black">
+    <div
+      className="bg-black bg-no-repeat w-full h-full bg-cover"
+      style={{ backgroundImage: `url(${HeaderBg})` }}
+    >
       <Helmet>
-        <title>Estimation | Theorem Services</title>
+        <title>Estimation | Theorem Concept</title>
         <meta
           name="description"
-          content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Services. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
+          content="Réalisez une estimation en ligne pour votre projet de rénovation avec Theorem Concept. Rapide, facile et précise, notre outil d'estimation vous aide à planifier efficacement votre projet."
         />
       </Helmet>
       {isFormReady && (

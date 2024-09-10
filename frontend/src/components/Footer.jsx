@@ -1,43 +1,107 @@
 import React from "react"
-import Logo from "../images/icons/logo_black.png"
-import Social from "./Social"
 import { Link } from "react-router-dom"
+import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
   return (
-    <footer className="relative mt-2 bg-marron">
-      <svg
-        className="absolute -top-5 max-md:top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-marron"
-        preserveAspectRatio="none"
-        viewBox="0 0 1440 54"
-      >
-        <path
-          fill="currentColor"
-          d="M0 22L120 16.7C240 11 480 1.00001 720 0.700012C960 1.00001 1200 11 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"
-        />
-      </svg>
-      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div className="my-2 pr-2 flex flex-col gap-y-3 items-center justify-center">
-          <Link
-            to="/"
-            aria-label="Go home"
-            className="inline-flex items-center"
-          >
-            <span className="pr-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-              <img src={Logo} alt="theorem-logo" className="w-[150px]" />
-            </span>
-          </Link>
-
-          <Link to="/" className="w-full text-center">
-            Mentions légales
-          </Link>
+    <footer className="bg-vert_principal py-8 soleil">
+      <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
+        <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
+          <div className="flex flex-col items-start">
+            <Link
+              to="/"
+              aria-label="Go home"
+              className="flex flex-col items-center mb-4"
+            >
+              <TheoremIcon
+                className="w-24 h-24 text-white"
+                viewBox="10 0 50 50"
+              />
+              <span className="ml-2 text-white text-md text-center soleil-bold">
+                Theorem
+              </span>
+            </Link>
+          </div>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Nous contacter</p>
+              <a className="soleil" href="mailto:contact@theorem-concept.fr">
+                contact@theorem-concept.fr
+              </a>
+              <a className="soleil" href="tel:+33695753702">
+                06 95 75 37 02
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Nous suivre</p>
+              <Link
+                to="https://www.instagram.com/theorem_concept/"
+                target="_blank"
+                className="hover:text-beige/50 soleil"
+              >
+                Instagram
+              </Link>
+              <Link
+                to="https://www.facebook.com/profile.php?id=61561426542985"
+                target="_blank"
+                className="hover:text-beige/50 soleil"
+              >
+                Facebook
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/theoremconcept/"
+                className="hover:text-beige/50 soleil"
+                target="_blank"
+              >
+                LinkedIn
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Nous rendre visite</p>
+              <p className="soleil">27 rue Stalingrad, 95120, Ermont</p>
+              <p className="soleil-bold mt-2">Horaires d'ouverture</p>
+              <p className="soleil">Du lundi au samedi de 10h à 18h</p>
+            </div>
+          </div>
+          <div className="flex flex-grow justify-center max-md:justify-start">
+            <div className="flex flex-col text-white max-md:text-left">
+              <p className="soleil-bold mb-2">Plus d'informations</p>
+              <Link
+                to="/plaquetteprocg.pdf"
+                target="_blank"
+                className="hover:text-beige/50 soleil"
+              >
+                Plaquette de présentation
+              </Link>
+              <Link to="/partenariat" className="hover:text-beige/50 soleil">
+                Devenir partenaire
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <div className="flex max-md:flex-col-reverse max-md:gap-y-1 items-center justify-between pt-3 pr-3 pb-4 border-t border-anthracite sm:flex-row">
-          <p className="text-sm text-black">
-            © Copyright 2023. All rights reserved.
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0">
+          <p className="text-xs text-white mb-2 md:mb-0">
+            © 2024. Tous droits réservés.
           </p>
-          <Social />
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-xs">
+            <Link
+              to="/politique.pdf"
+              target="_blank"
+              className="text-white hover:text-beige/50"
+            >
+              Politique de confidentialité
+            </Link>
+            <Link
+              to="/mentions-legales"
+              className="text-white hover:text-beige/50"
+            >
+              Mentions légales
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

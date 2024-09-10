@@ -6,7 +6,7 @@ export default function SurfaceSvg() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 text-marron"
+      className="w-8 h-8 text-vert_principal"
     >
       <path
         strokeLinecap="round"

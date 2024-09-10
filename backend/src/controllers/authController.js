@@ -182,6 +182,28 @@ const newPassword = async (req, res) => {
 //   }
 // }
 
+const getGoogleReviews = async (req, res) => {
+  try {
+    const API_KEY = process.env.GOOGLE_API_KEY
+    const PLACE_ID = process.env.GOOGLE_PLACE_ID
+
+    const response = await fetch(
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=reviews&key=${API_KEY}`
+    )
+    const data = await response.json()
+
+    if (data.result && data.result.reviews) {
+      res.json(data.result.reviews)
+      console.log(data.result.reviews)
+    } else {
+      res.status(404).json({ message: "No reviews found" })
+    }
+  } catch (error) {
+    console.error("Error fetching reviews:", error)
+    res.status(500).json({ message: "Failed to fetch reviews" })
+  }
+}
+
 module.exports = {
   register,
   login,
@@ -189,4 +211,5 @@ module.exports = {
   activate,
   resetPasswordRequest,
   newPassword,
+  getGoogleReviews,
 }

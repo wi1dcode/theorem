@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { Link, useNavigate, Routes, Route } from "react-router-dom"
 import UserContext from "../services/userContext"
-import logo from "../images/icons/logo_black.png"
+import logo from "../images/icons/theorem-logo-vert.png"
 import ClientMenu from "../components/ClientMenu"
 import Menu from "./User/Menu"
 import NewProject from "./Dashboard/NewProject"
@@ -48,7 +48,7 @@ function UserDashboard() {
           } transition-transform duration-300 ease-in-out fixed inset-y-0 left-0 z-30 md:relative md:z-auto`}
         >
           <Link to="/">
-            <img className="mx-auto w-auto" src={logo} alt="" />
+            <img className="mx-auto w-1/2" src={logo} alt="" />
           </Link>
 
           <div className="flex flex-col justify-between flex-1 mt-6">

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export default function Tabs({ currentStatus, onStatusChange }) {
   const tabTitles = [
@@ -9,7 +9,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
     "PROGRESS",
     "PAYMENT",
     "FINISH",
-  ];
+  ]
   const tabTexts = [
     "En attente",
     "En étude",
@@ -18,7 +18,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
     "En cours",
     "En attente de paiement",
     "Terminé",
-  ];
+  ]
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function Tabs({ currentStatus, onStatusChange }) {
         </label>
         <select
           id="tabs"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-marron block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-vert_principal block w-full p-2.5"
           value={currentStatus}
           onChange={(e) => onStatusChange(e.target.value)}
         >
@@ -59,5 +59,5 @@ export default function Tabs({ currentStatus, onStatusChange }) {
         ))}
       </ul>
     </>
-  );
+  )
 }

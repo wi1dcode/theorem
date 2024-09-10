@@ -22,7 +22,7 @@ function UserTable({
   return (
     <>
       {connected && (
-        <tr className="bg-nuage/50 border-b border-marron/30">
+        <tr className="bg-nuage/50 border-b border-vert_principal/30">
           <th
             scope="row"
             className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "

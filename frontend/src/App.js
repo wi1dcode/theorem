@@ -5,7 +5,6 @@ import UserContext from "./services/userContext"
 import Home from "./pages/Home"
 // import Estimation from "./pages/Estimation"
 import Login from "./pages/Login"
-import About from "./pages/About"
 import Realisations from "./pages/Realisations"
 import Parteneriat from "./pages/Parteneriat"
 
@@ -18,31 +17,47 @@ import ProMain from "./pages/ProPage/ProMain"
 import Gallery from "./pages/Gallery"
 import EstimationEmbed from "./pages/EstimationEmbed"
 import Expertises from "./pages/Expertises"
-import Eco from "./pages/Eco"
 import Energetique from "./pages/Energetique"
-import History from "./pages/History"
 import Loading from "./components/Loading"
 import UserDashboard from "./pages/UserDashboard"
 import AdminDashboard from "./pages/AdminDashboard"
 import Activation from "./pages/Activation"
 import CandidatePro from "./pages/CandidatePro"
 import ProDashboard from "./pages/ProDashboard"
+import About from "./pages/About"
+import Legales from "./pages/Legales"
+import Politique from "./pages/Politique"
+import CookieConsent from "./components/CookieConsent"
 
 function App() {
   const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const chatWidget = document.querySelector(".chatway--container")
+  //     const pathname = window.location.pathname
+
+  //     if (chatWidget && pathname !== "/") {
+  //       chatWidget.style.display = "none"
+  //     }
+  //   }, 500)
+  // }, [])
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="mentions-legales" element={<Legales />} />
+        <Route path="politique" element={<Politique />} />
         <Route path="/services" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/expertises" element={<Expertises />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/partenariat" element={<Parteneriat />} />
-        <Route path="/eco" element={<Eco />} />
-        <Route path="/histoire" element={<History />} />
+        <Route path="/about" element={<About />} />
+        {/* <Route path="/eco" element={<Eco />} /> */}
+        {/* <Route path="/histoire" element={<History />} /> */}
+        {/* <Route path="/identite" element={<Identite />} /> */}
         <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/candidate" element={<CandidatePro />} />
@@ -93,6 +108,7 @@ function App() {
           <Route path="contact" element={<ProContact />} />
         </Route>
       </Routes>
+      <CookieConsent />
     </BrowserRouter>
   )
 }

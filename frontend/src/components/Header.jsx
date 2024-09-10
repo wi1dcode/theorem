@@ -1,34 +1,35 @@
 import React from "react"
-import LogoBlack from "../images/icons/logo_black.png"
-import HeaderBg from "../images/header_bg.jpg"
+import TheoremLogo from "../images/svg/TheoremLogo"
+import HeaderBg from "../images/bg-main.jpg"
 import { Link } from "react-router-dom"
 
 function Header() {
   return (
     <header
-      className={`bg-cover bg-no-repeat w-full h-[400px] max-md:h-[350px] flex flex-col gap-y-4 rounded-xl justify-center items-center`}
+      className={`bg-cover pt-10 bg-no-repeat w-full h-[80vh] flex flex-col gap-y-4 justify-center items-center`}
       style={{ backgroundImage: `url(${HeaderBg})` }}
     >
-      <article className="flex backdrop-blur rounded-lg w-full h-full flex-col items-center justify-center gap-y-4 max-md:gap-y-2">
-        <img
-          src={LogoBlack}
-          alt="header_logo"
-          className="w-[250px] animate-fade-down animate-once"
-        />
-        {/* <h1 className="text-5xl vogue text-center">Theorem Services</h1> */}
-        <h1 className="text-center bg-white bg-opacity-40 rounded-lg p-2 shadow text-lg max-md:w-full max-xl:w-[50%] w-1/4 text-noir avenir">
-          Votre rénovation en toute tranquillité! une expérience rapide,
-          simplifiée et sécurisée. Profitez d'un accompagnement personnalisé
-          pour donner vie à vos projets
-        </h1>
-        <Link to="/estimation">
-          <button
-            className="bg-marron shadow-md text-noir font-semibold rounded-lg p-2 px-4 mt-1.5 uppercase avenir"
-            type="button"
-          >
-            Estimation gratuite
-          </button>
-        </Link>
+      <article className="flex w-full h-full flex-col justify-center items-center">
+        <div className="flex flex-col items-center gap-y-8 w-[50%] max-lg:w-[70%]">
+          <div className="flex items-center w-full flex-col justify-center">
+            <TheoremLogo className="w-20 h-20 mb-2" />
+            <h2 className="soleil-bold text-2xl text-white">Theorem</h2>
+            <h1 className="text-center mt-6 mb-4 text-white rounded-lg max-md:text-sm text-4xl w-full soleil-bold">
+              Concevoir. Créer. Célébrer.
+            </h1>
+            <p className="text-white text-center text-2xl soleil-light">
+              Une approche simple et agile pour construire vos projets.
+            </p>
+          </div>
+          <Link to="/realisations">
+            <button
+              className="bg-vert_light shadow text-white text-2xl max-md:text-sm rounded-lg p-2 pt-3 px-8 soleil hover:bg-vert_principal/80 transition duration-300"
+              type="button"
+            >
+              Découvrir nos projets
+            </button>
+          </Link>
+        </div>
       </article>
     </header>
   )

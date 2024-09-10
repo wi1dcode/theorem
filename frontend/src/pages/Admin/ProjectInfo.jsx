@@ -328,7 +328,7 @@ function ProjectInfo() {
                 En attente de paiement
               </button>
               <button
-                className="bg-marron p-2 rounded-lg px-3"
+                className="bg-vert_principal p-2 rounded-lg px-3"
                 onClick={() => handleFormStatus("FINISH")}
               >
                 Terminer

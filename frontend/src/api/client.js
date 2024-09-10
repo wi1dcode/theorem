@@ -61,3 +61,12 @@ export const updateProjectStatus = async (id, data) => {
     throw error
   }
 }
+
+export const getGoogleReviews = async () => {
+  try {
+    const response = await get(`/google-reviews`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

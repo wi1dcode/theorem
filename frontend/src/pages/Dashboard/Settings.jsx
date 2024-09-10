@@ -157,7 +157,7 @@ function Settings() {
         </button>
         <button
           type="submit"
-          className="tracking-wide mt-4 rounded-lg bg-marron px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-marron/80"
+          className="tracking-wide mt-4 rounded-lg bg-vert_principal px-4 py-2 text-center text-base font-semibold text-white shadow-md transition ease-in hover:bg-vert_principal"
         >
           <span className="w-full"> Changer mot de passe </span>
         </button>

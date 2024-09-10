@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* VOGUE  */
 
 @font-face {
   font-family: "Vogue";
   src: local("Vogue"), url("./fonts/Vogue.ttf") format("truetype");
 }
+
+/* AVENIR */
+
 @font-face {
   font-family: "Avenir-Light";
   src: local("Avenir-Light"), url("./fonts/Avenir-Light.ttf") format("truetype");
@@ -26,6 +32,9 @@
   src: local("Avenir-Next-Condensed-Bold"),
     url("./fonts/Avenir-Next-Condensed-Bold.ttf") format("truetype");
 }
+
+/* MAVES  */
+
 @font-face {
   font-family: "Maves-Regular";
   src: local("Maves-Regular"),
@@ -35,6 +44,48 @@
   font-family: "Metropolis-Medium";
   src: local("Metropolis-Medium"),
     url("./fonts/Metropolis-Medium.otf") format("truetype");
+}
+
+/* SOLEIL  */
+
+@font-face {
+  font-family: "SoleilBold";
+  src: local("SoleilBold"), url("./fonts/SoleilBold.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilBook";
+  src: local("SoleilBook"), url("./fonts/SoleilBook.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilRegular";
+  src: local("SoleilRegular"),
+    url("./fonts/SoleilRegular.otf") format("truetype");
+}
+@font-face {
+  font-family: "SoleilLight";
+  src: local("SoleilLight"), url("./fonts/SoleilLight.otf") format("truetype");
+}
+@font-face {
+  font-family: "American Typewriter Regular";
+  src: local("American Typewriter Regular"),
+    url("./fonts/American Typewriter Regular.ttf") format("truetype");
+}
+
+.american {
+  font-family: "American Typewriter Regular";
+}
+
+.soleil {
+  font-family: "SoleilRegular";
+}
+.soleil-bold {
+  font-family: "SoleilBold";
+}
+.soleil-book {
+  font-family: "SoleilBook";
+}
+.soleil-light {
+  font-family: "SoleilLight";
 }
 
 .vogue {
@@ -62,14 +113,121 @@
   font-family: "Rouge Script", cursive;
 }
 
+.helvetica {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 400;
+}
+.helvetica-thin {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.helvetica-light {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.helvetica-regular {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.helvetica-medium {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.helvetica-bold {
+  font-family: Helvetica, Sans-Serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
 .figure {
-  -webkit-clip-path: circle(73% at 51% 17%);
-  clip-path: circle(75% at 50% 0);
+  -webkit-clippath: circle(73% at 51% 17%);
+  clippath: circle(75% at 50% 0);
 }
 
 .figure2 {
-  -webkit-clip-path: circle(70% at 32% 0);
-  clip-path: circle(70% at 32% 0);
+  -webkit-clippath: circle(70% at 32% 0);
+  clippath: circle(70% at 32% 0);
 }
 
 .logo-zoom {
@@ -139,26 +297,22 @@
 .paper {
   margin: 2em auto;
   background: #fff;
-  box-shadow: 4px 4px 0 #c8b790;
+  box-shadow: 4px 4px 0 #353d2b;
   background-image: linear-gradient(
       90deg,
       #fff 12px,
       0,
-      #c8b790 15px,
+      #353d2b 15px,
       0,
       #eee9dd 20px,
       0,
       #fff 100%
     ),
     radial-gradient(circle closest-side, rgba(255, 255, 255, 0) 88%, #fff 100%),
-    radial-gradient(circle at 22px 8px, #eee9dd 40%, #c8b790 40%, #c8b790 100%);
+    radial-gradient(circle at 22px 8px, #eee9dd 40%, #353d2b 40%, #353d2b 100%);
   background-size: 32px 8px, 32px 16px, 32px 16px;
   background-repeat: space no-repeat;
   background-position: center top, center 6px, center 6px;
-}
-
-.eco_bg {
-  background-image: url("./images/eco.jpg");
 }
 
 /* LOADING COMPONENT  */
@@ -179,7 +333,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #c8b790;
+  background-color: #353d2b;
   background-image: radial-gradient(
       circle 8px at 18px 18px,
       #f9fafb 100%,
@@ -207,7 +361,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #c8b790;
+  background-color: #353d2b;
   background-image: radial-gradient(
       circle 5px at 12px 12px,
       #f9fafb 100%,
@@ -242,7 +396,7 @@
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #c8b790 #ffffff;
+  scrollbar-color: #353d2b #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
@@ -255,20 +409,20 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #c8b790;
+  background-color: #353d2b;
   border-radius: 10px;
   border: 4px solid #ffffff;
 }
 
 /* selection text */
 ::selection {
-  background-color: #c8b790;
+  background-color: #353d2b;
   color: #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
 ::-webkit-selection {
-  background-color: #c8b790;
+  background-color: #353d2b;
   color: #ffffff;
 }
 
@@ -280,4 +434,117 @@
 
 .show-chatway .chatway--container {
   display: block;
+}
+
+/* ANIMATION BOUNCE  */
+
+@keyframes slow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.slow-bounce {
+  animation: slow-bounce 3s infinite;
+  display: inline-block;
+}
+
+/* slide effect */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Add to your existing CSS */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media screen and (max-width: 650px) {
+  .main-block {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+    align-items: center;
+  }
+  .lists {
+    padding-left: 0px;
+    padding-right: 80px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .step {
+    margin-top: 0;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 80%;
+  }
+  .step:first-of-type {
+    margin-left: 0;
+  }
+}
+
+body.fixed {
+  overflow: hidden;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.courier-prime-regular {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courier-prime-bold {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.courier-prime-regular-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.courier-prime-bold-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: italic;
 }

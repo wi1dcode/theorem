@@ -9,5 +9,6 @@ router.post("/pro-responses", proController.getResponses)
 router.post("/reset-request", authController.resetPasswordRequest)
 router.post("/new-password", authController.newPassword)
 router.get("/activate/:link", authController.activate)
+router.get("/google-reviews", authController.getGoogleReviews)
 
 module.exports = router

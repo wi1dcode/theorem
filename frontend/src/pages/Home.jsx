@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react"
 import Header from "../components/Header"
 import Work from "../components/Work"
-import Services from "../components/Services"
-import { Step } from "../components/Step"
 import Faq from "../components/FAQ"
 import Reviews from "../components/Reviews"
-import Contact from "../components/Contact"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
-
+import XSvg from "../images/svg/XSvg"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import { PopupModal } from "react-calendly"
+import Stats from "../components/Stats"
+import CircleSteps from "../components/CircleSteps"
+import InterventionZones from "../components/InterventionZones"
+import Engagements from "../components/Engagements"
 
 function Home() {
   const { pathname } = useLocation()
   const [isVisible, setIsVisible] = useState(false)
+  const [showRecallButton, setShowRecallButton] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -45,72 +49,77 @@ function Home() {
     }
   }, [])
 
-  useEffect(() => {
-    const chatWidget = document.querySelector(".chatway--container")
+  const openCalendlyPopup = () => {
+    setIsCalendlyOpen(true)
+  }
 
-    if (chatWidget) {
-      chatWidget.style.display = "block"
-      console.log("HOME PAGE")
-    }
-    return () => {
-      const chatWidget = document.querySelector(".chatway--container")
-      if (chatWidget) {
-        chatWidget.style.display = "none"
-        console.log("NOT HOME")
-      }
-    }
-  }, [pathname])
+  const closeCalendlyPopup = () => {
+    setIsCalendlyOpen(false)
+  }
+
+  const closeRecallPopup = () => {
+    setShowRecallButton(false)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRecallButton(true)
+    }, 60000) // 60,000 ms = 1 minute
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <main className="w-full">
       <Helmet>
-        <title>Theorem Services | Rénovation</title>
+        <title>Theorem Concept | Rénovation</title>
         <meta
           name="description"
-          content="Bienvenue sur Theorem Services. Découvrez nos services de rénovation immobilière et nos solutions personnalisées pour tous vos projets."
+          content="Bienvenue sur Theorem Concept. Découvrez nos services de rénovation immobilière et nos solutions personnalisées pour tous vos projets."
         />
       </Helmet>
       <NavBar />
       <Header />
-      <div id="work" className="w-full mt-2 px-2">
+      <Stats />
+      <div id="work" className="w-full mt-6 soleil">
         <Work />
       </div>
-      <div className="w-full mt-2 px-2 mb-2">
-        <Services />
-      </div>
       <div
-        className="w-full mt-2 px-2 mb-2"
+        className="w-full mt-2 mb-2 px-2 soleil flex items-center justify-center"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <Step />
+        <CircleSteps />
       </div>
       <div
-        className="w-full mt-24 px-2 mb-2"
+        className="w-full px-2 mb-2 soleil"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <Engagements />
+      </div>
+
+      <div
+        className="w-full mt-6 px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Reviews />
       </div>
       <div
-        className="w-full mt-2 px-2 mb-2"
+        className="w-full mt-2 px-2 mb-2 soleil"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
         <Faq />
       </div>
-      <div
-        id="contact"
-        className="w-full mt-2 px-2 mb-2"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        <Contact />
+      <div id="contact" className="w-full mt-2 soleil">
+        <InterventionZones />
       </div>
       <Footer />
       {isVisible && (
         <button
-          className="fixed right-5 bottom-5 text-white p-2 bg-marron rounded-full"
+          className="fixed right-5 bottom-5 text-white p-2 bg-vert_principal rounded-full"
           onClick={scrollToTop}
         >
           <svg
@@ -129,6 +138,33 @@ function Home() {
           </svg>
         </button>
       )}
+      {showRecallButton && (
+        <div>
+          <button
+            onClick={openCalendlyPopup}
+            className="fixed left-5 soleil bottom-5 text-vert_principal p-2 bg-white rounded-lg z-10 border-vert_principal border"
+          >
+            📞 Être rappelé dès que possible
+          </button>
+          <button
+            className="w-6 h-6 fixed left-[280px] text-white text-2xl bottom-14"
+            onClick={closeRecallPopup}
+          >
+            <XSvg />
+          </button>
+        </div>
+      )}
+      <div className="w-full h-full soleil">
+        <PopupModal
+          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
+          onModalClose={closeCalendlyPopup}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById("root")}
+          text="Être rappelé dès que possible"
+          textColor="#ffffff"
+          color="#00a2ff"
+        />
+      </div>
     </main>
   )
 }

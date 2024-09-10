@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_BACKEND = "https://theorem-services.com/api"
+const API_BACKEND = "https://theorem-concept.fr/api"
 
 const api = axios.create({
   baseURL: API_BACKEND,

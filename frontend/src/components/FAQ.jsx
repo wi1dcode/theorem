@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import HeartSvg from "../images/svg/HeartSvg"
 
 const Item = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,10 +43,10 @@ const Item = ({ title, children }) => {
 
 export default function FAQ() {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 soleil">
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg mb-6 text-3xl soleil leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             Foire aux questions
           </h2>
           <p className="text-base text-gray-700 md:text-lg ">
@@ -53,108 +54,75 @@ export default function FAQ() {
           </p>
         </div>
         <div className="space-y-4">
-          <Item title="Quels sont les domaines d'expertise de Theorem ?">
-            <p>
-              Chez Theorem, notre expertise s'étend à divers domaines,
-              notamment:
+          <Item title="1. Theorem est-elle une entreprise de travaux ? ">
+            <p className="soleil">
+              Nous ne sommes pas simplement une entreprise de travaux. Nous
+              offrons une expérience complète pour concrétiser les projets, qui
+              vous tiennent à <HeartSvg /> <br /> Nos équipes s'occupent de la
+              conception, de l'exécution et du suivi du chantier, vous libérant
+              ainsi pour que vous puissiez vous concentrer pleinement sur ce qui
+              compte le plus pour vous.
             </p>
-            <ul className="list-disc pl-14 py-2">
-              <li>La gestion de projets et l'agencement, </li>
-              <li>L’électricité, </li>
-              <li>Bornes de recharges et Panneaux Solaires</li>
-              <li>La plomberie, le chauffage et la VMC, </li>
-              <li>La pose de revêtements muraux</li>
-              <li>La pose de revêtements de sols</li>
+          </Item>
+          <Item title="2. Quels sont vos principaux domaines d'expertise ?">
+            <p className="soleil">
+              Notre savoir-faire couvre plusieurs aspects de votre projet, de la
+              conception à la réalisation des travaux. Petit aperçu de ce que
+              nous proposons :
+            </p>
+            <ul className="list-disc pl-14 py-2 soleil">
+              <li>Pilotage de projet</li>
+              <li>Conception</li>
+              <li>Électricité</li>
+              <li>Plomberie / Climatisation</li>
+              <li>Revêtements Sols</li>
+              <li>Revêtements Muraux</li>
               <li>
-                L’isolation intérieure et extérieure (ITI / ITE) ainsi que le
-                ravalement
-              </li>
-              <li>La couverture, la maçonnerie</li>
-              <li>
-                Les études de projets (structure, électricité, plomberie, CVC,
-                design d’intérieur) Nous sommes fiers de proposer des solutions
-                complètes pour répondre aux besoins variés de nos clients.
+                Rénovation et réhabilitation de vos espaces intérieurs et
+                extérieurs
               </li>
             </ul>
             <Link to="/expertises" className="flex justify-end">
-              <button className="bg-marron rounded-lg p-1 px-2 text-white">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300">
                 En savoir plus
               </button>
             </Link>
           </Item>
-          <Item title="Comment garantissez-vous la qualité de vos services dans chaque domaine d'expertise ?">
-            <p>
-              La qualité de nos services chez Theorem est assurée par une équipe
-              qualifiée, des normes et certifications strictes, une gestion de
-              projet méthodique, la sélection de matériaux de premier ordre, des
-              contrôles de qualité réguliers, des retours clients précieux, une
-              formation continue pour notre équipe, et un engagement envers
-              l'innovation. Chaque étape de nos projets est soigneusement
-              planifiée et exécutée dans le respect des normes les plus élevées
-              de l'industrie, garantissant la satisfaction de nos clients et la
-              durabilité de nos réalisations.
-            </p>
-          </Item>
-          <Item title="Quelle est la portée géographique des services de Theorem ? ">
-            <p>
-              Les prestations de bornes de recharge et de panneaux solaires,
-              s'étendent à l'échelle nationale, offrant nos solutions innovantes
-              à travers toute la France. L’ensemble des autres services de
-              Theorem dans le secteur tertiaire et résidentiel couvrent, quant à
-              eux, l'ensemble de l'Île-de-France.N'hésitez pas à nous contacter
-              pour discuter de la faisabilité de votre projet, que vous soyez en
-              région parisienne ou dans d'autres régions du pays.
-            </p>
-          </Item>
-          <Item title="Quelles certifications ou normes suivez-vous pour assurer la conformité de vos prestations ?">
-            <p>
-              Chez Theorem, nous nous engageons à garantir la conformité et la
-              qualité de nos prestations en suivant des normes et certifications
-              rigoureuses. Nous accordons une importance particulière aux normes
-              CE (Conformité Européenne) : Nous nous assurons que nos produits
-              et services respectent les directives et les normes de sécurité de
-              l'Union européenne.
-            </p>
-
-            <ul className="list-disc pl-14 py-2">
+          <Item title="3. Comment se passe le démarrage d'un projet chez Theorem ?">
+            <ul className="list-disc pl-14 py-2 soleil flex flex-col gap-3">
               <li>
-                La marque CE apposée sur nos produits indique leur conformité
-                aux exigences essentielles en matière de santé, de sécurité et
-                de protection de l'environnement. NF (Norme Française){" "}
+                Et si ça commençait par une{" "}
+                <span className="soleil-bold">rencontre</span> ? Chez Theorem,
+                chaque projet est important à nos yeux. On vous invite à passer
+                en agence pour{" "}
+                <span className="soleil-bold">discuter de votre idée</span> et
+                clarifier vos besoins. Ensemble, on concevra une{" "}
+                <span className="soleil-bold"> solution sur mesure.</span>
               </li>
               <li>
-                Nous privilégions l'utilisation de produits certifiés NF,
-                garantissant une qualité supérieure et une conformité aux normes
-                françaises.
-              </li>
-              <li>
-                La certification NF atteste que nos produits répondent aux
-                critères définis par les normes françaises, contribuant ainsi à
-                la sécurité et à la satisfaction du client.
+                Pas le temps de passer ?{" "}
+                <span className="soleil-bold">Commencez dès maintenant</span> en
+                remplissant notre formulaire personnalisé. Un chef de projet
+                vous contactera pour affiner les détails, puis vous recevrez
+                votre <span className="soleil-bold">devis.</span>
               </li>
             </ul>
-            <Link to="/expertises" className="flex justify-end">
-              <button className="bg-marron rounded-lg p-1 px-2 text-white">
-                En savoir plus
+            <Link to="/estimation" className="flex justify-end mt-2">
+              <button className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300">
+                Démarrer mon projet
               </button>
             </Link>
           </Item>
-          <Item title="Comment sont déterminés les coûts de projets de rénovation par Theorem ? ">
-            <p>
-              Les coûts des projets de rénovation chez Theorem sont évalués de
-              manière transparente et personnalisée en fonction de divers
-              facteurs, tels que la complexité des travaux, les matériaux
-              sélectionnés, la taille du projet et les spécifications du client.
-              Notre équipe d'experts effectue une analyse détaillée pour
-              garantir des estimations justes et compétitives. Nous sommes
-              également ouverts à discuter des options budgétaires avec nos
-              clients afin de trouver des solutions adaptées à leurs besoins. La
-              transparence dans la tarification est au cœur de notre engagement
-              envers la satisfaction client. Pour obtenir une estimation
-              personnalisée pour votre projet de rénovation, n'hésitez pas à
-              nous contacter.
+          <Item title="4. Comment puis-je suivre l'avancement de mon projet en temps réel ?">
+            <p className="soleil">
+              C’est facile ! Il vous suffit de vous connecter à votre espace
+              client. Vous y trouverez vos documents, visuels et bien plus
+              encore …
             </p>
           </Item>
+          {/* <Item title="En quoi le paiement de l’acompte est-il sécurisé ?">
+            <p>...</p> 
+          </Item> */}
         </div>
       </div>
     </div>

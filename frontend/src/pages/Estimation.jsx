@@ -163,14 +163,14 @@ const data = [
   {
     title: "Quand souhaitez-vous réaliser vos travaux ?",
     id: "when",
-    link: "about",
+    link: "identite",
     i: 14,
     type: "button",
     options: ["Dès que possible", "Dans les 3 mois", "Dans l'année"],
   },
   {
     title: "Et pour finir... comment nous avez-vous connu ?",
-    id: "about",
+    id: "identite",
     link: "name",
     i: 15,
     type: "button",
@@ -270,7 +270,7 @@ function Estimation() {
   }
 
   return (
-    <div className="bg-marron">
+    <div className="bg-vert_principal">
       <ScrollToTopOnMount />
       <SectionsContainer {...options}>
         {data.map((item, i) => {

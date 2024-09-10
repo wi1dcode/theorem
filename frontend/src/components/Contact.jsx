@@ -1,21 +1,18 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import TelSvg from "../images/svg/TelSvg";
-import MapSvg from "../images/svg/MapSvg"
-import BizSvg from "../images/svg/BizSvg"
-import MailSvg from "../images/svg/MailSvg"
-import TelTwoSvg from "../images/svg/TelTwoSvg"
+
+import NavigateSvg from "../images/svg/NavigateSvg"
+import CalendSvg from "../images/svg/CalendSvg"
+import ContactMailSvg from "../images/svg/ContactMailSvg"
+import ContactPhone from "../images/svg/ContactPhone"
 
 function Contact() {
   return (
     <div>
-      <div className="text-center">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Quelque chose n'est pas clair ou besoin d'aide ?
+      <div className="text-center overflow-hidden">
+        <h2 className="text-3xl soleil-bold sm:text-4xl text-gray-900">
+          Nous retrouver
         </h2>
-        <p className="text-xl mt-4 text-gray-700">
-          Détendez-vous, nous sommes prêts à vous accompagner!
-        </p>
       </div>
       <div className="container my-14 mx-auto md:px-6">
         <section className="mb-32">
@@ -33,9 +30,9 @@ function Contact() {
                 </div>
               </div>
               <div className="w-full basis-auto gap-4 lg:w-6/12 xl:w-8/12 flex justify-center flex-wrap max-md:flex-col max-md:items-center">
-                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 shadow-md bg-white  flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
-                    <MapSvg />
+                    <NavigateSvg />
                   </span>
                   <p>
                     Nous sommes situés à <br />
@@ -48,9 +45,9 @@ function Contact() {
                     </Link>
                   </p>
                 </div>
-                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
+                <div className="h-[150px] w-[45%] max-md:w-full text-center py-6 px-6 shadow-md bg-white  flex flex-col items-center justify-center gap-y-2">
                   <span className="text-5xl">
-                    <BizSvg />
+                    <CalendSvg />
                   </span>
                   <p>
                     Nous sommes ouverts
@@ -63,49 +60,39 @@ function Contact() {
                     <span className="font-semibold"> </span>
                   </p>
                 </div>
-                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">
-                    <MailSvg />
+                <div className="w-[45%] h-[250px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white flex flex-col items-center justify-center">
+                  <span className="text-5xl mb-2">
+                    <ContactMailSvg />
                   </span>
                   <p>
-                    N'hésitez pas à nous contacter par mail pour toute question
-                    ou demande. <br />
-                    <span className="font-semibold">
-                      Nous sommes là pour vous aider !
-                    </span>
+                    Nous écrire : <br />
                   </p>
                   <a
                     href="mailto:theorem.services@gmail.com"
-                    className="text-marron flex flex-col items-center gap-y-2"
+                    className="text-vert_principal flex flex-col items-center gap-y-2"
                   >
                     theorem.services@gmail.com
                     <button
                       type="button"
-                      className="py-2 px-6 text-white font-semibold bg-marron rounded-full overflow-hidden"
+                      className="py-2 px-6 w-[200px] text-white font-semibold bg-vert_principal rounded-lg overflow-hidden"
                     >
                       Ecrire
                     </button>
                   </a>
                 </div>
-                <div className="w-[45%] h-[270px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center gap-y-2">
-                  <span className="text-5xl">
-                    <TelTwoSvg />
+                <div className="w-[45%]  h-[250px] max-xl:h-[300px] max-md:w-full text-center py-6 px-6 shadow-md bg-white flex flex-col items-center justify-center">
+                  <span className="text-5xl mb-2">
+                    <ContactPhone />
                   </span>
-                  <p>
-                    Pour toute question, contactez-nous par téléphone
-                    <br />
-                    <span className="font-semibold">
-                      Nous sommes disponibles pour vous assister !
-                    </span>
-                  </p>
+                  <p>Nous appeler :</p>
                   <a
                     href="tel:0695753702"
-                    className="text-marron flex flex-col items-center gap-y-2"
+                    className="text-vert_principal flex flex-col items-center gap-y-2"
                   >
                     06.95.75.37.02
                     <button
                       type="button"
-                      className="py-2 px-4 text-white font-semibold bg-marron rounded-full overflow-hidden"
+                      className="py-2 px-4 w-[200px] text-white font-semibold bg-vert_principal rounded-lg overflow-hidden"
                     >
                       Appelez
                     </button>

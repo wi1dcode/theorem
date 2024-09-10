@@ -1,58 +1,170 @@
 [
-    {
-      "id": 1,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
-      "tags": ["50000€ TTC", "60m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [2, 3, 4]
-    },
-    {
-      "id": 2,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://static.wixstatic.com/media/801f49_59236db8a9e54647ac0f42c26efdb7b6~mv2.jpg",
-      "tags": ["60000€ TTC", "80m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-
-    },
-    {
-      "id": 3,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://i.imgur.com/Q8Y5ZH6.jpg",
-      "tags": ["70000€ TTC", "90m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-    },
-    {
-      "id": 4,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://i.imgur.com/dlY3Ylh.jpg",
-      "tags": ["80000€ TTC", "100m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-    },
-    {
-      "id": 5,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://i.imgur.com/7k6Qait.jpg",
-      "tags": ["90000€ TTC", "120m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-    },
-    {
-      "id": 6,
-      "title": "Titre",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "img": "https://static.wixstatic.com/media/801f49_904ef6943d914be396463a502919a1ae~mv2.jpg",
-      "tags": ["100000€ TTC", "130m²", "Paris"],
-      "full_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quaerat!",
-      "suggestion": [1, 2, 3]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Projet Râpée",
+    "under_title": "Vue d’En Haut",
+    "description": "Pour l'immeuble Central Seine, nous avons entrepris un projet complexe de maintenance des éléments de façade, en collaboration avec des cordistes. Ce projet a été mené dans le respect des normes strictes applicables aux immeubles de grande hauteur (IGH).",
+    "full_desc": "Nous avons effectué une vérification minutieuse des luminaires en façade, examinant les accroches et les connexions électriques à une altitude impressionnante de 30 mètres pour garantir une sécurité totale. Les systèmes électriques ont été soumis à des tests détaillés, incluant une analyse complète des tableaux et une programmation DMX des luminaires pour une performance optimale. Enfin, des luminaires sophistiqués ont été intégrés dans les ascenseurs, modernisant ainsi ces espaces clés avec style et fonctionnalité.",
+    "img": "main_rapee.jpg",
+    "img_two": "rapee_cordiste_3.jpg",
+    "img_three": "rapee_vue_2.jpg",
+    "images": [
+      {
+        "src": "rapee_vue_3.jpg",
+        "credit": "Photographie : Didier Boy De La Tour"
+      },
+      {
+        "src": "rapee_vue.jpg",
+        "credit": "Theorem"
+      }
+    ],
+    "tags": ["Paris 12e"],
+    "suggestion": [2, 3, 4],
+    "category": "Local commercial",
+    "work": "Maintenance & Électricité."
+  },
+  {
+    "id": 2,
+    "title": "Projet Jaurès",
+    "under_title": "Connexion Totale",
+    "description": "Nous avons été chargés d'effectuer les travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia de plusieurs salles de sport, d’une surface moyenne de 1800 m², avec un souci constant de qualité et de conformité.",
+    "full_desc": "Nous avons réalisé l’alimentation électrique complète du commerce, en adaptant les prises et les éclairages aux besoins spécifiques. Une infrastructure internet robuste a été installée pour garantir une connectivité fiable partout dans l’établissement. Un système de sonorisation a été intégré pour assurer une diffusion uniforme de la musique. Nous avons également alimenté les machines de fitness, installé des blocs de secours pour les évacuations d'urgence, et utilisé des chemins de câbles pour une installation discrète et esthétique.",
+    "img": "jaures_main.jpg",
+    "img_two": "projet_jaures_2.jpg",
+    "img_three": "projet_jaures_6.jpg",
+    "images": [
+          {
+            "src": "projet_jaures_1.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_3.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_5.jpg",
+            "credit": "Theorem"
+          },
+          {
+            "src": "projet_jaures_7.jpg",
+            "credit": "Theorem"
+          }
+        ],
+    "tags": ["Argenteuil, Romainville et Sartrouville", "1800m²" ],
+    "suggestion": [1, 2, 3],
+    "category": "Local commercial",
+    "work": "Électricité & VDI"
+  },
+  {
+    "id": 3,
+    "title": "Projet Faubourg",
+    "under_title": "Éclat Parisien",
+    "description": "Nous avons réalisé une rénovation électrique dans cet hôtel particulier de 1800m² à Paris, combinant luxe et fonctionnalité. Ce chantier a été particulièrement challengeant en raison des exigences élevées en termes de finitions et des délais serrés.",
+    "full_desc": "Nous avons procédé à un réagencement complet du système électrique, en mettant en place de nouveaux réseaux pour une distribution optimale de l'énergie dans tout l’établissement. Une infrastructure de connectivité moderne a également été installée pour garantir une communication fluide et efficace. En ce qui concerne l’aménagement, nous avons posé des luminaires sophistiqués pour créer des ambiances raffinées et élégantes. De plus, les systèmes d’alimentation ont été intégrés discrètement dans le mobilier, offrant ainsi un confort et une fonctionnalité accrus sans compromettre l’esthétique de l’espace.",
+    "img": "fabourg_one.jpg",
+    "img_two": "fabourg_two.jpg",
+    "img_three": "fabourg_three.jpg",
+    "images": [
+      {
+        "src": "fabourg_four.jpg",
+        "credit": "Theorem"
+      },
+      {
+        "src": "fabourg_three.jpg",
+        "credit": "Theorem"
+      }
+    ],
+    "tags": ["Paris 8e", "1800m²"],
+    "suggestion": [1, 2, 3],
+    "category": "Local commercial",
+    "work": "Électricité"
+  },
+  {
+    "id": 4,
+    "title": "Projet St Flaive",
+    "under_title": "Eau la la!",
+    "description": "Depuis quelque temps ce charmant couple a posé ses valises dans cet appartement de 85m2. Suite à un dégât des eaux, ils ont décidé de profiter des travaux pour rénover plusieurs pièces telles que les chambres, les sanitaires et l’entrée.",
+    "full_desc": "Nos équipes ont orchestré la rénovation, en installant un magnifique parquet semi-massif, contrecollé dans l’ensemble de l’appartement, des tomettes pour l’entrée, et en embellissant les murs des sanitaires avec un magnifique zellige. Des retouches de peinture ont été réalisées pour illuminer chaque espace de cet appartement. Aujourd’hui, ils redécouvrent leur cocon familial sous un nouveau jour, prêts à en profiter pleinement avec leur enfant. Nous espérons que cette rénovation apportera confort et bonheur à cette famille pour les années à venir.",
+    "img": "projet-juppiter.jpg",
+    "img_two": "projet-juppiter-4.jpg",
+    "img_three": "projet-juppiter-4.jpg",
+    "images": [
+      {
+        "src": "projet-juppiter.jpg",
+        "credit": "Theorem"
+      },
+      {
+        "src": "projet-juppiter-2.jpg",
+        "credit": "Theorem"
+      },
+      {
+        "src": "projet-juppiter-3.jpg",
+        "credit": "Theorem"
+      }
+    ],
+    "tags": ["Ermont", "85m²"],
+    "suggestion": [1, 2, 3],
+    "category": "Appartement/Maison",
+    "work": "Revêtements Sols & Muraux."
+  },
+  {
+    "id": 5,
+    "title": "Projet Stalingrad",
+    "under_title": "Premier Cocon",
+    "description": "Bienvenue chez Ophélie, dans son nouveau havre de paix en banlieue parisienne. C’est cet appartement de 60m² qui a fait battre le cœur de notre chère cliente. Il ne restait plus qu’à le façonner à son image. Nos équipes ont entièrement rénové le bien pour le rendre à la fois fonctionnel et épuré",
+    "full_desc": "Nos équipes ont métamorphosé cet appartement en alliant fonctionnalité et simplicité. Nous avons rénové les sols avec un carrelage moderne et repensé la salle de bain, en transformant l’installation existante en une baignoire spacieuse et en intégrant des niches sur mesure pour optimiser parfaitement l’espace. Dans la chambre, une tête de lit en placo sur mesure, équipée de LEDs, apporte du cachet à la pièce. Et ce n’est que le début des améliorations apportées pour rendre ce lieu encore plus accueillant et fonctionnel. De nombreuses prises électriques et luminaires ont également été installées dans tout l’appartement.",
+    "img": "ophelie_salon_2.jpg",
+    "img_two": "ophelie_salon_2.jpg",
+    "img_three": "ophelie_salon.jpg",
+    "images": [
+      {
+        "src": "ophelie_chambre_2.jpg",
+        "credit": "Photographie :"
+      },
+      {
+        "src": "ophelie_cuisine.jpg",
+        "credit": "Photographie :"
+      },
+      {
+        "src": "ophelie_salon.jpg",
+        "credit": "Photographie :"
+      },
+      {
+        "src": "ophelie_salon_3.jpg",
+        "credit": "Photographie :"
+      },
+      {
+        "src": "ophelie_sdb_2.jpg",
+        "credit": "Photographie :"
+      },
+      {
+        "src": "ophelie_wc.jpg",
+        "credit": "Photographie :"
+      }
+    ],
+    "tags": ["Ermont", "60m²"],
+    "suggestion": [1, 2, 3],
+    "category": "Appartement/Maison",
+    "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie ; Éléments sur mesure."
+  },
+  {
+    "id": 6,
+    "title": "L’agence Theorem",
+    "under_title": "Un nouveau chapitre",
+    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer vos projets.\n <span className='text-vert_light soleil-book'>Fun fact : Notre équipe parle plus de 4 langues !</span>",
+    "full_desc": "L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle. Côté démolition, nous avons déposé des cloisons pour agrandir les volumes et aménager des bureaux insonorisés, assurant la confidentialité des projets de nos clients. Nous avons opté pour des peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, notre Corner Coffee est un espace convivial, idéal pour échanger autour d’un bon café.",
+    "img": "coming_soon.jpg",
+    "img_two": "coming_soon.jpg",
+    "img_three": "coming_soon.jpg",
+    "images": [
+      {
+        "src": "coming_soon.jpg",
+        "credit": "Theorem"
+      }
+    ],
+    "tags": ["Ermont", "85m²"],
+    "suggestion": [1, 2, 3],
+    "category": "Local commercial",
+    "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie."
+  }
+]

@@ -90,8 +90,8 @@ function CandidatePro() {
   return (
     <div className="bg-black">
       <Helmet>
-        <title>Pro | Theorem Services</title>
-        <meta name="description" content="Partenariat avec Theorem Services" />
+        <title>Pro | Theorem Concept</title>
+        <meta name="description" content="Partenariat avec Theorem Concept" />
       </Helmet>
       <Widget
         id="CoZbpVAY"
