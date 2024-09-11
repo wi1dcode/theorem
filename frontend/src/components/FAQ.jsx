@@ -96,7 +96,7 @@ export default function FAQ() {
                 chaque projet est important à nos yeux. Nous vous invitons à
                 passer en agence pour{" "}
                 <span className="soleil-bold">discuter de votre idée</span> et
-                clarifier vos besoins. Ensemble, on concevra une{" "}
+                clarifier vos besoins. Nous concevrons une{" "}
                 <span className="soleil-bold"> solution sur mesure.</span>
               </li>
               <li>
@@ -116,8 +116,8 @@ export default function FAQ() {
           <Item title="4. Comment puis-je suivre l'avancement de mon projet en temps réel ?">
             <p className="soleil">
               C’est facile ! Il vous suffit de vous connecter à votre espace
-              client. Vous y trouverez vos documents, visuels et bien plus
-              encore …
+              client. Vous y trouverez le statut de votre projet, vos documents,
+              visuels et bien plus encore.
             </p>
           </Item>
           {/* <Item title="En quoi le paiement de l’acompte est-il sécurisé ?">

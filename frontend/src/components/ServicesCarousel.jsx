@@ -10,7 +10,7 @@ const servicesData = [
     title: "Contractant Général",
     description: "",
     fullDescription:
-      "Theorem simplifie la gestion de vos projets grâce à une <strong>solution clé en main</strong> et un interlocuteur unique. En alliant <strong>design thinking</strong> et <strong>expertise</strong> technique, nous créons des solutions adaptées à vos besoins. Nous prenons en charge toutes les phases, de la conception à la réalisation, en veillant au respect des délais et du budget.",
+      "Theorem simplifie la gestion de vos projets grâce à une <strong>solution clé en main</strong> et un interlocuteur <strong>unique.</strong> En alliant <strong>design thinking</strong> et <strong>expertise</strong> technique, nous créons des solutions adaptées à vos besoins. Nous prenons en charge toutes les phases, de la conception à la réalisation, en veillant au respect des délais et du budget.",
     image: Contractant,
   },
   {
@@ -48,14 +48,18 @@ function ServicesCarousel() {
 
   const currentService = servicesData[currentIndex]
 
+  const handleDotClick = (index) => {
+    setCurrentIndex(index)
+  }
+
   return (
     <div>
       <div className="relative py-12 flex justify-center items-center max-md:hidden">
         <button
           onClick={handlePrev}
-          className="text-gray-500 p-2 absolute left-0 transform -translate-y-1/2 top-1/2"
+          className="text-vert_principal p-2 absolute left-0 transform -translate-y-1/2 top-1/2"
         >
-          <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
+          <LinkArrow className="h-[50px] w-[50px]" right fill="#353d2b" />
         </button>
 
         <div className="flex flex-col md:flex-row items-center gap-10 max-w-screen-xl mx-auto">
@@ -63,18 +67,10 @@ function ServicesCarousel() {
             <h2 className="text-3xl font-bold">{currentService.title}</h2>
             <div
               className="mt-4 text-lg"
-              style={{ height: currentIndex.id === 1 ? "72px" : "auto" }}
               dangerouslySetInnerHTML={{ __html: currentService.description }}
             />
             <div
               className="mt-4 text-base whitespace-pre-wrap"
-              style={{
-                height: currentIndex.id === 1 ? "180px" : "auto",
-                overflow: "hidden",
-                marginTop: currentIndex.id !== 2 && "10px",
-                whiteSpace: "pre-line",
-                lineHeight: "1.6",
-              }}
               dangerouslySetInnerHTML={{
                 __html: currentService.fullDescription,
               }}
@@ -92,14 +88,26 @@ function ServicesCarousel() {
 
         <button
           onClick={handleNext}
-          className="text-gray-500 p-2 absolute right-0 transform -translate-y-1/2 top-1/2"
+          className="text-vert_principal p-2 absolute right-0 transform -translate-y-1/2 top-1/2"
         >
           <LinkArrow
             className="h-[50px] w-[50px]"
             style={{ transform: "rotate(180deg)" }}
-            fill="gray"
+            fill="#353d2b"
           />
         </button>
+      </div>
+
+      <div className="flex justify-center mb-6">
+        {servicesData.map((_, index) => (
+          <button
+            key={index}
+            className={`w-4 h-4 mx-2 rounded-full ${
+              currentIndex === index ? "bg-vert_principal" : "bg-gray-300"
+            }`}
+            onClick={() => handleDotClick(index)}
+          ></button>
+        ))}
       </div>
 
       <div className="md:hidden flex flex-col gap-10 p-4">

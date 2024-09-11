@@ -14,7 +14,7 @@ const expertises = [
     id: "architecturale",
     title: "Conception",
     description:
-      "Le cœur du projet réside dans une <strong>écoute attentive</strong> de vos besoins. Nous commençons par un échange approfondi pour élaborer un cahier des charges détaillé, couvrant tous les aspects techniques et architecturaux. Nous réalisons des <strong>études approfondies</strong>, concevons des plans détaillés et des visuels 3D pour une <strong>vision claire</strong> de votre projet. De l’étude initiale à la gestion de projet, nous assurons un processus fluide et transparent, pour vous offrir des solutions qui répondent parfaitement à vos attentes.",
+      "Le cœur du projet réside dans une <strong>écoute attentive</strong> de vos besoins. Nous commençons par un échange approfondi pour élaborer un cahier des charges détaillé, couvrant tous les aspects techniques et architecturaux. Nous réalisons des <strong>études approfondies</strong>, concevons des plans détaillés et des visuels 2D et 3D pour une <strong>vision claire</strong> de votre projet. De l’étude initiale à la gestion de projet, nous assurons un processus fluide et transparent, pour vous offrir des solutions qui répondent parfaitement à vos attentes.",
     list: [],
     image: archiImage,
   },
@@ -22,7 +22,7 @@ const expertises = [
     id: "technique",
     title: "Réalisations Techniques",
     description:
-      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation</strong> complète, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni au même endroit pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
+      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation complète</strong>, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni au même endroit pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
     list: [],
     image: techImage,
   },

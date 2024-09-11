@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import HeaderBg from "../../images/pro-bg.jpg"
 import WelcomeImage from "../../images/welcome_pro.jpg"
 import ProClients from "./ProClients.jsx"
@@ -6,8 +6,20 @@ import LinkArrow from "../../images/svg/LinkArrow.jsx"
 import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
 import Work from "../../components/Work.jsx"
 import ServicesCarousel from "../../components/ServicesCarousel"
+import { PopupModal } from "react-calendly"
+import { Link } from "react-router-dom"
 
 function Pro() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+
+  const openCalendlyPopup = () => {
+    setIsCalendlyOpen(true)
+  }
+
+  const closeCalendlyPopup = () => {
+    setIsCalendlyOpen(false)
+  }
+
   return (
     <div id="main">
       <div
@@ -45,6 +57,21 @@ function Pro() {
                 Explorez votre espace dédié, pour découvrir comment nous pouvons
                 être le partenaire stratégique dont vous avez besoin.
               </p>
+              <div className="flex gap-x-4 mt-10">
+                <button
+                  className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
+                  onClick={openCalendlyPopup}
+                >
+                  Être appelé
+                </button>
+                <Link
+                  to="/plaquetteprocg.pdf"
+                  target="_blank"
+                  className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
+                >
+                  Plaquette Pro
+                </Link>
+              </div>
             </div>
             <div className="md:w-1/2 lg:w-[30%]">
               <img
@@ -67,6 +94,17 @@ function Pro() {
         <div className="my-16 mb-0" id="clients">
           <ProClients />
         </div>
+      </div>
+      <div className="w-full h-full soleil">
+        <PopupModal
+          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
+          onModalClose={closeCalendlyPopup}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById("root")}
+          text="Être rappelé dès que possible"
+          textColor="#ffffff"
+          color="#00a2ff"
+        />
       </div>
     </div>
   )

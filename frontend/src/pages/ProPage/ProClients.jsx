@@ -131,6 +131,10 @@ function ProClients() {
     )
   }
 
+  const handleDotClick = (index) => {
+    setCurrentIndex(index)
+  }
+
   const currentClients = data.slice(
     currentIndex * clientsPerPage,
     currentIndex * clientsPerPage + clientsPerPage
@@ -143,7 +147,7 @@ function ProClients() {
       </h2>
       <div className="flex justify-center items-center mt-10">
         <button onClick={handlePrev} className="text-gray-500 p-2 mr-4">
-          <LinkArrow className="h-[50px] w-[50px]" right fill="gray" />
+          <LinkArrow className="h-[50px] w-[50px]" right fill="#353d2b" />
         </button>
         <div className="w-[80%] flex items-center justify-center flex-wrap md:gap-4">
           {currentClients.map((client) => (
@@ -163,9 +167,21 @@ function ProClients() {
           <LinkArrow
             className="h-[50px] w-[50px]"
             style={{ transform: "rotate(180deg)" }}
-            fill="gray"
+            fill="#353d2b"
           />
         </button>
+      </div>
+
+      <div className="flex justify-center mt-8">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`w-2 h-2 mx-2 rounded-full ${
+              currentIndex === index ? "bg-vert_principal" : "bg-gray-300"
+            }`}
+          ></button>
+        ))}
       </div>
     </div>
   )

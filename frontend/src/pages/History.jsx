@@ -32,8 +32,9 @@ function History() {
               <p className="text-base text-gray-700 md:text-lg mb-1 courier-prime-regular">
                 Avez-vous déjà eu envie de faire les choses différemment ? Nous,
                 oui. En travaillant pour les grands groupes du bâtiment, il nous
-                manquait quelque chose, et ce déclic est devenu notre point de
-                départ pour créer un{" "}
+                manquait quelque chose, et ce{" "}
+                <span className="courier-prime-bold">déclic</span> est devenu
+                notre point de départ pour créer un{" "}
                 <span className="courier-prime-bold">meilleur écosystème.</span>{" "}
                 C’est ainsi qu’est née Theorem.
               </p>
@@ -68,8 +69,9 @@ function History() {
           </div>
           <div className="flex flex-col justify-end items-end">
             <p className="text-base courier-prime-regular text-gray-700 md:text-lg mb-7">
-              Notre équipe est une véritable mosaïque de talents, chacun
-              apportant son expertise pour offrir un{" "}
+              Notre équipe est une véritable{" "}
+              <span className="courier-prime-bold">mosaïque de talents</span>,
+              chacun apportant son expertise pour offrir un{" "}
               <span className="courier-prime-bold">service complet</span> sous
               un même toit. Notre histoire est en constante évolution, et chaque
               succès nous confirme que nous avons pris le bon tournant.

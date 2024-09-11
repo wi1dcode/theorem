@@ -26,7 +26,7 @@ function Pro() {
   const cardData = [
     {
       img: entrepreneut_image,
-      title: "Entrepreneur du bâtiment",
+      title: "Artisan / Entrepreneur du bâtiment",
       link: "/candidate",
     },
     {

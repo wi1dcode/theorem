@@ -13,14 +13,14 @@ const steps = [
     number: 2,
     title: "Créer",
     description: [
-      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse, une expérience prouvée et une renommée bien établie, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution soignée , fidèle à votre vision.",
+      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse, une expérience prouvée et une renommée bien établie, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution soignée, fidèle à votre vision.",
     ],
   },
   {
     number: 3,
     title: "Célébrer",
     description: [
-      "Clap de fin ! Découvrez le résultat de votre projet, où chaque aspect – qualité, délais et budget – a été parfaitement maîtrisé.",
+      "Clap de fin ! Découvrez le résultat de votre projet, où chaque aspect : qualité, délais et budget, a été parfaitement maîtrisé.",
       "Continuez l'aventure avec nous en rejoignant notre communauté sur les réseaux sociaux !",
     ],
   },

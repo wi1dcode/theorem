@@ -144,7 +144,7 @@ function Home() {
             onClick={openCalendlyPopup}
             className="fixed left-5 soleil bottom-5 text-vert_principal p-2 bg-white rounded-lg z-10 border-vert_principal border"
           >
-            📞 Être rappelé dès que possible
+            📞 Être appelé dès que possible
           </button>
           <button
             className="w-7 h-7 fixed flex items-center left-[280px] text-white text-2xl bottom-14 z-10 rounded-full bg-vert_principal"
