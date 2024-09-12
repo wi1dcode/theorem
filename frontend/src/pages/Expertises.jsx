@@ -22,7 +22,7 @@ const expertises = [
     id: "technique",
     title: "Réalisations Techniques",
     description:
-      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation complète</strong>, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni au même endroit pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
+      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation complète</strong>, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
     list: [],
     image: techImage,
   },

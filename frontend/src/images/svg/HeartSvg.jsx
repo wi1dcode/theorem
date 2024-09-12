@@ -1,4 +1,4 @@
-export default function HeartSvg() {
+export default function HeartSvg({ className }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export default function HeartSvg() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="text-vert_light w-6 inline-block"
+      className={`text-vert_light w-6 inline-block ${className}`}
     >
       <path
         strokeLinecap="round"

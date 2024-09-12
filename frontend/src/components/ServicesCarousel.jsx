@@ -9,24 +9,56 @@ const servicesData = [
     id: 1,
     title: "Contractant Général",
     description: "",
-    fullDescription:
-      "Theorem simplifie la gestion de vos projets grâce à une <strong>solution clé en main</strong> et un interlocuteur <strong>unique.</strong> En alliant <strong>design thinking</strong> et <strong>expertise</strong> technique, nous créons des solutions adaptées à vos besoins. Nous prenons en charge toutes les phases, de la conception à la réalisation, en veillant au respect des délais et du budget.",
+    fullDescription: (
+      <>
+        Theorem simplifie la gestion de vos projets grâce à une{" "}
+        <strong>solution clé en main</strong> et un interlocuteur{" "}
+        <strong>unique.</strong> En alliant{" "}
+        <span className="tooltip underline ">
+          design thinking
+          <span className="tooltip-text">
+            Le design thinking, c'est co-concevoir une solution en écoutant
+            attentivement vos besoins pour l'adapter efficacement.
+          </span>
+        </span>
+        * et <strong>expertise</strong> technique, nous créons des solutions
+        adaptées à vos besoins. Nous prenons en charge toutes les phases, de la
+        conception à la réalisation, en veillant au respect des délais et du
+        budget.
+      </>
+    ),
     image: Contractant,
   },
   {
     id: 2,
     title: "Électricité - Certifié Qualifelec / IRVE",
     description: "",
-    fullDescription:
-      "Nous réalisons des chantiers de toutes tailles, avec des services en <strong>basse et haute tension</strong> (jusqu’à 20 kV). Nos interventions couvrent la sécurité incendie, le contrôle d’accès, la domotique, les réseaux VDI, les bornes de recharge, les panneaux solaires et la gestion technique du bâtiment. Nous opérons dans les bureaux, locaux commerciaux, résidentiels et industriels.",
+    fullDescription: (
+      <>
+        Nous réalisons des chantiers de toutes tailles, avec des services en{" "}
+        <strong>basse et haute tension</strong> (jusqu’à 20 kV). Nos
+        interventions couvrent la sécurité incendie, le contrôle d’accès, la
+        domotique, les réseaux VDI, les bornes de recharge, les panneaux
+        solaires et la gestion technique du bâtiment. Nous opérons dans les
+        bureaux, locaux commerciaux, résidentiels et industriels.
+      </>
+    ),
     image: Electricite,
   },
   {
     id: 3,
     title: "Plomberie / CVC / VMC",
     description: "",
-    fullDescription:
-      "Nous offrons des solutions en plomberie, climatisation et VMC, alliant <strong>performance</strong> et <strong>durabilité</strong>. Grâce à une méthode rigoureuse, nos installations sont <strong>fiables</strong> et respectent les <strong>normes</strong> les plus strictes, garantissant un confort optimal. Nous intervenons dans les bureaux, locaux commerciaux, résidentiels et industriels.",
+    fullDescription: (
+      <>
+        Nous offrons des solutions en plomberie, climatisation et VMC, alliant{" "}
+        <strong>performance</strong> et <strong>durabilité</strong>. Grâce à une
+        méthode rigoureuse, nos installations sont <strong>fiables</strong> et
+        respectent les <strong>normes</strong> les plus strictes, garantissant
+        un confort optimal. Nous intervenons dans les bureaux, locaux
+        commerciaux, résidentiels et industriels.
+      </>
+    ),
     image: Plomberie,
   },
 ]
@@ -65,16 +97,10 @@ function ServicesCarousel() {
         <div className="flex flex-col md:flex-row items-center gap-10 max-w-screen-xl mx-auto">
           <div className="md:w-1/2 text-left">
             <h2 className="text-3xl font-bold">{currentService.title}</h2>
-            <div
-              className="mt-4 text-lg"
-              dangerouslySetInnerHTML={{ __html: currentService.description }}
-            />
-            <div
-              className="mt-4 text-base whitespace-pre-wrap"
-              dangerouslySetInnerHTML={{
-                __html: currentService.fullDescription,
-              }}
-            />
+            <div className="mt-4 text-lg">{currentService.description}</div>
+            <div className="mt-4 text-base whitespace-pre-wrap">
+              {currentService.fullDescription}
+            </div>
           </div>
 
           <div className="md:w-1/2 h-[400px]">
@@ -115,10 +141,9 @@ function ServicesCarousel() {
           <div key={service.id} className="flex flex-col items-center">
             <div className="text-left w-full">
               <h2 className="text-2xl font-bold">{service.title}</h2>
-              <div
-                className="mt-2 text-base whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: service.fullDescription }}
-              />
+              <div className="mt-2 text-base whitespace-pre-wrap">
+                {service.fullDescription}
+              </div>
             </div>
             <div className="w-full h-auto mt-4">
               <img

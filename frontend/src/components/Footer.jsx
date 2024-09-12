@@ -93,7 +93,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0 soleil">
           <p className="text-xs text-white mb-2 md:mb-0">
             © 2024. Tous droits réservés.
           </p>

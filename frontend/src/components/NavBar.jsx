@@ -7,6 +7,7 @@ import MenuSvg from "../images/svg/MenuSvg"
 import ContactPhone from "../images/svg/ContactPhone"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import HeartSvg from "../images/svg/HeartSvg"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,14 @@ function NavBar() {
   const navigate = useNavigate()
 
   const navigation = [
-    { title: "À propos", path: "/about" },
+    {
+      title: (
+        <>
+          Nous <HeartSvg className="text-vert_principal" />
+        </>
+      ),
+      path: "/about",
+    },
     { title: "Nos projets", path: "/realisations" },
     { title: "Notre Savoir-faire", path: "/expertises" },
     {
