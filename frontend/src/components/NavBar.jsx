@@ -19,7 +19,7 @@ function NavBar() {
     {
       title: (
         <>
-          Nous <HeartSvg className="text-vert_principal" />
+          À propos <HeartSvg className="text-white" />
         </>
       ),
       path: "/about",

@@ -16,9 +16,9 @@ const data = [
   },
   {
     id: 3,
-    name: "Basic Fit",
+    name: "Pivot Panda",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Basic-Fit_logo.png",
+      "https://www.recycle-avenir.com/Files/Image/references/logo_pivot_panda.png ",
   },
   {
     id: 4,
@@ -68,9 +68,9 @@ const data = [
   },
   {
     id: 12,
-    name: "Pivot Panda",
+    name: "Basic Fit",
     image:
-      "https://www.recycle-avenir.com/Files/Image/references/logo_pivot_panda.png",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Basic-Fit_logo.png",
   },
   {
     id: 13,

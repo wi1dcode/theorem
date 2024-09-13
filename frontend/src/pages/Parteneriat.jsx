@@ -80,7 +80,7 @@ function Pro() {
             transformant chaque espace en une œuvre d'art vivante.
             <br />
             <br />
-            Rejoignez-nous, vous êtes …
+            Rejoignez-nous, si vous êtes :
           </p>
         </div>
 

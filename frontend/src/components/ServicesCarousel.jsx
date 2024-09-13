@@ -15,16 +15,15 @@ const servicesData = [
         <strong>solution clé en main</strong> et un interlocuteur{" "}
         <strong>unique.</strong> En alliant{" "}
         <span className="tooltip underline ">
-          design thinking
+          <strong>design thinking</strong>
           <span className="tooltip-text">
-            Le design thinking, c'est co-concevoir une solution en écoutant
-            attentivement vos besoins pour l'adapter efficacement.
+            Le design thinking c’est co-concevoir une solution personnalisée en
+            écoutant attentivement vos besoins.
           </span>
-        </span>
-        * et <strong>expertise</strong> technique, nous créons des solutions
-        adaptées à vos besoins. Nous prenons en charge toutes les phases, de la
-        conception à la réalisation, en veillant au respect des délais et du
-        budget.
+        </span>{" "}
+        et expertisetechnique, nous créons des solutions adaptées à vos besoins.
+        Nous prenons en charge toutes les phases, de la conception à la
+        réalisation, en veillant au respect des délais et du budget.
       </>
     ),
     image: Contractant,
@@ -124,7 +123,7 @@ function ServicesCarousel() {
         </button>
       </div>
 
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-6 max-md:hidden">
         {servicesData.map((_, index) => (
           <button
             key={index}

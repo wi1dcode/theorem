@@ -40,7 +40,6 @@ import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
 import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
 // Juppiter
 import ProjetJuppiter from "../images/projects/juppiter/projet-juppiter.jpg"
-import ProjetJuppiterTwo from "../images/projects/juppiter/projet-juppiter-2.jpg"
 import ProjetJuppiterThree from "../images/projects/juppiter/projet-juppiter-3.jpg"
 import ProjetJuppiterFour from "../images/projects/juppiter/projet-juppiter-4.jpg"
 // Coming soon
@@ -78,7 +77,6 @@ const imageMap = {
   "ophelie_sdb.jpg": OphelieSdb,
   "ophelie_wc.jpg": OphelieWc,
   "projet-juppiter.jpg": ProjetJuppiter,
-  "projet-juppiter-2.jpg": ProjetJuppiterTwo,
   "projet-juppiter-3.jpg": ProjetJuppiterThree,
   "projet-juppiter-4.jpg": ProjetJuppiterFour,
   "coming_soon.jpg": ComingSoon,

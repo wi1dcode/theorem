@@ -13,7 +13,7 @@ const steps = [
     number: 2,
     title: "Créer",
     description: [
-      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse, une expérience prouvée et une renommée bien établie, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution soignée, fidèle à votre vision.",
+      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse et une expérience prouvée, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution soignée, fidèle à votre vision.",
     ],
   },
   {

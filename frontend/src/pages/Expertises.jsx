@@ -29,7 +29,8 @@ const expertises = [
   {
     id: "energetique",
     title: "Rénovation Énergétique",
-    description: "Restez branchés !",
+    description:
+      "Restez branchés ! Bientôt certifiés RGE, nous pourrons vous accompagner dans vos projets de rénovation énergétique, éligibles au système de subventions d’état. Avec des solutions pour des travaux comme l’isolation thermique (ITE, calorifuge…), pompe à chaleur, panneaux photovoltaïques, robinets thermostatiques.",
     list: [],
     image: ecoImage,
   },
