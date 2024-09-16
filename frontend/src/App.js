@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useContext } from "react"
+import { Routes, Route, Navigate, useLocation } from "react-router-dom"
+import { useContext, useEffect } from "react"
+import ReactGA from "react-ga4"
 import UserContext from "./services/userContext"
+import CookieConsent from "./components/CookieConsent"
 
 import Home from "./pages/Home"
-// import Estimation from "./pages/Estimation"
 import Login from "./pages/Login"
 import Realisations from "./pages/Realisations"
 import Parteneriat from "./pages/Parteneriat"
-
 import Pro from "./pages/Pro"
 import ProSavoir from "./pages/ProPage/ProSavoir"
 import ProClients from "./pages/ProPage/ProClients"
@@ -27,24 +27,27 @@ import ProDashboard from "./pages/ProDashboard"
 import About from "./pages/About"
 import Legales from "./pages/Legales"
 import Politique from "./pages/Politique"
-import CookieConsent from "./components/CookieConsent"
 
 function App() {
   const { connected, isAdmin, isPro, isLoading } = useContext(UserContext)
+  const location = useLocation()
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     const chatWidget = document.querySelector(".chatway--container")
-  //     const pathname = window.location.pathname
+  useEffect(() => {
+    const consent = localStorage.getItem("cookieConsent")
+    if (consent === "true") {
+      ReactGA.initialize("G-W1JCS32XBY")
+    }
+  }, [])
 
-  //     if (chatWidget && pathname !== "/") {
-  //       chatWidget.style.display = "none"
-  //     }
-  //   }, 500)
-  // }, [])
+  useEffect(() => {
+    const consent = localStorage.getItem("cookieConsent")
+    if (consent === "true") {
+      ReactGA.send({ hitType: "pageview", page: location.pathname })
+    }
+  }, [location])
 
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="mentions-legales" element={<Legales />} />
@@ -55,9 +58,6 @@ function App() {
         <Route path="/realisations/:id" element={<Gallery />} />
         <Route path="/partenariat" element={<Parteneriat />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/eco" element={<Eco />} /> */}
-        {/* <Route path="/histoire" element={<History />} /> */}
-        {/* <Route path="/identite" element={<Identite />} /> */}
         <Route path="/energetique" element={<Energetique />} />
         <Route path="/estimation" element={<EstimationEmbed />} />
         <Route path="/candidate" element={<CandidatePro />} />
@@ -109,7 +109,7 @@ function App() {
         </Route>
       </Routes>
       <CookieConsent />
-    </BrowserRouter>
+    </>
   )
 }
 

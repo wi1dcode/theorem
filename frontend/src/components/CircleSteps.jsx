@@ -89,23 +89,6 @@ const CircleSteps = () => {
     }
   }, [activeStep])
 
-  // const generateSmallCircles = () => {
-  //   const smallCircles = []
-  //   for (let i = 0; i < steps.length * 2; i++) {
-  //     const angle = (i * 360) / (steps.length * 2)
-  //     smallCircles.push(
-  //       <div
-  //         key={`small-circle-${i}`}
-  //         className="absolute w-4 h-4 bg-vert rounded-full"
-  //         style={{
-  //           transform: `rotate(${angle}deg) translate(0, -126px) rotate(-${angle}deg)`,
-  //         }}
-  //       />
-  //     )
-  //   }
-  //   return smallCircles
-  // }
-
   const scrollToContact = () => {
     navigate("/")
     setTimeout(() => {
@@ -164,7 +147,7 @@ const CircleSteps = () => {
               <h3 className="text-2xl max-md:text-sm soleil-bold mb-2">
                 {step.number}. {step.title}
               </h3>
-              <ul className="list-disc soleil ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
+              <div className="list-disc soleil ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
                   <p key={idx} className="text-lg max-md:text-sm">
                     {desc}
@@ -191,7 +174,7 @@ const CircleSteps = () => {
                     </button>
                   </span>
                 )}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

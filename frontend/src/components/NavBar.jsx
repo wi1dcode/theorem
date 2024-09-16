@@ -8,6 +8,7 @@ import ContactPhone from "../images/svg/ContactPhone"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import HeartSvg from "../images/svg/HeartSvg"
+import ReactGA from "react-ga4"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -36,6 +37,14 @@ function NavBar() {
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
+  const handleMenuClick = (label) => {
+    ReactGA.event({
+      category: "Navigation",
+      action: "Clicked Navigation Link",
+      label: label,
+    })
+  }
+
   const handleScroll = () => {
     if (window.scrollY > 50) setScrolled(true)
     else setScrolled(false)
@@ -58,6 +67,7 @@ function NavBar() {
 
       window.scrollTo({ top: y, behavior: "smooth" })
       setIsOpen(false)
+      handleMenuClick("Contact Button")
     }, 100)
   }
 
@@ -92,6 +102,7 @@ function NavBar() {
                 key={idx}
                 to={item.path}
                 target={item.target}
+                onClick={() => handleMenuClick(item.title)}
                 className="text-white pb-1 hover:bg-beige/40 p-2 rounded transition-all soleil duration-300"
               >
                 {item.title}
@@ -139,6 +150,7 @@ function NavBar() {
           )}
           <NavLink
             to="/login"
+            onClick={() => handleMenuClick("Login Link")}
             className="text-white hover:bg-beige/40 p-2 rounded transition-all duration-300"
           >
             <UserSvg />
@@ -190,7 +202,10 @@ function NavBar() {
                     key={idx}
                     to={item.path}
                     target={item.target}
-                    onClick={toggleMenu}
+                    onClick={() => {
+                      toggleMenu()
+                      handleMenuClick(item.title)
+                    }}
                     className={`drop-shadow-lg p-2 rounded transition-all duration-300 hover:text-beige/50 ${
                       item.className || ""
                     }`}
@@ -201,7 +216,10 @@ function NavBar() {
               )}
             <NavLink
               to="/login"
-              onClick={toggleMenu}
+              onClick={() => {
+                toggleMenu()
+                handleMenuClick("Login Link")
+              }}
               className="drop-shadow-lg p-2 rounded transition-all duration-300 hover:text-beige/50"
             >
               <div className="flex justify-center items-center space-x-2">
