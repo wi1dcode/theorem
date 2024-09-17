@@ -40,7 +40,7 @@ function NavBar() {
   const handleMenuClick = (label) => {
     ReactGA.event({
       category: "Navigation",
-      action: "Clicked Navigation Link",
+      action: "Lien de navigation cliqué",
       label: label,
     })
   }

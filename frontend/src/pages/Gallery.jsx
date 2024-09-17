@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Modal from "react-modal"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import ReactGA from "react-ga4"
 
 // Rapee
 import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
@@ -120,6 +121,14 @@ function Gallery() {
       (prevIndex) =>
         (prevIndex - 1 + galleryItem.images.length) % galleryItem.images.length
     )
+  }
+
+  const trackProjectClick = (projectTitle) => {
+    ReactGA.event({
+      category: "Projects",
+      action: `Opened Project: ${projectTitle}`,
+      label: projectTitle,
+    })
   }
 
   return (
@@ -247,7 +256,11 @@ function Gallery() {
                 key={item.id}
                 className="m-4 transition duration-300 transform hover:scale-105"
               >
-                <Link to={`/realisations/${item.id}`}>
+                <Link
+                  to={`/realisations/${item.id}`}
+                  onClick={() => trackProjectClick(item.title)}
+                  key={item.id}
+                >
                   <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
                     <img
                       src={imageMap[item.images[0].src]}

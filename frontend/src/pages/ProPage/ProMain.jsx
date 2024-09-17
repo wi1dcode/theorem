@@ -8,16 +8,31 @@ import Work from "../../components/Work.jsx"
 import ServicesCarousel from "../../components/ServicesCarousel"
 import { PopupModal } from "react-calendly"
 import { Link } from "react-router-dom"
+import ReactGA from "react-ga4"
 
 function Pro() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   const openCalendlyPopup = () => {
     setIsCalendlyOpen(true)
+
+    ReactGA.event({
+      category: "Calendly",
+      action: "Open Calendly Popup",
+      label: "Être appelé",
+    })
   }
 
   const closeCalendlyPopup = () => {
     setIsCalendlyOpen(false)
+  }
+
+  const handlePlaquetteDownload = () => {
+    ReactGA.event({
+      category: "Download",
+      action: "Download Plaquette Pro",
+      label: "Plaquette Pro",
+    })
   }
 
   return (
@@ -68,6 +83,7 @@ function Pro() {
                   to="/plaquetteprocg.pdf"
                   target="_blank"
                   className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
+                  onClick={handlePlaquetteDownload}
                 >
                   Plaquette Pro
                 </Link>

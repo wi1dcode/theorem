@@ -15,6 +15,7 @@ import Stats from "../components/Stats"
 import CircleSteps from "../components/CircleSteps"
 import InterventionZones from "../components/InterventionZones"
 import Engagements from "../components/Engagements"
+import ReactGA from "react-ga4"
 
 function Home() {
   const { pathname } = useLocation()
@@ -51,6 +52,11 @@ function Home() {
 
   const openCalendlyPopup = () => {
     setIsCalendlyOpen(true)
+    ReactGA.event({
+      category: "Contact",
+      action: "Clic sur 'Être appelé dès que possible'",
+      label: "Calendly Button",
+    })
   }
 
   const closeCalendlyPopup = () => {

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import { Link, useLocation } from "react-router-dom"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import ReactGA from "react-ga4"
 
 import partenaire_bg from "../images/partenaire_bg.jpg"
 import entrepreneut_image from "../images/entrepreneur.jpg"
@@ -40,6 +41,14 @@ function Pro() {
       link: "/candidate",
     },
   ]
+
+  const handleClick = (title) => {
+    ReactGA.event({
+      category: "Partenariat",
+      action: "Click on Postuler",
+      label: title,
+    })
+  }
 
   return (
     <section className="bg-white soleil">
@@ -100,6 +109,7 @@ function Pro() {
                 <Link
                   to={card.link}
                   className="bg-vert_light rounded-lg p-2 px-10 pt-3 text-white hover:bg-vert_principal transition duration-300"
+                  onClick={() => handleClick(card.title)}
                 >
                   Postuler
                 </Link>

@@ -1,6 +1,7 @@
 import React from "react"
 import ContactPhone from "../images/svg/ContactPhone"
 import NavigateSvg from "../images/svg/NavigateSvg"
+import ReactGA from "react-ga4"
 
 const interventionZones = [
   {
@@ -21,6 +22,14 @@ const interventionZones = [
 ]
 
 export default function InterventionZones() {
+  const handleCallClick = () => {
+    ReactGA.event({
+      category: "Contact",
+      action: "Clic sur le lien 'Appeler'",
+      label: "Zone d'intervention",
+      value: 1,
+    })
+  }
   return (
     <section className="py-12 bg-vert_light text-white soleil">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -34,6 +43,7 @@ export default function InterventionZones() {
             <a
               className="courier-prime-regular inline-block pl-2"
               href="tel:+33695753702"
+              onClick={handleCallClick}
             >
               <span className="flex justify-center pt-2">
                 <ContactPhone className="w-6 h-6" stroke="white" v2 />
