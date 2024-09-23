@@ -61,12 +61,11 @@ function Pro() {
                 Bienvenue dans l’Espace Pro
               </h2>
               <p className="text-base text-gray-800 md:text-lg soleil leading-relaxed">
-                Chez Theorem, on sait que la clé de vos projets, c’est une
-                collaboration solide. Dans cette plateforme dédiée aux
-                professionnels, nous mettons à votre disposition l'ensemble de
-                nos compétences techniques et relationnelles ; que vous soyez
-                engagés dans la conception, la réalisation ou la gestion de
-                travaux.
+                Chez Theorem, nous comprenons que chaque projet nécessite une
+                attention particulière à chaque étape, de la conception à la
+                réalisation. Nous vous offrons des solutions adaptées à vos
+                besoins, afin que vous puissiez vous concentrer pleinement sur
+                ce que vous faites de mieux.
                 <br />
                 <br />
                 Explorez votre espace dédié, pour découvrir comment nous pouvons

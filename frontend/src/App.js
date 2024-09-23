@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent")
     if (consent === "true") {
-      ReactGA.initialize("G-W1JCS32XBY")
+      ReactGA.initialize("G-W1JCS32XBY", { debug: true })
     }
   }, [])
 

@@ -320,10 +320,10 @@ body.fixed {
 
 .tooltip {
   position: relative;
-  display: inline; /* Убедиться, что элемент остается инлайновым */
+  display: inline;
   cursor: pointer;
   color: inherit;
-  vertical-align: baseline; /* Гарантируем, что элемент будет на одной линии с остальным текстом */
+  vertical-align: baseline;
 }
 
 .tooltip-text {
@@ -338,7 +338,7 @@ body.fixed {
 
   position: absolute;
   z-index: 1;
-  bottom: 100%; /* Показываем над текстом */
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
