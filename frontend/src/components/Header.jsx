@@ -2,8 +2,18 @@ import React from "react"
 import TheoremLogo from "../images/svg/TheoremLogo"
 import HeaderBg from "../images/bg-main.jpg"
 import { Link } from "react-router-dom"
+import ReactGA from "react-ga4"
 
 function Header() {
+  const handleButtonClick = () => {
+    ReactGA.event({
+      category: "Navigation",
+      action: "Clic sur le bouton 'Découvrir nos projets'",
+      label: "Page d'accueil",
+      value: 1,
+    })
+  }
+
   return (
     <header
       className={`bg-cover pt-10 bg-no-repeat w-full h-[80vh] flex flex-col gap-y-4 justify-center items-center`}
@@ -12,9 +22,9 @@ function Header() {
       <article className="flex w-full h-full flex-col justify-center items-center">
         <div className="flex flex-col items-center gap-y-8 w-[50%] max-lg:w-[70%]">
           <div className="flex items-center w-full flex-col justify-center">
-            <TheoremLogo className="w-20 h-20 mb-2" />
+            <TheoremLogo className="w-24 h-24 mb-2" />
             <h2 className="soleil-bold text-2xl text-white">Theorem</h2>
-            <h1 className="text-center mt-6 mb-4 text-white rounded-lg max-md:text-sm text-4xl w-full soleil-bold">
+            <h1 className="text-center mt-16 mb-4 text-white rounded-lg max-md:text-sm text-3xl w-full soleil-bold">
               Concevoir. Créer. Célébrer.
             </h1>
             <p className="text-white text-center text-2xl soleil-light">
@@ -25,6 +35,7 @@ function Header() {
             <button
               className="bg-vert_light shadow text-white text-2xl max-md:text-sm rounded-lg p-2 pt-3 px-8 soleil hover:bg-vert_principal/80 transition duration-300"
               type="button"
+              onClick={handleButtonClick}
             >
               Découvrir nos projets
             </button>

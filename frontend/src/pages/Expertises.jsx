@@ -14,7 +14,7 @@ const expertises = [
     id: "architecturale",
     title: "Conception",
     description:
-      "Le cœur du projet réside dans une <strong>écoute attentive</strong> de vos besoins. Nous commençons par un échange approfondi pour élaborer un cahier des charges détaillé, couvrant tous les aspects techniques et architecturaux. Nous réalisons des <strong>études approfondies</strong>, concevons des plans détaillés et des visuels 3D pour une <strong>vision claire</strong> de votre projet. De l’étude initiale à la gestion de projet, nous assurons un processus fluide et transparent, pour vous offrir des solutions qui répondent parfaitement à vos attentes.",
+      "Le cœur du projet réside dans une <strong>écoute attentive</strong> de vos besoins. Nous commençons par un échange approfondi pour élaborer un cahier des charges détaillé, couvrant tous les aspects techniques et architecturaux. Nous réalisons des <strong>études approfondies</strong>, concevons des plans détaillés et des visuels 2D et 3D pour une <strong>vision claire</strong> de votre projet. De l’étude initiale à la gestion de projet, nous assurons un processus fluide et transparent, pour vous offrir des solutions qui répondent parfaitement à vos attentes.",
     list: [],
     image: archiImage,
   },
@@ -22,14 +22,15 @@ const expertises = [
     id: "technique",
     title: "Réalisations Techniques",
     description:
-      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation</strong> complète, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni au même endroit pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
+      "Que vous souhaitiez rafraîchir des espaces ou entreprendre une <strong>rénovation complète</strong>, nous sommes là pour vous accompagner <strong>à chaque étape</strong>. Nous proposons une gamme complète de <strong>services</strong> pour donner vie à votre projet : électricité, plomberie, plâtrerie, parquet, carrelage, peinture, installation de bornes IRVE, et bien plus encore. Tout est réuni pour <strong>simplifier</strong> votre expérience et vous rapprocher plus rapidement de votre vision.",
     list: [],
     image: techImage,
   },
   {
     id: "energetique",
     title: "Rénovation Énergétique",
-    description: "Restez branchés !",
+    description:
+      "Restez branchés ! Bientôt certifiés RGE, nous pourrons vous accompagner dans vos projets de rénovation énergétique, éligibles au système de subventions d’état. Avec des solutions pour des travaux comme l’isolation thermique (ITE, calorifuge…), pompe à chaleur, panneaux photovoltaïques, robinets thermostatiques.",
     list: [],
     image: ecoImage,
   },
@@ -157,7 +158,7 @@ function Expertises() {
               <section key={index} id={expertise.id} className="my-2">
                 <h2 className="text-3xl mb-4 soleil">{expertise.title}</h2>
                 <p
-                  className="text-gray-700 md:w-2/3 soleil pb-6"
+                  className="text-gray-700 md:w-2/3 soleil pb-6 whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: expertise.description }}
                 />
                 {expertise.list.length > 0 && (

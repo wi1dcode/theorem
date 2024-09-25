@@ -4,7 +4,7 @@ import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
   return (
-    <footer className="bg-vert_principal py-8 soleil">
+    <footer className="bg-vert_principal py-8 courier-prime-regular">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
         <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex flex-col items-start">
@@ -25,11 +25,14 @@ function Footer() {
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Nous contacter</p>
-              <a className="soleil" href="mailto:contact@theorem-concept.fr">
+              <a
+                className="courier-prime-regular"
+                href="mailto:contact@theorem-concept.fr"
+              >
                 contact@theorem-concept.fr
               </a>
-              <a className="soleil" href="tel:+33695753702">
-                06 95 75 37 02
+              <a className="courier-prime-regular" href="tel:+33982240735">
+                09 82 24 07 35
               </a>
             </div>
           </div>
@@ -39,20 +42,20 @@ function Footer() {
               <Link
                 to="https://www.instagram.com/theorem_concept/"
                 target="_blank"
-                className="hover:text-beige/50 soleil"
+                className="hover:text-beige/50 courier-prime-regular"
               >
                 Instagram
               </Link>
               <Link
                 to="https://www.facebook.com/profile.php?id=61561426542985"
                 target="_blank"
-                className="hover:text-beige/50 soleil"
+                className="hover:text-beige/50 courier-prime-regular"
               >
                 Facebook
               </Link>
               <Link
                 to="https://www.linkedin.com/company/theoremconcept/"
-                className="hover:text-beige/50 soleil"
+                className="hover:text-beige/50 courier-prime-regular"
                 target="_blank"
               >
                 LinkedIn
@@ -62,9 +65,13 @@ function Footer() {
           <div className="flex flex-grow md:border-r max-md:border-b max-md:pb-2 justify-center max-md:justify-start pr-4">
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Nous rendre visite</p>
-              <p className="soleil">27 rue Stalingrad, 95120, Ermont</p>
+              <p className="courier-prime-regular">
+                27 rue Stalingrad, 95120, Ermont
+              </p>
               <p className="soleil-bold mt-2">Horaires d'ouverture</p>
-              <p className="soleil">Du lundi au samedi de 10h à 18h</p>
+              <p className="courier-prime-regular">
+                Du mardi au samedi de 10h à 18h
+              </p>
             </div>
           </div>
           <div className="flex flex-grow justify-center max-md:justify-start">
@@ -73,17 +80,20 @@ function Footer() {
               <Link
                 to="/plaquetteprocg.pdf"
                 target="_blank"
-                className="hover:text-beige/50 soleil"
+                className="hover:text-beige/50 courier-prime-regular"
               >
                 Plaquette de présentation
               </Link>
-              <Link to="/partenariat" className="hover:text-beige/50 soleil">
+              <Link
+                to="/partenariat"
+                className="hover:text-beige/50 courier-prime-regular"
+              >
                 Devenir partenaire
               </Link>
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-beige/30 pt-4 mt-4 space-y-4 md:space-y-0 soleil">
           <p className="text-xs text-white mb-2 md:mb-0">
             © 2024. Tous droits réservés.
           </p>

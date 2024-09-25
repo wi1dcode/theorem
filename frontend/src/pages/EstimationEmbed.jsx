@@ -5,11 +5,20 @@ import { useEffect, useState } from "react"
 import { sendResponses } from "../api/client"
 import { Helmet } from "react-helmet"
 import HeaderBg from "../images/bg-main.jpg"
+import ReactGA from "react-ga4"
 
 function EstimationEmbed() {
   const navigate = useNavigate()
   const [city, setCity] = useState("")
   const [isFormReady, setIsFormReady] = useState(false)
+
+  const trackEvent = (category, action, label) => {
+    ReactGA.event({
+      category,
+      action,
+      label,
+    })
+  }
 
   const handleSubmit = async (formId, responseId) => {
     try {
@@ -64,11 +73,11 @@ function EstimationEmbed() {
         const { password, confirmPassword } = passValues
 
         if (password === confirmPassword) {
-          // const { formId, responseId } = event
           const formData = { formId, responseId, password, city }
           const response = await sendResponses(formData)
 
           if (response.status !== 400) {
+            trackEvent("User", "Account Created", "Successful Account Creation")
             await Swal.fire(
               "Merci",
               "Formulaire soumis avec succès ! Vous pouvez maintenant vous se connecter à votre compte",
@@ -164,6 +173,7 @@ function EstimationEmbed() {
                 showConfirmButton: false,
                 timer: 3000,
               })
+              trackEvent("Form", "Code postal sélectionné", zipCode)
               setIsFormReady(true)
             } else if (places.length > 1) {
               const { value: selectedCity } = await Swal.fire({
@@ -199,6 +209,11 @@ function EstimationEmbed() {
                   timer: 3000,
                   timerProgressBar: true,
                 })
+                trackEvent(
+                  "Form",
+                  "ville sélectionnée",
+                  places[selectedCity]["place name"]
+                )
                 setIsFormReady(true)
               } else if (Swal.DismissReason.cancel === "cancel") {
                 window.history.back()

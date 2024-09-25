@@ -8,7 +8,7 @@ const engagements = [
     image: EngImageOne,
     title: "Une empreinte + verte",
     description:
-      "En 2024 en privilégiant les trajets en trottinettes et vélos électriques nous avons économisé 337kg CO². Soit un vol Paris - Rome.",
+      "En privilégiant les trajets en trottinettes et vélos électriques nous économisons 337kg CO²/an. Soit un vol Paris - Rome.",
   },
   {
     image: EngImageTwo,
@@ -29,8 +29,7 @@ export default function Engagements() {
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <h2 className="text-4xl soleil text-center">Le Fil conducteur</h2>
         <p className="courier-prime-regular mt-2 mb-6 text-center">
-          Ces actions sont au cœur de ce que nous faisons. <br /> Elles nous
-          inspirent, nous motivent et donnent le ton à notre quotidien.
+          Ces actions sont au coeur de ce que nous faisons au quotidien.
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8">
           {engagements.map((engagement, idx) => (

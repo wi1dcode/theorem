@@ -1,15 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-/* VOGUE  */
-
-@font-face {
-  font-family: "Vogue";
-  src: local("Vogue"), url("./fonts/Vogue.ttf") format("truetype");
-}
 
 /* AVENIR */
 
@@ -33,19 +24,6 @@
     url("./fonts/Avenir-Next-Condensed-Bold.ttf") format("truetype");
 }
 
-/* MAVES  */
-
-@font-face {
-  font-family: "Maves-Regular";
-  src: local("Maves-Regular"),
-    url("./fonts/Maves-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Metropolis-Medium";
-  src: local("Metropolis-Medium"),
-    url("./fonts/Metropolis-Medium.otf") format("truetype");
-}
-
 /* SOLEIL  */
 
 @font-face {
@@ -65,15 +43,6 @@
   font-family: "SoleilLight";
   src: local("SoleilLight"), url("./fonts/SoleilLight.otf") format("truetype");
 }
-@font-face {
-  font-family: "American Typewriter Regular";
-  src: local("American Typewriter Regular"),
-    url("./fonts/American Typewriter Regular.ttf") format("truetype");
-}
-
-.american {
-  font-family: "American Typewriter Regular";
-}
 
 .soleil {
   font-family: "SoleilRegular";
@@ -88,9 +57,6 @@
   font-family: "SoleilLight";
 }
 
-.vogue {
-  font-family: "Vogue";
-}
 .avenir {
   font-family: "Avenir-Light";
 }
@@ -105,12 +71,6 @@
 }
 .avenir-bold {
   font-family: "Avenir-Next-Condensed-Bold";
-}
-.maves {
-  font-family: "Maves-Regular";
-}
-.rouge {
-  font-family: "Rouge Script", cursive;
 }
 
 .helvetica {
@@ -141,178 +101,6 @@
   font-family: Helvetica, Sans-Serif;
   font-weight: 700;
   font-style: normal;
-}
-
-.roboto {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.roboto-thin {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.roboto-light {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.roboto-black {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.roboto-thin-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.roboto-light-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.roboto-regular-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.roboto-medium-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.roboto-bold-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.roboto-black-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
-
-.figure {
-  -webkit-clippath: circle(73% at 51% 17%);
-  clippath: circle(75% at 50% 0);
-}
-
-.figure2 {
-  -webkit-clippath: circle(70% at 32% 0);
-  clippath: circle(70% at 32% 0);
-}
-
-.logo-zoom {
-  animation: zoom 2s infinite alternate;
-}
-
-@keyframes zoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-  }
-}
-
-.logo-pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.logo-vibrate {
-  animation: vibrate 0.1s infinite alternate;
-}
-
-@keyframes vibrate {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(2px);
-  }
-}
-
-.transition-height {
-  transition-property: height;
-  transition-duration: 0.3s;
-  overflow: hidden;
-}
-
-.expanded {
-  height: auto;
-}
-
-.shadow-bottom {
-  box-shadow: 0 8px 6px -6px black;
-}
-
-.inside-shadow {
-  box-shadow: inset 0 0 10px #aa935e;
-}
-
-.Navigation-Anchor {
-  background-color: #9b895f !important;
-}
-
-.paper {
-  margin: 2em auto;
-  background: #fff;
-  box-shadow: 4px 4px 0 #353d2b;
-  background-image: linear-gradient(
-      90deg,
-      #fff 12px,
-      0,
-      #353d2b 15px,
-      0,
-      #eee9dd 20px,
-      0,
-      #fff 100%
-    ),
-    radial-gradient(circle closest-side, rgba(255, 255, 255, 0) 88%, #fff 100%),
-    radial-gradient(circle at 22px 8px, #eee9dd 40%, #353d2b 40%, #353d2b 100%);
-  background-size: 32px 8px, 32px 16px, 32px 16px;
-  background-repeat: space no-repeat;
-  background-position: center top, center 6px, center 6px;
 }
 
 /* LOADING COMPONENT  */
@@ -426,16 +214,6 @@
   color: #ffffff;
 }
 
-/* CHATWAY VISIBILITY */
-
-.chatway--container {
-  display: none;
-}
-
-.show-chatway .chatway--container {
-  display: block;
-}
-
 /* ANIMATION BOUNCE  */
 
 @keyframes slow-bounce {
@@ -471,15 +249,6 @@
   to {
     transform: translateX(-100%);
   }
-}
-
-/* Add to your existing CSS */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 @media screen and (max-width: 650px) {
@@ -547,4 +316,37 @@ body.fixed {
   font-family: "Courier Prime", monospace;
   font-weight: 700;
   font-style: italic;
+}
+
+.tooltip {
+  position: relative;
+  display: inline;
+  cursor: pointer;
+  color: inherit;
+  vertical-align: baseline;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 240px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: normal;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

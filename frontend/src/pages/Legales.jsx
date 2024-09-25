@@ -27,12 +27,12 @@ function Legales() {
           Éditeur et hébergeur du site
         </h2>
         <p className="soleil-light">
-          Le site theorem-concept.fr est édité par Theorem Concept, domiciliée à
+          Le site theorem-concept.fr est édité par Theorem, domiciliée à
           27 rue stalingrad, 95120, Ermont.
           <br />
-          Email : theorem.services@gmail.com
+          Email : contact@theorem-concept.fr
           <br />
-          Téléphone : 06 95 75 37 02
+          Téléphone : 09 82 24 07 35
           <br />
           Le directeur de la publication du site web "theorem-concept.fr" est
           Mohamed Hamdoune.
@@ -42,7 +42,7 @@ function Legales() {
         </p>
         <h2 className="text-2xl soleil-book mt-8 mb-4">Informations légales</h2>
         <p className="soleil-light">
-          Theorem Concept est une SAS, immatriculée au Registre du Commerce et
+          Theorem est une SAS, immatriculée au Registre du Commerce et
           des Sociétés de Paris sous le numéro 913627048
           <br />
           Numéro de TVA intracommunautaire : FR74913627048
@@ -67,7 +67,7 @@ function Legales() {
           site, des informations peuvent être temporairement conservées en
           mémoire ou sur leur disque dur afin de faciliter la navigation sur le
           site. Les internautes du site reconnaissent avoir été informés de
-          cette pratique et autorisent Theorem Concept à l'employer. Ils peuvent
+          cette pratique et autorisent Theorem à l'employer. Ils peuvent
           par ailleurs s'opposer à l'enregistrement de cookies en employant pour
           cela les fonctionnalités correspondantes sur leur navigateur.
         </p>
@@ -75,7 +75,7 @@ function Legales() {
           Limitation de responsabilité
         </h2>
         <p className="soleil-light">
-          Theorem Concept ne saurait être tenu pour responsable des erreurs
+          Theorem ne saurait être tenu pour responsable des erreurs
           rencontrées sur le site, problèmes techniques, interprétation des
           informations publiées et conséquences de leur utilisation. Par
           conséquent, l'utilisateur reconnaît utiliser ces informations sous sa

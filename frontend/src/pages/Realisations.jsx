@@ -5,6 +5,7 @@ import "aos/dist/aos.css"
 import { Link, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Footer from "../components/Footer"
+import ReactGA from "react-ga4"
 
 import ComingSoon from "../images/projects/coming_soon.jpg"
 import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
@@ -50,6 +51,14 @@ function Realisations() {
     }
   }
 
+  const trackProjectClick = (projectTitle) => {
+    ReactGA.event({
+      category: "Projets",
+      action: `Projet ouvert: ${projectTitle}`,
+      label: projectTitle,
+    })
+  }
+
   return (
     <section>
       <Helmet>
@@ -91,11 +100,12 @@ function Realisations() {
         >
           {filteredProjects.map((item, index) => {
             return (
-              <Link to={`/realisations/${item.id}`}>
-                <div
-                  key={item.id}
-                  className="relative cursor-pointer max-md:w-[350px] w-[380px] h-[400px] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105"
-                >
+              <Link
+                to={`/realisations/${item.id}`}
+                onClick={() => trackProjectClick(item.title)}
+                key={item.id}
+              >
+                <div className="relative cursor-pointer max-md:w-[350px] w-[380px] h-[400px] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105">
                   <img
                     className="w-full h-full object-cover rounded-xl"
                     src={imageMap[item.img]}

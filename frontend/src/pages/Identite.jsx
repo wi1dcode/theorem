@@ -62,13 +62,15 @@ function Identite() {
                 Moralité ?
               </h2>
               <p className="text-base courier-prime-regular text-gray-700 md:text-lg mb-1">
-                Parfois, il suffit de tourner une page pour découvrir la
-                meilleure version de vous-même. Explorez notre univers à travers
-                nos projets et suivez notre aventure sur les réseaux sociaux.
-                <span className="block mt-2">
-                  {" "}
-                  Êtes-vous prêt pour votre nouveau chapitre ?
-                </span>
+                « Parfois, il suffit de <strong>tourner une page</strong> pour
+                découvrir la meilleure <strong>version</strong> de vous-même. »
+                <br />
+                <br />
+                Explorez notre <strong>univers</strong> à travers nos projets et
+                suivez notre <strong>aventure</strong> sur les réseaux sociaux.
+                <br />
+                <br /> Êtes-vous prêts pour votre{" "}
+                <strong>nouveau chapitre</strong> ?
               </p>
             </div>
             <Link to="/estimation" className="flex justify-start mt-2">

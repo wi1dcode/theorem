@@ -13,14 +13,14 @@ const steps = [
     number: 2,
     title: "Créer",
     description: [
-      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse, une expérience prouvée et une renommée bien établie, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution impeccable, fidèle à votre vision.",
+      "Notre savoir-faire est notre force. Grâce à une équipe talentueuse et une expérience prouvée, nous menons à bien vos projets. Nos artisans de la création s'engagent à perfectionner chaque détail pour garantir une exécution soignée, fidèle à votre vision.",
     ],
   },
   {
     number: 3,
     title: "Célébrer",
     description: [
-      "Clap de fin ! Découvrez le résultat de votre projet, où chaque aspect – qualité, délais et budget – a été parfaitement maîtrisé.",
+      "Clap de fin ! Découvrez le résultat de votre projet, où chaque aspect : qualité, délais et budget, a été parfaitement maîtrisé.",
       "Continuez l'aventure avec nous en rejoignant notre communauté sur les réseaux sociaux !",
     ],
   },
@@ -89,23 +89,6 @@ const CircleSteps = () => {
     }
   }, [activeStep])
 
-  // const generateSmallCircles = () => {
-  //   const smallCircles = []
-  //   for (let i = 0; i < steps.length * 2; i++) {
-  //     const angle = (i * 360) / (steps.length * 2)
-  //     smallCircles.push(
-  //       <div
-  //         key={`small-circle-${i}`}
-  //         className="absolute w-4 h-4 bg-vert rounded-full"
-  //         style={{
-  //           transform: `rotate(${angle}deg) translate(0, -126px) rotate(-${angle}deg)`,
-  //         }}
-  //       />
-  //     )
-  //   }
-  //   return smallCircles
-  // }
-
   const scrollToContact = () => {
     navigate("/")
     setTimeout(() => {
@@ -164,7 +147,7 @@ const CircleSteps = () => {
               <h3 className="text-2xl max-md:text-sm soleil-bold mb-2">
                 {step.number}. {step.title}
               </h3>
-              <ul className="list-disc soleil ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
+              <div className="list-disc soleil ml-5 max-md:text-sm space-y-1 md:border-b-2 md:pb-4">
                 {step.description.map((desc, idx) => (
                   <p key={idx} className="text-lg max-md:text-sm">
                     {desc}
@@ -191,7 +174,7 @@ const CircleSteps = () => {
                     </button>
                   </span>
                 )}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

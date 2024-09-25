@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Modal from "react-modal"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import ReactGA from "react-ga4"
 
 // Rapee
 import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
@@ -40,7 +41,6 @@ import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
 import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
 // Juppiter
 import ProjetJuppiter from "../images/projects/juppiter/projet-juppiter.jpg"
-import ProjetJuppiterTwo from "../images/projects/juppiter/projet-juppiter-2.jpg"
 import ProjetJuppiterThree from "../images/projects/juppiter/projet-juppiter-3.jpg"
 import ProjetJuppiterFour from "../images/projects/juppiter/projet-juppiter-4.jpg"
 // Coming soon
@@ -78,7 +78,6 @@ const imageMap = {
   "ophelie_sdb.jpg": OphelieSdb,
   "ophelie_wc.jpg": OphelieWc,
   "projet-juppiter.jpg": ProjetJuppiter,
-  "projet-juppiter-2.jpg": ProjetJuppiterTwo,
   "projet-juppiter-3.jpg": ProjetJuppiterThree,
   "projet-juppiter-4.jpg": ProjetJuppiterFour,
   "coming_soon.jpg": ComingSoon,
@@ -122,6 +121,14 @@ function Gallery() {
       (prevIndex) =>
         (prevIndex - 1 + galleryItem.images.length) % galleryItem.images.length
     )
+  }
+
+  const trackProjectClick = (projectTitle) => {
+    ReactGA.event({
+      category: "Projects",
+      action: `Opened Project: ${projectTitle}`,
+      label: projectTitle,
+    })
   }
 
   return (
@@ -249,7 +256,11 @@ function Gallery() {
                 key={item.id}
                 className="m-4 transition duration-300 transform hover:scale-105"
               >
-                <Link to={`/realisations/${item.id}`}>
+                <Link
+                  to={`/realisations/${item.id}`}
+                  onClick={() => trackProjectClick(item.title)}
+                  key={item.id}
+                >
                   <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
                     <img
                       src={imageMap[item.images[0].src]}

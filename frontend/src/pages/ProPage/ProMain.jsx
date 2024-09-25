@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import HeaderBg from "../../images/pro-bg.jpg"
 import WelcomeImage from "../../images/welcome_pro.jpg"
 import ProClients from "./ProClients.jsx"
@@ -6,8 +6,35 @@ import LinkArrow from "../../images/svg/LinkArrow.jsx"
 import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
 import Work from "../../components/Work.jsx"
 import ServicesCarousel from "../../components/ServicesCarousel"
+import { PopupModal } from "react-calendly"
+import { Link } from "react-router-dom"
+import ReactGA from "react-ga4"
 
 function Pro() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+
+  const openCalendlyPopup = () => {
+    setIsCalendlyOpen(true)
+
+    ReactGA.event({
+      category: "Calendly",
+      action: "Open Calendly Popup",
+      label: "Être appelé",
+    })
+  }
+
+  const closeCalendlyPopup = () => {
+    setIsCalendlyOpen(false)
+  }
+
+  const handlePlaquetteDownload = () => {
+    ReactGA.event({
+      category: "Download",
+      action: "Download Plaquette Pro",
+      label: "Plaquette Pro",
+    })
+  }
+
   return (
     <div id="main">
       <div
@@ -34,17 +61,32 @@ function Pro() {
                 Bienvenue dans l’Espace Pro
               </h2>
               <p className="text-base text-gray-800 md:text-lg soleil leading-relaxed">
-                Chez Theorem, on sait que la clé de vos projets, c’est une
-                collaboration solide. Dans cette plateforme dédiée aux
-                professionnels, nous mettons à votre disposition l'ensemble de
-                nos compétences techniques et relationnelles ; que vous soyez
-                engagés dans la conception, la réalisation ou la gestion de
-                travaux.
+                Chez Theorem, nous comprenons que chaque projet nécessite une
+                attention particulière à chaque étape, de la conception à la
+                réalisation. Nous vous offrons des solutions adaptées à vos
+                besoins, afin que vous puissiez vous concentrer pleinement sur
+                ce que vous faites de mieux.
                 <br />
                 <br />
                 Explorez votre espace dédié, pour découvrir comment nous pouvons
                 être le partenaire stratégique dont vous avez besoin.
               </p>
+              <div className="flex gap-x-4 mt-10">
+                <button
+                  className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
+                  onClick={openCalendlyPopup}
+                >
+                  Être appelé
+                </button>
+                <Link
+                  to="/plaquetteprocg.pdf"
+                  target="_blank"
+                  className="bg-vert_light rounded-lg p-1 px-3 pt-2 text-white hover:bg-vert_principal transition duration-300"
+                  onClick={handlePlaquetteDownload}
+                >
+                  Plaquette Pro
+                </Link>
+              </div>
             </div>
             <div className="md:w-1/2 lg:w-[30%]">
               <img
@@ -67,6 +109,17 @@ function Pro() {
         <div className="my-16 mb-0" id="clients">
           <ProClients />
         </div>
+      </div>
+      <div className="w-full h-full soleil">
+        <PopupModal
+          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
+          onModalClose={closeCalendlyPopup}
+          open={isCalendlyOpen}
+          rootElement={document.getElementById("root")}
+          text="Être rappelé dès que possible"
+          textColor="#ffffff"
+          color="#00a2ff"
+        />
       </div>
     </div>
   )

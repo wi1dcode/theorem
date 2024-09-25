@@ -17,6 +17,7 @@
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-fullpage": "^0.1.19",
+    "react-ga4": "^2.1.0",
     "react-helmet": "^6.1.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.15.0",

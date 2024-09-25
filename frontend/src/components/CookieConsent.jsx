@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import ReactGA from "react-ga4"
 
 function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false)
@@ -7,18 +8,20 @@ function CookieConsent() {
     const consent = localStorage.getItem("cookieConsent")
     if (!consent) {
       setIsVisible(true)
+    } else if (consent === "true") {
+      initializeGA()
     }
   }, [])
+
+  const initializeGA = () => {
+    ReactGA.initialize("G-W1JCS32XBY")
+    ReactGA.send("pageview")
+  }
 
   const handleAccept = () => {
     localStorage.setItem("cookieConsent", "true")
     setIsVisible(false)
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      window.dataLayer.push(arguments)
-    }
-    gtag("js", new Date())
-    gtag("config", "G-W1JCS32XBY")
+    initializeGA()
   }
 
   const handleDecline = () => {

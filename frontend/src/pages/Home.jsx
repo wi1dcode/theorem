@@ -15,6 +15,7 @@ import Stats from "../components/Stats"
 import CircleSteps from "../components/CircleSteps"
 import InterventionZones from "../components/InterventionZones"
 import Engagements from "../components/Engagements"
+import ReactGA from "react-ga4"
 
 function Home() {
   const { pathname } = useLocation()
@@ -51,6 +52,11 @@ function Home() {
 
   const openCalendlyPopup = () => {
     setIsCalendlyOpen(true)
+    ReactGA.event({
+      category: "Contact",
+      action: "Clic sur 'Être appelé dès que possible'",
+      label: "Calendly Button",
+    })
   }
 
   const closeCalendlyPopup = () => {
@@ -144,10 +150,10 @@ function Home() {
             onClick={openCalendlyPopup}
             className="fixed left-5 soleil bottom-5 text-vert_principal p-2 bg-white rounded-lg z-10 border-vert_principal border"
           >
-            📞 Être rappelé dès que possible
+            📞 Être appelé dès que possible
           </button>
           <button
-            className="w-6 h-6 fixed left-[280px] text-white text-2xl bottom-14"
+            className="w-7 h-7 fixed flex items-center left-[280px] text-white text-2xl bottom-14 z-10 rounded-full bg-vert_principal"
             onClick={closeRecallPopup}
           >
             <XSvg />

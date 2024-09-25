@@ -19,7 +19,7 @@
       }
     ],
     "tags": ["Paris 12e"],
-    "suggestion": [2, 3, 4],
+    "suggestion": [2, 3, 6],
     "category": "Local commercial",
     "work": "Maintenance & Électricité."
   },
@@ -28,7 +28,7 @@
     "title": "Projet Jaurès",
     "under_title": "Connexion Totale",
     "description": "Nous avons été chargés d'effectuer les travaux d’électricité, de sonorisation, de réseaux de communication et de multimédia de plusieurs salles de sport, d’une surface moyenne de 1800 m², avec un souci constant de qualité et de conformité.",
-    "full_desc": "Nous avons réalisé l’alimentation électrique complète du commerce, en adaptant les prises et les éclairages aux besoins spécifiques. Une infrastructure internet robuste a été installée pour garantir une connectivité fiable partout dans l’établissement. Un système de sonorisation a été intégré pour assurer une diffusion uniforme de la musique. Nous avons également alimenté les machines de fitness, installé des blocs de secours pour les évacuations d'urgence, et utilisé des chemins de câbles pour une installation discrète et esthétique.",
+    "full_desc": "Nous avons réalisé l’alimentation électrique complète de ces locaux, en adaptant les prises et les éclairages aux besoins spécifiques. Une infrastructure internet robuste a été installée pour garantir une connectivité fiable. Un système de sonorisation a été intégré pour assurer une diffusion uniforme de la musique. Nous avons également alimenté les machines de fitness, installé des blocs de secours pour les évacuations d'urgence, et utilisé des chemins de câbles pour une installation discrète et esthétique.",
     "img": "jaures_main.jpg",
     "img_two": "projet_jaures_2.jpg",
     "img_three": "projet_jaures_6.jpg",
@@ -51,7 +51,7 @@
           }
         ],
     "tags": ["Argenteuil, Romainville et Sartrouville", "1800m²" ],
-    "suggestion": [1, 2, 3],
+    "suggestion": [1, 3, 6],
     "category": "Local commercial",
     "work": "Électricité & VDI"
   },
@@ -75,7 +75,7 @@
       }
     ],
     "tags": ["Paris 8e", "1800m²"],
-    "suggestion": [1, 2, 3],
+    "suggestion": [1, 2, 6],
     "category": "Local commercial",
     "work": "Électricité"
   },
@@ -94,16 +94,12 @@
         "credit": "Theorem"
       },
       {
-        "src": "projet-juppiter-2.jpg",
-        "credit": "Theorem"
-      },
-      {
         "src": "projet-juppiter-3.jpg",
         "credit": "Theorem"
       }
     ],
     "tags": ["Ermont", "85m²"],
-    "suggestion": [1, 2, 3],
+    "suggestion": [5, 6],
     "category": "Appartement/Maison",
     "work": "Revêtements Sols & Muraux."
   },
@@ -143,7 +139,7 @@
       }
     ],
     "tags": ["Ermont", "60m²"],
-    "suggestion": [1, 2, 3],
+    "suggestion": [4, 6],
     "category": "Appartement/Maison",
     "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie ; Éléments sur mesure."
   },
@@ -151,7 +147,7 @@
     "id": 6,
     "title": "L’agence Theorem",
     "under_title": "Un nouveau chapitre",
-    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer vos projets.\n <span className='text-vert_light soleil-book'>Fun fact : Notre équipe parle plus de 4 langues !</span>",
+    "description": "Bienvenue dans l’espace Theorem, situé au cœur d’Ermont. Découvrez l’univers où nous travaillons pour concevoir, créer et célébrer vos projets.\n\n <span className='text-vert_light soleil-book'>Fun fact : Chez Theorem, on commence toujours par une bonne conversation. Notre équipe parle plus de 6 langues, pour que vous puissiez nous partager vos idées comme vous le souhaitez, en toute simplicité</span>",
     "full_desc": "L’objectif de cette rénovation était de créer des espaces fonctionnels et modernes tout en laissant entrer un maximum de lumière naturelle. Côté démolition, nous avons déposé des cloisons pour agrandir les volumes et aménager des bureaux insonorisés, assurant la confidentialité des projets de nos clients. Nous avons opté pour des peintures Guittet, reconnues pour leur durabilité et leur éco-responsabilité. Enfin, notre Corner Coffee est un espace convivial, idéal pour échanger autour d’un bon café.",
     "img": "coming_soon.jpg",
     "img_two": "coming_soon.jpg",
@@ -163,8 +159,8 @@
       }
     ],
     "tags": ["Ermont", "85m²"],
-    "suggestion": [1, 2, 3],
-    "category": "Local commercial",
+    "suggestion": [5, 2, 3],
+    "category": "Bureaux",
     "work": "Revêtements Sols & Muraux ; Électricité ; Plomberie."
   }
 ]
