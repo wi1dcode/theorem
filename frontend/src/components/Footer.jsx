@@ -1,8 +1,11 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import TheoremIcon from "../images/svg/TheoremIcon"
 
 function Footer() {
+  const location = useLocation()
+  const isPro = location.pathname.includes("/pro")
+
   return (
     <footer className="bg-vert_principal py-8 courier-prime-regular">
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-screen-xl md:px-8">
@@ -78,7 +81,7 @@ function Footer() {
             <div className="flex flex-col text-white max-md:text-left">
               <p className="soleil-bold mb-2">Plus d'informations</p>
               <Link
-                to="/plaquetteprocg.pdf"
+                to={isPro ? "/plaquetteprocg.pdf" : "/plaquetteparticulier.pdf"}
                 target="_blank"
                 className="hover:text-beige/50 courier-prime-regular"
               >

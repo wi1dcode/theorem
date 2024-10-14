@@ -19,7 +19,8 @@ const engagements = [
   {
     image: EngImageThree,
     title: "Le Theorem Gagnant",
-    description: "Restez branchés !",
+    description:
+      "Nous sommes fiers de soutenir l'association Destins Liés, contribuant ainsi à des projets significatifs qui font une réelle différence pour notre jeunesse.",
   },
 ]
 
