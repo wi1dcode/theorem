@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { addProject, uploadImage, getProjects } from "../../api/projects";
-import { useNavigate } from "react-router-dom";
-import Select from "react-select"; 
+import {
+  uploadImage,
+  getProjectById,
+  updateProject,
+  getProjects,
+} from "../../api/projects";
+import { useNavigate, useParams } from "react-router-dom";
+import Select from "react-select";
 
-function AddProject() {
+function EditProject() {
   const [project, setProject] = useState({
     title: "",
     under_title: "",
@@ -12,10 +17,10 @@ function AddProject() {
     img: "",
     img_two: "",
     img_three: "",
-    images: [], 
+    images: [], // Existing additional images
     category: "",
     work: "",
-    tags: ["", ""], 
+    tags: ["", ""], // [Localisation, Superficie]
     suggestion: [],
   });
 
@@ -24,19 +29,53 @@ function AddProject() {
     img: null,
     img_two: null,
     img_three: null,
-    images: [], 
+    images: [], // New additional images
   });
   const [preview, setPreview] = useState({
     img: null,
     img_two: null,
     img_three: null,
-    images: [], 
+    images: [], // Preview of existing and new additional images
   });
-  const [imageCredits, setImageCredits] = useState([]); 
+  const [imageCredits, setImageCredits] = useState([]); // Store credits for each image
 
+  const { id } = useParams(); // Fetch project ID from URL
   const navigate = useNavigate();
 
   useEffect(() => {
+    const fetchProjectData = async () => {
+      if (id) {
+        try {
+          const projectData = await getProjectById(id);
+          setProject(projectData);
+
+          setPreview({
+            img: projectData.img
+              ? `http://localhost:5000${projectData.img}`
+              : null,
+            img_two: projectData.img_two
+              ? `http://localhost:5000${projectData.img_two}`
+              : null,
+            img_three: projectData.img_three
+              ? `http://localhost:5000${projectData.img_three}`
+              : null,
+            images: projectData.images
+              ? projectData.images.map(
+                  (img) => `http://localhost:5000${img.src}`
+                )
+              : [],
+          });
+          setImageCredits(
+            projectData.images
+              ? projectData.images.map((img) => img.credit || "")
+              : []
+          );
+        } catch (error) {
+          console.error("Error fetching project data:", error);
+        }
+      }
+    };
+
     const fetchProjects = async () => {
       try {
         const data = await getProjects();
@@ -50,8 +89,9 @@ function AddProject() {
       }
     };
 
+    fetchProjectData();
     fetchProjects();
-  }, []);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,6 +104,13 @@ function AddProject() {
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const file = files[0];
+
+    // File size limit (example: 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size exceeds 5MB limit");
+      return;
+    }
+
     setFiles((prevFiles) => ({
       ...prevFiles,
       [name]: file,
@@ -83,7 +130,7 @@ function AddProject() {
     const fileArray = Array.from(e.target.files);
     setFiles((prevFiles) => ({
       ...prevFiles,
-      images: [...prevFiles.images, ...fileArray], 
+      images: [...prevFiles.images, ...fileArray],
     }));
 
     fileArray.forEach((file) => {
@@ -121,21 +168,44 @@ function AddProject() {
     }));
   };
 
+  const handleCategoryChange = (selectedOption) => {
+    setProject((prevProject) => ({
+      ...prevProject,
+      category: selectedOption.value,
+    }));
+  };
+
+  const handleRemoveImage = (index) => {
+    const updatedImages = [...preview.images];
+    const updatedCredits = [...imageCredits];
+
+    updatedImages.splice(index, 1);
+    updatedCredits.splice(index, 1);
+
+    setPreview((prevPreview) => ({
+      ...prevPreview,
+      images: updatedImages,
+    }));
+    setImageCredits(updatedCredits);
+
+    const updatedProjectImages = [...project.images];
+    updatedProjectImages.splice(index, 1);
+    setProject((prevProject) => ({
+      ...prevProject,
+      images: updatedProjectImages,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      let imgPath = "",
-        imgTwoPath = "",
-        imgThreePath = "",
-        imagesPaths = [];
+      let imgPath = project.img,
+        imgTwoPath = project.img_two,
+        imgThreePath = project.img_three,
+        imagesPaths = [...project.images];
 
-      const generateSlug = (title) => {
-        return title.toLowerCase().replace(/\s+/g, "_");
-      };
-
-      const slug = generateSlug(project.title);
-
+      // Handle new images upload
       if (files.img) {
         const formData = new FormData();
         formData.append("file", files.img);
@@ -167,38 +237,27 @@ function AddProject() {
 
       const projectData = {
         ...project,
-        slug,
         img: imgPath,
         img_two: imgTwoPath,
         img_three: imgThreePath,
         images: imagesPaths,
       };
 
-      await addProject(projectData);
+      await updateProject(id, projectData);
       navigate("/dashboard/realisations");
     } catch (error) {
-      console.error(
-        "Error adding project:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Error updating project:", error);
     }
   };
 
-  // Handle category selection (single choice)
-  const handleCategoryChange = (selectedOption) => {
-    setProject((prevProject) => ({
-      ...prevProject,
-      category: selectedOption.value,
-    }));
-  };
-
   return (
-    <form onSubmit={handleSubmit} className="mx-auto w-full">
+    <form onSubmit={handleSubmit} className="mx-auto p-8 w-full">
       <h2 className="text-center text-3xl font-bold mb-8 text-vert_principal">
-        Ajouter un Projet
+        Modifier le Projet
       </h2>
+
+      {/* Title and Subtitle */}
       <div className="flex gap-x-4">
-        {/* Title */}
         <div className="w-1/2">
           <label className="block text-lg font-semibold mb-2">Titre</label>
           <input
@@ -210,8 +269,6 @@ function AddProject() {
             placeholder="Entrez le titre du projet"
           />
         </div>
-
-        {/* Subtitle */}
         <div className="w-1/2">
           <label className="block text-lg font-semibold mb-2">Sous-titre</label>
           <input
@@ -251,9 +308,8 @@ function AddProject() {
         />
       </div>
 
-      {/* Tags for Localisation and Superficie */}
+      {/* Work, Location, and Superficie */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Work */}
         <div>
           <label className="block text-lg font-semibold mb-2">
             Travail réalisé
@@ -291,8 +347,8 @@ function AddProject() {
         </div>
       </div>
 
+      {/* Category and Suggestions */}
       <div className="flex gap-x-4 items-center mt-2">
-        {/* Category (Single Select) */}
         <div className="w-1/2">
           <label className="block text-lg font-semibold mb-2">Catégorie</label>
           <Select
@@ -308,8 +364,6 @@ function AddProject() {
             placeholder="Sélectionner une catégorie"
           />
         </div>
-
-        {/* Suggestions */}
         <div className="w-1/2">
           <label className="block text-lg font-semibold mb-2">
             Suggestions
@@ -328,8 +382,8 @@ function AddProject() {
         </div>
       </div>
 
+      {/* Main Images */}
       <div className="flex gap-x-4 items-center mt-2">
-        {/* File Inputs for main images */}
         <div className="w-[33%]">
           <label className="block text-lg font-semibold mb-2">
             Image principale
@@ -349,7 +403,6 @@ function AddProject() {
             />
           )}
         </div>
-
         <div className="w-[33%]">
           <label className="block text-lg font-semibold mb-2">
             Image secondaire
@@ -369,7 +422,6 @@ function AddProject() {
             />
           )}
         </div>
-
         <div className="w-[33%]">
           <label className="block text-lg font-semibold mb-2">
             Troisième image
@@ -391,7 +443,7 @@ function AddProject() {
         </div>
       </div>
 
-      {/* Multiple Images */}
+      {/* Additional Images with Delete Option */}
       <div className="mb-4 mt-2">
         <label className="block text-lg font-semibold mb-2">
           Images supplémentaires
@@ -405,7 +457,7 @@ function AddProject() {
         />
         <div className="flex gap-4 mt-4">
           {preview.images.map((src, index) => (
-            <div key={index}>
+            <div key={index} className="relative">
               <img
                 src={src}
                 alt={`Preview ${index}`}
@@ -419,6 +471,14 @@ function AddProject() {
                 value={imageCredits[index] || ""}
                 onChange={(e) => handleImageCreditChange(index, e.target.value)}
               />
+              {/* Delete icon */}
+              <button
+                type="button"
+                onClick={() => handleRemoveImage(index)}
+                className="absolute top-0 right-0 bg-red-500 text-white w-6 h-6 flex items-center justify-center text-sm rounded-full m-1"
+              >
+                X
+              </button>
             </div>
           ))}
         </div>
@@ -428,10 +488,10 @@ function AddProject() {
         type="submit"
         className="bg-vert_principal text-white font-semibold py-3 px-6 rounded-lg hover:bg-vert_principal/80 transition duration-300"
       >
-        Ajouter
+        Modifier
       </button>
     </form>
   );
 }
 
-export default AddProject;
+export default EditProject;

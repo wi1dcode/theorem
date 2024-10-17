@@ -11,6 +11,8 @@ router.post("/new-password", authController.newPassword);
 router.get("/activate/:link", authController.activate);
 router.get("/google-reviews", authController.getGoogleReviews);
 router.get("/work", clientController.getProjects);
-router.get("/work/:id", clientController.getProjectById);
+router.get("/work/id/:id", clientController.getProjectById);
+router.post("/work/ids", clientController.getProjectsByIds);
+router.get("/work/:slug", clientController.getProjectBySlug);
 
 module.exports = router;

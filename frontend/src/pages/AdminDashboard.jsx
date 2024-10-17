@@ -15,6 +15,7 @@ import MenuSvg from "../images/svg/MenuSvg";
 import Information from "./Dashboard/Information";
 import Realisation from "./Admin/Realisations";
 import AddProject from "./Admin/AddProject";
+import EditProject from "./Admin/EditProject";
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -101,6 +102,7 @@ function AdminDashboard() {
             <Route path="information" element={<Information />} />
             <Route path="realisations" element={<Realisation />} />
             <Route path="realisations/add" element={<AddProject />} />
+            <Route path="realisations/edit/:id" element={<EditProject />} />
           </Routes>
         </div>
       </section>

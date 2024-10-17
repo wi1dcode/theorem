@@ -1,134 +1,76 @@
-import React, { useState, useEffect } from "react"
-import { Link, useLocation, useParams } from "react-router-dom"
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-import Modal from "react-modal"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import ReactGA from "react-ga4"
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import Modal from "react-modal";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import ReactGA from "react-ga4";
+import { getProjectBySlug, getProjectsByIds } from "../api/projects"; // Add API call to fetch projects by IDs
+import Loading from "../components/Loading";
 
-// Rapee
-import RapeeMain from "../images/projects/rapee/main_rapee.jpg"
-import RapeeCordiste from "../images/projects/rapee/rapee_cordiste.jpg"
-import RapeeCordisteTwo from "../images/projects/rapee/rapee_cordiste_2.jpg"
-import RapeeCordisteThree from "../images/projects/rapee/rapee_cordiste_3.jpg"
-import RapeeVue from "../images/projects/rapee/rapee_vue.jpg"
-import RapeeVueTwo from "../images/projects/rapee/rapee_vue_2.jpg"
-import RapeeVueThree from "../images/projects/rapee/rapee_vue_3.jpg"
-// Fabourg
-import FabourgOne from "../images/projects/fabourg/fabourg_one.jpg"
-import FabourgTwo from "../images/projects/fabourg/fabourg_two.jpg"
-import FabourgThree from "../images/projects/fabourg/fabourg_three.jpg"
-import FabourgFour from "../images/projects/fabourg/fabourg_four.jpg"
-// Jaures
-import JauresMain from "../images/projects/jaures/jaures_main.jpg"
-import ProjetJaures1 from "../images/projects/jaures/projet_jaures_1.jpg"
-import ProjetJaures2 from "../images/projects/jaures/projet_jaures_2.jpg"
-import ProjetJaures3 from "../images/projects/jaures/projet_jaures_3.jpg"
-import ProjetJaures4 from "../images/projects/jaures/projet_jaures_4.jpg"
-import ProjetJaures5 from "../images/projects/jaures/projet_jaures_5.jpg"
-import ProjetJaures6 from "../images/projects/jaures/projet_jaures_6.jpg"
-import ProjetJaures7 from "../images/projects/jaures/projet_jaures_7.jpg"
-// Ophelie
-import OphelieChambreTwo from "../images/projects/ophelie/ophelie_chambre_2.jpg"
-import OphelieChambre from "../images/projects/ophelie/ophelie_chambre.jpg"
-import OphelieCuisine from "../images/projects/ophelie/ophelie_cuisine.jpg"
-import OphelieSalonTwo from "../images/projects/ophelie/ophelie_salon_2.jpg"
-import OphelieSalonThree from "../images/projects/ophelie/ophelie_salon_3.jpg"
-import OphelieSalon from "../images/projects/ophelie/ophelie_salon.jpg"
-import OphelieSdbTwo from "../images/projects/ophelie/ophelie_sdb_2.jpg"
-import OphelieSdb from "../images/projects/ophelie/ophelie_sdb.jpg"
-import OphelieWc from "../images/projects/ophelie/ophelie_wc.jpg"
-// Juppiter
-import ProjetJuppiter from "../images/projects/juppiter/projet-juppiter.jpg"
-import ProjetJuppiterThree from "../images/projects/juppiter/projet-juppiter-3.jpg"
-import ProjetJuppiterFour from "../images/projects/juppiter/projet-juppiter-4.jpg"
-// Coming soon
-import ComingSoon from "../images/projects/coming_soon.jpg"
-
-const galleryData = require("../services/gallery.json")
-
-const imageMap = {
-  "main_rapee.jpg": RapeeMain,
-  "rapee_cordiste.jpg": RapeeCordiste,
-  "rapee_cordiste_2.jpg": RapeeCordisteTwo,
-  "rapee_cordiste_3.jpg": RapeeCordisteThree,
-  "rapee_vue.jpg": RapeeVue,
-  "rapee_vue_2.jpg": RapeeVueTwo,
-  "rapee_vue_3.jpg": RapeeVueThree,
-  "fabourg_one.jpg": FabourgOne,
-  "fabourg_two.jpg": FabourgTwo,
-  "fabourg_three.jpg": FabourgThree,
-  "fabourg_four.jpg": FabourgFour,
-  "jaures_main.jpg": JauresMain,
-  "projet_jaures_1.jpg": ProjetJaures1,
-  "projet_jaures_2.jpg": ProjetJaures2,
-  "projet_jaures_3.jpg": ProjetJaures3,
-  "projet_jaures_4.jpg": ProjetJaures4,
-  "projet_jaures_5.jpg": ProjetJaures5,
-  "projet_jaures_6.jpg": ProjetJaures6,
-  "projet_jaures_7.jpg": ProjetJaures7,
-  "ophelie_chambre_2.jpg": OphelieChambreTwo,
-  "ophelie_chambre.jpg": OphelieChambre,
-  "ophelie_cuisine.jpg": OphelieCuisine,
-  "ophelie_salon_2.jpg": OphelieSalonTwo,
-  "ophelie_salon_3.jpg": OphelieSalonThree,
-  "ophelie_salon.jpg": OphelieSalon,
-  "ophelie_sdb_2.jpg": OphelieSdbTwo,
-  "ophelie_sdb.jpg": OphelieSdb,
-  "ophelie_wc.jpg": OphelieWc,
-  "projet-juppiter.jpg": ProjetJuppiter,
-  "projet-juppiter-3.jpg": ProjetJuppiterThree,
-  "projet-juppiter-4.jpg": ProjetJuppiterFour,
-  "coming_soon.jpg": ComingSoon,
-}
-
-Modal.setAppElement("#root")
+Modal.setAppElement("#root");
 
 function Gallery() {
-  const { pathname } = useLocation()
-  const params = useParams()
-  const { id } = params
-  const galleryItem = galleryData.find((item) => item.id === parseInt(id))
-  const similarWorks = galleryData.filter(
-    (item) =>
-      galleryItem.suggestion.includes(item.id) && item.id !== galleryItem.id
-  )
-
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const { pathname } = useLocation();
+  const { slug } = useParams();
+  const [galleryItem, setGalleryItem] = useState(null);
+  const [similarWorks, setSimilarWorks] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 })
-    window.scrollTo(0, 0)
-  }, [pathname])
+    AOS.init({ duration: 1000 });
+    window.scrollTo(0, 0);
+
+    const fetchProject = async () => {
+      try {
+        const project = await getProjectBySlug(slug);
+        setGalleryItem(project);
+
+        // Fetch suggestions based on the project.suggestion array
+        if (project.suggestion && project.suggestion.length > 0) {
+          const suggestions = await getProjectsByIds(project.suggestion);
+          setSimilarWorks(suggestions);
+        }
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+      }
+    };
+
+    fetchProject();
+  }, [slug, pathname]);
 
   const openModal = (index) => {
-    setActiveIndex(index)
-    setIsOpen(true)
-  }
+    setActiveIndex(index);
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % galleryItem.images.length)
-  }
+    setActiveIndex((prevIndex) => (prevIndex + 1) % galleryItem.images.length);
+  };
 
   const handlePrev = () => {
     setActiveIndex(
       (prevIndex) =>
         (prevIndex - 1 + galleryItem.images.length) % galleryItem.images.length
-    )
-  }
+    );
+  };
 
   const trackProjectClick = (projectTitle) => {
     ReactGA.event({
       category: "Projects",
       action: `Opened Project: ${projectTitle}`,
       label: projectTitle,
-    })
+    });
+  };
+
+  if (!galleryItem) {
+    return <Loading />;
   }
 
   return (
@@ -148,45 +90,50 @@ function Gallery() {
                 lineHeight: "1.6",
               }}
               dangerouslySetInnerHTML={{
-                __html: galleryItem.description.replace(
-                  "className='text-vert_light soleil-book'",
-                  "class='text-vert_light soleil-book'"
-                ),
+                __html: galleryItem.description,
               }}
             />
           </div>
           <div className="w-[40%] max-md:w-full">
             <img
-              src={imageMap[galleryItem.img_two]}
+              src={`http://localhost:5000${galleryItem.img_two}`}
               alt={galleryItem.title}
               className="rounded-xl object-cover w-full h-[50vh]"
             />
           </div>
         </div>
 
-        {/* Second Block  */}
+        {/* Second Block */}
         <div className="flex items-center justify-center md:mt-10 gap-x-20 max-md:gap-y-6 py-4 max-md:flex-col-reverse">
           <div className="relative flex w-[40%] max-md:w-full h-[50vh] overflow-hidden rounded-xl">
-            <img
-              src={imageMap[galleryItem.images[activeIndex].src]}
-              alt={`${galleryItem.title} ${activeIndex + 1}`}
-              className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-xl transition-opacity duration-500 ease-in-out"
-              style={{ opacity: 1 }}
-              onClick={() => openModal(activeIndex)}
-              key={activeIndex}
-            />
-            <button
-              onClick={handlePrev}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
-            >
-              &#10094;
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
-            >
-              &#10095;
-            </button>
+            {galleryItem.images && galleryItem.images[activeIndex] ? (
+              <img
+                src={`http://localhost:5000${galleryItem.images[activeIndex].src}`}
+                alt={`${galleryItem.title} ${activeIndex + 1}`}
+                className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-xl transition-opacity duration-500 ease-in-out"
+                onClick={() => openModal(activeIndex)}
+                key={activeIndex}
+              />
+            ) : (
+              <div className="text-center">No images available</div>
+            )}
+
+            {galleryItem.images && galleryItem.images.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
+                >
+                  &#10094;
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-2xl"
+                >
+                  &#10095;
+                </button>
+              </>
+            )}
           </div>
 
           <div className="flex flex-col items-start w-[40%] max-md:w-full max-md:mt-4">
@@ -200,16 +147,13 @@ function Gallery() {
                 lineHeight: "1.6",
               }}
               dangerouslySetInnerHTML={{
-                __html: galleryItem.full_desc.replace(
-                  "className='text-vert_light soleil-book'",
-                  "class='text-vert_light soleil-book'"
-                ),
+                __html: galleryItem.full_desc,
               }}
             />
           </div>
         </div>
 
-        {/* Third Block  */}
+        {/* Third Block */}
         <div className="flex items-center justify-center md:mt-10 gap-x-20 max-md:gap-y-2 max-md:flex-col py-4 w-full max-md:border-b-2 max-md:pb-10">
           <div className="flex flex-row items-start w-[45%] max-md:w-full max-md:mt-4 text-lg">
             <div className="w-1/2 shadow p-4 rounded-lg mx-auto h-[45vh] max-md:w-full flex flex-col items-center justify-around">
@@ -241,37 +185,45 @@ function Gallery() {
           </div>
           <div className="w-[45%] max-md:w-full">
             <img
-              src={imageMap[galleryItem.img_three]}
+              src={`http://localhost:5000${galleryItem.img_three}`}
               alt={galleryItem.title}
               className="rounded-xl object-cover w-full h-[45vh]"
             />
           </div>
         </div>
 
+        {/* Suggestions Section */}
         <div className="mt-10 flex flex-col justify-center items-center mb-8">
           <h2 className="text-3xl font-semibold">Nos autres projets :</h2>
           <div className="flex flex-wrap justify-center mt-4 text-center">
-            {similarWorks.map((item) => (
-              <div
-                key={item.id}
-                className="m-4 transition duration-300 transform hover:scale-105"
-              >
-                <Link
-                  to={`/realisations/${item.id}`}
-                  onClick={() => trackProjectClick(item.title)}
-                  key={item.id}
+            {similarWorks.length > 0 ? (
+              similarWorks.map((item) => (
+                <div
+                  key={item._id}
+                  className="m-4 transition duration-300 transform hover:scale-105"
                 >
-                  <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
-                    <img
-                      src={imageMap[item.images[0].src]}
-                      alt={item.title}
-                      className="absolute inset-0 w-full h-full object-cover cursor-pointer"
-                    />
-                  </div>
-                </Link>
-                <h3 className="text-xl soleil-medium mt-2">{item.title}</h3>
-              </div>
-            ))}
+                  <Link
+                    to={`/realisations/${item.slug}`}
+                    onClick={() => trackProjectClick(item.title)}
+                  >
+                    <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
+                      {item.images && item.images[0] ? (
+                        <img
+                          src={`http://localhost:5000${item.images[0].src}`}
+                          alt={item.title}
+                          className="absolute inset-0 w-full h-full object-cover cursor-pointer"
+                        />
+                      ) : (
+                        <div className="text-center">No images</div>
+                      )}
+                    </div>
+                  </Link>
+                  <h3 className="text-xl soleil-medium mt-2">{item.title}</h3>
+                </div>
+              ))
+            ) : (
+              <p>-</p>
+            )}
           </div>
         </div>
       </div>
@@ -298,14 +250,18 @@ function Gallery() {
           >
             &#10094;
           </button>
-          <img
-            src={imageMap[galleryItem.images[activeIndex].src]}
-            alt={`${galleryItem.title} ${activeIndex + 1}`}
-            className="object-cover w-auto h-auto max-h-full max-w-full"
-          />
-          <p className="text-white absolute bottom-5">
-            {galleryItem.images[activeIndex].credit}
-          </p>
+          {galleryItem.images && galleryItem.images[activeIndex] && (
+            <>
+              <img
+                src={`http://localhost:5000${galleryItem.images[activeIndex]?.src}`}
+                alt={`${galleryItem.title} ${activeIndex + 1}`}
+                className="object-cover w-auto h-auto max-h-full max-w-full"
+              />
+              <p className="text-white absolute bottom-5">
+                {galleryItem.images[activeIndex]?.credit}
+              </p>
+            </>
+          )}
           <button
             onClick={handleNext}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded text-3xl"
@@ -315,7 +271,7 @@ function Gallery() {
         </div>
       </Modal>
     </div>
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;

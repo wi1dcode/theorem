@@ -11,9 +11,28 @@ export const getProjects = async () => {
 
 export const getProjectById = async (id) => {
   try {
-    const response = await get(`/work/${id}`);
+    const response = await get(`/work/id/${id}`);
     return response.data;
   } catch (error) {
+    throw error;
+  }
+};
+
+export const getProjectsByIds = async (ids) => {
+  try {
+    const response = await post(`/work/ids/`, { ids });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProjectBySlug = async (slug) => {
+  try {
+    const response = await get(`/work/${encodeURIComponent(slug)}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching project by slug", error);
     throw error;
   }
 };

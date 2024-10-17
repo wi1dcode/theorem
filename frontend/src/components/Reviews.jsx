@@ -1,18 +1,18 @@
-import React, { useState } from "react"
-import FiveStarsSvg from "../images/svg/FiveStarsSvg"
-import ReviewsBgImage from "../images/nos_clients_parlent_de_nous_1.jpg"
+import React, { useState } from "react";
+import FiveStarsSvg from "../images/svg/FiveStarsSvg";
+import ReviewsBgImage from "../images/nos_clients_parlent_de_nous_1.jpg";
 // import ReviewsBgImageTwo from "../images/nos_clients_parlent_de_nous_2.jpg"
-import LinkArrow from "../images/svg/LinkArrow.jsx"
+import LinkArrow from "../images/svg/LinkArrow.jsx";
 
 export default function Reviews() {
   const testimonials = [
     {
       avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-      project: "Projet 1",
-      name: "Lucie P.",
+      project: "Projet Jules César",
+      name: "Amel",
       title: "Paris, France",
       quote:
-        "Nous sommes ravis du résultat, soigné et conforme à notre projet. L'entreprise en charge des travaux est au top ! Les échanges avec Theorem ont été réguliers, toujours agréables et constructifs. On recommande très vivement !!",
+        "Une équipe très professionnelle et à l’écoute, qui a parfaitement su répondre à mes attentes. Les échanges avec Théorèm ont été réguliers et agréables, rendant le suivi du projet fluide et sans stress. Le résultat est soigné, conforme à mes souhaits. Je recommande très vivement !",
       stars: 5,
       backgroundImage: ReviewsBgImage,
     },
@@ -26,21 +26,21 @@ export default function Reviews() {
     //   stars: 4,
     //   backgroundImage: ReviewsBgImageTwo,
     // },
-  ]
+  ];
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    )
-  }
+    );
+  };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -99,5 +99,5 @@ export default function Reviews() {
         </div>
       </section>
     </>
-  )
+  );
 }
