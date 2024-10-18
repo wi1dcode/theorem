@@ -7,6 +7,7 @@ import {
 } from "../../api/projects";
 import { useNavigate, useParams } from "react-router-dom";
 import Select from "react-select";
+import DeleteSvg from "../../images/svg/DeleteSvg";
 
 function EditProject() {
   const [project, setProject] = useState({
@@ -475,21 +476,23 @@ function EditProject() {
               <button
                 type="button"
                 onClick={() => handleRemoveImage(index)}
-                className="absolute top-0 right-0 bg-red-500 text-white w-6 h-6 flex items-center justify-center text-sm rounded-full m-1"
+                className="absolute top-0 right-0 bg-red-500 text-white w-8 h-8 flex items-center justify-center text-sm rounded-full m-1"
               >
-                X
+                <DeleteSvg className="text-white" />
               </button>
             </div>
           ))}
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="bg-vert_principal text-white font-semibold py-3 px-6 rounded-lg hover:bg-vert_principal/80 transition duration-300"
-      >
-        Modifier
-      </button>
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="bg-vert_principal text-white font-semibold py-3 px-6 rounded-lg hover:bg-vert_principal/80 transition duration-300"
+        >
+          Modifier
+        </button>
+      </div>
     </form>
   );
 }

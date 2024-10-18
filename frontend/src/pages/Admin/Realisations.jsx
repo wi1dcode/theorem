@@ -60,12 +60,9 @@ function Realisations() {
       >
         Ajouter
       </button>
-      <div className="flex flex-wrap gap-4 mt-10">
+      <div className="flex flex-wrap justify-center gap-4 mt-10">
         {projects.map((project) => (
           <div key={project._id} className="border p-2 rounded-xl">
-            <div className="my-2">
-              <h3 className="text-xl soleil-book">{project.title}</h3>
-            </div>
             <div
               key={project._id}
               className="cursor-pointer max-md:w-[350px] w-[350px] h-[300px] max-lg:w-[500px] overflow-hidden rounded-xl"
@@ -75,6 +72,9 @@ function Realisations() {
                 src={`http://localhost:5000${project.img}`}
                 alt={project.title}
               />
+            </div>
+            <div className="my-2">
+              <h3 className="text-xl soleil-book border-b pb-1">{project.title}</h3>
             </div>
 
             <div className="flex justify-center gap-x-4 mt-2">

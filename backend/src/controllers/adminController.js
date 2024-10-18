@@ -632,6 +632,20 @@ const createProject = async (req, res) => {
     const newProject = new Project(req.body);
     newProject.slug = generateSlug(req.body.title);
     await newProject.save();
+
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress;
+
+    await logService.logEvent(
+      "work_updated",
+      `Administrateur ajouté un projet: ${newProject.title}`,
+      "ADMIN",
+      clientIp,
+      req.headers["user-agent"]
+    );
+
     return res.status(201).json(newProject);
   } catch (error) {
     console.error("Error creating project:", error);
@@ -642,12 +656,25 @@ const createProject = async (req, res) => {
 const updateProject = async (req, res) => {
   try {
     const { id } = req.params;
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress;
     const updatedProject = await Project.findByIdAndUpdate(id, req.body, {
       new: true,
     });
     if (!updatedProject) {
       return res.status(404).json({ error: "Project not found" });
     }
+
+    await logService.logEvent(
+      "work_updated",
+      `Administrateur mise à jour le projet: ${updatedProject.title}`,
+      "ADMIN",
+      clientIp,
+      req.headers["user-agent"]
+    );
+
     return res.status(200).json(updatedProject);
   } catch (error) {
     console.error("Error updating project:", error);
@@ -658,10 +685,23 @@ const updateProject = async (req, res) => {
 const deleteProject = async (req, res) => {
   try {
     const { id } = req.params;
+    const clientIp =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress;
     const deletedProject = await Project.findByIdAndDelete(id);
     if (!deletedProject) {
       return res.status(404).json({ error: "Project not found" });
     }
+
+    await logService.logEvent(
+      "work_deleted",
+      `Administrateur supprimé projet: ${deletedProject.title}`,
+      "ADMIN",
+      clientIp,
+      req.headers["user-agent"]
+    );
+    
     return res.status(200).json({ message: "Project deleted successfully" });
   } catch (error) {
     console.error("Error deleting project:", error);

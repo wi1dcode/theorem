@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import ReactGA from "react-ga4";
 import { getProjects } from "../api/projects";
+import Loading from "../components/Loading";
 
 function Realisations() {
   const { pathname } = useLocation();
@@ -95,6 +96,11 @@ function Realisations() {
           data-aos="fade-up"
           data-aos-duration="1000"
         >
+          {projects.length === 0 && (
+            <div className="h-[70vh]">
+              <Loading />
+            </div>
+          )}
           {filteredProjects.map((item) => (
             <Link
               to={`/realisations/${item.slug}`}
@@ -114,12 +120,9 @@ function Realisations() {
                   <p className="text-white text-center mb-4">
                     {item.under_title}
                   </p>
-                  <Link
-                    to={`/realisations/${item.slug}`}
-                    className="py-2 px-4 pb-1 bg-vert_principal text-white rounded-full hover:bg-vert_principal transition duration-300"
-                  >
+                  <div className="py-2 px-4 pb-1 bg-vert_principal text-white rounded-full hover:bg-vert_principal transition duration-300">
                     En savoir plus
-                  </Link>
+                  </div>
                 </div>
               </div>
             </Link>

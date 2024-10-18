@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { addProject, uploadImage, getProjects } from "../../api/projects";
 import { useNavigate } from "react-router-dom";
-import Select from "react-select"; 
+import Select from "react-select";
 
 function AddProject() {
   const [project, setProject] = useState({
@@ -12,10 +12,10 @@ function AddProject() {
     img: "",
     img_two: "",
     img_three: "",
-    images: [], 
+    images: [],
     category: "",
     work: "",
-    tags: ["", ""], 
+    tags: ["", ""],
     suggestion: [],
   });
 
@@ -24,15 +24,15 @@ function AddProject() {
     img: null,
     img_two: null,
     img_three: null,
-    images: [], 
+    images: [],
   });
   const [preview, setPreview] = useState({
     img: null,
     img_two: null,
     img_three: null,
-    images: [], 
+    images: [],
   });
-  const [imageCredits, setImageCredits] = useState([]); 
+  const [imageCredits, setImageCredits] = useState([]);
 
   const navigate = useNavigate();
 
@@ -83,7 +83,7 @@ function AddProject() {
     const fileArray = Array.from(e.target.files);
     setFiles((prevFiles) => ({
       ...prevFiles,
-      images: [...prevFiles.images, ...fileArray], 
+      images: [...prevFiles.images, ...fileArray],
     }));
 
     fileArray.forEach((file) => {
@@ -424,12 +424,14 @@ function AddProject() {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="bg-vert_principal text-white font-semibold py-3 px-6 rounded-lg hover:bg-vert_principal/80 transition duration-300"
-      >
-        Ajouter
-      </button>
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="bg-vert_principal text-white font-semibold py-3 px-6 rounded-lg hover:bg-vert_principal/80 transition duration-300"
+        >
+          Ajouter
+        </button>
+      </div>
     </form>
   );
 }
