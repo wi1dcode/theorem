@@ -69,7 +69,7 @@ function Realisations() {
             >
               <img
                 className="w-full h-full object-cover rounded-xl"
-                src={`api${project.img}`}
+                src={`${window.location.origin}/api${project.img}`}
                 alt={project.title}
               />
             </div>

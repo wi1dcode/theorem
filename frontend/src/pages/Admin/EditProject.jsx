@@ -51,13 +51,19 @@ function EditProject() {
           setProject(projectData);
 
           setPreview({
-            img: projectData.img ? `api${projectData.img}` : null,
-            img_two: projectData.img_two ? `api${projectData.img_two}` : null,
+            img: projectData.img
+              ? `${window.location.origin}/api${projectData.img}`
+              : null,
+            img_two: projectData.img_two
+              ? `${window.location.origin}/api${projectData.img_two}`
+              : null,
             img_three: projectData.img_three
-              ? `api${projectData.img_three}`
+              ? `${window.location.origin}/api${projectData.img_three}`
               : null,
             images: projectData.images
-              ? projectData.images.map((img) => `api${img.src}`)
+              ? projectData.images.map(
+                  (img) => `${window.location.origin}/api${img.src}`
+                )
               : [],
           });
           setImageCredits(
