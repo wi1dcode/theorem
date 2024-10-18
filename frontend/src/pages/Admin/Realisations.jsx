@@ -69,12 +69,14 @@ function Realisations() {
             >
               <img
                 className="w-full h-full object-cover rounded-xl"
-                src={`http://localhost:5000${project.img}`}
+                src={`api${project.img}`}
                 alt={project.title}
               />
             </div>
             <div className="my-2">
-              <h3 className="text-xl soleil-book border-b pb-1">{project.title}</h3>
+              <h3 className="text-xl soleil-book border-b pb-1">
+                {project.title}
+              </h3>
             </div>
 
             <div className="flex justify-center gap-x-4 mt-2">

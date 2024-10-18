@@ -110,7 +110,7 @@ function Realisations() {
               <div className="relative cursor-pointer max-md:w-[350px] w-[380px] h-[400px] max-lg:w-[500px] overflow-hidden shadow-lg rounded-xl transition duration-300 transform hover:scale-105">
                 <img
                   className="w-full h-full object-cover rounded-xl"
-                  src={`http://localhost:5000${item.img}`}
+                  src={`api${item.img}`}
                   alt={item.title}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 hover:backdrop-blur-md transition duration-300 rounded-xl p-4">

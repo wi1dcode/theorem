@@ -96,7 +96,7 @@ function Gallery() {
           </div>
           <div className="w-[40%] max-md:w-full">
             <img
-              src={`http://localhost:5000${galleryItem.img_two}`}
+              src={`api${galleryItem.img_two}`}
               alt={galleryItem.title}
               className="rounded-xl object-cover w-full h-[50vh]"
             />
@@ -108,7 +108,7 @@ function Gallery() {
           <div className="relative flex w-[40%] max-md:w-full h-[50vh] overflow-hidden rounded-xl">
             {galleryItem.images && galleryItem.images[activeIndex] ? (
               <img
-                src={`http://localhost:5000${galleryItem.images[activeIndex].src}`}
+                src={`api${galleryItem.images[activeIndex].src}`}
                 alt={`${galleryItem.title} ${activeIndex + 1}`}
                 className="object-cover md:min-w-[800px] min-w-full h-full cursor-pointer rounded-xl transition-opacity duration-500 ease-in-out"
                 onClick={() => openModal(activeIndex)}
@@ -185,7 +185,7 @@ function Gallery() {
           </div>
           <div className="w-[45%] max-md:w-full">
             <img
-              src={`http://localhost:5000${galleryItem.img_three}`}
+              src={`api${galleryItem.img_three}`}
               alt={galleryItem.title}
               className="rounded-xl object-cover w-full h-[45vh]"
             />
@@ -209,7 +209,7 @@ function Gallery() {
                     <div className="relative w-64 h-48 overflow-hidden rounded-xl shadow">
                       {item.images && item.images[0] ? (
                         <img
-                          src={`http://localhost:5000${item.images[0].src}`}
+                          src={`api${item.images[0].src}`}
                           alt={item.title}
                           className="absolute inset-0 w-full h-full object-cover cursor-pointer"
                         />
@@ -253,7 +253,7 @@ function Gallery() {
           {galleryItem.images && galleryItem.images[activeIndex] && (
             <>
               <img
-                src={`http://localhost:5000${galleryItem.images[activeIndex]?.src}`}
+                src={`api${galleryItem.images[activeIndex]?.src}`}
                 alt={`${galleryItem.title} ${activeIndex + 1}`}
                 className="object-cover w-auto h-auto max-h-full max-w-full"
               />
