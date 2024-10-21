@@ -42,7 +42,7 @@ function AdminDashboard() {
       )}
       <div className="fixed z-30 top-3 left-5 md:hidden">
         <button onClick={() => setIsOpen(!isOpen)}>
-          <MenuSvg />
+          <MenuSvg className="text-black"/>
         </button>
       </div>
 

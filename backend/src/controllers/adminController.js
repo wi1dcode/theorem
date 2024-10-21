@@ -128,10 +128,10 @@ const changeProjectStatus = async (req, res) => {
     }
 
     const statusMessage = logService.customizeLogMessage(
-      `L'administrateur a changé le statut du projet ( Email: ${
+      `L'administrateur a changé le statut du projet (Email: ${
         project.profile?.email
-      } ID:${project._id} ) à ${status} ${
-        comment ? `, avec commentaire: ${comment}` : ""
+      }, ID:${project._id}) à ${status} ${
+        comment ? `avec commentaire: ${comment}` : ""
       }`
     );
 
@@ -154,6 +154,7 @@ const changeProjectStatus = async (req, res) => {
     };
 
     const linkToProject = `${process.env.CLIENT_URL}/dashboard/projects/${project._id}`;
+
     await mailService.sendProjectStatusUpdateMail(
       project.profile?.email,
       project.profile?.firstname,
@@ -701,7 +702,7 @@ const deleteProject = async (req, res) => {
       clientIp,
       req.headers["user-agent"]
     );
-    
+
     return res.status(200).json({ message: "Project deleted successfully" });
   } catch (error) {
     console.error("Error deleting project:", error);
