@@ -185,7 +185,7 @@ function Gallery() {
           </div>
           <div className="w-[45%] max-md:w-full">
             <img
-              src={`api${galleryItem.img_three}`}
+              src={`${window.location.origin}/api${galleryItem.img_three}`}
               alt={galleryItem.title}
               className="rounded-xl object-cover w-full h-[45vh]"
             />
