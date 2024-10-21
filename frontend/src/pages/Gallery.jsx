@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ReactGA from "react-ga4";
-import { getProjectBySlug, getProjectsByIds } from "../api/projects"; // Add API call to fetch projects by IDs
+import { getProjectBySlug, getProjectsByIds } from "../api/projects"; 
 import Loading from "../components/Loading";
 
 Modal.setAppElement("#root");
@@ -28,7 +28,6 @@ function Gallery() {
         const project = await getProjectBySlug(slug);
         setGalleryItem(project);
 
-        // Fetch suggestions based on the project.suggestion array
         if (project.suggestion && project.suggestion.length > 0) {
           const suggestions = await getProjectsByIds(project.suggestion);
           setSimilarWorks(suggestions);

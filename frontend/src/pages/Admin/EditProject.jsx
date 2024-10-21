@@ -18,10 +18,10 @@ function EditProject() {
     img: "",
     img_two: "",
     img_three: "",
-    images: [], // Existing additional images
+    images: [], 
     category: "",
     work: "",
-    tags: ["", ""], // [Localisation, Superficie]
+    tags: ["", ""],
     suggestion: [],
   });
 
@@ -30,17 +30,17 @@ function EditProject() {
     img: null,
     img_two: null,
     img_three: null,
-    images: [], // New additional images
+    images: [],
   });
   const [preview, setPreview] = useState({
     img: null,
     img_two: null,
     img_three: null,
-    images: [], // Preview of existing and new additional images
+    images: [],
   });
-  const [imageCredits, setImageCredits] = useState([]); // Store credits for each image
+  const [imageCredits, setImageCredits] = useState([]);
 
-  const { id } = useParams(); // Fetch project ID from URL
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -106,7 +106,7 @@ function EditProject() {
     const { name, files } = e.target;
     const file = files[0];
 
-    // File size limit (example: 5MB)
+    // File size limit (5MB)
     if (file.size > 5 * 1024 * 1024) {
       alert("File size exceeds 5MB limit");
       return;
@@ -206,7 +206,6 @@ function EditProject() {
         imgThreePath = project.img_three,
         imagesPaths = [...project.images];
 
-      // Handle new images upload
       if (files.img) {
         const formData = new FormData();
         formData.append("file", files.img);
