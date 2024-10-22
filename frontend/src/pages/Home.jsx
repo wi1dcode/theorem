@@ -1,79 +1,79 @@
-import React, { useEffect, useState } from "react"
-import Header from "../components/Header"
-import Work from "../components/Work"
-import Faq from "../components/FAQ"
-import Reviews from "../components/Reviews"
-import Footer from "../components/Footer"
-import NavBar from "../components/NavBar"
-import XSvg from "../images/svg/XSvg"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { useLocation } from "react-router-dom"
-import { Helmet } from "react-helmet"
-import { PopupModal } from "react-calendly"
-import Stats from "../components/Stats"
-import CircleSteps from "../components/CircleSteps"
-import InterventionZones from "../components/InterventionZones"
-import Engagements from "../components/Engagements"
-import ReactGA from "react-ga4"
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Work from "../components/Work";
+import Faq from "../components/FAQ";
+import Reviews from "../components/Reviews";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
+import XSvg from "../images/svg/XSvg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { PopupModal } from "react-calendly";
+import Stats from "../components/Stats";
+import CircleSteps from "../components/CircleSteps";
+import InterventionZones from "../components/InterventionZones";
+import Engagements from "../components/Engagements";
+import ReactGA from "react-ga4";
 
 function Home() {
-  const { pathname } = useLocation()
-  const [isVisible, setIsVisible] = useState(false)
-  const [showRecallButton, setShowRecallButton] = useState(false)
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(false);
+  const [showRecallButton, setShowRecallButton] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
-      setIsVisible(true)
+      setIsVisible(true);
     } else {
-      setIsVisible(false)
+      setIsVisible(false);
     }
-  }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
-    AOS.init()
-    window.addEventListener("scroll", toggleVisibility)
+    AOS.init();
+    window.addEventListener("scroll", toggleVisibility);
     return () => {
-      window.removeEventListener("scroll", toggleVisibility)
-    }
-  }, [])
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   const openCalendlyPopup = () => {
-    setIsCalendlyOpen(true)
+    setIsCalendlyOpen(true);
     ReactGA.event({
       category: "Contact",
       action: "Clic sur 'Être appelé dès que possible'",
       label: "Calendly Button",
-    })
-  }
+    });
+  };
 
   const closeCalendlyPopup = () => {
-    setIsCalendlyOpen(false)
-  }
+    setIsCalendlyOpen(false);
+  };
 
   const closeRecallPopup = () => {
-    setShowRecallButton(false)
-  }
+    setShowRecallButton(false);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowRecallButton(true)
-    }, 60000) // 60,000 ms = 1 minute
+      setShowRecallButton(true);
+    }, 60000); // 60,000 ms = 1 minute
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="w-full">
@@ -162,7 +162,7 @@ function Home() {
       )}
       <div className="w-full h-full soleil">
         <PopupModal
-          url="https://calendly.com/theorem-concept/rencontre-avec-theorem"
+          url="https://calendly.com/theorem-concept/appel-decouverte"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}
@@ -172,7 +172,7 @@ function Home() {
         />
       </div>
     </main>
-  )
+  );
 }
 
-export default Home
+export default Home;

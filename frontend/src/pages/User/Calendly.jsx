@@ -24,7 +24,7 @@ function Calendly() {
     <div className="w-full max-md:h-screen">
       {isLoading && <Loading />}
       <InlineWidget
-        url="https://calendly.com/theorem-concept/rencontre-avec-theorem"
+        url="https://calendly.com/theorem-concept/appel-decouverte"
         pageSettings={pageSettings}
         styles={{ height: "100%" }}
       />

@@ -112,7 +112,7 @@ function Pro() {
       </div>
       <div className="w-full h-full soleil">
         <PopupModal
-          url="https://calendly.com/theorem-concept/rencontre-avec-theorem"
+          url="https://calendly.com/theorem-concept/appel-decouverte"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}
