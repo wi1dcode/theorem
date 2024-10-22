@@ -162,7 +162,7 @@ function Home() {
       )}
       <div className="w-full h-full soleil">
         <PopupModal
-          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
+          url="https://calendly.com/theorem-concept/rencontre-avec-theorem"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}
