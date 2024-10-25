@@ -34,7 +34,7 @@ class MailService {
               "Bienvenue parmi nous ! Votre compte a été créé avec succès.",
             action: {
               instructions:
-                "Votre compte a été créé avec succès. Pour l’activer, il vous suffit de cliquer sur le lien ci-dessous : ",
+                "Pour l’activer, il vous suffit de cliquer sur le lien ci-dessous : ",
               button: {
                 color: "#22BC66",
                 text: "Activer mon compte",
@@ -50,7 +50,7 @@ class MailService {
           body: {
             greeting: `Bonjour`,
             signature: false,
-            intro: `Vous avez oublié votre mot de passe ? Pas de panique, ça arrive. Cliquez sur le lien ci-dessous pour en créer un nouveau : <strong>${code}</strong>`,
+            intro: `Vous avez oublié votre mot de passe ? Pas de panique, ça arrive. Entrez ce code pour changer votre mot de passe: <strong>${code}</strong>`,
             outro:
               "Ce code est valide pour 10 minutes.Si vous n'avez pas fait cette demande, ignorez ce message. À bientôt, votre équipe Theorem.",
           },
@@ -81,7 +81,7 @@ class MailService {
                 link: link,
               },
             },
-            signature: "Cordialement",
+            signature: "Cordialement, votre équipe Theorem",
             outro:
               "Si vous avez des questions, n'hésitez pas à nous contacter.",
           },
@@ -115,7 +115,7 @@ class MailService {
                 link: link,
               },
             },
-            signature: "Cordialement",
+            signature: "Cordialement, votre équipe Theorem",
             outro:
               "Si vous avez des questions, n'hésitez pas à nous contacter.",
           },
@@ -141,7 +141,7 @@ class MailService {
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,
       to,
-      subject: "Activation de compte sur " + process.env.API_URL,
+      subject: "👋 Bienvenue sur Theorem. Votre compte a bien été créé.",
       html: emailBody,
     });
   }
@@ -156,7 +156,7 @@ class MailService {
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,
       to,
-      subject: "Réinitialisation du mot de passe",
+      subject: "🔄 Réinitialisation du mot de passe",
       html: emailBody,
     });
   }
@@ -164,10 +164,12 @@ class MailService {
   async sendProjectStatusUpdateMail(to, name, status, link, comment = "") {
     const subject =
       status === "approuvé"
-        ? "Votre projet est validé ! – On démarre bientôt !"
+        ? "🎉 Votre projet est validé ! – On démarre bientôt !"
         : status === "refusé"
         ? "Retour sur votre demande de projet."
-        : `🎉 Mise à jour du statut de votre projet - ${status}`;
+        : status === "en attente"
+        ? "⏳ Votre projet est en attente"
+        : `Mise à jour du statut de votre projet - ${status}`;
 
     const emailBody = this.generateProjectStatusUpdateEmail(
       name,
