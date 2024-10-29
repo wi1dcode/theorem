@@ -63,7 +63,7 @@ function Pending({
               <MiniCard
                 title="Budget"
                 text={`${budget}`}
-                icon={<EuroSvg className="w-8 h-8"/>}
+                icon={<EuroSvg className="w-8 h-8 text-vert_principal"/>}
                 hasBottomBorder
               />
               <MiniCard

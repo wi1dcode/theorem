@@ -82,9 +82,7 @@ class MailService {
                 link: link,
               },
             },
-            signature: "Cordialement, votre équipe Theorem",
-            outro:
-              "Si vous avez des questions, n'hésitez pas à nous contacter.",
+            outro: `Si vous avez des questions, n'hésitez pas à nous contacter. <br><br> Cordialement, votre équipe Theorem`,
           },
         };
         break;
@@ -137,9 +135,7 @@ class MailService {
                 link: link,
               },
             },
-            signature: "Cordialement, votre équipe Theorem",
-            outro:
-              "Si vous avez des questions, n'hésitez pas à nous contacter.",
+            outro: `Si vous avez des questions, n'hésitez pas à nous contacter. <br><br> Cordialement, votre équipe Theorem`,
           },
         };
         break;

@@ -6,7 +6,7 @@ export default function EuroSvg({ className }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`text-vert_principal ${className}`}
+      className={className}
     >
       <path
         strokeLinecap="round"

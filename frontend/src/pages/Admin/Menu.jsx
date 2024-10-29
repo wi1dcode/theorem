@@ -76,7 +76,7 @@ function Main() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
         <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition">
-          <CubeSvg className="text-xl text-blue-500 mx-auto mb-2 w-12 h-12" />
+          <CubeSvg className="text-xl text-vert_principal mx-auto mb-2 w-12 h-12" />
           <h3 className="text-xl font-semibold text-gray-700 pb-1">
             Projets total:
           </h3>
@@ -85,14 +85,14 @@ function Main() {
           </p>
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition">
-          <UsersSvg className="text-xl text-blue-500 mx-auto mb-2 w-12 h-12" />
+          <UsersSvg className="text-xl text-vert_principal mx-auto mb-2 w-12 h-12" />
           <h3 className="text-xl font-semibold text-gray-700 pb-1">
             Utilisateurs total:
           </h3>
           <p className="text-4xl soleil-book text-gray-900">{stats.totalUsers}</p>
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition">
-          <EuroSvg className="text-xl text-blue-500 mx-auto mb-2 w-12 h-12" />
+          <EuroSvg className="text-xl text-vert_principal mx-auto mb-2 w-12 h-12" />
           <h3 className="text-xl font-semibold text-gray-700 pb-1">
             Budget moyen:
           </h3>
@@ -104,7 +104,7 @@ function Main() {
           </p>
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition">
-          <RocketSvg className="text-xl text-blue-500 mx-auto mb-2 w-12 h-12" />
+          <RocketSvg className="text-xl text-vert_principal mx-auto mb-2 w-12 h-12" />
           <h3 className="text-xl font-semibold text-gray-700 pb-1">
             Taux de complétion:
           </h3>
