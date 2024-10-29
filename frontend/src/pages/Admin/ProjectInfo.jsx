@@ -1,52 +1,52 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import UserContext from "../../services/userContext"
-import { getProject, updateProjectStatus } from "../../api/client"
-import { uploadDocument, downloadDocument } from "../../api/document"
-import Loading from "../../components/Loading"
-import Stepper from "../../components/Stepper"
-import { format } from "date-fns"
-import DocSvg from "../../images/svg/DocSvg"
-import DownloadSvg from "../../images/svg/DownloadSvg"
-import Swal from "sweetalert2"
-import { get } from "../../api/api"
-import { uploadImage } from "../../api/image"
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import UserContext from "../../services/userContext";
+import { getProject, updateProjectStatus } from "../../api/client";
+import { uploadDocument, downloadDocument } from "../../api/document";
+import Loading from "../../components/Loading";
+import Stepper from "../../components/Stepper";
+import { format } from "date-fns";
+import DocSvg from "../../images/svg/DocSvg";
+import DownloadSvg from "../../images/svg/DownloadSvg";
+import Swal from "sweetalert2";
+import { get } from "../../api/api";
+import { uploadImage } from "../../api/image";
 
 function ProjectInfo() {
-  const { id } = useParams()
-  const { connected } = useContext(UserContext)
-  const [projectData, setProjectData] = useState()
-  const [loading, setLoading] = useState(true)
-  const [imageUrls, setImageUrls] = useState([])
+  const { id } = useParams();
+  const { connected } = useContext(UserContext);
+  const [projectData, setProjectData] = useState();
+  const [loading, setLoading] = useState(true);
+  const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
     const fetchProject = async (id) => {
       try {
-        const data = await getProject(id)
-        setProjectData(data)
-        setLoading(false)
+        const data = await getProject(id);
+        setProjectData(data);
+        setLoading(false);
 
         const urls = await Promise.all(
           data.photos.map(async (doc) => {
             try {
-              const response = await get(doc.path, { responseType: "blob" })
-              return URL.createObjectURL(response.data)
+              const response = await get(doc.path, { responseType: "blob" });
+              return URL.createObjectURL(response.data);
             } catch (error) {
-              console.error("Error fetching image", error)
-              return null
+              console.error("Error fetching image", error);
+              return null;
             }
           })
-        )
+        );
 
-        setImageUrls(urls.filter((url) => url !== null))
+        setImageUrls(urls.filter((url) => url !== null));
       } catch (error) {
-        console.log(error)
-        setLoading(false)
+        console.log(error);
+        setLoading(false);
       }
-    }
+    };
 
-    fetchProject(id)
-  }, [id, connected])
+    fetchProject(id);
+  }, [id, connected]);
 
   const handleImageClick = (url) => {
     Swal.fire({
@@ -55,61 +55,61 @@ function ProjectInfo() {
       showConfirmButton: false,
       width: "50%",
       background: "transparent",
-    })
-  }
+    });
+  };
 
   const handleFormStatus = async (status) => {
     try {
-      let comment = ""
+      let comment = "";
 
-      if (status === "FINISH") {
+      if (status === "FINISH" || status === "PAYMENT") {
         const { value: text, isConfirmed } = await Swal.fire({
           title: "Ajouter un commentaire",
           input: "textarea",
           inputPlaceholder: "Votre commentaire ici...",
           showCancelButton: true,
-          confirmButtonColor: "#C8B790",
+          confirmButtonColor: "#353D2B",
           cancelButtonColor: "#D76C66",
           confirmButtonText: "Envoyer",
           cancelButtonText: "Annuler",
-        })
+        });
 
         if (isConfirmed && text) {
-          comment = text
-          await updateProjectStatus(id, { status, comment })
-          const updatedData = await getProject(id)
-          setProjectData(updatedData)
+          comment = text;
+          await updateProjectStatus(id, { status, comment });
+          const updatedData = await getProject(id);
+          setProjectData(updatedData);
         }
       } else {
-        await updateProjectStatus(id, { status })
-        const updatedData = await getProject(id)
-        setProjectData(updatedData)
+        await updateProjectStatus(id, { status });
+        const updatedData = await getProject(id);
+        setProjectData(updatedData);
       }
     } catch (error) {
-      console.error("Error updating project status:", error)
+      console.error("Error updating project status:", error);
     }
-  }
+  };
 
   const getStatusText = (status) => {
     switch (status) {
       case "PENDING":
-        return "En attente"
+        return "En attente";
       case "ANALYSE":
-        return "En étude"
+        return "En étude";
       case "REFUSED":
-        return "Refusé"
+        return "Refusé";
       case "APPROVED":
-        return "Accepté"
+        return "Accepté";
       case "PROGRESS":
-        return "En cours"
+        return "En cours";
       case "PAYMENT":
-        return "En attente de paiement"
+        return "En attente de paiement";
       case "FINISH":
-        return "Terminé"
+        return "Terminé";
       default:
-        return "inconnue"
+        return "inconnue";
     }
-  }
+  };
 
   const handleDocumentUpload = async () => {
     try {
@@ -123,30 +123,30 @@ function ProjectInfo() {
         showCancelButton: true,
         confirmButtonText: "Télécharger",
         cancelButtonText: "Annuler",
-        confirmButtonColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
-      })
+      });
 
       if (file) {
-        const formData = new FormData()
-        formData.append("document", file)
+        const formData = new FormData();
+        formData.append("document", file);
 
-        await uploadDocument(projectData._id, formData)
+        await uploadDocument(projectData._id, formData);
         Swal.fire(
           "Téléchargé!",
           "Votre document a été téléchargé avec succès.",
           "success"
-        )
-        window.location.reload()
+        );
+        window.location.reload();
       }
     } catch (error) {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement du document.",
         "error"
-      )
+      );
     }
-  }
+  };
 
   const handleImageUpload = async () => {
     try {
@@ -161,47 +161,47 @@ function ProjectInfo() {
         showCancelButton: true,
         confirmButtonText: "Ajouter",
         cancelButtonText: "Annuler",
-        confirmButtonColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
-      })
+      });
 
       if (files) {
-        const formData = new FormData()
-        ;[...files].forEach((file) => {
-          formData.append("images", file)
-        })
+        const formData = new FormData();
+        [...files].forEach((file) => {
+          formData.append("images", file);
+        });
 
-        await uploadImage(projectData._id, formData)
+        await uploadImage(projectData._id, formData);
         Swal.fire(
           "Ajoutées!",
           "Vos images ont été ajoutées avec succès.",
           "success"
-        )
-        window.location.reload()
+        );
+        window.location.reload();
       }
     } catch (error) {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement des images.",
         "error"
-      )
+      );
     }
-  }
+  };
 
   function formatFileName(fileName) {
-    const maxLength = 20
+    const maxLength = 20;
     const extension = fileName.slice(
       ((fileName.lastIndexOf(".") - 1) >>> 0) + 2
-    )
+    );
     if (fileName.length > maxLength) {
-      return `${fileName.slice(0, maxLength - 3)}... .${extension}`
+      return `${fileName.slice(0, maxLength - 3)}... .${extension}`;
     }
-    return fileName
+    return fileName;
   }
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
-  if (!projectData) return <p>Projet non trouvé</p>
+  if (!projectData) return <p>Projet non trouvé</p>;
 
   const projectDetails = [
     { label: "Projet", value: projectData?.renovation || "none" },
@@ -209,13 +209,13 @@ function ProjectInfo() {
     { label: "Date de début", value: projectData?.when || "none" },
     { label: "Tel", value: projectData?.profile?.phone || "none" },
     { label: "Email", value: projectData?.profile?.email || "none" },
-  ]
+  ];
 
   const additionalInfo = projectData.additionalInfo?.map((info, index) => {
-    let answerText = info.answer
+    let answerText = info.answer;
 
     if (typeof info.answer === "boolean") {
-      answerText = info.answer ? "Oui" : "Non"
+      answerText = info.answer ? "Oui" : "Non";
     }
 
     return (
@@ -227,8 +227,8 @@ function ProjectInfo() {
           {answerText}
         </dd>
       </div>
-    )
-  })
+    );
+  });
 
   return (
     <div className="w-full">
@@ -292,43 +292,43 @@ function ProjectInfo() {
             </p>
             <div className="flex gap-x-4 mt-4 max-md:flex-col max-md:gap-y-2">
               <button
-                className="bg-gray-400 p-2 rounded-lg px-3"
+                className="bg-gray-400 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("PENDING")}
               >
                 En attente
               </button>
               <button
-                className="bg-yellow-400 p-2 rounded-lg px-3"
+                className="bg-yellow-400 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("ANALYSE")}
               >
                 En étude
               </button>
               <button
-                className="bg-green-400 p-2 rounded-lg px-3"
+                className="bg-green-400 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("APPROVED")}
               >
                 Accepter
               </button>
               <button
-                className="bg-red-400 p-2 rounded-lg px-3"
+                className="bg-red-400 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("REFUSED")}
               >
                 Refuser
               </button>
               <button
-                className="bg-blue-400 p-2 rounded-lg px-3"
+                className="bg-blue-400 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("PROGRESS")}
               >
                 En cours
               </button>
               <button
-                className="bg-yellow-300 p-2 rounded-lg px-3"
+                className="bg-yellow-300 p-2 rounded-lg px-3 font-semibold"
                 onClick={() => handleFormStatus("PAYMENT")}
               >
                 En attente de paiement
               </button>
               <button
-                className="bg-vert_principal p-2 rounded-lg px-3"
+                className="bg-vert_principal p-2 rounded-lg px-3 text-white font-semibold"
                 onClick={() => handleFormStatus("FINISH")}
               >
                 Terminer
@@ -385,7 +385,7 @@ function ProjectInfo() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default ProjectInfo
+export default ProjectInfo;

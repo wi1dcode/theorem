@@ -4,6 +4,7 @@ const { check } = require("express-validator");
 const upload = require("../services/publicImageUpload");
 
 const adminController = require("../controllers/adminController");
+const statsController = require("../controllers/statsController");
 
 router.get("/projects", adminController.getProjectsByStatus);
 router.get("/projects/all", adminController.getProjects);
@@ -22,6 +23,8 @@ router.post("/add/admin", adminController.giveAdmin);
 router.post("/add/pro", adminController.givePro);
 router.get("/logs", adminController.getLogs);
 router.get("/logs/download/:period", adminController.downloadLogs);
+
+router.get("/stats", statsController.getStats);
 
 router.put("/work/:id", adminController.updateProject);
 router.delete("/work/:id", adminController.deleteProject);

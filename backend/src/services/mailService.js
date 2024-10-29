@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const Mailgen = require("mailgen");
+const path = require("path");
 
 class MailService {
   constructor() {
@@ -88,14 +89,35 @@ class MailService {
         };
         break;
 
+      case "en attente de vérification":
+        emailBody = {
+          body: {
+            greeting: `Bonjour ${name}`,
+            signature: false,
+            intro: `Nous avons bien reçu votre demande et votre dossier est actuellement en attente. Vous recevrez un retour de notre part très prochainement. `,
+            outro: `Si vous avez des questions, n’hésitez pas à nous contacter. <br><br> Cordialement, votre équipe Theorem`,
+          },
+        };
+        break;
+
       case "refusé":
         emailBody = {
           body: {
             greeting: `Bonjour ${name}`,
             signature: false,
             intro: `Merci d'avoir pensé à Theorem pour la réalisation de votre projet ! Nous avons pris le temps d'examiner les détails de votre projet, mais nous ne sommes malheureusement pas en mesure d'intervenir sur ce chantier.`,
-            outro:
-              "Nous restons à votre disposition pour toute autre information. Cordialement, Votre équipe Theorem.",
+            outro: `Nous restons à votre disposition pour toute autre information. <br><br> Cordialement, Votre équipe Theorem.`,
+          },
+        };
+        break;
+
+      case "en attente de paiement":
+        emailBody = {
+          body: {
+            greeting: `Bonjour ${name}`,
+            signature: false,
+            intro: `Merci d'avoir choisir Theorem pour la réalisation de votre projet ! Ci-joint notre RIB pour le règlement du projet en cours.`,
+            outro: "Cordialement, votre équipe Theorem",
           },
         };
         break;
@@ -126,14 +148,57 @@ class MailService {
     if (comment) {
       emailBody.body.intro += `
         <br><br>
-        <div style="border-left: 4px solid #C8B790; background-color: #f2f3f5; padding: 10px; margin-top: 10px; border-radius: 5px;">
-          <span style="color: #C8B790; font-weight: bold;">Commentaire:</span>
+        <div style="border-left: 4px solid #353D2B; background-color: #f2f3f5; padding: 10px; margin-top: 10px; border-radius: 5px;">
+          <span style="color: #353D2B; font-weight: bold;">Commentaire:</span>
           <p style="color: #555;">${comment}</p>
         </div>
       `;
     }
 
     return this.mailGenerator.generate(emailBody);
+  }
+
+  async sendNewProjectNotification(adminEmail, projectData) {
+    const emailBody = {
+      body: {
+        greeting: "Bonjour",
+        signature: false,
+        intro: `
+          Un nouveau projet a été soumis par ${projectData.profile.firstname} ${
+          projectData.profile.lastname
+        }. Voici les détails principaux :<br>
+  
+          <br><strong>Type de rénovation:</strong> ${projectData.renovation}
+          <br><strong>Budget estimé:</strong> ${projectData.budget}
+          <br><strong>Ville:</strong> ${projectData.adresse.city}
+          <br><strong>E-mail:</strong> <a href="mailto:${
+            projectData.profile.email
+          }">${projectData.profile.email}</a>
+          <br><strong>Téléphone:</strong> ${
+            projectData.profile.phone || "Non spécifié"
+          }
+          <br><strong>Date souhaitée de début:</strong> ${projectData.when}
+        `,
+        action: {
+          instructions:
+            "Cliquez ci-dessous pour voir les détails complets dans l'espace administrateur :",
+          button: {
+            color: "#22BC66",
+            text: "Accéder à l'espace admin",
+            link: `${process.env.CLIENT_URL}/dashboard/projects`,
+          },
+        },
+        outro: "Vous pouvez voir plus de détails dans l'espace administrateur.",
+      },
+    };
+
+    const emailTemplate = this.mailGenerator.generate(emailBody);
+    await this.transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: adminEmail,
+      subject: "🔔 Nouveau projet soumis",
+      html: emailTemplate,
+    });
   }
 
   async sendActivationMail(to, name, link) {
@@ -167,8 +232,10 @@ class MailService {
         ? "🎉 Votre projet est validé ! – On démarre bientôt !"
         : status === "refusé"
         ? "Retour sur votre demande de projet."
-        : status === "en attente"
+        : status === "en attente de vérification"
         ? "⏳ Votre projet est en attente"
+        : status === "en attente de paiement"
+        ? "📄 Détails de paiement pour votre projet"
         : `Mise à jour du statut de votre projet - ${status}`;
 
     const emailBody = this.generateProjectStatusUpdateEmail(
@@ -177,12 +244,25 @@ class MailService {
       link,
       comment
     );
-    await this.transporter.sendMail({
+
+    const mailOptions = {
       from: process.env.SMTP_USER,
       to,
       subject,
       html: emailBody,
-    });
+    };
+
+    if (status === "en attente de paiement") {
+      mailOptions.attachments = [
+        {
+          filename: "rib.pdf",
+          path: path.resolve(__dirname, "../../public/assets/rib.pdf"),
+          contentType: "application/pdf",
+        },
+      ];
+    }
+
+    await this.transporter.sendMail(mailOptions);
   }
 }
 

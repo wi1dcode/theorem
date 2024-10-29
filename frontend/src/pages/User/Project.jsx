@@ -63,7 +63,7 @@ function Project() {
         showCancelButton: true,
         confirmButtonText: "Ajouter",
         cancelButtonText: "Annuler",
-        confirmButtonColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
       })
 
@@ -101,7 +101,7 @@ function Project() {
         showCancelButton: true,
         confirmButtonText: "Ajouter",
         cancelButtonText: "Annuler",
-        confirmButtonColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
       })
 

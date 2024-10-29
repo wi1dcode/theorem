@@ -239,6 +239,11 @@ const getResponses = async (req, res) => {
       req.headers["user-agent"]
     );
 
+    await mailService.sendNewProjectNotification(
+      "contact@theorem-concept.fr",
+      formData
+    );
+
     res.json({ message: "Form response recorded successfully", formData });
   } catch (error) {
     console.error(error);
