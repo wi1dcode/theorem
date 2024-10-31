@@ -713,10 +713,10 @@ const deleteProject = async (req, res) => {
 const updateProjectPriceTotal = async (req, res) => {
   const { id } = req.params;
   const { priceTotal } = req.body;
-  console.log("Valeur reçue pour priceTotal:", priceTotal);
 
   try {
-    if (isNaN(priceTotal)) {
+    const parsedPriceTotal = Number(priceTotal);
+    if (isNaN(parsedPriceTotal)) {
       return res
         .status(400)
         .json({ message: "Le prix total doit être un nombre valide." });
@@ -724,7 +724,7 @@ const updateProjectPriceTotal = async (req, res) => {
 
     const updatedProject = await Form.findByIdAndUpdate(
       id,
-      { priceTotal: Number(priceTotal) },
+      { priceTotal: parsedPriceTotal },
       { new: true }
     );
 

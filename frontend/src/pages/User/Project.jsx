@@ -141,8 +141,12 @@ function Project() {
 
   const projectInfo = [
     { label: "Projet", value: project.renovation },
+    {
+      label: "Budget réel",
+      value: `${project?.priceTotal} €` || "Pas calculé",
+    },
     { label: "Budget estimé", value: project.budget },
-    { label: "Budget réel", value: project?.priceTotal || "Pas calculé" },
+
     { label: "Date de début", value: project.when },
     { label: "Tel", value: project.profile?.phone },
     { label: "Email", value: project.profile?.email },

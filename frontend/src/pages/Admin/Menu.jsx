@@ -154,11 +154,9 @@ function Main() {
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition">
           <EuroSvg className="text-xl text-vert_principal mx-auto mb-2 w-12 h-12" />
-          <h3 className="text-xl font-semibold text-gray-700 pb-1">
-            Budget moyen:
-          </h3>
+          <h3 className="text-xl font-semibold text-gray-700 pb-1">Budget:</h3>
           <p className="text-4xl soleil-book text-gray-900">
-            {stats.avgBudget.toLocaleString("fr-FR", {
+            {stats.totalProjectPrice.toLocaleString("fr-FR", {
               style: "currency",
               currency: "EUR",
             })}

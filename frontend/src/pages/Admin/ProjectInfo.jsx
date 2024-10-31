@@ -209,8 +209,11 @@ function ProjectInfo() {
 
   const projectDetails = [
     { label: "Projet", value: projectData?.renovation || "none" },
+    {
+      label: "Budget réel",
+      value: `${projectData?.priceTotal} €` || "Pas calculé",
+    },
     { label: "Budget estimé", value: projectData?.budget || "none" },
-    { label: "Budget réel", value: projectData?.priceTotal || "Pas calculé" },
     { label: "Date de début", value: projectData?.when || "none" },
     { label: "Tel", value: projectData?.profile?.phone || "none" },
     { label: "Email", value: projectData?.profile?.email || "none" },
@@ -219,7 +222,7 @@ function ProjectInfo() {
   const handlePriceUpdate = async () => {
     const { value: newPrice } = await Swal.fire({
       title: "Modifier le prix total",
-      input: "text",
+      input: "number",
       inputValue: projectData?.priceTotal || "0",
       showCancelButton: true,
       confirmButtonText: "Enregistrer",
@@ -233,7 +236,7 @@ function ProjectInfo() {
 
     if (newPrice) {
       try {
-        await updateProjectPriceTotal(id, { priceTotal: Number(newPrice) });
+        await updateProjectPriceTotal(id, newPrice);
         const updatedData = await getProject(id);
         setProjectData(updatedData);
       } catch (error) {

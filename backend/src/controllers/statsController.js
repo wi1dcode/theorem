@@ -2,6 +2,12 @@ const User = require("../models/userModel");
 const Form = require("../models/formModel");
 const os = require("os");
 
+function formatPrice(price) {
+  if (price >= 1_000_000) return `${(price / 1_000_000).toFixed(1)}M`;
+  if (price >= 1_000) return `${(price / 1_000).toFixed(1)}k`;
+  return price.toString();
+}
+
 const getStats = async (req, res) => {
   try {
     const [
@@ -12,8 +18,8 @@ const getStats = async (req, res) => {
       topRenovationTypes,
       recentUserRegistrations,
       recentProjects,
-      avgBudget,
       completedProjects,
+      totalProjectPrice,
     ] = await Promise.all([
       Form.countDocuments(), // Total number of projects
       User.countDocuments(), // Total number of users
@@ -43,11 +49,10 @@ const getStats = async (req, res) => {
         .sort({ createdAt: -1 })
         .limit(5)
         .select("renovation profile.email status createdAt"), // Recent projects
-      Form.aggregate([
-        { $match: { priceTotal: { $gt: 0 } } },
-        { $group: { _id: null, avgBudget: { $avg: "$priceTotal" } } },
-      ]),
       Form.countDocuments({ status: "FINISH" }), // Completed projects
+      Form.aggregate([
+        { $group: { _id: null, totalPrice: { $sum: "$priceTotal" } } },
+      ]),
     ]);
 
     const stats = {
@@ -69,8 +74,8 @@ const getStats = async (req, res) => {
         status: project.status,
         createdAt: project.createdAt,
       })),
-      avgBudget: avgBudget[0]?.avgBudget || 0,
       completionRate: ((completedProjects / totalProjects) * 100).toFixed(2),
+      totalProjectPrice: formatPrice(totalProjectPrice[0]?.totalPrice || 0),
     };
 
     res.json(stats);

@@ -1,4 +1,4 @@
-import { get, post, put } from "./api";
+import { get, post, put, patch } from "./api";
 
 export const estimation = async (userData) => {
   try {
@@ -64,7 +64,9 @@ export const updateProjectStatus = async (id, data) => {
 
 export const updateProjectPriceTotal = async (id, data) => {
   try {
-    const response = await put(`/dashboard/project/${id}/price`, data);
+    const response = await patch(`/dashboard/project/${id}/price`, {
+      priceTotal: data,
+    });
     return response.data;
   } catch (error) {
     console.error("Error updating project price total:", error);

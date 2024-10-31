@@ -44,7 +44,7 @@ const FormSchema = new Schema(
     },
     priceTotal: {
       type: Number,
-      default: "0",
+      default: 0,
     },
     when: {
       type: String,

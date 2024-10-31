@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BACKEND = "https://theorem-concept.fr/api";
+const API_BACKEND = "http://localhost:5000/api";
+// const API_BACKEND = "https://theorem-concept.fr/api";
 
 const api = axios.create({
   baseURL: API_BACKEND,
@@ -32,6 +33,10 @@ export const get = (path, config = {}) => {
 
 export const post = (path, data, config = {}) => {
   return api.post(path, data, config);
+};
+
+export const patch = (path, data, config = {}) => {
+  return api.patch(path, data, config);
 };
 
 export const put = (path, data, config = {}) => {
