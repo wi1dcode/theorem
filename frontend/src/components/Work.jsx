@@ -83,7 +83,7 @@ function Work() {
                   <img
                     src={`${window.location.origin}/api${project.img}`}
                     alt={`project-${project.title}`}
-                    className="object-cover w-full h-[300px]"
+                    className="object-cover w-full h-[300px] cursor-pointer"
                   />
                 </Link>
               </SwiperSlide>
