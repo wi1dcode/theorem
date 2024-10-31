@@ -1,10 +1,12 @@
-import { useContext } from "react"
-import UserContext from "../services/userContext"
-import { Link } from "react-router-dom"
-import LocationSvg from "../images/svg/LocationSvg"
-import EuroSvg from "../images/svg/EuroSvg"
-import CalendarSvg from "../images/svg/CalendarSvg"
-import ProjectUserSvg from "../images/svg/ProjectUserSvg"
+import { useContext } from "react";
+import UserContext from "../services/userContext";
+import { Link } from "react-router-dom";
+import LocationSvg from "../images/svg/LocationSvg";
+import EuroSvg from "../images/svg/EuroSvg";
+import CalendarSvg from "../images/svg/CalendarSvg";
+import ProjectUserSvg from "../images/svg/ProjectUserSvg";
+import EmailSvg from "../images/svg/EmailSvg";
+import PhoneSvg from "../images/svg/PhoneSvg";
 
 function MiniCard({
   title,
@@ -29,7 +31,7 @@ function MiniCard({
         <p>{text}</p>
       </div>
     </div>
-  )
+  );
 }
 
 function Pending({
@@ -43,7 +45,7 @@ function Pending({
   name,
   when,
 }) {
-  const { connected, token } = useContext(UserContext)
+  const { connected, token } = useContext(UserContext);
 
   return (
     <section>
@@ -63,7 +65,7 @@ function Pending({
               <MiniCard
                 title="Budget"
                 text={`${budget}`}
-                icon={<EuroSvg className="w-8 h-8 text-vert_principal"/>}
+                icon={<EuroSvg className="w-8 h-8 text-vert_principal" />}
                 hasBottomBorder
               />
               <MiniCard
@@ -81,10 +83,10 @@ function Pending({
               <MiniCard
                 title="Email"
                 text={email}
-                icon={<CalendarSvg />}
+                icon={<EmailSvg />}
                 hasBottomBorder
               />
-              <MiniCard title="Tel" text={tel} icon={<CalendarSvg />} />
+              <MiniCard title="Numéro mobile" text={tel} icon={<PhoneSvg />} />
             </div>
           </div>
           <div className="bg-gray-300 rounded-b-lg py-2 font-semibold text-center">
@@ -93,7 +95,7 @@ function Pending({
         </Link>
       ) : null}
     </section>
-  )
+  );
 }
 
-export default Pending
+export default Pending;
