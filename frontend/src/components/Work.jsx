@@ -79,7 +79,10 @@ function Work() {
           >
             {projects.map((project) => (
               <SwiperSlide key={project._id}>
-                <Link to={`/realisations/${project.slug}`}>
+                <Link
+                  to={`/realisations/${project.slug}`}
+                  className="cursor-pointer"
+                >
                   <img
                     src={`${window.location.origin}/api${project.img}`}
                     alt={`project-${project.title}`}
