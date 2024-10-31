@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../services/userContext";
-import { getProject, updateProjectStatus } from "../../api/client";
+import {
+  getProject,
+  updateProjectPriceTotal,
+  updateProjectStatus,
+} from "../../api/client";
 import { uploadDocument, downloadDocument } from "../../api/document";
 import Loading from "../../components/Loading";
 import Stepper from "../../components/Stepper";
@@ -205,11 +209,39 @@ function ProjectInfo() {
 
   const projectDetails = [
     { label: "Projet", value: projectData?.renovation || "none" },
-    { label: "Budget", value: projectData?.budget || "none" },
+    { label: "Budget estimé", value: projectData?.budget || "none" },
+    { label: "Budget réel", value: projectData?.priceTotal || "Pas calculé" },
     { label: "Date de début", value: projectData?.when || "none" },
     { label: "Tel", value: projectData?.profile?.phone || "none" },
     { label: "Email", value: projectData?.profile?.email || "none" },
   ];
+
+  const handlePriceUpdate = async () => {
+    const { value: newPrice } = await Swal.fire({
+      title: "Modifier le prix total",
+      input: "text",
+      inputValue: projectData?.priceTotal || "0",
+      showCancelButton: true,
+      confirmButtonText: "Enregistrer",
+      cancelButtonText: "Annuler",
+      confirmButtonColor: "#353D2B",
+      cancelButtonColor: "#D76C66",
+      inputValidator: (value) => {
+        return isNaN(value) ? "Veuillez entrer un nombre valide" : null;
+      },
+    });
+
+    if (newPrice) {
+      try {
+        await updateProjectPriceTotal(id, { priceTotal: Number(newPrice) });
+        const updatedData = await getProject(id);
+        setProjectData(updatedData);
+      } catch (error) {
+        console.error("Erreur lors de la mise à jour du prix total:", error);
+        Swal.fire("Erreur!", "Échec de la mise à jour du prix total.", "error");
+      }
+    }
+  };
 
   const additionalInfo = projectData.additionalInfo?.map((info, index) => {
     let answerText = info.answer;
@@ -344,13 +376,22 @@ function ProjectInfo() {
                 {format(new Date(projectData?.updatedAt), "dd/MM/yyyy - HH:mm")}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={handleImageUpload}
-              className="w-[250px] mt-2 opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-lg text-xl font-semibold bg-green-300 cursor-pointer"
-            >
-              Ajouter images
-            </button>
+            <div className="flex gap-x-4">
+              <button
+                type="button"
+                onClick={handleImageUpload}
+                className="w-[250px] mt-2 opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-lg text-xl font-semibold bg-green-300 cursor-pointer"
+              >
+                Ajouter les images
+              </button>
+              <button
+                type="button"
+                onClick={handlePriceUpdate}
+                className="w-[250px] mt-2 opacity-50 hover:opacity-100 transition-opacity text-center py-2 rounded-lg text-xl font-semibold bg-blue-300 cursor-pointer"
+              >
+                Définir le prix
+              </button>
+            </div>
           </div>
           <div className="h-[65vh] max-md:h-auto w-full rounded-lg p-6 flex flex-col gap-y-2 divide-y divide-gray-300">
             {projectDetails.map((detail, index) => (

@@ -1,45 +1,45 @@
-import { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import UserContext from "../../services/userContext"
-import DocSvg from "../../images/svg/DocSvg"
-import DownloadSvg from "../../images/svg/DownloadSvg"
-import Stepper from "../../components/Stepper"
-import { uploadDocument, downloadDocument } from "../../api/document"
-import { uploadImage } from "../../api/image"
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import UserContext from "../../services/userContext";
+import DocSvg from "../../images/svg/DocSvg";
+import DownloadSvg from "../../images/svg/DownloadSvg";
+import Stepper from "../../components/Stepper";
+import { uploadDocument, downloadDocument } from "../../api/document";
+import { uploadImage } from "../../api/image";
 
-import Swal from "sweetalert2"
-import { get } from "../../api/api"
+import Swal from "sweetalert2";
+import { get } from "../../api/api";
 
 function Project() {
-  const { id } = useParams()
-  const { user } = useContext(UserContext)
-  const [imageUrls, setImageUrls] = useState([])
+  const { id } = useParams();
+  const { user } = useContext(UserContext);
+  const [imageUrls, setImageUrls] = useState([]);
 
-  const project = user.forms?.find((project) => project._id === id)
+  const project = user.forms?.find((project) => project._id === id);
 
   useEffect(() => {
     const fetchImages = async () => {
-      const imagePaths = project.photos?.map((photo) => photo.path) || []
+      const imagePaths = project.photos?.map((photo) => photo.path) || [];
 
       const urls = await Promise.all(
         imagePaths.map(async (path) => {
           try {
-            const response = await get(path, { responseType: "blob" })
-            return URL.createObjectURL(response.data)
+            const response = await get(path, { responseType: "blob" });
+            return URL.createObjectURL(response.data);
           } catch (error) {
-            console.error("Error fetching image", error)
-            return null
+            console.error("Error fetching image", error);
+            return null;
           }
         })
-      )
+      );
 
-      setImageUrls(urls.filter((url) => url !== null))
-    }
+      setImageUrls(urls.filter((url) => url !== null));
+    };
 
     if (project.photos && project.photos.length > 0) {
-      fetchImages()
+      fetchImages();
     }
-  }, [project.photos])
+  }, [project.photos]);
 
   const handleImageClick = (url) => {
     Swal.fire({
@@ -48,8 +48,8 @@ function Project() {
       showConfirmButton: false,
       width: "50%",
       background: "transparent",
-    })
-  }
+    });
+  };
 
   const handleDocumentUpload = async () => {
     try {
@@ -65,28 +65,28 @@ function Project() {
         cancelButtonText: "Annuler",
         confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
-      })
+      });
 
       if (file) {
-        const formData = new FormData()
-        formData.append("document", file)
+        const formData = new FormData();
+        formData.append("document", file);
 
-        await uploadDocument(project._id, formData)
+        await uploadDocument(project._id, formData);
         Swal.fire(
           "Ajoutées!",
           "Votre document a été ajoutées avec succès.",
           "success"
-        )
-        window.location.reload()
+        );
+        window.location.reload();
       }
     } catch (error) {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement du document.",
         "error"
-      )
+      );
     }
-  }
+  };
 
   const handleImageUpload = async () => {
     try {
@@ -103,55 +103,56 @@ function Project() {
         cancelButtonText: "Annuler",
         confirmButtonColor: "#353D2B",
         cancelButtonColor: "#D76C66",
-      })
+      });
 
       if (files) {
-        const formData = new FormData()
-        ;[...files].forEach((file) => {
-          formData.append("images", file)
-        })
+        const formData = new FormData();
+        [...files].forEach((file) => {
+          formData.append("images", file);
+        });
 
-        await uploadImage(project._id, formData)
+        await uploadImage(project._id, formData);
         Swal.fire(
           "Ajoutées!",
           "Vos images ont été ajoutées avec succès.",
           "success"
-        )
-        window.location.reload()
+        );
+        window.location.reload();
       }
     } catch (error) {
       Swal.fire(
         "Erreur!",
         "Une erreur s'est produite lors du téléchargement des images.",
         "error"
-      )
+      );
     }
-  }
+  };
 
   function formatFileName(fileName) {
-    const maxLength = 16
+    const maxLength = 16;
     const extension = fileName.slice(
       ((fileName.lastIndexOf(".") - 1) >>> 0) + 2
-    )
+    );
     if (fileName.length > maxLength) {
-      return `${fileName.slice(0, maxLength - 3)}... .${extension}`
+      return `${fileName.slice(0, maxLength - 3)}... .${extension}`;
     }
-    return fileName
+    return fileName;
   }
 
   const projectInfo = [
     { label: "Projet", value: project.renovation },
-    { label: "Budget", value: project.budget },
+    { label: "Budget estimé", value: project.budget },
+    { label: "Budget réel", value: project?.priceTotal || "Pas calculé" },
     { label: "Date de début", value: project.when },
     { label: "Tel", value: project.profile?.phone },
     { label: "Email", value: project.profile?.email },
-  ]
+  ];
 
   const additionalInfo = project.additionalInfo?.map((info, index) => {
-    let answerText = info.answer
+    let answerText = info.answer;
 
     if (typeof info.answer === "boolean") {
-      answerText = info.answer ? "Oui" : "Non"
+      answerText = info.answer ? "Oui" : "Non";
     }
 
     return (
@@ -163,34 +164,34 @@ function Project() {
           {answerText}
         </dd>
       </div>
-    )
-  })
+    );
+  });
 
   function getStatusLabel(status) {
     switch (status) {
       case "PENDING":
-        return { label: "En attente", color: "bg-yellow-500" }
+        return { label: "En attente", color: "bg-yellow-500" };
       case "ANALYSE":
-        return { label: "En étude", color: "bg-yellow-500" }
+        return { label: "En étude", color: "bg-yellow-500" };
       case "REFUSED":
-        return { label: "Refusé", color: "bg-red-500" }
+        return { label: "Refusé", color: "bg-red-500" };
       case "APPROVED":
-        return { label: "Approuvé", color: "bg-green-500" }
+        return { label: "Approuvé", color: "bg-green-500" };
       case "PROGRESS":
-        return { label: "En cours", color: "bg-blue-500" }
+        return { label: "En cours", color: "bg-blue-500" };
       case "PAYMENT":
-        return { label: "En attente de paiement", color: "bg-yellow-500" }
+        return { label: "En attente de paiement", color: "bg-yellow-500" };
       case "FINISH":
-        return { label: "Terminé", color: "bg-purple-500" }
+        return { label: "Terminé", color: "bg-purple-500" };
       default:
-        return { label: "Inconnu", color: "bg-gray-500" }
+        return { label: "Inconnu", color: "bg-gray-500" };
     }
   }
 
-  const projectStatus = getStatusLabel(project.status)
+  const projectStatus = getStatusLabel(project.status);
 
   if (!project) {
-    return <div>Projet non trouvé</div>
+    return <div>Projet non trouvé</div>;
   }
 
   return (
@@ -301,7 +302,7 @@ function Project() {
         </div>
       </section>
     </section>
-  )
+  );
 }
 
-export default Project
+export default Project;

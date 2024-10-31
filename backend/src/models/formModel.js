@@ -1,6 +1,6 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const { Schema, model } = mongoose
+const { Schema, model } = mongoose;
 
 const FormSchema = new Schema(
   {
@@ -42,6 +42,10 @@ const FormSchema = new Schema(
       type: String,
       required: true,
     },
+    priceTotal: {
+      type: Number,
+      default: "0",
+    },
     when: {
       type: String,
     },
@@ -62,13 +66,21 @@ const FormSchema = new Schema(
       type: String,
       required: true,
       default: "PENDING",
-      enum: ["PENDING", "ANALYSE", "REFUSED", "APPROVED", "PROGRESS", "PAYMENT", "FINISH"],
+      enum: [
+        "PENDING",
+        "ANALYSE",
+        "REFUSED",
+        "APPROVED",
+        "PROGRESS",
+        "PAYMENT",
+        "FINISH",
+      ],
     },
   },
   {
     timestamps: true,
     versionKey: false,
   }
-)
+);
 
-module.exports = model("Form", FormSchema)
+module.exports = model("Form", FormSchema);

@@ -1,14 +1,6 @@
 const User = require("../models/userModel");
 const Form = require("../models/formModel");
-
-const budgetMapping = {
-  "Moins de 5k€": 2500,
-  "Entre 5k€ et 15k€": 10000,
-  "Entre 15k€ et 30k€": 22500,
-  "Entre 30k€ et 50k€": 40000,
-  "Entre 50k€ et 100k€": 75000,
-  "Plus de 100k€": 100000,
-};
+const os = require("os");
 
 const getStats = async (req, res) => {
   try {
@@ -52,25 +44,9 @@ const getStats = async (req, res) => {
         .limit(5)
         .select("renovation profile.email status createdAt"), // Recent projects
       Form.aggregate([
-        {
-          $addFields: {
-            budgetNumeric: {
-              $cond: {
-                if: { $in: ["$budget", Object.keys(budgetMapping)] },
-                then: {
-                  $arrayElemAt: [
-                    Object.values(budgetMapping),
-                    { $indexOfArray: [Object.keys(budgetMapping), "$budget"] },
-                  ],
-                },
-                else: 0,
-              },
-            },
-          },
-        },
-        { $match: { budgetNumeric: { $gt: 0 } } },
-        { $group: { _id: null, avgBudget: { $avg: "$budgetNumeric" } } },
-      ]), // Average budget
+        { $match: { priceTotal: { $gt: 0 } } },
+        { $group: { _id: null, avgBudget: { $avg: "$priceTotal" } } },
+      ]),
       Form.countDocuments({ status: "FINISH" }), // Completed projects
     ]);
 
@@ -104,4 +80,25 @@ const getStats = async (req, res) => {
   }
 };
 
-module.exports = { getStats };
+const getServerStats = (req, res) => {
+  try {
+    const uptime = os.uptime(); // Uptime in seconds
+    const memoryUsage = process.memoryUsage().rss / (1024 * 1024); // Memory usage in MB
+    const totalMemory = os.totalmem() / (1024 * 1024); // Total memory in MB
+    const loadAverage = os.loadavg(); // Load average for 1, 5, 15 minutes
+
+    const serverStats = {
+      uptime: (uptime / 3600).toFixed(2), // Uptime in hours
+      memoryUsage: memoryUsage.toFixed(2), // Memory usage in MB
+      totalMemory: totalMemory.toFixed(2), // Total memory in MB
+      loadAverage: loadAverage.map((avg) => avg.toFixed(2)), // Load average
+    };
+
+    res.json(serverStats);
+  } catch (error) {
+    console.error("Error fetching server stats:", error);
+    res.status(500).json({ message: "Error fetching server stats" });
+  }
+};
+
+module.exports = { getStats, getServerStats };

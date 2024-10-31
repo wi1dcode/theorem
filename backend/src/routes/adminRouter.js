@@ -10,6 +10,7 @@ router.get("/projects", adminController.getProjectsByStatus);
 router.get("/projects/all", adminController.getProjects);
 router.get("/project/:id", adminController.getProjectById);
 router.put("/project/:id/status", adminController.changeProjectStatus);
+router.patch("/project/:id/price", adminController.updateProjectPriceTotal);
 router.get("/users", adminController.getUsers);
 router.put("/users/update/:id", adminController.updateUser);
 router.get("/approved/users", adminController.getApprovedUsers);
@@ -25,6 +26,7 @@ router.get("/logs", adminController.getLogs);
 router.get("/logs/download/:period", adminController.downloadLogs);
 
 router.get("/stats", statsController.getStats);
+router.get("/server-stats", statsController.getServerStats);
 
 router.put("/work/:id", adminController.updateProject);
 router.delete("/work/:id", adminController.deleteProject);

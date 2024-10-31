@@ -710,6 +710,39 @@ const deleteProject = async (req, res) => {
   }
 };
 
+const updateProjectPriceTotal = async (req, res) => {
+  const { id } = req.params;
+  const { priceTotal } = req.body;
+  console.log("Valeur reçue pour priceTotal:", priceTotal);
+
+  try {
+    if (isNaN(priceTotal)) {
+      return res
+        .status(400)
+        .json({ message: "Le prix total doit être un nombre valide." });
+    }
+
+    const updatedProject = await Form.findByIdAndUpdate(
+      id,
+      { priceTotal: Number(priceTotal) },
+      { new: true }
+    );
+
+    if (!updatedProject) {
+      return res.status(404).json({ message: "Projet non trouvé." });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Prix total mis à jour avec succès", updatedProject });
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour du prix total:", error);
+    res.status(500).json({
+      message: "Erreur interne lors de la mise à jour du prix total.",
+    });
+  }
+};
+
 module.exports = {
   getUsers,
   getUserBySlug,
@@ -738,4 +771,5 @@ module.exports = {
   createProject,
   updateProject,
   deleteProject,
+  updateProjectPriceTotal,
 };
