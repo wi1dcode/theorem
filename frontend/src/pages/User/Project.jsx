@@ -142,7 +142,7 @@ function Project() {
   const projectInfo = [
     { label: "Projet", value: project.renovation },
     {
-      label: "Budget réel",
+      label: "Budget réel du client",
       value: `${project?.priceTotal} €` || "Pas calculé",
     },
     { label: "Budget estimé", value: project.budget },

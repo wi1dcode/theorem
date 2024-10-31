@@ -49,7 +49,7 @@ const getStats = async (req, res) => {
         .sort({ createdAt: -1 })
         .limit(5)
         .select("renovation profile.email status createdAt"), // Recent projects
-      Form.countDocuments({ status: "FINISH" }), // Completed projects
+      Form.countDocuments({ status: "FINISH", status: { $ne: "REFUSED" } }), // Completed projects excluding "REFUSED"
       Form.aggregate([
         { $group: { _id: null, totalPrice: { $sum: "$priceTotal" } } },
       ]),

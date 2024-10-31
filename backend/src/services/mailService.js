@@ -82,7 +82,7 @@ class MailService {
                 link: link,
               },
             },
-            outro: `Si vous avez des questions, n'hésitez pas à nous contacter. <br><br> Cordialement, votre équipe Theorem`,
+            outro: `Si vous avez des questions, n'hésitez pas à nous contacter. <br><br> Cordialement,<br> Votre équipe Theorem`,
           },
         };
         break;
@@ -93,7 +93,7 @@ class MailService {
             greeting: `Bonjour ${name}`,
             signature: false,
             intro: `Nous avons bien reçu votre demande et votre dossier est actuellement en attente. Vous recevrez un retour de notre part très prochainement. `,
-            outro: `Si vous avez des questions, n’hésitez pas à nous contacter. <br><br> Cordialement, votre équipe Theorem`,
+            outro: `Si vous avez des questions, n’hésitez pas à nous contacter. <br><br> Cordialement,<br> Votre équipe Theorem`,
           },
         };
         break;
@@ -104,7 +104,7 @@ class MailService {
             greeting: `Bonjour ${name}`,
             signature: false,
             intro: `Merci d'avoir pensé à Theorem pour la réalisation de votre projet ! Nous avons pris le temps d'examiner les détails de votre projet, mais nous ne sommes malheureusement pas en mesure d'intervenir sur ce chantier.`,
-            outro: `Nous restons à votre disposition pour toute autre information. <br><br> Cordialement, Votre équipe Theorem.`,
+            outro: `Nous restons à votre disposition pour toute autre information. <br><br> Cordialement,<br> Votre équipe Theorem.`,
           },
         };
         break;
@@ -115,7 +115,7 @@ class MailService {
             greeting: `Bonjour ${name}`,
             signature: false,
             intro: `Merci d'avoir choisir Theorem pour la réalisation de votre projet ! Ci-joint notre RIB pour le règlement du projet en cours.`,
-            outro: "Cordialement, votre équipe Theorem",
+            outro: "Cordialement, <br> Votre équipe Theorem",
           },
         };
         break;
