@@ -81,7 +81,7 @@ function Work() {
               <SwiperSlide key={project._id}>
                 <Link to={`/realisations/${project.slug}`}>
                   <img
-                    src={`${window.location.origin}/api${project.mainImage}`}
+                    src={`${window.location.origin}/api${project.img}`}
                     alt={`project-${project.title}`}
                     className="object-cover w-full h-[300px]"
                   />
