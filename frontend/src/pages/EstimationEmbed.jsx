@@ -35,8 +35,8 @@ function EstimationEmbed() {
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: true,
-        confirmButtonColor: "#C8B790",
-        iconColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
+        iconColor: "#353D2B",
         didRender: () => {
           document
             .getElementById("togglePasswordBtn")
@@ -132,7 +132,7 @@ function EstimationEmbed() {
           showCancelButton: true,
           inputPlaceholder: "Entrez votre code postal",
           confirmButtonText: "Vérifier",
-          confirmButtonColor: "#C8B790",
+          confirmButtonColor: "#353D2B",
           cancelButtonColor: "#D76C66",
           allowOutsideClick: false,
           allowEscapeKey: false,
@@ -183,7 +183,7 @@ function EstimationEmbed() {
                   places.map((place, index) => [index, place["place name"]])
                 ),
                 showCancelButton: true,
-                confirmButtonColor: "#C8B790",
+                confirmButtonColor: "#353D2B",
                 cancelButtonText: "Retour",
                 cancelButtonColor: "#D76C66",
                 confirmButtonText: "Sélectionner",

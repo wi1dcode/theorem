@@ -1,4 +1,4 @@
-export default function EuroSvg() {
+export default function EuroSvg({ className }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export default function EuroSvg() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 text-vert_principal"
+      className={className}
     >
       <path
         strokeLinecap="round"
@@ -14,5 +14,5 @@ export default function EuroSvg() {
         d="M14.25 7.756a4.5 4.5 0 1 0 0 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
     </svg>
-  )
+  );
 }

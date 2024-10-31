@@ -1,33 +1,36 @@
-import React, { useContext, useState } from "react"
-import { Link, useNavigate, Routes, Route } from "react-router-dom"
-import UserContext from "../services/userContext"
-import logo from "../images/icons/theorem-logo-vert.png"
-import AdminMenu from "../components/AdminMenu"
-import Menu from "./Admin/Menu"
-import Users from "./Admin/Users"
-import Projects from "./Admin/Projects"
-import ProjectInfo from "./Admin/ProjectInfo"
-import NewProject from "./Dashboard/NewProject"
-import Logging from "./Admin/Logging"
-import Settings from "./Dashboard/Settings"
-import UserDetails from "./Admin/UserDetails"
-import MenuSvg from "../images/svg/MenuSvg"
-import Information from "./Dashboard/Information"
+import React, { useContext, useState } from "react";
+import { Link, useNavigate, Routes, Route } from "react-router-dom";
+import UserContext from "../services/userContext";
+import logo from "../images/icons/theorem-logo-vert.png";
+import AdminMenu from "../components/AdminMenu";
+import Menu from "./Admin/Menu";
+import Users from "./Admin/Users";
+import Projects from "./Admin/Projects";
+import ProjectInfo from "./Admin/ProjectInfo";
+import NewProject from "./Dashboard/NewProject";
+import Logging from "./Admin/Logging";
+import Settings from "./Dashboard/Settings";
+import UserDetails from "./Admin/UserDetails";
+import MenuSvg from "../images/svg/MenuSvg";
+import Information from "./Dashboard/Information";
+import Realisation from "./Admin/Realisations";
+import AddProject from "./Admin/AddProject";
+import EditProject from "./Admin/EditProject";
 
 function AdminDashboard() {
-  const navigate = useNavigate()
-  const { setConnected } = useContext(UserContext)
-  const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate();
+  const { setConnected } = useContext(UserContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const exit = async () => {
     try {
-      localStorage.clear()
-      setConnected(false)
-      navigate("/")
+      localStorage.clear();
+      setConnected(false);
+      navigate("/");
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
   return (
     <section className="relative max-md:bg-gray-50 h-screen">
@@ -39,7 +42,7 @@ function AdminDashboard() {
       )}
       <div className="fixed z-30 top-3 left-5 md:hidden">
         <button onClick={() => setIsOpen(!isOpen)}>
-          <MenuSvg />
+          <MenuSvg className="text-black"/>
         </button>
       </div>
 
@@ -97,11 +100,14 @@ function AdminDashboard() {
             <Route path="logs" element={<Logging />} />
             <Route path="settings" element={<Settings />} />
             <Route path="information" element={<Information />} />
+            <Route path="realisations" element={<Realisation />} />
+            <Route path="realisations/add" element={<AddProject />} />
+            <Route path="realisations/edit/:id" element={<EditProject />} />
           </Routes>
         </div>
       </section>
     </section>
-  )
+  );
 }
 
-export default AdminDashboard
+export default AdminDashboard;

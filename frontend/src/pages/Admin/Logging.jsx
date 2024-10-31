@@ -79,7 +79,7 @@ function Logging() {
   const handleDownloadLogs = async () => {
     const { value: period } = await Swal.fire({
       title: "Sélectionnez la période",
-      confirmButtonColor: "#C8B790",
+      confirmButtonColor: "#353D2B",
       cancelButtonColor: "#D76C66",
       input: "select",
       inputOptions: {

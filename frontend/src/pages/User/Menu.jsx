@@ -1,11 +1,11 @@
-import React, { useContext } from "react"
-import { Link } from "react-router-dom"
-import UserContext from "../../services/userContext"
-import UserProjectCard from "../../components/UserProjectCard"
-import { format } from "date-fns"
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import UserContext from "../../services/userContext";
+import UserProjectCard from "../../components/UserProjectCard";
+import { format } from "date-fns";
 
 function Menu() {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   // const getStatusText = (status) => {
   //   switch (status) {
@@ -28,9 +28,7 @@ function Menu() {
     <section className="text-center">
       <div className="text-3xl font-bold mt-2">Bonjour, {user?.name}</div>
       <div className="mt-6 text-xl w-[70%] mx-auto">
-        {user?.isActivated ? (
-          <span className="text-green-500">Votre profil est activé !</span>
-        ) : (
+        {!user?.isActivated && (
           <span className="text-red-500 font-semibold">
             Veuillez activer votre profil en utilisant le lien que nous vous
             avons envoyé par e-mail pour débloquer plus de fonctionnalités.
@@ -76,7 +74,7 @@ function Menu() {
         </button>
       </Link>
     </section>
-  )
+  );
 }
 
-export default Menu
+export default Menu;

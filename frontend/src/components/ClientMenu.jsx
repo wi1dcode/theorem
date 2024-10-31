@@ -20,7 +20,6 @@ export default function ClientMenu({ onClick }) {
 
   return (
     <nav className="flex-1 -mx-3 space-y-3 avenir">
-      <h2 className="text-center">Client</h2>
       <hr />
 
       <Link

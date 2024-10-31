@@ -22,8 +22,8 @@ function CandidatePro() {
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: true,
-        confirmButtonColor: "#C8B790",
-        iconColor: "#C8B790",
+        confirmButtonColor: "#353D2B",
+        iconColor: "#353D2B",
         didRender: () => {
           document
             .getElementById("togglePasswordBtn")

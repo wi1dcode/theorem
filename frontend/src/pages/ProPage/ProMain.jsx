@@ -1,39 +1,39 @@
-import React, { useState } from "react"
-import HeaderBg from "../../images/pro-bg.jpg"
-import WelcomeImage from "../../images/welcome_pro.jpg"
-import ProClients from "./ProClients.jsx"
-import LinkArrow from "../../images/svg/LinkArrow.jsx"
-import TheoremLogo from "../../images/svg/TheoremLogo.jsx"
-import Work from "../../components/Work.jsx"
-import ServicesCarousel from "../../components/ServicesCarousel"
-import { PopupModal } from "react-calendly"
-import { Link } from "react-router-dom"
-import ReactGA from "react-ga4"
+import React, { useState } from "react";
+import HeaderBg from "../../images/pro-bg.jpg";
+import WelcomeImage from "../../images/welcome_pro.jpg";
+import ProClients from "./ProClients.jsx";
+import LinkArrow from "../../images/svg/LinkArrow.jsx";
+import TheoremLogo from "../../images/svg/TheoremLogo.jsx";
+import Work from "../../components/Work.jsx";
+import ServicesCarousel from "../../components/ServicesCarousel";
+import { PopupModal } from "react-calendly";
+import { Link } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 function Pro() {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const openCalendlyPopup = () => {
-    setIsCalendlyOpen(true)
+    setIsCalendlyOpen(true);
 
     ReactGA.event({
       category: "Calendly",
       action: "Open Calendly Popup",
       label: "Être appelé",
-    })
-  }
+    });
+  };
 
   const closeCalendlyPopup = () => {
-    setIsCalendlyOpen(false)
-  }
+    setIsCalendlyOpen(false);
+  };
 
   const handlePlaquetteDownload = () => {
     ReactGA.event({
       category: "Download",
       action: "Download Plaquette Pro",
       label: "Plaquette Pro",
-    })
-  }
+    });
+  };
 
   return (
     <div id="main">
@@ -112,7 +112,7 @@ function Pro() {
       </div>
       <div className="w-full h-full soleil">
         <PopupModal
-          url="https://calendly.com/contact-theorem-concept/rencontre-avec-theorem"
+          url="https://calendly.com/theorem-concept/appel-decouverte"
           onModalClose={closeCalendlyPopup}
           open={isCalendlyOpen}
           rootElement={document.getElementById("root")}
@@ -122,7 +122,7 @@ function Pro() {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Pro
+export default Pro;

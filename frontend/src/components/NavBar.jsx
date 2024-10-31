@@ -161,7 +161,7 @@ function NavBar() {
           onClick={toggleMenu}
           className="md:hidden p-2 rounded focus:outline-none transition-transform duration-300"
         >
-          {isOpen ? <MenuCloseSvg /> : <MenuSvg />}
+          {isOpen ? <MenuCloseSvg /> : <MenuSvg className="text-white" />}
         </button>
       </div>
 
